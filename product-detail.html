@@ -128,21 +128,7 @@
     </header>
 
             <main>
-        <!-- ======= HERO SECTION ======= -->
-        <section class="hero-section shop-hero" id="heroSection">
-            <img src="Assets/Hero.png" alt="Shop Hero" class="hero-img">
-            <div class="hero-content section-container">
-                <div class="hero-text-block">
-                    <h1 class="hero-title">
-                        <span class="text-navy">Shop our Product</span>
-                    </h1>
-                    <p class="hero-desc">
-                        Discover premium product for everyday<br>
-                        protection and high quality
-                    </p>
-                </div>
-            </div>
-        </section>
+
 
         
         <!-- ======= PRODUCT DETAIL ======= -->
@@ -151,16 +137,16 @@
                 <!-- Gallery -->
                 <div class="product-gallery">
                     <div class="thumbnail-list">
-                        <div class="thumb-img-wrap active"><img src="Assets/Lakme Sun Expert.png" alt="Lakme Thumbnail" class="thumb-img"></div>
-                        <div class="thumb-img-wrap"><img src="Assets/Lakme Sun Expert.png" alt="Lakme Thumbnail" class="thumb-img"></div>
-                        <div class="thumb-img-wrap"><img src="Assets/Lakme Sun Expert.png" alt="Lakme Thumbnail" class="thumb-img"></div>
-                        <div class="thumb-img-wrap"><img src="Assets/Lakme Sun Expert.png" alt="Lakme Thumbnail" class="thumb-img"></div>
+                        <div class="thumb-img-wrap active"><img src="Assets/Product 1.jpg" alt="Lakme Thumbnail" class="thumb-img"></div>
+                        <div class="thumb-img-wrap"><img src="Assets/Product 1 gambar kedua.png" alt="Lakme Thumbnail" class="thumb-img"></div>
+                        <div class="thumb-img-wrap"><img src="Assets/Product 1.jpg" alt="Lakme Thumbnail" class="thumb-img"></div>
+                        <div class="thumb-img-wrap"><img src="Assets/Product 1.jpg" alt="Lakme Thumbnail" class="thumb-img"></div>
                         <button class="thumb-more" aria-label="More thumbnails">
                             <i data-lucide="chevron-down" width="24" height="24"></i>
                         </button>
                     </div>
                     <div class="main-image-wrap">
-                        <img src="Assets/Lakme Sun Expert.png" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion" class="main-image">
+                        <img src="Assets/Product 1.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion" class="main-image">
                     </div>
                 </div>
 
@@ -190,9 +176,9 @@
                         <div class="qty-selector">
                             <span class="qty-label">Quantity</span>
                             <div class="qty-controls">
-                                <button class="qty-btn">-</button>
-                                <span class="qty-val">1</span>
-                                <button class="qty-btn">+</button>
+                                <button class="qty-btn" id="qtyMinusBtn">-</button>
+                                <input type="number" class="qty-val" id="qtyInput" value="1" min="1">
+                                <button class="qty-btn" id="qtyPlusBtn">+</button>
                             </div>
                         </div>
                         <span class="stock-status">In Stock</span>

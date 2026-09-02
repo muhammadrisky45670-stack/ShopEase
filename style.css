@@ -1831,3 +1831,17 @@ input {
     color: white;
     margin-bottom: 30px;
 }
+
+/* Custom Input Styles for Quantity */
+input.qty-val {
+    background: transparent;
+    border: none;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+input.qty-val::-webkit-outer-spin-button,
+input.qty-val::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

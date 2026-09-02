@@ -31,13 +31,20 @@ if (!Array.isArray(cartItems)) {
 function updateCartBadge() {
     const badge = document.getElementById('cartBadge');
     if (badge) {
-        let count = cartItems.length;
+        let count = cartItems.reduce((sum, item) => {
+            if (typeof item === 'string') return sum + 1;
+            return sum + (item.qty || 1);
+        }, 0);
         badge.textContent = count > 99 ? '99+' : count;
     }
 }
 
-function toggleCartItem(productName, btn) {
-    const index = cartItems.indexOf(productName);
+function toggleCartItem(productName, btn, qty = 1) {
+    const index = cartItems.findIndex(item => {
+        if (typeof item === 'string') return item === productName;
+        return item.name === productName;
+    });
+
     if (index > -1) {
         // Remove item
         cartItems.splice(index, 1);
@@ -47,8 +54,8 @@ function toggleCartItem(productName, btn) {
         btn.classList.remove('in-cart');
     } else {
         // Add item
-        cartItems.push(productName);
-        showToast(`"${productName}" added to cart!`);
+        cartItems.push({ name: productName, qty: qty });
+        showToast(`${qty}x "${productName}" added to cart!`);
         btn.innerHTML = `Remove
             <i data-lucide="x" width="16" height="16" stroke-width="2.5"></i>`;
         btn.classList.add('in-cart');
@@ -68,7 +75,12 @@ document.querySelectorAll('.js-add-to-cart').forEach(btn => {
     const name = btn.dataset.product || 'Product';
     
     // Set initial state
-    if (cartItems.includes(name)) {
+    const isInCart = cartItems.some(item => {
+        if (typeof item === 'string') return item === name;
+        return item.name === name;
+    });
+
+    if (isInCart) {
         btn.classList.add('in-cart');
         btn.innerHTML = `Remove
             <i data-lucide="x" width="16" height="16" stroke-width="2.5"></i>`;
@@ -78,7 +90,14 @@ document.querySelectorAll('.js-add-to-cart').forEach(btn => {
     }
 
     btn.addEventListener('click', () => {
-        toggleCartItem(name, btn);
+        let qty = 1;
+        const qtyInput = document.getElementById('qtyInput');
+        // If we're on a product detail page with a quantity input
+        if (qtyInput) {
+            qty = parseInt(qtyInput.value, 10) || 1;
+        }
+        
+        toggleCartItem(name, btn, qty);
     });
 });
 
@@ -178,6 +197,34 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
         handleSearch();
     }
 });
+
+/* ---------- Product Detail Quantity ---------- */
+(function initProductQty() {
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinusBtn = document.getElementById('qtyMinusBtn');
+    const qtyPlusBtn = document.getElementById('qtyPlusBtn');
+
+    if (qtyInput && qtyMinusBtn && qtyPlusBtn) {
+        qtyMinusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value, 10) || 1;
+            if (val > 1) {
+                qtyInput.value = val - 1;
+            }
+        });
+
+        qtyPlusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value, 10) || 0; // 0 so it increments to 1 if empty
+            qtyInput.value = val + 1;
+        });
+
+        qtyInput.addEventListener('blur', () => {
+            let val = parseInt(qtyInput.value, 10);
+            if (isNaN(val) || val < 1) {
+                qtyInput.value = 1;
+            }
+        });
+    }
+})();
 
 /* ---------- Init ---------- */
 updateCartBadge();
