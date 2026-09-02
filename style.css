@@ -2017,7 +2017,7 @@ input.qty-val::-webkit-inner-spin-button {
 
 /* Deals Section */
 .deals-section {
-    padding: 4rem 5% 4rem;
+    padding: 24px 5% 24px;
     background-color: var(--navy);
 }
 
