@@ -3,7 +3,7 @@
 Welcome to **ShopEase**, the ultimate destination for premium and reliable products across all categories. We believe that shopping online should be a simple, enjoyable, and rewarding experience. 
 
 ## 🌟 Why ShopEase Exists
-In a world flooded with endless options, finding the right products can be overwhelming. **ShopEase** was born out of a simple mission: to cut through the noise and provide a trusted, curated platform where customers can easily discover high-quality items—from daily essentials to exclusive premium goods. 
+In a world flooded with endless options, finding the right products can be overwhelming. **ShopEase** was born out of a simple mission: to cut through the noise and provide a trusted, curated platform where customers can easily discover high-quality items from daily essentials to exclusive premium goods. 
 
 We exist to bridge the gap between top-tier brands and smart shoppers by offering a safe, reliable, and beautifully designed shopping environment.
 
@@ -18,4 +18,4 @@ We exist to bridge the gap between top-tier brands and smart shoppers by offerin
 To empower individuals by making world-class products accessible, affordable, and easy to discover for everyone, anywhere.
 
 ---
-*ShopEase — Your Trusted Store.*
+*ShopEase - Your Trusted Store.*
