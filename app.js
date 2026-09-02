@@ -523,6 +523,45 @@ updateCartBadge();
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if(cdDays) cdDays.textContent = days.toString().padStart(2, '0');
+
+/* =========================================
+   DEALS PAGE COUNTDOWN TIMER
+   ========================================= */
+(function initDealsCountdown() {
+    const dealsCountdown = document.getElementById('dealsCountdown');
+    if (!dealsCountdown) return; // Only run on Deals page
+
+    const cdDays = document.getElementById('cdDays');
+    const cdHours = document.getElementById('cdHours');
+    const cdMins = document.getElementById('cdMins');
+    const cdSecs = document.getElementById('cdSecs');
+
+    // Set a target date 2 days, 14 hours, 23 mins, 51 secs from now for demo purposes
+    let targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 2);
+    targetDate.setHours(targetDate.getHours() + 14);
+    targetDate.setMinutes(targetDate.getMinutes() + 23);
+    targetDate.setSeconds(targetDate.getSeconds() + 51);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            if(cdDays) cdDays.textContent = "00";
+            if(cdHours) cdHours.textContent = "00";
+            if(cdMins) cdMins.textContent = "00";
+            if(cdSecs) cdSecs.textContent = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if(cdDays) cdDays.textContent = days.toString().padStart(2, '0');
         if(cdHours) cdHours.textContent = hours.toString().padStart(2, '0');
         if(cdMins) cdMins.textContent = minutes.toString().padStart(2, '0');
         if(cdSecs) cdSecs.textContent = seconds.toString().padStart(2, '0');
@@ -530,6 +569,53 @@ updateCartBadge();
 
     updateCountdown();
     const timerInterval = setInterval(updateCountdown, 1000);
+})();
+
+/* =========================================
+   MOBILE INTERACTION HANDLERS
+   ========================================= */
+(function initMobileNav() {
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const closeBtn = document.getElementById('closeMobileMenuBtn');
+    const drawer = document.getElementById('mobileMenuDrawer');
+    const overlay = document.getElementById('overlay');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const filterBtn = document.getElementById('mobileFilterToggle');
+    const shopSidebar = document.querySelector('.shop-sidebar');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+    function closeAllDrawers() {
+        if (drawer) drawer.classList.remove('open');
+        if (shopSidebar) shopSidebar.classList.remove('open-mobile');
+        if (cartSidebar) cartSidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+    }
+
+    if (mobileToggle && drawer) {
+        mobileToggle.addEventListener('click', () => {
+            drawer.classList.add('open');
+            if (overlay) overlay.classList.add('active');
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeAllDrawers);
+    }
+
+    if (filterBtn && shopSidebar) {
+        filterBtn.addEventListener('click', () => {
+            shopSidebar.classList.add('open-mobile');
+            if (overlay) overlay.classList.add('active');
+        });
+    }
+
+    if (closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', closeAllDrawers);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeAllDrawers);
+    }
 })();
 
 // Initialize icons globally

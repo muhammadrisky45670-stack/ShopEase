@@ -124,6 +124,9 @@
                     <i data-lucide="shopping-cart" width="22" height="22"></i>
                     <span class="cart-badge" id="cartBadge">3</span>
                 </a>
+                <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Open Menu">
+                    <i data-lucide="menu" width="22" height="22"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -418,6 +421,35 @@
 
     <!-- Toast Notification -->
     <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="close-mobile-menu" id="closeMobileMenuBtn" aria-label="Close Menu">
+                <i data-lucide="x" width="22" height="22"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="shop.html" class="mobile-menu-link">Shop</a>
+            <a href="deals.html" class="mobile-menu-link">Deals</a>
+            <div class="mobile-cat-header">Account &amp; Saved</div>
+            <a href="#" class="mobile-menu-link"><i data-lucide="user" width="16" height="16"></i> Login / Register</a>
+            <a href="#" class="mobile-menu-link"><i data-lucide="heart" width="16" height="16"></i> Wishlist</a>
+            <div class="mobile-cat-header">Categories</div>
+            <div class="mobile-cat-list">
+                <a href="shop.html">Sunscreen &amp; Skincare</a>
+                <a href="shop.html">Makeup</a>
+                <a href="shop.html">Hair Care</a>
+                <a href="shop.html">Body Care</a>
+                <a href="shop.html">Fragrance</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <script src="app.js"></script>
     <script>
