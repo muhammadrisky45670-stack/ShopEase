@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ShopEase Your trusted online store for skincare, beauty, fashion, electronics, and more. Discover top picks, flash sales, and exclusive deals.">
+    <title>ShopEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- ======= HEADER / NAVBAR ======= -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+
+            <!-- Logo -->
+            <a href="index.html" class="logo" id="logoLink" aria-label="ShopEase Home">
+                <img src="Assets/Logo ShopEase.png" alt="ShopEase Logo" class="logo-img">
+                <span class="logo-wordmark">ShopEase</span>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="search-wrapper">
+                <input type="search" id="searchInput" placeholder="Search Products..." class="search-input"
+                    aria-label="Search products">
+                <button class="search-btn" id="searchBtn" aria-label="Search">
+                    <i data-lucide="search" width="18" height="18" stroke-width="2.5"></i>
+                </button>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html" class="nav-link active" id="navHome">Home</a>
+                <a href="shop.html" class="nav-link" id="navShop">Shop</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="nav-link has-dropdown" id="navCategories" aria-haspopup="true"
+                        aria-expanded="false">
+                        Categories
+                        <i data-lucide="chevron-down" class="chevron" width="14" height="14" stroke-width="2.5"></i>
+                    </a>
+                    <!-- Mega Menu -->
+                    <div class="mega-menu" id="megaMenu" role="menu">
+                        <div class="mega-menu-inner">
+                            <ul class="mega-sidebar">
+                                <li><a href="#" class="sidebar-link"><i data-lucide="coffee" width="18"
+                                            height="18"></i>Food &amp; Beverage</a></li>
+                                <li><a href="#" class="sidebar-link active"><i data-lucide="sparkles" width="18"
+                                            height="18"></i>Beauty &amp; Personal Care</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="home" width="18"
+                                            height="18"></i>Home &amp; Living</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="monitor" width="18"
+                                            height="18"></i>Electronics</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="headphones" width="18"
+                                            height="18"></i>Audio &amp; Entertainment</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="shirt" width="18"
+                                            height="18"></i>Fashion</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="briefcase" width="18"
+                                            height="18"></i>Bags &amp; Accessories</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="baby" width="18"
+                                            height="18"></i>Baby &amp; Kids</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="dumbbell" width="18"
+                                            height="18"></i>Sport &amp; Outdoors</a></li>
+                                <li><a href="#" class="sidebar-link"><i data-lucide="car" width="18"
+                                            height="18"></i>Automotive</a></li>
+                            </ul>
+                            <div class="mega-content">
+                                <div class="mega-col">
+                                    <h4 class="mega-col-title">Skin Care</h4>
+                                    <a href="#">Moisturizers</a>
+                                    <a href="#">Serums</a>
+                                    <a href="#">Sunscreen</a>
+                                    <a href="#">Toners</a>
+                                    <a href="#">Face Wash</a>
+                                    <a href="#">Eye Cream</a>
+                                </div>
+                                <div class="mega-col">
+                                    <h4 class="mega-col-title">Makeup</h4>
+                                    <a href="#">Foundation</a>
+                                    <a href="#">Lipstick</a>
+                                    <a href="#">Eyeshadow</a>
+                                    <a href="#">Blush &amp; Bronzer</a>
+                                    <a href="#">Mascara</a>
+                                    <a href="#">Primer</a>
+                                </div>
+                                <div class="mega-col">
+                                    <h4 class="mega-col-title">Hair Care</h4>
+                                    <a href="#">Shampoo</a>
+                                    <a href="#">Conditioner</a>
+                                    <a href="#">Hair Mask</a>
+                                    <a href="#">Hair Oil</a>
+                                    <a href="#">Styling Products</a>
+                                </div>
+                                <div class="mega-col">
+                                    <h4 class="mega-col-title">Body Care</h4>
+                                    <a href="#">Body Lotion</a>
+                                    <a href="#">Body Scrub</a>
+                                    <a href="#">Deodorant</a>
+                                    <a href="#">Hand Cream</a>
+                                    <a href="#">Perfume &amp; Fragrance</a>
+                                </div>
+                                <div class="mega-col">
+                                    <h4 class="mega-col-title">Fragrance</h4>
+                                    <a href="#">Women's Perfume</a>
+                                    <a href="#">Men's Cologne</a>
+                                    <a href="#">Body Mist</a>
+                                    <a href="#">Roll-On Perfume</a>
+                                    <a href="#">Gift Sets</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="nav-link" id="navDeals">Deals</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <a href="#" class="action-icon" id="loginBtn" aria-label="Login">
+                    <i data-lucide="user" width="22" height="22"></i>
+                </a>
+                <a href="#" class="action-icon" id="wishlistBtn" aria-label="Wishlist">
+                    <i data-lucide="heart" width="22" height="22"></i>
+                </a>
+                <a href="#" class="action-icon cart-icon" id="cartBtn" aria-label="Cart">
+                    <i data-lucide="shopping-cart" width="22" height="22"></i>
+                    <span class="cart-badge" id="cartBadge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======= HERO SECTION ======= -->
+        <section class="hero-section" id="heroSection">
+            <img src="Assets/Hero.png" alt="Summer skincare products on beach" class="hero-img">
+            <div class="hero-content section-container">
+                <div class="hero-text-block">
+                    <h1 class="hero-title">
+                        <span class="text-navy">Summer Sale</span><br>
+                        <span class="text-orange">Up to 50% Off</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Discover the best deals on top product<br>
+                        Limited time offer, don't miss out
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="shop.html" class="btn-hero btn-navy">
+                            Shop Now
+                            <i data-lucide="arrow-right" width="18" height="18" stroke-width="2.5"></i>
+                        </a>
+                        <a href="#" class="btn-hero btn-outline">
+                            View Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= TOP PICKS SECTION ======= -->
+        <section class="products-section" id="topPicks">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Top Picks for You</h2>
+                    <a href="#" class="view-all-link" id="viewAllLink">
+                        View All Products
+                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                    </a>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html'" style="cursor: pointer;" id="productCard1">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 1.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion"
+                                class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">(1,240)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp129.000</span>
+                                <span class="price-original">Rp179.000</span>
+                            </div>
+                            <button onclick="window.location.href='product-detail.html'; event.stopPropagation();" class="add-to-cart-btn" id="viewProduct1">
+                                View Product
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html'" style="cursor: pointer;" id="productCard2">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 2.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion"
+                                class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">(1,240)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp129.000</span>
+                                <span class="price-original">Rp179.000</span>
+                            </div>
+                            <button onclick="window.location.href='product-detail.html'; event.stopPropagation();" class="add-to-cart-btn" id="viewProduct2">
+                                View Product
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html'" style="cursor: pointer;" id="productCard3">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 3.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion"
+                                class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">(1,240)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp129.000</span>
+                                <span class="price-original">Rp179.000</span>
+                            </div>
+                            <button onclick="window.location.href='product-detail.html'; event.stopPropagation();" class="add-to-cart-btn" id="viewProduct3">
+                                View Product
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html'" style="cursor: pointer;" id="productCard4">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 4.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion"
+                                class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">(1,240)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp129.000</span>
+                                <span class="price-original">Rp179.000</span>
+                            </div>
+                            <button onclick="window.location.href='product-detail.html'; event.stopPropagation();" class="add-to-cart-btn" id="viewProduct4">
+                                View Product
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= PROMO BANNERS ======= -->
+        <section class="promo-section" id="promoSection">
+            <div class="section-container">
+                <div class="promo-grid">
+                    <!-- Banner 1: Skincare Bundle -->
+                    <div class="promo-card" id="promoBanner1">
+                        <div class="promo-text-side">
+                            <p class="promo-eyebrow">Skincare Bundle</p>
+                            <h3 class="promo-headline blue">Buy 2 Get 1 Free</h3>
+                            <a href="shop.html" class="promo-btn" id="promoShopNow">
+                                Shop Now
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </a>
+                        </div>
+                        <div class="promo-img-side">
+                            <img src="Assets/Skincare Bundle.png" alt="Skincare Bundle" class="promo-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Banner 2: Summer Essentials -->
+                    <div class="promo-card" id="promoBanner2">
+                        <div class="promo-text-side">
+                            <p class="promo-eyebrow">Summer Essentials</p>
+                            <h3 class="promo-headline orange">Save up to 50%</h3>
+                            <a href="#" class="promo-btn" id="promoExplore">
+                                Explore
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </a>
+                        </div>
+                        <div class="promo-img-side">
+                            <img src="Assets/Summer Essentials.png" alt="Summer Essentials" class="promo-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= WHY SHOP WITH US + CUSTOMER BENEFITS ======= -->
+        <section class="info-section" id="infoSection">
+            <div class="section-container">
+                <div class="info-grid">
+
+                    <!-- Left: Why Shop With Us -->
+                    <div class="why-card" id="whyShopCard">
+                        <div class="why-top">
+                            <div class="why-icon">
+                                <i data-lucide="shopping-bag" width="28" height="28" color="white" stroke-width="2"></i>
+                            </div>
+                            <h2 class="why-title">Why Shop With Us ?</h2>
+                        </div>
+                        <p class="why-desc">
+                            We offer carefully selected products with guaranteed quality, secure payment options, fast
+                            delivery, and dedicated customer support. Whether you're shopping for fashion, electronics,
+                            or home essentials, we make every purchase simple, safe, and enjoyable.
+                        </p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-icon">
+                                    <i data-lucide="smile" width="20" height="20" stroke-width="2"></i>
+                                </span>
+                                <div>
+                                    <span class="stat-num">10K+</span>
+                                    <span class="stat-lbl">Happy Customers</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="21" r="1" />
+                                        <circle cx="20" cy="21" r="1" />
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <span class="stat-num">5K+</span>
+                                    <span class="stat-lbl">Products</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <span class="stat-num">24/7</span>
+                                    <span class="stat-lbl">Support Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Customer Benefits -->
+                    <div class="benefits-card" id="benefitsCard">
+                        <h2 class="benefits-title">Customer Benefits</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="truck" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Fast &amp; Reliable Delivery</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="package" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Free Shipping</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="shield-check" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>100% Secure Payment</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="map-pin" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Real-Time Tracking</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="refresh-ccw" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Easy 30-Days Returns</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="percent" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Exclusive Discounts</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="wallet" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Multiple Payment Methods</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="tag" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Best Price Guarantee</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="zap" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Daily Flash Sales</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="grid" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Wide Product Selection</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="star" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>High Quality Products</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="gift" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Loyalty Rewards</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="headset" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>24/7 Customer Supports</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon"><i data-lucide="lock" width="14" height="14"
+                                        stroke-width="2.5"></i></span>
+                                <span>Buyer Protection</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= TESTIMONIALS ======= -->
+        <section class="testimonials-section" id="testimonialsSection">
+            <div class="section-container">
+                <h2 class="testimonials-title">What Our Customers said</h2>
+                <div class="testimonials-track-wrap">
+                    <button class="slider-arrow arrow-prev" id="prevTestimonial"
+                        aria-label="Previous review">&#10094;</button>
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <!-- Review 1 -->
+                        <div class="review-card" id="reviewCard1">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Great e-commerce platform with an easy-to-use interface, fast
+                                shipping, and secure checkout. The overall shopping experience was smooth, and I would
+                                definitely recommend it."</p>
+                            <div class="reviewer">
+                                <img src="Assets/Photo Profile 1 customer said.jpg" alt="Ahmad F."
+                                    class="reviewer-avatar" loading="lazy">
+                                <div class="reviewer-info">
+                                    <strong class="reviewer-name">Ahmad F. <span class="verified">&#10003; Verified
+                                            Buyer</span></strong>
+                                    <span class="review-date">May 12, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="review-card" id="reviewCard2">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Great e-commerce platform with an easy-to-use interface, fast
+                                shipping, and secure checkout. The overall shopping experience was smooth, and I would
+                                definitely recommend it."</p>
+                            <div class="reviewer">
+                                <img src="Assets/Photo Profile 2 customer said.jpg" alt="Sarah M."
+                                    class="reviewer-avatar" loading="lazy">
+                                <div class="reviewer-info">
+                                    <strong class="reviewer-name">Sarah M. <span class="verified">&#10003; Verified
+                                            Buyer</span></strong>
+                                    <span class="review-date">May 12, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow arrow-next" id="nextTestimonial"
+                        aria-label="Next review">&#10095;</button>
+                </div>
+                <div class="slider-dots" id="sliderDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= NEWSLETTER ======= -->
+        <section class="newsletter-section" id="newsletterSection">
+            <div class="newsletter-inner">
+                <div class="newsletter-left">
+                    <div class="newsletter-icon-wrap">
+                        <i data-lucide="mail" width="28" height="28" color="white" stroke-width="2"></i>
+                    </div>
+                    <div class="newsletter-text">
+                        <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
+                        <p class="newsletter-subtitle">Get the latest updates on new arrivals, special offers, and
+                            exclusive discounts.</p>
+                    </div>
+                </div>
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email address"
+                        class="newsletter-input" required aria-label="Email address">
+                    <button type="submit" class="newsletter-submit" id="newsletterSubmit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="footer-inner">
+
+            <!-- Col 1: Brand -->
+            <div class="footer-col footer-brand">
+                <a href="#" class="footer-logo" aria-label="ShopEase">
+                    <img src="Assets/Logo ShopEase.png" alt="ShopEase Logo" class="footer-logo-img">
+                    <span class="footer-logo-text">ShopEase</span>
+                </a>
+                <p class="footer-brand-desc">A trusted online shopping destination for all your needs, featuring quality
+                    products and the best prices.</p>
+            </div>
+
+            <!-- Col 2: Shop -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">SHOP</h4>
+                <ul class="footer-links">
+                    <li><a href="#">New Arrival</a></li>
+                    <li><a href="#">Best Seller</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Flash Sale</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">All Products</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Customer Service -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">CUSTOMER SERVICE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Shipping Information</a></li>
+                    <li><a href="#">Returns &amp; Refunds</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">CONTACT US</h4>
+                <div class="footer-contact">
+                    <p><strong>Address:</strong> Jl. Maju No. 123<br>Jakarta, Indonesia</p>
+                    <p><strong>Phone:</strong> +62 812-3456-7890</p>
+                    <p><strong>Email:</strong> support@shopease.com</p>
+                    <p><strong>Open Hours:</strong><br>Senin - Jumat: 08:00 - 17:00<br>Sabtu: 08:00 - 13:00</p>
+                </div>
+            </div>
+
+            <!-- Col 5: We Accept -->
+            <div class="footer-col footer-payments">
+                <h4 class="footer-col-title">WE ACCEPT</h4>
+                <div class="payment-logos">
+                    <img src="Assets/Payment Logo.png"
+                        alt="We accept Stripe, Visa, Diners, PayPal, MasterCard, Bitcoin, G Pay, Amazon, Apple Pay, Alipay, Ethereum, Litecoin, Skrill, Bitpay, WeChat Pay, Discover"
+                        class="payment-logos-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <p class="copyright">&copy; 2026 ShopEase. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
