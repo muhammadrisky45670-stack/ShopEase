@@ -531,3 +531,6 @@ updateCartBadge();
     updateCountdown();
     const timerInterval = setInterval(updateCountdown, 1000);
 })();
+
+// Initialize icons globally
+document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });

@@ -1850,7 +1850,7 @@ input.qty-val::-webkit-inner-spin-button {
    ========================================= */
 
 .deals-main {
-    background-color: var(--color-bg);
+    background-color: var(--navy);
     color: var(--color-text);
 }
 
@@ -1882,7 +1882,7 @@ input.qty-val::-webkit-inner-spin-button {
 }
 
 .deals-subtitle {
-    color: var(--color-primary); /* #ff9900 */
+    color: var(--orange); /* #ff9900 */
     font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
@@ -1900,7 +1900,7 @@ input.qty-val::-webkit-inner-spin-button {
 
 .highlight-70 {
     font-size: 6rem;
-    color: var(--color-primary);
+    color: var(--orange);
 }
 
 .deals-desc {
@@ -1967,14 +1967,14 @@ input.qty-val::-webkit-inner-spin-button {
 }
 
 .shop-now-btn:hover {
-    background-color: var(--color-primary);
+    background-color: var(--orange);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255,153,0,0.4);
 }
 
 /* Filters */
 .deals-filters-container {
-    background-color: var(--color-bg);
+    background-color: var(--navy);
     padding: 2rem 5%;
     display: flex;
     justify-content: center;
@@ -2018,7 +2018,7 @@ input.qty-val::-webkit-inner-spin-button {
 /* Deals Section */
 .deals-section {
     padding: 1rem 5% 4rem;
-    background-color: var(--color-bg);
+    background-color: var(--navy);
 }
 
 .section-header-deals {
@@ -2051,7 +2051,7 @@ input.qty-val::-webkit-inner-spin-button {
 }
 
 .add-to-cart-btn.deals-add-cart:hover {
-    background-color: var(--color-primary);
+    background-color: var(--orange);
     color: white;
 }
 
@@ -2126,7 +2126,7 @@ input.qty-val::-webkit-inner-spin-button {
 }
 
 .shop-now-btn-small:hover {
-    background-color: var(--color-primary);
+    background-color: var(--orange);
     color: white;
 }
 
