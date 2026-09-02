@@ -18,4 +18,4 @@ We exist to bridge the gap between top-tier brands and smart shoppers by offerin
 To empower individuals by making world-class products accessible, affordable, and easy to discover for everyone, anywhere.
 
 ---
-*ShopEase - Your Trusted Store.*
+*ShopEase - Your Trusted Store.*1

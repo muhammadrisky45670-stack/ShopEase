@@ -484,3 +484,50 @@ updateCartBadge();
     // Run once on load to apply default checked filters and search query
     applyFilters();
 })();
+
+/* =========================================
+   DEALS PAGE COUNTDOWN TIMER
+   ========================================= */
+(function initDealsCountdown() {
+    const dealsCountdown = document.getElementById('dealsCountdown');
+    if (!dealsCountdown) return; // Only run on Deals page
+
+    const cdDays = document.getElementById('cdDays');
+    const cdHours = document.getElementById('cdHours');
+    const cdMins = document.getElementById('cdMins');
+    const cdSecs = document.getElementById('cdSecs');
+
+    // Set a target date 2 days, 14 hours, 23 mins, 51 secs from now for demo purposes
+    let targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 2);
+    targetDate.setHours(targetDate.getHours() + 14);
+    targetDate.setMinutes(targetDate.getMinutes() + 23);
+    targetDate.setSeconds(targetDate.getSeconds() + 51);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            if(cdDays) cdDays.textContent = "00";
+            if(cdHours) cdHours.textContent = "00";
+            if(cdMins) cdMins.textContent = "00";
+            if(cdSecs) cdSecs.textContent = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if(cdDays) cdDays.textContent = days.toString().padStart(2, '0');
+        if(cdHours) cdHours.textContent = hours.toString().padStart(2, '0');
+        if(cdMins) cdMins.textContent = minutes.toString().padStart(2, '0');
+        if(cdSecs) cdSecs.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    const timerInterval = setInterval(updateCountdown, 1000);
+})();
