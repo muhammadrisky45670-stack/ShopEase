@@ -147,14 +147,14 @@
                         </button>
                     </div>
                     <div class="main-image-wrap">
-                        <img src="Assets/Product 1.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion" class="main-image">
+                        <img src="Assets/Product 1.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion" class="main-image" id="detailMainImg">
                     </div>
                 </div>
 
                 <!-- Info -->
                 <div class="product-info-detail">
-                    <p class="brand-name">Lakme</p>
-                    <h2 class="product-title-large">Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion</h2>
+                    <p class="brand-name" id="detailBrand">Lakme</p>
+                    <h2 class="product-title-large" id="detailTitle">Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion</h2>
                     
                     <div class="product-rating-large">
                         <span class="stars">
@@ -164,13 +164,13 @@
                             <i data-lucide="star" fill="currentColor" color="#fbbf24"></i>
                             <i data-lucide="star" fill="currentColor" color="#fbbf24"></i>
                         </span>
-                        <span class="review-count">(1250 Reviews)</span>
+                        <span class="review-count" id="detailReviews">(1250 Reviews)</span>
                     </div>
 
                     <div class="product-price-large">
-                        <span class="price-current">Rp129.000</span>
-                        <span class="price-original">Rp179.000</span>
-                        <span class="discount-badge">12% Off</span>
+                        <span class="price-current" id="detailPrice">Rp129.000</span>
+                        <span class="price-original" id="detailOldPrice">Rp179.000</span>
+                        <span class="discount-badge" id="detailDiscount">12% Off</span>
                     </div>
 
                     <div class="product-actions-bar">
@@ -189,7 +189,7 @@
                     </div>
 
                     <div class="product-buttons-large">
-                        <button class="btn-primary add-cart-large js-add-to-cart" data-product="Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion">
+                        <button class="btn-primary add-cart-large js-add-to-cart" id="detailAddToCart" data-product="Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion">
                             <i data-lucide="shopping-cart" width="20" height="20"></i>
                             Add to cart
                         </button>
@@ -204,7 +204,7 @@
             <div class="product-tabs">
                 <div class="tab-headers">
                     <button class="tab-btn active">Description</button>
-                    <button class="tab-btn">Reviews (1250)</button>
+                    <button class="tab-btn" id="detailTabReviews">Reviews (1250)</button>
                 </div>
                 <div class="tab-content">
                     <p>TFIT Tone Up Sun Fluid is a lightweight daily sunscreen with SPF50+ PA++++ that helps protect your skin from harmful UV rays while giving a natural tone-up effect. Its non-sticky formula blends easily and leaves your skin smooth, bright, and protected all day long.</p>

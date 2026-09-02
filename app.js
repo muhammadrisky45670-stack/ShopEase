@@ -2,6 +2,109 @@
    ShopEase – app.js
    ================================================ */
 
+/* ---------- Product Database ---------- */
+const productsDB = [
+    {
+        id: 1,
+        name: 'Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion',
+        brand: 'Lakme',
+        priceCurrent: 'Rp129.000',
+        priceOriginal: 'Rp179.000',
+        discount: '12% Off',
+        rating: 5,
+        reviews: '(1250 Reviews)',
+        images: ['Assets/Product 1.jpg', 'Assets/Product 1 gambar kedua.png', 'Assets/Product 1.jpg', 'Assets/Product 1.jpg']
+    },
+    {
+        id: 2,
+        name: 'Ocean Shield Sunscreen SPF 50 PA+++',
+        brand: 'Ocean Shield',
+        priceCurrent: 'Rp89.000',
+        priceOriginal: 'Rp129.000',
+        discount: '31% Off',
+        rating: 5,
+        reviews: '(985 Reviews)',
+        images: ['Assets/Product 2.jpg', 'Assets/Product 2 gambar kedua.png', 'Assets/Product 2.jpg', 'Assets/Product 2.jpg']
+    },
+    {
+        id: 3,
+        name: 'SUN Protect Cream SPF 50+',
+        brand: 'SUN',
+        priceCurrent: 'Rp119.000',
+        priceOriginal: 'Rp159.000',
+        discount: '25% Off',
+        rating: 5,
+        reviews: '(828 Reviews)',
+        images: ['Assets/Product 3.jpg', 'Assets/Product 3 gambar kedua.png', 'Assets/Product 3.jpg', 'Assets/Product 3.jpg']
+    },
+    {
+        id: 4,
+        name: 'TFIT Tone Up Sun Fluid SPF50+ PA++++',
+        brand: 'TFIT',
+        priceCurrent: 'Rp149.000',
+        priceOriginal: 'Rp179.000',
+        discount: '16% Off',
+        rating: 5,
+        reviews: '(721 Reviews)',
+        images: ['Assets/Product 4.jpg', 'Assets/Product 4.jpg', 'Assets/Product 4.jpg', 'Assets/Product 4.jpg']
+    },
+    {
+        id: 5,
+        name: 'Biore UV Aqua Rich Watery Essence',
+        brand: 'Biore',
+        priceCurrent: 'Rp95.000',
+        priceOriginal: 'Rp129.000',
+        discount: '26% Off',
+        rating: 4,
+        reviews: '(495 Reviews)',
+        images: ['Assets/Product 5.jpg', 'Assets/Product 5.jpg', 'Assets/Product 5.jpg', 'Assets/Product 5.jpg']
+    },
+    {
+        id: 6,
+        name: 'TFIT Intensive Repair Serum',
+        brand: 'TFIT',
+        priceCurrent: 'Rp210.000',
+        priceOriginal: 'Rp259.000',
+        discount: '18% Off',
+        rating: 5,
+        reviews: '(828 Reviews)',
+        images: ['Assets/Product 6.jpg', 'Assets/Product 6.jpg', 'Assets/Product 6.jpg', 'Assets/Product 6.jpg']
+    },
+    {
+        id: 7,
+        name: 'Biore Deep Pore Foaming Cleanser',
+        brand: 'Biore',
+        priceCurrent: 'Rp50.000',
+        priceOriginal: 'Rp79.000',
+        discount: '36% Off',
+        rating: 3,
+        reviews: '(721 Reviews)',
+        images: ['Assets/Product 7.jpg', 'Assets/Product 7.jpg', 'Assets/Product 7.jpg', 'Assets/Product 7.jpg']
+    },
+    {
+        id: 8,
+        name: 'SUN Refreshing Botanical Toner',
+        brand: 'SUN',
+        priceCurrent: 'Rp110.000',
+        priceOriginal: 'Rp149.000',
+        discount: '26% Off',
+        rating: 4,
+        reviews: '(985 Reviews)',
+        images: ['Assets/Product 8.jpg', 'Assets/Product 8.jpg', 'Assets/Product 8.jpg', 'Assets/Product 8.jpg']
+    },
+    {
+        id: 9,
+        name: 'Lakmé Soft Skin Body Lotion 500ml',
+        brand: 'Lakme',
+        priceCurrent: 'Rp155.000',
+        priceOriginal: 'Rp199.000',
+        discount: '22% Off',
+        rating: 4,
+        reviews: '(821 Reviews)',
+        images: ['Assets/Product 9.jpg', 'Assets/Product 9.jpg', 'Assets/Product 9.jpg', 'Assets/Product 9.jpg']
+    }
+];
+
 /* ---------- Utility: Toast Notification ---------- */
 function showToast(message) {
     const toast = document.getElementById('toast');
@@ -213,7 +316,7 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
         });
 
         qtyPlusBtn.addEventListener('click', () => {
-            let val = parseInt(qtyInput.value, 10) || 0; // 0 so it increments to 1 if empty
+            let val = parseInt(qtyInput.value, 10) || 0;
             qtyInput.value = val + 1;
         });
 
@@ -223,6 +326,72 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
                 qtyInput.value = 1;
             }
         });
+    }
+})();
+
+/* ---------- Dynamic Product Rendering ---------- */
+(function renderProductDetail() {
+    // Only run on product-detail.html
+    if (window.location.pathname.includes('product-detail.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'), 10) || 1;
+        const product = productsDB.find(p => p.id === productId);
+
+        if (product) {
+            // Update Text Elements
+            const brandEl = document.getElementById('detailBrand');
+            const titleEl = document.getElementById('detailTitle');
+            const priceEl = document.getElementById('detailPrice');
+            const oldPriceEl = document.getElementById('detailOldPrice');
+            const discountEl = document.getElementById('detailDiscount');
+            const reviewEl = document.getElementById('detailReviews');
+            const btnEl = document.getElementById('detailAddToCart');
+
+            if(brandEl) brandEl.textContent = product.brand;
+            if(titleEl) titleEl.textContent = product.name;
+            if(priceEl) priceEl.textContent = product.priceCurrent;
+            if(oldPriceEl) oldPriceEl.textContent = product.priceOriginal;
+            if(discountEl) discountEl.textContent = product.discount;
+            if(reviewEl) reviewEl.textContent = product.reviews;
+            
+            const tabReviewsEl = document.getElementById('detailTabReviews');
+            if(tabReviewsEl) {
+                // Extract just the number from "(985 Reviews)" using regex
+                const reviewCountMatch = product.reviews.match(/\d+/);
+                const reviewCount = reviewCountMatch ? reviewCountMatch[0] : '0';
+                tabReviewsEl.textContent = `Reviews (${reviewCount})`;
+            }
+
+            if(btnEl) btnEl.dataset.product = product.name; // Update dataset for cart logic
+            
+            // Check if product already in cart and update btn UI
+            const isInCart = cartItems.some(item => {
+                if (typeof item === 'string') return item === product.name;
+                return item.name === product.name;
+            });
+            if(btnEl && isInCart) {
+                btnEl.classList.add('in-cart');
+                btnEl.innerHTML = `Remove <i data-lucide="x" width="20" height="20"></i>`;
+            }
+
+            // Update Images
+            const mainImg = document.getElementById('detailMainImg');
+            if(mainImg && product.images.length > 0) {
+                mainImg.src = product.images[0];
+                mainImg.alt = product.name;
+            }
+            const thumbnails = document.querySelectorAll('.thumb-img');
+            thumbnails.forEach((thumb, i) => {
+                if(product.images[i]) {
+                    thumb.src = product.images[i];
+                }
+            });
+            
+            // Re-render lucide icons if changed
+            if(window.lucide) {
+                lucide.createIcons();
+            }
+        }
     }
 })();
 
