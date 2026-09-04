@@ -2863,3 +2863,297 @@ input.qty-val::-webkit-inner-spin-button {
     background-color: #34d399;
     box-shadow: 0 0 6px #34d399;
 }
+
+/* ================================================
+   PAGINATION STYLES
+   ================================================ */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 32px 0 16px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    background: var(--navy-2);
+    border: 1px solid var(--card-border);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.page-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(46, 114, 218, 0.4);
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ================================================
+   404 PRODUCT NOT FOUND FALLBACK VIEW
+   ================================================ */
+.product-not-found {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    background: var(--navy-2);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.product-not-found i,
+.product-not-found svg {
+    color: var(--orange);
+    margin-bottom: 16px;
+}
+
+.product-not-found h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+.product-not-found p {
+    font-size: 15px;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    max-width: 440px;
+}
+
+.btn-back-shop {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-back-shop:hover {
+    background: var(--blue-hover);
+}
+
+/* ================================================
+   MODAL BACKDROP & DIALOGS (AUTH & POLICY)
+   ================================================ */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: var(--navy-2);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.25s ease;
+}
+
+.modal-backdrop.active .modal-box {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* Auth Tabs & Form */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.auth-tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-tab-btn.active {
+    color: var(--white);
+    border-bottom-color: var(--orange);
+}
+
+.auth-form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.auth-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--navy);
+    border: 1px solid var(--card-border);
+    color: var(--white);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.auth-input:focus {
+    border-color: var(--blue);
+}
+
+.auth-submit-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 8px;
+}
+
+.auth-submit-btn:hover {
+    background: var(--blue-hover);
+}
+
+/* Policy Text */
+.policy-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.policy-content h4 {
+    color: var(--white);
+    font-size: 16px;
+    margin: 16px 0 8px;
+}
+
+.policy-content h4:first-child {
+    margin-top: 0;
+}
+
+/* Wishlist Badge */
+.wishlist-badge {
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-icon {
+    position: relative;
+}

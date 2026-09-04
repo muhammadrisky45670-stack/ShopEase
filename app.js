@@ -1919,11 +1919,12 @@ function escapeHTML(str) {
 }
 
 /* ---------- Utility: Toast Notification ---------- */
-function showToast(message) {
+function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     if (!toast) return;
     const safeMsg = escapeHTML(message);
-    toast.innerHTML = `<i data-lucide="check-circle" width="20" height="20" stroke-width="2.5"></i> <span>${safeMsg}</span>`;
+    const icon = type === 'error' ? 'alert-circle' : 'check-circle';
+    toast.innerHTML = `<i data-lucide="${icon}" width="20" height="20" stroke-width="2.5"></i> <span>${safeMsg}</span>`;
     if (window.lucide) {
         lucide.createIcons();
     }
@@ -1936,15 +1937,15 @@ function showToast(message) {
 function parsePrice(priceStr) {
     if (!priceStr) return 0;
     if (typeof priceStr === 'number') return priceStr;
-    const clean = priceStr.replace(/[^0-9]/g, '');
+    const clean = String(priceStr).replace(/[^0-9]/g, '');
     return parseInt(clean, 10) || 0;
 }
 
 function formatPrice(num) {
-    return 'Rp' + num.toLocaleString('id-ID');
+    return 'Rp' + (num || 0).toLocaleString('id-ID');
 }
 
-/* ---------- Cart Logic ---------- */
+/* ---------- Cart Logic (Single Source of Truth) ---------- */
 let cartItems = [];
 try {
     const raw = JSON.parse(localStorage.getItem('shopease_cart_items') || '[]');
@@ -1982,10 +1983,10 @@ function renderCartSidebar() {
 
     if (cartItems.length === 0) {
         container.innerHTML = `
-            <div class="cart-empty-msg">
-                <i data-lucide="shopping-cart" width="48" height="48" style="opacity: 0.4;"></i>
-                <p>Your cart is empty.</p>
-                <a href="shop.html" class="btn-hero btn-navy" style="font-size: 13px; padding: 8px 16px; margin-top: 10px; border-radius: 20px;">Explore Shop</a>
+            <div class="cart-empty-msg" style="text-align:center; padding: 40px 20px;">
+                <i data-lucide="shopping-cart" width="48" height="48" style="opacity: 0.4; margin-bottom: 12px;"></i>
+                <p style="color: var(--text-muted); font-size: 15px;">Your cart is empty.</p>
+                <a href="shop.html" class="btn-hero btn-navy" style="font-size: 13px; padding: 8px 18px; margin-top: 14px; display: inline-block; border-radius: 20px; text-decoration: none;">Explore Shop</a>
             </div>
         `;
         if (totalEl) totalEl.textContent = 'Rp0';
@@ -2019,12 +2020,12 @@ function renderCartSidebar() {
                     <div class="cart-item-name" title="${safeName}">${safeName}</div>
                     <div class="cart-item-price">${p.priceCurrent}</div>
                     <div class="cart-item-qty">
-                        <button onclick="changeCartQty(${idx}, -1)" aria-label="Decrease quantity">-</button>
+                        <button data-action="change-qty" data-index="${idx}" data-delta="-1" aria-label="Decrease quantity">-</button>
                         <span>${qty}</span>
-                        <button onclick="changeCartQty(${idx}, 1)" aria-label="Increase quantity">+</button>
+                        <button data-action="change-qty" data-index="${idx}" data-delta="1" aria-label="Increase quantity">+</button>
                     </div>
                 </div>
-                <button class="cart-item-remove" onclick="removeCartItemAt(${idx})" aria-label="Remove item">
+                <button class="cart-item-remove" data-action="remove-cart-item" data-index="${idx}" aria-label="Remove item">
                     <i data-lucide="trash-2" width="18" height="18"></i>
                 </button>
             </div>
@@ -2060,6 +2061,7 @@ function changeCartQty(index, delta) {
         localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
         updateCartBadge();
         renderCartSidebar();
+        updateAddToCartButtonsState();
     }
 }
 
@@ -2073,6 +2075,7 @@ function removeCartItemAt(index) {
         showToast(`"${name}" removed from cart.`);
         updateCartBadge();
         renderCartSidebar();
+        updateAddToCartButtonsState();
     }
 }
 
@@ -2095,60 +2098,226 @@ function toggleCartItem(productIdOrName, btn, qty = 1) {
     if (index > -1) {
         cartItems.splice(index, 1);
         showToast(`"${productName}" removed from cart.`);
-        if (btn) {
-            btn.innerHTML = `Add to cart <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>`;
-            btn.classList.remove('in-cart');
-        }
     } else {
         cartItems.push({ id: pid, qty: qty });
-        showToast(`${qty}x "${productName}" added to cart!`);
-        if (btn) {
-            btn.innerHTML = `Remove <i data-lucide="x" width="16" height="16" stroke-width="2.5"></i>`;
-            btn.classList.add('in-cart');
-        }
-    }
-
-    if (window.lucide) {
-        lucide.createIcons();
+        showToast(`${qty}x "${productName}" added to cart! 🎉`);
     }
 
     localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
     updateCartBadge();
     renderCartSidebar();
+    updateAddToCartButtonsState();
 }
 
-/* ---------- Add to Cart Buttons Initialization ---------- */
-document.querySelectorAll('.js-add-to-cart').forEach(btn => {
-    const rawVal = btn.dataset.product || btn.dataset.id || '1';
-    let pid = parseInt(rawVal, 10);
-    if (isNaN(pid)) {
-        const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
-        if (found) pid = found.id;
-    }
-
-    if (pid) {
-        const isInCart = cartItems.some(item => item.id === pid);
-        if (isInCart) {
-            btn.classList.add('in-cart');
-            btn.innerHTML = `Remove <i data-lucide="x" width="16" height="16" stroke-width="2.5"></i>`;
-        } else {
-            btn.innerHTML = `Add to cart <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>`;
+function updateAddToCartButtonsState() {
+    document.querySelectorAll('.js-add-to-cart, [data-action="add-to-cart"]').forEach(btn => {
+        const rawVal = btn.dataset.product || btn.dataset.id || '1';
+        let pid = parseInt(rawVal, 10);
+        if (isNaN(pid)) {
+            const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
+            if (found) pid = found.id;
         }
 
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let qty = 1;
-            const container = btn.closest('.product-detail-wrapper') || btn.closest('.product-info-detail');
-            if (container) {
-                const qtyInput = container.querySelector('#qtyInput') || document.getElementById('qtyInput');
-                if (qtyInput) {
-                    qty = parseInt(qtyInput.value, 10) || 1;
-                }
+        if (pid) {
+            const isInCart = cartItems.some(item => item.id === pid);
+            if (isInCart) {
+                btn.classList.add('in-cart');
+                btn.innerHTML = `Remove <i data-lucide="x" width="16" height="16" stroke-width="2.5"></i>`;
+            } else {
+                btn.classList.remove('in-cart');
+                btn.innerHTML = `Add to cart <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>`;
             }
-            toggleCartItem(pid, btn, qty);
+        }
+    });
+    if (window.lucide) lucide.createIcons();
+}
+
+/* ---------- Wishlist Manager ---------- */
+let wishlistItems = [];
+try {
+    wishlistItems = JSON.parse(localStorage.getItem('shopease_wishlist_items') || '[]').map(Number).filter(Boolean);
+} catch (e) {
+    wishlistItems = [];
+}
+
+function toggleWishlist(productId, btn) {
+    const pid = Number(productId);
+    if (!pid) return;
+
+    const p = productsDB.find(prod => prod.id === pid);
+    const name = p ? p.name : `Product #${pid}`;
+    const index = wishlistItems.indexOf(pid);
+
+    if (index > -1) {
+        wishlistItems.splice(index, 1);
+        showToast(`Removed "${name}" from Wishlist.`);
+    } else {
+        wishlistItems.push(pid);
+        showToast(`Saved "${name}" to Wishlist! ❤️`);
+    }
+
+    localStorage.setItem('shopease_wishlist_items', JSON.stringify(wishlistItems));
+    updateWishlistBadges();
+}
+
+function updateWishlistBadges() {
+    // Update badge numbers
+    document.querySelectorAll('#wishlistBadge, .wishlist-badge').forEach(badge => {
+        badge.textContent = wishlistItems.length > 99 ? '99+' : wishlistItems.length;
+    });
+
+    // Update heart icons state
+    document.querySelectorAll('[data-action="toggle-wishlist"], .wishlist-btn-circle').forEach(btn => {
+        const rawId = btn.dataset.id || btn.closest('.product-card')?.dataset.id;
+        const pid = Number(rawId);
+        if (pid && wishlistItems.includes(pid)) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-label', 'Remove from Wishlist');
+        } else if (pid) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-label', 'Add to Wishlist');
+        }
+    });
+}
+
+/* ---------- Authentication Modal Manager ---------- */
+function initAuthModal() {
+    const authModal = document.getElementById('authModal');
+    if (!authModal) return;
+
+    const loginTab = document.getElementById('loginTabBtn');
+    const regTab = document.getElementById('registerTabBtn');
+    const loginForm = document.getElementById('loginForm');
+    const regForm = document.getElementById('registerForm');
+
+    function switchTab(mode) {
+        if (mode === 'login') {
+            if (loginTab) loginTab.classList.add('active');
+            if (regTab) regTab.classList.remove('active');
+            if (loginForm) loginForm.style.display = 'block';
+            if (regForm) regForm.style.display = 'none';
+        } else {
+            if (regTab) regTab.classList.add('active');
+            if (loginTab) loginTab.classList.remove('active');
+            if (regForm) regForm.style.display = 'block';
+            if (loginForm) loginForm.style.display = 'none';
+        }
+    }
+
+    if (loginTab) loginTab.addEventListener('click', () => switchTab('login'));
+    if (regTab) regTab.addEventListener('click', () => switchTab('register'));
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail')?.value.trim();
+            const pass = document.getElementById('loginPassword')?.value;
+            if (!email || !pass) {
+                showToast('Please enter both email and password.', 'error');
+                return;
+            }
+            const userName = email.split('@')[0];
+            localStorage.setItem('shopease_user', JSON.stringify({ email, name: userName }));
+            showToast(`Welcome back, ${userName}! 👋`);
+            closeAuthModal();
+            updateUserUI();
         });
     }
-});
+
+    if (regForm) {
+        regForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('regName')?.value.trim();
+            const email = document.getElementById('regEmail')?.value.trim();
+            const pass = document.getElementById('regPassword')?.value;
+            if (!name || !email || !pass) {
+                showToast('Please fill in all registration fields.', 'error');
+                return;
+            }
+            localStorage.setItem('shopease_user', JSON.stringify({ email, name }));
+            showToast(`Account created successfully! Welcome, ${name}! 🎉`);
+            closeAuthModal();
+            updateUserUI();
+        });
+    }
+}
+
+function openAuthModal() {
+    const modal = document.getElementById('authModal');
+    const overlay = document.getElementById('overlay');
+    if (modal) modal.style.display = 'flex';
+    if (overlay) overlay.classList.add('active');
+}
+
+function closeAuthModal() {
+    const modal = document.getElementById('authModal');
+    const overlay = document.getElementById('overlay');
+    if (modal) modal.style.display = 'none';
+    if (overlay) overlay.classList.remove('active');
+}
+
+function updateUserUI() {
+    const user = JSON.parse(localStorage.getItem('shopease_user') || 'null');
+    const loginBtns = document.querySelectorAll('#loginBtn, .user-login-btn');
+    loginBtns.forEach(btn => {
+        if (user && user.name) {
+            btn.innerHTML = `<i data-lucide="user-check" width="18" height="18"></i> <span>Hi, ${escapeHTML(user.name)}</span>`;
+            btn.title = "Click to Logout";
+        } else {
+            btn.innerHTML = `<i data-lucide="user" width="18" height="18"></i> <span>Login</span>`;
+            btn.title = "Login or Register";
+        }
+    });
+    if (window.lucide) lucide.createIcons();
+}
+
+/* ---------- Privacy Policy & Terms Modal ---------- */
+function openPolicyModal(type = 'privacy') {
+    const modal = document.getElementById('policyModal');
+    const titleEl = document.getElementById('policyTitle');
+    const bodyEl = document.getElementById('policyBody');
+    const overlay = document.getElementById('overlay');
+
+    if (!modal) return;
+
+    if (type === 'terms') {
+        if (titleEl) titleEl.textContent = 'Terms of Service';
+        if (bodyEl) {
+            bodyEl.innerHTML = `
+                <p>Welcome to ShopEase! By shopping on our platform, you agree to the following terms:</p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Product Authenticity:</strong> All items displayed are 100% genuine and sourced directly from certified brands.</li>
+                    <li><strong>Cart & Pricing:</strong> Prices listed in Indonesian Rupiah (Rp) include standard retail taxes.</li>
+                    <li><strong>Returns & Refunds:</strong> Unopened items can be returned within 14 days of purchase.</li>
+                    <li><strong>Customer Security:</strong> We prioritize safe shopping. Your data is protected under robust encryption protocols.</li>
+                </ul>
+            `;
+        }
+    } else {
+        if (titleEl) titleEl.textContent = 'Privacy Policy';
+        if (bodyEl) {
+            bodyEl.innerHTML = `
+                <p>At ShopEase, protecting your personal privacy is our top priority:</p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Data Collection:</strong> We only collect necessary shopping preferences to enhance your session.</li>
+                    <li><strong>Storage:</strong> Your cart and wishlist preferences are stored locally on your device (localStorage).</li>
+                    <li><strong>No Third-Party Sharing:</strong> We never sell or transfer your private personal information to third parties.</li>
+                    <li><strong>Security:</strong> All user interactions follow strict browser Content Security Policies (CSP).</li>
+                </ul>
+            `;
+        }
+    }
+
+    modal.style.display = 'flex';
+    if (overlay) overlay.classList.add('active');
+}
+
+function closePolicyModal() {
+    const modal = document.getElementById('policyModal');
+    const overlay = document.getElementById('overlay');
+    if (modal) modal.style.display = 'none';
+    if (overlay) overlay.classList.remove('active');
+}
 
 /* ---------- Testimonial Slider ---------- */
 (function initSlider() {
@@ -2200,10 +2369,10 @@ document.getElementById('newsletterForm')?.addEventListener('submit', function(e
     const emailEl = document.getElementById('newsletterEmail');
     const email = emailEl?.value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showToast('Please enter a valid email address.');
+        showToast('Please enter a valid email address.', 'error');
         return;
     }
-    showToast(`Subscribed with ${email}! Welcome to ShopEase.`);
+    showToast(`Subscribed with ${email}! Welcome to ShopEase. 🎉`);
     emailEl.value = '';
 });
 
@@ -2244,143 +2413,128 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
     }
 });
 
-/* ---------- Product Detail Quantity ---------- */
-(function initProductQty() {
+/* ---------- Product Detail Page & 404 Fallback View ---------- */
+(function renderProductDetail() {
+    if (!window.location.pathname.includes('product-detail.html')) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawId = urlParams.get('id');
+    const productId = parseInt(rawId, 10);
+    const detailWrapper = document.querySelector('.product-detail-wrapper') || document.querySelector('.product-detail-section');
+    const notFoundEl = document.getElementById('productNotFound');
+
+    const product = productsDB.find(p => p.id === productId);
+
+    if (!product) {
+        // Show 404 Fallback View if ID is invalid or not found
+        if (detailWrapper) detailWrapper.style.display = 'none';
+        if (notFoundEl) {
+            notFoundEl.style.display = 'block';
+        } else if (detailWrapper) {
+            const fallbackDiv = document.createElement('div');
+            fallbackDiv.className = 'product-not-found';
+            fallbackDiv.style.cssText = 'text-align: center; padding: 80px 20px; margin: 40px auto; max-width: 600px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);';
+            fallbackDiv.innerHTML = `
+                <i data-lucide="package-x" width="64" height="64" style="color: var(--navy); opacity: 0.5; margin-bottom: 16px;"></i>
+                <h2 style="font-size: 24px; color: var(--navy); margin-bottom: 8px;">Product Not Found</h2>
+                <p style="color: var(--text-muted); margin-bottom: 24px;">The product you are looking for does not exist or has been removed.</p>
+                <a href="shop.html" class="btn-hero btn-navy" style="text-decoration: none; padding: 10px 24px; border-radius: 25px; display: inline-block;">Return to Shop Catalog</a>
+            `;
+            detailWrapper.parentNode.insertBefore(fallbackDiv, detailWrapper);
+        }
+        if (window.lucide) lucide.createIcons();
+        return;
+    }
+
+    if (notFoundEl) notFoundEl.style.display = 'none';
+    if (detailWrapper) detailWrapper.style.display = 'block';
+
+    const brandEl = document.getElementById('detailBrand');
+    const titleEl = document.getElementById('detailTitle');
+    const priceEl = document.getElementById('detailPrice');
+    const oldPriceEl = document.getElementById('detailOldPrice');
+    const discountEl = document.getElementById('detailDiscount');
+    const reviewEl = document.getElementById('detailReviews');
+    const btnEl = document.getElementById('detailAddToCart');
+    const descEl = document.getElementById('detailDescription');
+    const featuresEl = document.getElementById('detailFeatures');
+    const reviewCountText = document.getElementById('tabReviewCountText');
+
+    if (brandEl) brandEl.textContent = product.brand;
+    if (titleEl) titleEl.textContent = product.name;
+    if (priceEl) priceEl.textContent = product.priceCurrent;
+    if (oldPriceEl) oldPriceEl.textContent = product.priceOriginal;
+    if (discountEl) discountEl.textContent = product.discount;
+    if (reviewEl) reviewEl.textContent = product.reviews;
+    if (descEl) descEl.textContent = product.description;
+
+    if (featuresEl && product.features) {
+        featuresEl.innerHTML = product.features.map(f => `<li>${escapeHTML(f)}</li>`).join('');
+    }
+
+    const tabReviewsEl = document.getElementById('detailTabReviews');
+    if (tabReviewsEl) {
+        const reviewCountMatch = product.reviews.match(/\d+/);
+        const reviewCount = reviewCountMatch ? reviewCountMatch[0] : '0';
+        tabReviewsEl.textContent = `Reviews (${reviewCount})`;
+        if (reviewCountText) {
+            reviewCountText.textContent = `Based on ${reviewCount} customer reviews`;
+        }
+    }
+
+    if (btnEl) {
+        btnEl.dataset.id = product.id;
+        btnEl.dataset.product = product.name;
+    }
+
+    const isInCart = cartItems.some(item => item.id === product.id);
+    if (btnEl) {
+        if (isInCart) {
+            btnEl.classList.add('in-cart');
+            btnEl.innerHTML = `Remove <i data-lucide="x" width="20" height="20"></i>`;
+        } else {
+            btnEl.classList.remove('in-cart');
+            btnEl.innerHTML = `<i data-lucide="shopping-cart" width="20" height="20"></i> Add to cart`;
+        }
+    }
+
+    const mainImg = document.getElementById('detailMainImg');
+    if (mainImg && product.images.length > 0) {
+        mainImg.src = product.images[0];
+        mainImg.alt = escapeHTML(product.name);
+    }
+    const thumbnails = document.querySelectorAll('.thumb-img');
+    thumbnails.forEach((thumb, i) => {
+        const wrap = thumb.closest('.thumb-img-wrap');
+        if (product.images[i]) {
+            thumb.src = product.images[i];
+            if (wrap) wrap.style.display = 'block';
+        } else if (wrap && i > 0) {
+            wrap.style.display = 'none';
+        }
+    });
+
+    // Quantity Input logic
     const qtyInput = document.getElementById('qtyInput');
     const qtyMinusBtn = document.getElementById('qtyMinusBtn');
     const qtyPlusBtn = document.getElementById('qtyPlusBtn');
 
     if (qtyInput && qtyMinusBtn && qtyPlusBtn) {
-        qtyMinusBtn.addEventListener('click', () => {
+        qtyMinusBtn.onclick = () => {
             let val = parseInt(qtyInput.value, 10) || 1;
-            if (val > 1) {
-                qtyInput.value = val - 1;
-            }
-        });
+            if (val > 1) qtyInput.value = val - 1;
+        };
 
-        qtyPlusBtn.addEventListener('click', () => {
+        qtyPlusBtn.onclick = () => {
             let val = parseInt(qtyInput.value, 10) || 0;
             qtyInput.value = val + 1;
-        });
+        };
+    }
 
-        qtyInput.addEventListener('blur', () => {
-            let val = parseInt(qtyInput.value, 10);
-            if (isNaN(val) || val < 1) {
-                qtyInput.value = 1;
-            }
-        });
+    if (window.lucide) {
+        lucide.createIcons();
     }
 })();
-
-/* ---------- Dynamic Product Detail & Gallery & Tabs ---------- */
-(function renderProductDetail() {
-    if (window.location.pathname.includes('product-detail.html')) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get('id'), 10) || 1;
-        const product = productsDB.find(p => p.id === productId) || productsDB[0];
-
-        if (product) {
-            const brandEl = document.getElementById('detailBrand');
-            const titleEl = document.getElementById('detailTitle');
-            const priceEl = document.getElementById('detailPrice');
-            const oldPriceEl = document.getElementById('detailOldPrice');
-            const discountEl = document.getElementById('detailDiscount');
-            const reviewEl = document.getElementById('detailReviews');
-            const btnEl = document.getElementById('detailAddToCart');
-            const descEl = document.getElementById('detailDescription');
-            const featuresEl = document.getElementById('detailFeatures');
-            const reviewCountText = document.getElementById('tabReviewCountText');
-
-            if(brandEl) brandEl.textContent = product.brand;
-            if(titleEl) titleEl.textContent = product.name;
-            if(priceEl) priceEl.textContent = product.priceCurrent;
-            if(oldPriceEl) oldPriceEl.textContent = product.priceOriginal;
-            if(discountEl) discountEl.textContent = product.discount;
-            if(reviewEl) reviewEl.textContent = product.reviews;
-            
-            if(descEl && product.description) {
-                descEl.textContent = product.description;
-            }
-
-            if(featuresEl && product.features) {
-                featuresEl.innerHTML = product.features.map(f => `<li>${f}</li>`).join('');
-            }
-
-            const tabReviewsEl = document.getElementById('detailTabReviews');
-            if(tabReviewsEl) {
-                const reviewCountMatch = product.reviews.match(/\d+/);
-                const reviewCount = reviewCountMatch ? reviewCountMatch[0] : '0';
-                tabReviewsEl.textContent = `Reviews (${reviewCount})`;
-                if(reviewCountText) {
-                    reviewCountText.textContent = `Based on ${reviewCount} customer reviews`;
-                }
-            }
-
-            if(btnEl) btnEl.dataset.product = product.name;
-            
-            const isInCart = cartItems.some(item => {
-                if (typeof item === 'string') return item === product.name;
-                return item.name === product.name;
-            });
-            if(btnEl) {
-                if (isInCart) {
-                    btnEl.classList.add('in-cart');
-                    btnEl.innerHTML = `Remove <i data-lucide="x" width="20" height="20"></i>`;
-                } else {
-                    btnEl.classList.remove('in-cart');
-                    btnEl.innerHTML = `<i data-lucide="shopping-cart" width="20" height="20"></i> Add to cart`;
-                }
-            }
-
-            const mainImg = document.getElementById('detailMainImg');
-            if(mainImg && product.images.length > 0) {
-                mainImg.src = product.images[0];
-                mainImg.alt = product.name;
-            }
-            const thumbnails = document.querySelectorAll('.thumb-img');
-            thumbnails.forEach((thumb, i) => {
-                const wrap = thumb.closest('.thumb-img-wrap');
-                if(product.images[i]) {
-                    thumb.src = product.images[i];
-                    if (wrap) wrap.style.display = 'block';
-                } else if(wrap && i > 0) {
-                    wrap.style.display = 'none';
-                }
-            });
-
-            if(window.lucide) {
-                lucide.createIcons();
-            }
-        }
-    }
-})();
-
-/* ---------- Thumbnail & Tab Click Handlers ---------- */
-document.addEventListener('click', (e) => {
-    const thumbWrap = e.target.closest('.thumb-img-wrap');
-    if (thumbWrap) {
-        const thumbImg = thumbWrap.querySelector('.thumb-img');
-        const mainImg = document.getElementById('detailMainImg');
-        if (thumbImg && mainImg) {
-            mainImg.src = thumbImg.src;
-            document.querySelectorAll('.thumb-img-wrap').forEach(w => w.classList.remove('active'));
-            thumbWrap.classList.add('active');
-        }
-    }
-
-    const tabBtn = e.target.closest('.tab-btn');
-    if (tabBtn) {
-        const tabId = tabBtn.dataset.tab;
-        if (tabId) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-
-            tabBtn.classList.add('active');
-            const targetPanel = document.getElementById(tabId);
-            if (targetPanel) targetPanel.classList.add('active');
-        }
-    }
-});
 
 /* =========================================
    DYNAMIC MEGA MENU CATEGORIES
@@ -2389,187 +2543,85 @@ const megaMenuData = {
     "food-beverage": {
         title: "Food & Beverage",
         columns: [
-            {
-                title: "Beverages",
-                items: ["Coffee & Tea", "Fresh Juices", "Soft Drinks", "Mineral Water", "Energy Drinks"]
-            },
-            {
-                title: "Snacks & Sweets",
-                items: ["Biscuits & Cookies", "Chocolates", "Potato Chips", "Dried Fruits", "Nuts & Seeds"]
-            },
-            {
-                title: "Pantry & Cooking",
-                items: ["Cooking Oil", "Spices & Seasoning", "Pasta & Noodles", "Canned Food", "Sauces"]
-            },
-            {
-                title: "Fresh & Dairy",
-                items: ["Milk & Butter", "Cheese & Yogurt", "Fresh Bakery", "Breakfast Cereal"]
-            }
+            { title: "Beverages", items: ["Coffee & Tea", "Fresh Juices", "Soft Drinks", "Mineral Water", "Energy Drinks"] },
+            { title: "Snacks & Sweets", items: ["Biscuits & Cookies", "Chocolates", "Potato Chips", "Dried Fruits", "Nuts & Seeds"] },
+            { title: "Pantry & Cooking", items: ["Cooking Oil", "Spices & Seasoning", "Pasta & Noodles", "Canned Food", "Sauces"] },
+            { title: "Fresh & Dairy", items: ["Milk & Butter", "Cheese & Yogurt", "Fresh Bakery", "Breakfast Cereal"] }
         ]
     },
     "beauty-personal-care": {
         title: "Beauty & Personal Care",
         columns: [
-            {
-                title: "Skin Care",
-                items: ["Moisturizers", "Serums", "Sunscreen", "Toners", "Face Wash", "Eye Cream"]
-            },
-            {
-                title: "Makeup",
-                items: ["Foundation", "Lipstick", "Eyeshadow", "Blush & Bronzer", "Mascara", "Primer"]
-            },
-            {
-                title: "Hair Care",
-                items: ["Shampoo", "Conditioner", "Hair Mask", "Hair Oil", "Styling Products"]
-            },
-            {
-                title: "Body Care",
-                items: ["Body Lotion", "Body Scrub", "Deodorant", "Hand Cream", "Perfume & Fragrance"]
-            },
-            {
-                title: "Fragrance",
-                items: ["Women's Perfume", "Men's Cologne", "Body Mist", "Roll-On Perfume", "Gift Sets"]
-            }
+            { title: "Skin Care", items: ["Moisturizers", "Serums", "Sunscreen", "Toners", "Face Wash", "Eye Cream"] },
+            { title: "Makeup", items: ["Foundation", "Lipstick", "Eyeshadow", "Blush & Bronzer", "Mascara", "Primer"] },
+            { title: "Hair Care", items: ["Shampoo", "Conditioner", "Hair Mask", "Hair Oil", "Styling Products"] },
+            { title: "Body Care", items: ["Body Lotion", "Body Scrub", "Deodorant", "Hand Cream", "Perfume & Fragrance"] },
+            { title: "Fragrance", items: ["Women's Perfume", "Men's Cologne", "Body Mist", "Roll-On Perfume", "Gift Sets"] }
         ]
     },
     "home-living": {
         title: "Home & Living",
         columns: [
-            {
-                title: "Bed & Bath",
-                items: ["Sheets & Pillowcases", "Bath Towels", "Blankets & Throws", "Bath Mats", "Duvet Covers"]
-            },
-            {
-                title: "Decor & Lighting",
-                items: ["Wall Art", "Candles & Diffusers", "Desk Lamps", "Floor Rugs", "Decorative Vases"]
-            },
-            {
-                title: "Kitchen & Dining",
-                items: ["Drinkware & Mugs", "Cookware Sets", "Cutlery & Utensils", "Storage Containers"]
-            },
-            {
-                title: "Furniture",
-                items: ["Coffee Tables", "Ergonomic Chairs", "Bookshelves", "Storage Racks"]
-            }
+            { title: "Bed & Bath", items: ["Sheets & Pillowcases", "Bath Towels", "Blankets & Throws", "Bath Mats", "Duvet Covers"] },
+            { title: "Decor & Lighting", items: ["Wall Art", "Candles & Diffusers", "Desk Lamps", "Floor Rugs", "Decorative Vases"] },
+            { title: "Kitchen & Dining", items: ["Drinkware & Mugs", "Cookware Sets", "Cutlery & Utensils", "Storage Containers"] },
+            { title: "Furniture", items: ["Coffee Tables", "Ergonomic Chairs", "Bookshelves", "Storage Racks"] }
         ]
     },
     "electronics": {
         title: "Electronics",
         columns: [
-            {
-                title: "Mobile & Tablets",
-                items: ["Smartphones", "Tablets", "Screen Protectors", "Phone Cases", "Power Banks"]
-            },
-            {
-                title: "Computers",
-                items: ["Laptops", "Desktop PCs", "Monitors", "Keyboards & Mice", "External Storage"]
-            },
-            {
-                title: "Smart Home",
-                items: ["Smart Speakers", "Security Cameras", "Smart Plugs", "Robot Vacuums"]
-            },
-            {
-                title: "Cameras & Drones",
-                items: ["Action Cameras", "DSLR Lenses", "Camera Tripods", "Memory Cards"]
-            }
+            { title: "Mobile & Tablets", items: ["Smartphones", "Tablets", "Screen Protectors", "Phone Cases", "Power Banks"] },
+            { title: "Computers", items: ["Laptops", "Desktop PCs", "Monitors", "Keyboards & Mice", "External Storage"] },
+            { title: "Smart Home", items: ["Smart Speakers", "Security Cameras", "Smart Plugs", "Robot Vacuums"] },
+            { title: "Cameras & Drones", items: ["Action Cameras", "DSLR Lenses", "Camera Tripods", "Memory Cards"] }
         ]
     },
     "audio-entertainment": {
         title: "Audio & Entertainment",
         columns: [
-            {
-                title: "Headphones",
-                items: ["Wireless Earbuds", "Over-Ear Headphones", "Noise-Canceling", "Sports Earphones"]
-            },
-            {
-                title: "Speakers",
-                items: ["Bluetooth Speakers", "Soundbars", "Home Theater", "Portable Speakers"]
-            },
-            {
-                title: "Gaming",
-                items: ["Gaming Consoles", "Controllers", "Gaming Headsets", "RGB Accessories"]
-            }
+            { title: "Headphones", items: ["Wireless Earbuds", "Over-Ear Headphones", "Noise-Canceling", "Sports Earphones"] },
+            { title: "Speakers", items: ["Bluetooth Speakers", "Soundbars", "Home Theater", "Portable Speakers"] },
+            { title: "Gaming", items: ["Gaming Consoles", "Controllers", "Gaming Headsets", "RGB Accessories"] }
         ]
     },
     "fashion": {
         title: "Fashion",
         columns: [
-            {
-                title: "Women's Clothing",
-                items: ["Dresses", "Tops & Blouses", "Pants & Jeans", "Jackets & Coats", "Activewear"]
-            },
-            {
-                title: "Men's Clothing",
-                items: ["T-Shirts & Polos", "Shirts", "Denim & Jeans", "Hoodies & Sweatshirts", "Blazers"]
-            },
-            {
-                title: "Footwear",
-                items: ["Sneakers", "Running Shoes", "Casual Loafers", "Formal Shoes", "Sandals"]
-            },
-            {
-                title: "Watches & Jewelry",
-                items: ["Analog Watches", "Smartwatches", "Necklaces", "Rings & Bracelets"]
-            }
+            { title: "Women's Clothing", items: ["Dresses", "Tops & Blouses", "Pants & Jeans", "Jackets & Coats", "Activewear"] },
+            { title: "Men's Clothing", items: ["T-Shirts & Polos", "Shirts", "Denim & Jeans", "Hoodies & Sweatshirts", "Blazers"] },
+            { title: "Footwear", items: ["Sneakers", "Running Shoes", "Casual Loafers", "Formal Shoes", "Sandals"] },
+            { title: "Watches & Jewelry", items: ["Analog Watches", "Smartwatches", "Necklaces", "Rings & Bracelets"] }
         ]
     },
     "bags-accessories": {
         title: "Bags & Accessories",
         columns: [
-            {
-                title: "Bags",
-                items: ["Backpacks", "Tote Bags", "Crossbody Bags", "Luggage & Suitcases", "Leather Wallets"]
-            },
-            {
-                title: "Accessories",
-                items: ["Sunglasses", "Leather Belts", "Hats & Caps", "Scarves & Gloves", "Keychains"]
-            }
+            { title: "Bags", items: ["Backpacks", "Tote Bags", "Crossbody Bags", "Luggage & Suitcases", "Leather Wallets"] },
+            { title: "Accessories", items: ["Sunglasses", "Leather Belts", "Hats & Caps", "Scarves & Gloves", "Keychains"] }
         ]
     },
     "baby-kids": {
         title: "Baby & Kids",
         columns: [
-            {
-                title: "Baby Care",
-                items: ["Diapers & Wipes", "Baby Skincare", "Feeding Bottles", "Baby Strollers"]
-            },
-            {
-                title: "Toys & Learning",
-                items: ["Educational Toys", "Building Blocks", "Board Games", "Plush Toys"]
-            },
-            {
-                title: "Kids Fashion",
-                items: ["Baby Clothing", "Kids Shoes", "School Backpacks"]
-            }
+            { title: "Baby Care", items: ["Diapers & Wipes", "Baby Skincare", "Feeding Bottles", "Baby Strollers"] },
+            { title: "Toys & Learning", items: ["Educational Toys", "Building Blocks", "Board Games", "Plush Toys"] },
+            { title: "Kids Fashion", items: ["Baby Clothing", "Kids Shoes", "School Backpacks"] }
         ]
     },
     "sport-outdoors": {
         title: "Sport & Outdoors",
         columns: [
-            {
-                title: "Exercise & Fitness",
-                items: ["Yoga Mats", "Dumbbells", "Resistance Bands", "Jump Ropes"]
-            },
-            {
-                title: "Outdoor Gear",
-                items: ["Camping Tents", "Hiking Backpacks", "Water Bottles", "Flashlights"]
-            },
-            {
-                title: "Sportswear",
-                items: ["Athletic Shirts", "Compression Shorts", "Running Socks", "Sports Bras"]
-            }
+            { title: "Exercise & Fitness", items: ["Yoga Mats", "Dumbbells", "Resistance Bands", "Jump Ropes"] },
+            { title: "Outdoor Gear", items: ["Camping Tents", "Hiking Backpacks", "Water Bottles", "Flashlights"] },
+            { title: "Sportswear", items: ["Athletic Shirts", "Compression Shorts", "Running Socks", "Sports Bras"] }
         ]
     },
     "automotive": {
         title: "Automotive",
         columns: [
-            {
-                title: "Car Care",
-                items: ["Car Wash & Wax", "Microfiber Towels", "Tire Care", "Air Fresheners"]
-            },
-            {
-                title: "Interior Accessories",
-                items: ["Seat Covers", "Floor Mats", "Phone Mounts", "Steering Wheel Covers"]
-            }
+            { title: "Car Care", items: ["Car Wash & Wax", "Microfiber Towels", "Tire Care", "Air Fresheners"] },
+            { title: "Interior Accessories", items: ["Seat Covers", "Floor Mats", "Phone Mounts", "Steering Wheel Covers"] }
         ]
     }
 };
@@ -2584,8 +2636,8 @@ function renderMegaContent(categoryKey) {
     data.columns.forEach(col => {
         html += `
             <div class="mega-col">
-                <h4 class="mega-col-title">${col.title}</h4>
-                ${col.items.map(item => `<a href="shop.html?category=${encodeURIComponent(categoryKey)}&search=${encodeURIComponent(item)}">${item}</a>`).join('')}
+                <h4 class="mega-col-title">${escapeHTML(col.title)}</h4>
+                ${col.items.map(item => `<a href="shop.html?category=${encodeURIComponent(categoryKey)}&search=${encodeURIComponent(item)}">${escapeHTML(item)}</a>`).join('')}
             </div>
         `;
     });
@@ -2623,26 +2675,27 @@ function renderMegaContent(categoryKey) {
     });
 })();
 
-/* ---------- Shop Filters Logic ---------- */
+/* =========================================
+   SHOP FILTERS & 12-ITEM PAGINATION LOGIC
+   ========================================= */
 (function initShopFilters() {
     const filterInputs = document.querySelectorAll('.filter-cb');
-    const products = document.querySelectorAll('.shop-product');
+    const productsContainer = document.querySelector('.shop-products-grid') || document.querySelector('.products-section .product-grid');
     const noProductsMsg = document.getElementById('noProductsMessage');
     const searchInput = document.getElementById('searchInput');
-    
+    const paginationContainer = document.getElementById('paginationContainer');
+
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
     const categoryQuery = urlParams.get('category');
-    
+
     const normalize = str => (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
 
     if (searchQuery && searchInput) {
         searchInput.value = searchQuery;
     }
 
-    // Helper map linking subcategory terms to parent category filter value
     const subcategoryToCategoryMap = {
-        // Food & Beverage
         'coffee & tea': 'Food & Beverage',
         'fresh juices': 'Food & Beverage',
         'soft drinks': 'Food & Beverage',
@@ -2664,8 +2717,6 @@ function renderMegaContent(categoryKey) {
         'breakfast cereal': 'Food & Beverage',
         'tea & herbal teas': 'Food & Beverage',
         'honey & syrups': 'Food & Beverage',
-
-        // Beauty & Personal Care
         'sunscreen': 'Beauty & Personal Care',
         'sunscreen & skincare': 'Beauty & Personal Care',
         'skincare': 'Beauty & Personal Care',
@@ -2680,8 +2731,6 @@ function renderMegaContent(categoryKey) {
         'hair care': 'Beauty & Personal Care',
         'fragrance': 'Beauty & Personal Care',
         "women's perfume": 'Beauty & Personal Care',
-
-        // Home & Living
         'desk lamps': 'Home & Living',
         'pillows': 'Home & Living',
         'cookware': 'Home & Living',
@@ -2692,8 +2741,6 @@ function renderMegaContent(categoryKey) {
         'food storage': 'Home & Living',
         'wall art & clocks': 'Home & Living',
         'bath towels': 'Home & Living',
-
-        // Electronics
         'headphones': 'Electronics',
         'smartphones': 'Electronics',
         'laptops': 'Electronics',
@@ -2703,8 +2750,6 @@ function renderMegaContent(categoryKey) {
         'power banks': 'Electronics',
         'wireless earbuds': 'Electronics',
         'tablets': 'Electronics',
-
-        // Audio & Entertainment
         'bluetooth speakers': 'Audio & Entertainment',
         'soundbars': 'Audio & Entertainment',
         'over-ear headphones': 'Audio & Entertainment',
@@ -2712,7 +2757,6 @@ function renderMegaContent(categoryKey) {
         'microphones': 'Audio & Entertainment'
     };
 
-    // Auto-check parent category checkbox if navigating via subcategory or category parameter
     let targetCategory = null;
 
     if (categoryQuery) {
@@ -2744,23 +2788,24 @@ function renderMegaContent(categoryKey) {
         });
     }
 
-    // Function to update Brand filter options visibility based on checked Categories
+    // Function to update Brand filter options visibility:
+    // If NO category selected -> Show ALL Brands!
+    // If categories ARE selected -> Show ONLY brands in selected categories!
     function updateBrandFilterVisibility() {
         const categoryCbs = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked'));
         const selectedCategories = categoryCbs.map(cb => cb.value);
         const brandCbs = document.querySelectorAll('.filter-cb[data-type="brand"]');
-        
+
         if (selectedCategories.length === 0) {
-            // No category selected -> Brand filter list is empty
+            // NO category selected -> Show ALL brand filters
             brandCbs.forEach(cb => {
-                cb.checked = false;
                 const label = cb.closest('.filter-label');
-                if (label) label.style.display = 'none';
+                if (label) label.style.display = 'flex';
             });
             return;
         }
 
-        // Collect allowed brands for selected categories
+        // Categories selected -> Collect allowed brands
         const allowedBrands = new Set();
         const cleanSelectedCats = selectedCategories.map(c => normalize(c));
 
@@ -2774,31 +2819,20 @@ function renderMegaContent(categoryKey) {
             });
         }
 
-        products.forEach(card => {
-            const cardCat = normalize(card.dataset.category || '');
-            const cardBrand = card.dataset.brand || '';
-            const matchesCat = cleanSelectedCats.some(sc => cardCat.includes(sc) || sc.includes(cardCat));
-            if (matchesCat && cardBrand) {
-                allowedBrands.add(normalize(cardBrand));
-            }
-        });
-
         brandCbs.forEach(cb => {
             const label = cb.closest('.filter-label');
             const cleanBrandVal = normalize(cb.value);
             if (allowedBrands.has(cleanBrandVal)) {
                 if (label) label.style.display = 'flex';
             } else {
-                cb.checked = false; // uncheck hidden brands
+                cb.checked = false; // uncheck hidden brand
                 if (label) label.style.display = 'none';
             }
         });
     }
 
-    if (!products.length) {
-        updateBrandFilterVisibility();
-        return;
-    }
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 12;
 
     function applyFilters() {
         updateBrandFilterVisibility();
@@ -2809,70 +2843,136 @@ function renderMegaContent(categoryKey) {
         const priceRadio = document.querySelector('.filter-cb[data-type="price"]:checked');
         const selectedPrice = priceRadio ? priceRadio.value : null;
         const currentSearch = searchInput ? searchInput.value.trim() : '';
+        const cleanSearch = normalize(currentSearch);
 
-        let visibleCount = 0;
+        // Filter products from DB or existing card list
+        const allDOMCards = Array.from(document.querySelectorAll('.shop-product'));
 
-        products.forEach(card => {
-            const category = card.dataset.category || '';
-            const brand = card.dataset.brand || '';
-            const rating = card.dataset.rating;
-            const price = parseInt(card.dataset.price, 10);
-            const productName = card.querySelector('.product-name')?.textContent || '';
+        if (allDOMCards.length > 0) {
+            let visibleCards = [];
 
-            const matchCategory = selectedCategories.length === 0 || selectedCategories.some(c => {
-                const cleanC = normalize(c);
-                const cleanCat = normalize(category);
-                return cleanCat.includes(cleanC) || cleanC.includes(cleanCat);
+            allDOMCards.forEach(card => {
+                const category = card.dataset.category || '';
+                const brand = card.dataset.brand || '';
+                const rating = card.dataset.rating;
+                const price = parseInt(card.dataset.price, 10);
+                const productName = card.querySelector('.product-name')?.textContent || '';
+
+                const matchCategory = selectedCategories.length === 0 || selectedCategories.some(c => {
+                    const cleanC = normalize(c);
+                    const cleanCat = normalize(category);
+                    return cleanCat.includes(cleanC) || cleanC.includes(cleanCat);
+                });
+                const matchBrand = selectedBrands.length === 0 || selectedBrands.some(b => normalize(b) === normalize(brand));
+                const matchRating = selectedRatings.length === 0 || selectedRatings.includes(rating);
+
+                let matchPrice = true;
+                if (selectedPrice === 'under-100k') {
+                    matchPrice = price < 100000;
+                } else if (selectedPrice === '100k-200k') {
+                    matchPrice = price >= 100000 && price <= 200000;
+                } else if (selectedPrice === 'above-200k') {
+                    matchPrice = price > 200000;
+                }
+
+                const matchSearch = currentSearch === '' || 
+                    normalize(productName).includes(cleanSearch) || 
+                    normalize(category).includes(cleanSearch) ||
+                    normalize(brand).includes(cleanSearch);
+
+                if (matchCategory && matchBrand && matchRating && matchPrice && matchSearch) {
+                    visibleCards.push(card);
+                } else {
+                    card.style.display = 'none';
+                }
             });
-            const matchBrand = selectedBrands.length === 0 || selectedBrands.some(b => normalize(b) === normalize(brand));
-            const matchRating = selectedRatings.length === 0 || selectedRatings.includes(rating);
-            
-            let matchPrice = true;
-            if (selectedPrice === 'under-100k') {
-                matchPrice = price < 100000;
-            } else if (selectedPrice === '100k-200k') {
-                matchPrice = price >= 100000 && price <= 200000;
-            } else if (selectedPrice === 'above-200k') {
-                matchPrice = price > 200000;
-            }
-            
-            const cleanSearch = normalize(currentSearch);
-            const matchSearch = currentSearch === '' || 
-                normalize(productName).includes(cleanSearch) || 
-                normalize(category).includes(cleanSearch) ||
-                normalize(brand).includes(cleanSearch);
 
-            if (matchCategory && matchBrand && matchRating && matchPrice && matchSearch) {
-                card.style.display = '';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
+            // Pagination calculation
+            const totalItems = visibleCards.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
+            if (currentPage > totalPages) currentPage = 1;
 
-        if (noProductsMsg) {
-            noProductsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-            if (visibleCount === 0 && currentSearch !== '') {
-                noProductsMsg.textContent = `No products found matching "${currentSearch}".`;
-            } else if (visibleCount === 0) {
-                noProductsMsg.textContent = 'No products found matching the selected filters.';
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+
+            visibleCards.forEach((card, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (noProductsMsg) {
+                noProductsMsg.style.display = totalItems === 0 ? 'block' : 'none';
+                if (totalItems === 0 && currentSearch !== '') {
+                    noProductsMsg.textContent = `No products found matching "${currentSearch}".`;
+                } else if (totalItems === 0) {
+                    noProductsMsg.textContent = 'No products found matching the selected filters.';
+                }
             }
+
+            renderPaginationUI(totalPages, currentPage);
         }
     }
 
+    function renderPaginationUI(totalPages, page) {
+        if (!paginationContainer) return;
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            paginationContainer.style.display = 'none';
+            return;
+        }
+
+        paginationContainer.style.display = 'flex';
+        let html = '';
+
+        // Previous button
+        html += `<button class="page-btn ${page === 1 ? 'disabled' : ''}" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''}>&laquo; Prev</button>`;
+
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<button class="page-btn ${i === page ? 'active' : ''}" data-page="${i}">${i}</button>`;
+        }
+
+        // Next button
+        html += `<button class="page-btn ${page === totalPages ? 'disabled' : ''}" data-page="${page + 1}" ${page === totalPages ? 'disabled' : ''}>Next &raquo;</button>`;
+
+        paginationContainer.innerHTML = html;
+    }
+
+    if (paginationContainer) {
+        paginationContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.page-btn');
+            if (btn && !btn.classList.contains('disabled') && !btn.classList.contains('active')) {
+                const targetPage = parseInt(btn.dataset.page, 10);
+                if (targetPage) {
+                    currentPage = targetPage;
+                    applyFilters();
+                    window.scrollTo({ top: 200, behavior: 'smooth' });
+                }
+            }
+        });
+    }
+
     filterInputs.forEach(input => {
-        input.addEventListener('change', applyFilters);
+        input.addEventListener('change', () => {
+            currentPage = 1;
+            applyFilters();
+        });
     });
-    
+
     if (searchInput) {
-        searchInput.addEventListener('input', applyFilters);
+        searchInput.addEventListener('input', () => {
+            currentPage = 1;
+            applyFilters();
+        });
     }
 
     applyFilters();
 })();
 
 /* =========================================
-   DEALS PAGE COUNTDOWN TIMER & FILTERS
+   DEALS PAGE ROLLING COUNTDOWN & FILTERS
    ========================================= */
 (function initDealsCountdown() {
     const cdDays = document.getElementById('cdDays');
@@ -2882,23 +2982,24 @@ function renderMegaContent(categoryKey) {
     if (!cdDays && !cdHours) return;
 
     let targetTime = localStorage.getItem('shopease_deals_target');
-    if (!targetTime) {
-        // Fixed expiration date: 2026-09-30 23:59:59
-        targetTime = new Date('2026-09-30T23:59:59').getTime();
-        localStorage.setItem('shopease_deals_target', targetTime);
+    const now = Date.now();
+
+    // Dynamic rolling 7-day timer target
+    if (!targetTime || parseInt(targetTime, 10) <= now) {
+        targetTime = now + (7 * 24 * 60 * 60 * 1000);
+        localStorage.setItem('shopease_deals_target', targetTime.toString());
     } else {
         targetTime = parseInt(targetTime, 10);
     }
 
     function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetTime - now;
+        const currentTime = Date.now();
+        const distance = targetTime - currentTime;
 
         if (distance <= 0) {
-            if (cdDays) cdDays.textContent = '00';
-            if (cdHours) cdHours.textContent = '00';
-            if (cdMins) cdMins.textContent = '00';
-            if (cdSecs) cdSecs.textContent = '00';
+            // Reset to rolling 7 days if expired
+            targetTime = Date.now() + (7 * 24 * 60 * 60 * 1000);
+            localStorage.setItem('shopease_deals_target', targetTime.toString());
             return;
         }
 
@@ -2963,7 +3064,159 @@ function renderMegaContent(categoryKey) {
 })();
 
 /* =========================================
-   MOBILE INTERACTION HANDLERS & GLOBAL ACTIONS
+   CENTRAL EVENT DELEGATION & GLOBAL ACTIONS
+   ========================================= */
+document.addEventListener('click', (e) => {
+    // Action trigger buttons
+    const actionEl = e.target.closest('[data-action]');
+    if (actionEl) {
+        const action = actionEl.dataset.action;
+
+        if (action === 'open-cart') {
+            e.preventDefault();
+            openCartSidebar();
+            return;
+        }
+
+        if (action === 'close-cart') {
+            e.preventDefault();
+            closeCartSidebar();
+            return;
+        }
+
+        if (action === 'open-auth') {
+            e.preventDefault();
+            openAuthModal();
+            return;
+        }
+
+        if (action === 'close-auth') {
+            e.preventDefault();
+            closeAuthModal();
+            return;
+        }
+
+        if (action === 'open-policy') {
+            e.preventDefault();
+            const type = actionEl.dataset.policy || 'privacy';
+            openPolicyModal(type);
+            return;
+        }
+
+        if (action === 'close-policy') {
+            e.preventDefault();
+            closePolicyModal();
+            return;
+        }
+
+        if (action === 'add-to-cart') {
+            e.stopPropagation();
+            const rawVal = actionEl.dataset.id || actionEl.dataset.product || '1';
+            let pid = parseInt(rawVal, 10);
+            if (isNaN(pid)) {
+                const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
+                if (found) pid = found.id;
+            }
+            if (pid) {
+                let qty = 1;
+                const container = actionEl.closest('.product-detail-wrapper') || actionEl.closest('.product-info-detail');
+                if (container) {
+                    const qtyInput = container.querySelector('#qtyInput') || document.getElementById('qtyInput');
+                    if (qtyInput) qty = parseInt(qtyInput.value, 10) || 1;
+                }
+                toggleCartItem(pid, actionEl, qty);
+            }
+            return;
+        }
+
+        if (action === 'buy-now') {
+            e.stopPropagation();
+            const rawVal = actionEl.dataset.id || actionEl.dataset.product || '1';
+            let pid = parseInt(rawVal, 10);
+            if (isNaN(pid)) {
+                const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
+                if (found) pid = found.id;
+            }
+            if (pid) {
+                const isInCart = cartItems.some(item => item.id === pid);
+                if (!isInCart) {
+                    cartItems.push({ id: pid, qty: 1 });
+                    localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
+                    updateCartBadge();
+                }
+                openCartSidebar();
+                showToast('Proceeding to Cart Checkout... 🛒');
+            }
+            return;
+        }
+
+        if (action === 'toggle-wishlist') {
+            e.stopPropagation();
+            e.preventDefault();
+            const rawVal = actionEl.dataset.id || actionEl.closest('.product-card')?.dataset.id || '1';
+            const pid = parseInt(rawVal, 10);
+            if (pid) {
+                toggleWishlist(pid, actionEl);
+            }
+            return;
+        }
+
+        if (action === 'change-qty') {
+            const idx = parseInt(actionEl.dataset.index, 10);
+            const delta = parseInt(actionEl.dataset.delta, 10);
+            if (!isNaN(idx) && !isNaN(delta)) {
+                changeCartQty(idx, delta);
+            }
+            return;
+        }
+
+        if (action === 'remove-cart-item') {
+            const idx = parseInt(actionEl.dataset.index, 10);
+            if (!isNaN(idx)) {
+                removeCartItemAt(idx);
+            }
+            return;
+        }
+    }
+
+    // Header Cart Buttons
+    if (e.target.closest('#cartBtn, .cart-icon')) {
+        e.preventDefault();
+        openCartSidebar();
+        return;
+    }
+
+    // Detail Tab Buttons
+    const tabBtn = e.target.closest('.tab-btn');
+    if (tabBtn) {
+        const tabId = tabBtn.dataset.tab;
+        if (tabId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+            tabBtn.classList.add('active');
+            const targetPanel = document.getElementById(tabId);
+            if (targetPanel) targetPanel.classList.add('active');
+        }
+        return;
+    }
+
+    // Detail Thumbnail Images
+    const thumbWrap = e.target.closest('.thumb-img-wrap');
+    if (thumbWrap) {
+        const thumbImg = thumbWrap.querySelector('.thumb-img');
+        const mainImg = document.getElementById('detailMainImg');
+        if (thumbImg && mainImg) {
+            mainImg.src = thumbImg.src;
+            document.querySelectorAll('.thumb-img-wrap').forEach(w => w.classList.remove('active'));
+            thumbWrap.classList.add('active');
+        }
+        return;
+    }
+});
+
+/* =========================================
+   MOBILE DRAWERS & OVERLAY INTERACTION
    ========================================= */
 (function initMobileNavAndGlobals() {
     const mobileToggle = document.getElementById('mobileMenuToggle');
@@ -2979,6 +3232,8 @@ function renderMegaContent(categoryKey) {
         if (drawer) drawer.classList.remove('open');
         if (shopSidebar) shopSidebar.classList.remove('open-mobile');
         if (cartSidebar) cartSidebar.classList.remove('active');
+        closeAuthModal();
+        closePolicyModal();
         if (overlay) overlay.classList.remove('active');
     }
 
@@ -3002,53 +3257,36 @@ function renderMegaContent(categoryKey) {
         overlay.addEventListener('click', closeAllDrawers);
     }
 
-    document.querySelectorAll('#cartBtn, .cart-icon').forEach(cartBtnEl => {
-        cartBtnEl.addEventListener('click', (e) => {
-            e.preventDefault();
-            openCartSidebar();
-        });
-    });
-
-    document.getElementById('closeCartBtn')?.addEventListener('click', () => {
-        closeCartSidebar();
-    });
+    document.getElementById('closeCartBtn')?.addEventListener('click', closeCartSidebar);
 
     document.getElementById('checkoutBtn')?.addEventListener('click', () => {
         if (cartItems.length === 0) {
-            showToast('Your cart is empty!');
+            showToast('Your cart is empty!', 'error');
         } else {
             showToast('Thank you! Your order has been placed successfully. 🎉');
             cartItems = [];
             localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
             updateCartBadge();
             renderCartSidebar();
+            updateAddToCartButtonsState();
             setTimeout(closeCartSidebar, 1500);
         }
     });
 
-    document.querySelectorAll('#wishlistBtn, .wishlist-btn-circle').forEach(btn => {
+    document.querySelectorAll('#loginBtn, .user-login-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            btn.classList.toggle('active');
-            const isFav = btn.classList.contains('active');
-            showToast(isFav ? 'Added to Wishlist ❤️' : 'Removed from Wishlist');
+            const user = JSON.parse(localStorage.getItem('shopease_user') || 'null');
+            if (user && user.name) {
+                localStorage.removeItem('shopease_user');
+                showToast('You have logged out.');
+                updateUserUI();
+            } else {
+                openAuthModal();
+            }
         });
     });
-
-    document.getElementById('loginBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('Login & Registration feature coming soon!');
-    });
 })();
-
-/* ---------- Init ---------- */
-updateCartBadge();
-document.addEventListener('DOMContentLoaded', () => { 
-    if (window.lucide) lucide.createIcons(); 
-    updateCartBadge();
-    if (typeof updateFilterCounts === 'function') updateFilterCounts();
-});
-
 
 /* ---------- Dynamic Sidebar Filter Counters ---------- */
 function updateFilterCounts() {
@@ -3085,3 +3323,16 @@ function updateFilterCounts() {
         }
     });
 }
+
+/* ---------- Init Application ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartBadge();
+    updateWishlistBadges();
+    initAuthModal();
+    updateUserUI();
+    updateAddToCartButtonsState();
+    if (typeof updateFilterCounts === 'function') updateFilterCounts();
+    if (window.lucide) lucide.createIcons();
+});
+
+

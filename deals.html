@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ShopEase Deals - Discover top picks, flash sales, and exclusive deals.">
-    <title>ShopEase</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta name="description" content="ShopEase Flash Sale &amp; Deals - Unmissable discounts up to 50% off on top-selling food, coffee, skincare, and tech gadgets. Updated daily with 7-day countdown.">
+    <meta property="og:title" content="Exclusive Flash Deals - ShopEase">
+    <meta property="og:description" content="Save big on premium instant coffee, chocolates, luxury perfumes, and electronics. Exclusive limited-time discounts on ShopEase.">
+    <meta property="og:image" content="Assets/Logo%20ShopEase.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shopease.com/deals.html">
+    <link rel="canonical" href="https://shopease.com/deals.html">
+    <title>Hot Deals &amp; Flash Sales - ShopEase</title>
     <link rel="icon" type="image/png" href="Assets/Logo%20ShopEase(logo%20without%20text).png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
 </head>
 
 <body>
@@ -735,15 +741,13 @@
             <div class="footer-bottom-inner">
                 <p class="copyright">&copy; 2026 ShopEase. All Rights Reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms &amp; Conditions</a>
-                    <a href="#">Cookies Policy</a>
+                    <a href="#" data-action="open-policy" data-policy="privacy">Privacy Policy</a>
+                    <a href="#" data-action="open-policy" data-policy="terms">Terms &amp; Conditions</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    
     <!-- Toast Notification -->
     <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
@@ -783,16 +787,61 @@
             <a href="shop.html" class="mobile-menu-link">Shop</a>
             <a href="deals.html" class="mobile-menu-link active">Deals</a>
             <div class="mobile-cat-header">Account &amp; Saved</div>
-            <a href="#" class="mobile-menu-link"><i data-lucide="user" width="16" height="16"></i> Login / Register</a>
-            <a href="#" class="mobile-menu-link"><i data-lucide="heart" width="16" height="16"></i> Wishlist</a>
-            <div class="mobile-cat-header">Categories</div>
-            <div class="mobile-cat-list">
-                <a href="shop.html">Sunscreen &amp; Skincare</a>
-                <a href="shop.html">Makeup</a>
-                <a href="shop.html">Hair Care</a>
-                <a href="shop.html">Body Care</a>
-                <a href="shop.html">Fragrance</a>
+            <a href="#" class="mobile-menu-link" data-action="open-auth"><i data-lucide="user" width="16" height="16"></i> Login / Register</a>
+            <a href="#" class="mobile-menu-link" data-action="open-cart"><i data-lucide="shopping-cart" width="16" height="16"></i> Cart</a>
+        </div>
+    </div>
+
+    <!-- Auth Modal (Login / Register) -->
+    <div class="modal-backdrop" id="authModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="glass-modal">
+            <button class="modal-close" data-action="close-auth" aria-label="Close modal">&times;</button>
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="loginTabBtn" type="button">Login</button>
+                <button class="modal-tab" id="registerTabBtn" type="button">Register</button>
             </div>
+            <!-- Login Form -->
+            <form id="loginForm" class="modal-form">
+                <h3 id="authModalTitle">Welcome Back to ShopEase</h3>
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-hero btn-navy" style="width: 100%; border-radius: 25px; margin-top: 10px;">Sign In</button>
+            </form>
+            <!-- Register Form -->
+            <form id="registerForm" class="modal-form" style="display: none;">
+                <h3>Create Your Account</h3>
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" placeholder="John Doe" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" placeholder="name@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="••••••••" required autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn-hero btn-navy" style="width: 100%; border-radius: 25px; margin-top: 10px;">Register Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Policy Modal -->
+    <div class="modal-backdrop" id="policyModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+        <div class="glass-modal">
+            <button class="modal-close" data-action="close-policy" aria-label="Close modal">&times;</button>
+            <h3 id="policyTitle" style="margin-bottom: 16px; color: var(--navy);">Privacy Policy</h3>
+            <div id="policyBody" style="font-size: 14px; color: var(--text-dark); max-height: 350px; overflow-y: auto;">
+                <!-- Dynamically populated by app.js -->
+            </div>
+            <button class="btn-hero btn-navy" data-action="close-policy" style="margin-top: 20px; float: right; padding: 6px 18px; font-size: 13px; border-radius: 20px;">Close</button>
         </div>
     </div>
 
@@ -800,6 +849,9 @@
     <div class="overlay" id="overlay"></div>
 
     <script src="app.js"></script>
+    <script>
+        if (window.lucide) lucide.createIcons();
+    </script>
 </body>
 
 </html>
