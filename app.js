@@ -2242,6 +2242,28 @@ function initAuthModal() {
     if (loginTab) loginTab.addEventListener('click', () => switchTab('login'));
     if (regTab) regTab.addEventListener('click', () => switchTab('register'));
 
+    // Click on backdrop (outside dialog) closes the modal.
+    // Needed because .modal-backdrop sits above #overlay, so overlay clicks never fire while open.
+    authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) closeAuthModal();
+    });
+    const policyModal = document.getElementById('policyModal');
+    if (policyModal && !policyModal._backdropBound) {
+        policyModal._backdropBound = true;
+        policyModal.addEventListener('click', (e) => {
+            if (e.target === policyModal) closePolicyModal();
+        });
+    }
+    if (!document._escModalBound) {
+        document._escModalBound = true;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAuthModal();
+                closePolicyModal();
+            }
+        });
+    }
+
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -2280,27 +2302,52 @@ function initAuthModal() {
 function openAuthModal() {
     const modal = document.getElementById('authModal');
     const overlay = document.getElementById('overlay');
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.style.display = 'flex';
+        // Force reflow so opacity/visibility transition runs (CSS uses .active)
+        void modal.offsetWidth;
+        modal.classList.add('active');
+        if (window.lucide) lucide.createIcons();
+    }
     if (overlay) overlay.classList.add('active');
 }
 
 function closeAuthModal() {
     const modal = document.getElementById('authModal');
     const overlay = document.getElementById('overlay');
-    if (modal) modal.style.display = 'none';
-    if (overlay) overlay.classList.remove('active');
+    if (modal) {
+        modal.classList.remove('active');
+        // Keep display:flex during fade-out, hide after transition
+        clearTimeout(modal._hideTimer);
+        modal._hideTimer = setTimeout(() => {
+            if (!modal.classList.contains('active')) modal.style.display = 'none';
+        }, 260);
+    }
+    // Only remove shared overlay if no other layer needs it
+    const cartOpen = document.getElementById('cartSidebar')?.classList.contains('active');
+    const drawerOpen = document.getElementById('mobileMenuDrawer')?.classList.contains('open');
+    const policyOpen = document.getElementById('policyModal')?.classList.contains('active');
+    if (overlay && !cartOpen && !drawerOpen && !policyOpen) overlay.classList.remove('active');
 }
 
 function updateUserUI() {
     const user = JSON.parse(localStorage.getItem('shopease_user') || 'null');
     const loginBtns = document.querySelectorAll('#loginBtn, .user-login-btn');
     loginBtns.forEach(btn => {
+        const isHeaderIcon = btn.id === 'loginBtn';
         if (user && user.name) {
-            btn.innerHTML = `<i data-lucide="user-check" width="18" height="18"></i> <span>Hi, ${escapeHTML(user.name)}</span>`;
-            btn.title = "Click to Logout";
+            // Header stays icon-only to match wishlist/cart styling; name goes to tooltip
+            btn.innerHTML = isHeaderIcon
+                ? `<i data-lucide="user-check" width="22" height="22"></i>`
+                : `<i data-lucide="user-check" width="18" height="18"></i> <span>Hi, ${escapeHTML(user.name)}</span>`;
+            btn.title = `Hi, ${user.name} (Click to Logout)`;
+            btn.setAttribute('aria-label', `Logged in as ${user.name}. Click to logout`);
         } else {
-            btn.innerHTML = `<i data-lucide="user" width="18" height="18"></i> <span>Login</span>`;
+            btn.innerHTML = isHeaderIcon
+                ? `<i data-lucide="user" width="22" height="22"></i>`
+                : `<i data-lucide="user" width="18" height="18"></i> <span>Login</span>`;
             btn.title = "Login or Register";
+            btn.setAttribute('aria-label', 'Login');
         }
     });
     if (window.lucide) lucide.createIcons();
@@ -2344,14 +2391,25 @@ function openPolicyModal(type = 'privacy') {
     }
 
     modal.style.display = 'flex';
+    void modal.offsetWidth;
+    modal.classList.add('active');
     if (overlay) overlay.classList.add('active');
 }
 
 function closePolicyModal() {
     const modal = document.getElementById('policyModal');
     const overlay = document.getElementById('overlay');
-    if (modal) modal.style.display = 'none';
-    if (overlay) overlay.classList.remove('active');
+    if (modal) {
+        modal.classList.remove('active');
+        clearTimeout(modal._hideTimer);
+        modal._hideTimer = setTimeout(() => {
+            if (!modal.classList.contains('active')) modal.style.display = 'none';
+        }, 260);
+    }
+    const cartOpen = document.getElementById('cartSidebar')?.classList.contains('active');
+    const drawerOpen = document.getElementById('mobileMenuDrawer')?.classList.contains('open');
+    const authOpen = document.getElementById('authModal')?.classList.contains('active');
+    if (overlay && !cartOpen && !drawerOpen && !authOpen) overlay.classList.remove('active');
 }
 
 /* ---------- Testimonial Slider ---------- */
@@ -3128,6 +3186,12 @@ document.addEventListener('click', (e) => {
         if (action === 'close-auth') {
             e.preventDefault();
             closeAuthModal();
+            return;
+        }
+
+        if (action === 'forgot-pass') {
+            e.preventDefault();
+            showToast('Demo Mode: Enter any email & password to log in!');
             return;
         }
 

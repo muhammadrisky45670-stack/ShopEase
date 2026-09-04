@@ -793,55 +793,122 @@
     </div>
 
     <!-- Auth Modal (Login / Register) -->
-    <div class="modal-backdrop" id="authModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-backdrop" id="authModal" style="display: none;" role="dialog" aria-modal="true"
+        aria-labelledby="authModalTitle">
         <div class="glass-modal">
             <button class="modal-close" data-action="close-auth" aria-label="Close modal">&times;</button>
-            <div class="modal-tabs">
-                <button class="modal-tab active" id="loginTabBtn" type="button">Login</button>
-                <button class="modal-tab" id="registerTabBtn" type="button">Register</button>
+            
+            <!-- Brand Header -->
+            <div class="auth-header">
+                <div class="auth-logo-badge">
+                    <img src="Assets/Logo ShopEase(logo without text).png" alt="ShopEase Logo" class="auth-logo-img">
+                </div>
+                <h2 class="auth-brand-title">ShopEase</h2>
+                <p class="auth-brand-subtitle">Your Premium Shopping Destination</p>
             </div>
+
+            <!-- Segmented Tab Switcher -->
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="loginTabBtn" type="button">
+                    <i data-lucide="log-in" width="16" height="16"></i> Login
+                </button>
+                <button class="modal-tab" id="registerTabBtn" type="button">
+                    <i data-lucide="user-plus" width="16" height="16"></i> Register
+                </button>
+            </div>
+
             <!-- Login Form -->
             <form id="loginForm" class="modal-form">
-                <h3 id="authModalTitle">Welcome Back to ShopEase</h3>
+                <h3 id="authModalTitle" class="form-heading">Welcome Back</h3>
+                <p class="form-subheading">Please sign in to access your account &amp; saved cart</p>
+                
                 <div class="form-group">
                     <label for="loginEmail">Email Address</label>
-                    <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email">
+                    <div class="input-icon-wrapper">
+                        <i data-lucide="mail" class="input-icon" width="18" height="18"></i>
+                        <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email" class="modal-input">
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                    <div class="label-row">
+                        <label for="loginPassword">Password</label>
+                        <a href="#" class="forgot-link" data-action="forgot-pass">Forgot?</a>
+                    </div>
+                    <div class="input-icon-wrapper">
+                        <i data-lucide="lock" class="input-icon" width="18" height="18"></i>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password" class="modal-input">
+                    </div>
                 </div>
-                <button type="submit" class="btn-hero btn-navy" style="width: 100%; border-radius: 25px; margin-top: 10px;">Sign In</button>
+
+                <button type="submit" class="auth-submit-btn">
+                    <span>Sign In</span>
+                    <i data-lucide="arrow-right" width="18" height="18"></i>
+                </button>
+
+                <div class="auth-demo-badge">
+                    <i data-lucide="shield-check" width="15" height="15"></i> Demo Mode: Log in instantly with any email
+                </div>
             </form>
+
             <!-- Register Form -->
             <form id="registerForm" class="modal-form" style="display: none;">
-                <h3>Create Your Account</h3>
+                <h3 class="form-heading">Create Account</h3>
+                <p class="form-subheading">Join ShopEase to unlock member deals &amp; perks</p>
+                
                 <div class="form-group">
                     <label for="regName">Full Name</label>
-                    <input type="text" id="regName" placeholder="John Doe" required autocomplete="name">
+                    <div class="input-icon-wrapper">
+                        <i data-lucide="user" class="input-icon" width="18" height="18"></i>
+                        <input type="text" id="regName" placeholder="John Doe" required autocomplete="name" class="modal-input">
+                    </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="regEmail">Email Address</label>
-                    <input type="email" id="regEmail" placeholder="name@example.com" required autocomplete="email">
+                    <div class="input-icon-wrapper">
+                        <i data-lucide="mail" class="input-icon" width="18" height="18"></i>
+                        <input type="email" id="regEmail" placeholder="name@example.com" required autocomplete="email" class="modal-input">
+                    </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="regPassword">Password</label>
-                    <input type="password" id="regPassword" placeholder="••••••••" required autocomplete="new-password">
+                    <div class="input-icon-wrapper">
+                        <i data-lucide="lock" class="input-icon" width="18" height="18"></i>
+                        <input type="password" id="regPassword" placeholder="••••••••" required autocomplete="new-password" class="modal-input">
+                    </div>
                 </div>
-                <button type="submit" class="btn-hero btn-navy" style="width: 100%; border-radius: 25px; margin-top: 10px;">Register Now</button>
+
+                <button type="submit" class="auth-submit-btn">
+                    <span>Create Account</span>
+                    <i data-lucide="user-check" width="18" height="18"></i>
+                </button>
+
+                <div class="auth-demo-badge">
+                    <i data-lucide="shield-check" width="15" height="15"></i> Free Membership • Instant Activation
+                </div>
             </form>
         </div>
     </div>
 
     <!-- Policy Modal -->
-    <div class="modal-backdrop" id="policyModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
-        <div class="glass-modal">
+    <div class="modal-backdrop" id="policyModal" style="display: none;" role="dialog" aria-modal="true"
+        aria-labelledby="policyTitle">
+        <div class="glass-modal policy-modal-box">
             <button class="modal-close" data-action="close-policy" aria-label="Close modal">&times;</button>
-            <h3 id="policyTitle" style="margin-bottom: 16px; color: var(--navy);">Privacy Policy</h3>
-            <div id="policyBody" style="font-size: 14px; color: var(--text-dark); max-height: 350px; overflow-y: auto;">
+            <div class="policy-modal-header">
+                <div class="policy-icon-wrap">
+                    <i data-lucide="file-text" width="22" height="22"></i>
+                </div>
+                <h3 id="policyTitle" class="policy-modal-title">Privacy Policy</h3>
+            </div>
+            <div id="policyBody" class="policy-modal-body">
                 <!-- Dynamically populated by app.js -->
             </div>
-            <button class="btn-hero btn-navy" data-action="close-policy" style="margin-top: 20px; float: right; padding: 6px 18px; font-size: 13px; border-radius: 20px;">Close</button>
+            <div class="policy-modal-footer">
+                <button class="btn-hero btn-navy" data-action="close-policy" style="border-radius: 12px; padding: 10px 24px;">Close</button>
+            </div>
         </div>
     </div>
 
