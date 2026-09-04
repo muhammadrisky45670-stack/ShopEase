@@ -1,6 +1,7 @@
 # IDE & Editor Settings
 .vscode/
 .idea/
+.gitignore
 
 # Scratch & Temporary Files
 scratch/
