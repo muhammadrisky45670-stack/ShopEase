@@ -1,4 +1,4 @@
-# ShopEase - Your Trusted E-Commerce Store ✨
+# ShopEase - Your Trusted E-Commerce Store
 
 Welcome to **ShopEase**, the ultimate destination for premium and reliable products across all categories. We believe that shopping online should be a simple, enjoyable, and rewarding experience. 
 
