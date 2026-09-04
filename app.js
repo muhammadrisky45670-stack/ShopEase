@@ -14,7 +14,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(1420 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_1.jpg", "Assets/Products/prod_1.jpg"],
         description: "Rich, smooth, and full-bodied premium instant coffee crafted with high quality Arabica and Robusta coffee beans.",
         features: [
             "\u2022 Made from selected Arabica & Robusta coffee beans",
@@ -33,7 +33,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(650 Reviews)",
-        images: ["Assets/Tea.jpg", "Assets/Tea.jpg"],
+        images: ["Assets/Products/prod_2.jpg", "Assets/Products/prod_2.jpg"],
         description: "Classic fragrant black tea delicately scented with citrusy bergamot oil.",
         features: [
             "\u2022 Premium loose leaf black tea in convenient tea bags",
@@ -52,7 +52,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(980 Reviews)",
-        images: ["Assets/Chocolate.jpg", "Assets/Chocolate.jpg"],
+        images: ["Assets/Products/prod_3.jpg", "Assets/Products/prod_3.jpg"],
         description: "Whole crunchy hazelnut in the center, delicious creamy hazelnut filling, and crisp wafer shell covered with chocolate.",
         features: [
             "\u2022 Premium golden foil wrapped chocolates",
@@ -71,7 +71,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(510 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_4.jpg", "Assets/Products/prod_4.jpg"],
         description: "Crispy golden corn flakes enriched with essential vitamins and iron for a nutritious family breakfast.",
         features: [
             "\u2022 Made from real sun-ripened corn",
@@ -90,7 +90,7 @@ const productsDB = [
         discount: "22% Off",
         rating: 5,
         reviews: "(430 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_5.jpg", "Assets/Products/prod_5.jpg"],
         description: "Cold-pressed 100% organic extra virgin olive oil ideal for healthy dressing, saut\u00e9ing, and cooking.",
         features: [
             "\u2022 100% Cold pressed first extraction",
@@ -109,7 +109,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(320 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_6.jpg", "Assets/Products/prod_6.jpg"],
         description: "Authentic 100% Italian durum wheat semolina penne pasta crafted for perfect al dente texture.",
         features: [
             "\u2022 Made from 100% Italian durum wheat semolina",
@@ -128,7 +128,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(780 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_7.jpg", "Assets/Products/prod_7.jpg"],
         description: "100% pure unfiltered raw wildflower honey rich in natural enzymes and soothing antibacterial properties.",
         features: [
             "\u2022 Unfiltered raw natural honey",
@@ -147,7 +147,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(590 Reviews)",
-        images: ["Assets/Tea.jpg", "Assets/Tea.jpg"],
+        images: ["Assets/Products/prod_8.jpg", "Assets/Products/prod_8.jpg"],
         description: "First harvest ceremonial grade Japanese green tea matcha powder vibrant green and rich in L-theanine.",
         features: [
             "\u2022 Ceremonial grade 100% Japanese green tea",
@@ -166,7 +166,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(890 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_9.jpg", "Assets/Products/prod_9.jpg"],
         description: "Pure natural spring mineral water sourced from deep mountain springs rich in essential minerals.",
         features: [
             "\u2022 Pure mountain spring water",
@@ -185,7 +185,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(640 Reviews)",
-        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        images: ["Assets/Products/prod_10.jpg", "Assets/Products/prod_10.jpg"],
         description: "Freshly roasted single-origin Arabica coffee beans with notes of dark chocolate and toasted hazelnuts.",
         features: [
             "\u2022 100% Single-origin Arabica coffee beans",
@@ -204,7 +204,7 @@ const productsDB = [
         discount: "12% Off",
         rating: 5,
         reviews: "(1250 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1 gambar kedua.png"],
+        images: ["Assets/Products/prod_11.jpg", "Assets/Products/prod_11.jpg"],
         description: "Lakm\u00e9 Sun Expert SPF 50 PA+++ Ultramatte Lotion provides high protection from UVA & UVB rays.",
         features: [
             "\u2022 Provides high protection from UVA & UVB rays",
@@ -223,7 +223,7 @@ const productsDB = [
         discount: "31% Off",
         rating: 5,
         reviews: "(985 Reviews)",
-        images: ["Assets/Product 2.jpg", "Assets/Product 2 gambar kedua.png"],
+        images: ["Assets/Products/prod_12.jpg", "Assets/Products/prod_12.jpg"],
         description: "Ocean Shield Sunscreen SPF 50 PA+++ is formulated with deep marine minerals to hydrate and shield your skin.",
         features: [
             "\u2022 Marine mineral complex for deep hydration",
@@ -242,7 +242,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(828 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3 gambar kedua.png"],
+        images: ["Assets/Products/prod_13.jpg", "Assets/Products/prod_13.jpg"],
         description: "SUN Protect Cream SPF 50+ offers comprehensive daily sun defense infused with soothing botanical extracts.",
         features: [
             "\u2022 Soothing botanical extract formula",
@@ -261,7 +261,7 @@ const productsDB = [
         discount: "16% Off",
         rating: 5,
         reviews: "(721 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/Products/prod_14.jpg", "Assets/Products/prod_14.jpg"],
         description: "TFIT Tone Up Sun Fluid is a lightweight daily sunscreen with SPF50+ PA++++ for a natural tone-up effect.",
         features: [
             "\u2022 Broad spectrum SPF50+ PA++++",
@@ -280,7 +280,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(495 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/Products/prod_15.jpg", "Assets/Products/prod_15.jpg"],
         description: "Biore UV Aqua Rich Watery Essence features micro defense technology for a weightless, watery veil.",
         features: [
             "\u2022 Micro Defense formula",
@@ -299,7 +299,7 @@ const productsDB = [
         discount: "18% Off",
         rating: 5,
         reviews: "(828 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/Products/prod_16.jpg", "Assets/Products/prod_16.jpg"],
         description: "Concentrated with potent peptides and niacinamide to restore skin barrier health.",
         features: [
             "\u2022 Concentrated peptide complex",
@@ -318,7 +318,7 @@ const productsDB = [
         discount: "36% Off",
         rating: 3,
         reviews: "(721 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Products/prod_17.jpg", "Assets/Products/prod_17.jpg"],
         description: "Lifts stubborn dirt, excess oil, and impurities deep within pores without over-drying.",
         features: [
             "\u2022 Rich dense foam penetrates pores",
@@ -337,7 +337,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(985 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Products/prod_18.jpg", "Assets/Products/prod_18.jpg"],
         description: "Balances pH level and preps skin for subsequent moisturizing steps with pure botanical hydrosols.",
         features: [
             "\u2022 Balances natural pH and calms redness",
@@ -356,7 +356,7 @@ const productsDB = [
         discount: "22% Off",
         rating: 4,
         reviews: "(821 Reviews)",
-        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        images: ["Assets/Products/prod_19.jpg", "Assets/Products/prod_19.jpg"],
         description: "Lakm\u00e9 Soft Skin Body Lotion locks in intense moisture for up to 48 hours, leaving dry skin velvety soft.",
         features: [
             "\u2022 48-hour deep moisture nourishment",
@@ -375,7 +375,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/Products/prod_20.jpg", "Assets/Products/prod_20.jpg"],
         description: "Delicate French rose petal fragrance body mist providing an elegant fresh floral scent all day long.",
         features: [
             "\u2022 Infused with natural French rose essential oil",
@@ -394,7 +394,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(410 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_21.jpg", "Assets/Products/prod_21.jpg"],
         description: "Elegant ceramic bedside table lamp with warm ambient LED light perfect for living room or bedroom decor.",
         features: [
             "\u2022 Handcrafted ceramic base with fabric shade",
@@ -413,7 +413,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(530 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_22.jpg", "Assets/Products/prod_22.jpg"],
         description: "Orthopedic memory foam pillow designed to support neck curve and relieve shoulder pressure during sleep.",
         features: [
             "\u2022 Slow rebound memory foam",
@@ -432,7 +432,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(670 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_23.jpg", "Assets/Products/prod_23.jpg"],
         description: "Fast boiling 1.8 liter stainless steel electric kettle with auto shut-off and boil-dry protection.",
         features: [
             "\u2022 Food grade 304 stainless steel",
@@ -451,7 +451,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(480 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_24.jpg", "Assets/Products/prod_24.jpg"],
         description: "Eco-friendly non-stick ceramic skillet pan set suitable for induction, gas, and electric stovetops.",
         features: [
             "\u2022 100% PFOA-free non-stick ceramic coating",
@@ -470,7 +470,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(360 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_25.jpg", "Assets/Products/prod_25.jpg"],
         description: "Ultra soft fleece velvet throw blanket for sofa, bed, and cozy living room comfort.",
         features: [
             "\u2022 Super soft plush microfiber fleece",
@@ -489,7 +489,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 4,
         reviews: "(290 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_26.jpg", "Assets/Products/prod_26.jpg"],
         description: "Long-lasting essential oil reed diffuser releasing relaxing lavender fragrance up to 90 days.",
         features: [
             "\u2022 Pure natural essential oil blend",
@@ -508,7 +508,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(190 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_27.jpg", "Assets/Products/prod_27.jpg"],
         description: "Mid-century modern round wooden side table with tripod solid oak legs.",
         features: [
             "\u2022 100% Solid natural oak legs",
@@ -527,7 +527,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(410 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_28.jpg", "Assets/Products/prod_28.jpg"],
         description: "Double wall thermal soup thermo jar keeping meals hot up to 12 hours with folding spoon.",
         features: [
             "\u2022 304 Stainless steel interior",
@@ -546,7 +546,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(540 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_29.jpg", "Assets/Products/prod_29.jpg"],
         description: "Sleek silent quartz sweep movement wall clock perfect for office, kitchen, and living room decor.",
         features: [
             "\u2022 Silent sweep non-ticking quartz movement",
@@ -565,7 +565,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(620 Reviews)",
-        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        images: ["Assets/Products/prod_30.jpg", "Assets/Products/prod_30.jpg"],
         description: "Plush 600GSM combed Egyptian cotton oversized bath towels ultra soft and super absorbent.",
         features: [
             "\u2022 100% Combed long-staple Egyptian cotton",
@@ -584,7 +584,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(910 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_31.jpg", "Assets/Products/prod_31.jpg"],
         description: "Immersive wireless over-ear headphones with active noise cancellation and up to 40 hours battery life.",
         features: [
             "\u2022 Hybrid active noise cancelling ANC",
@@ -603,7 +603,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(780 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/Products/prod_32.jpg", "Assets/Products/prod_32.jpg"],
         description: "Feature-rich smartwatch with heart rate monitoring, sleep tracker, 50+ sports modes, and HD AMOLED display.",
         features: [
             "\u2022 1.85 inch HD full touch screen",
@@ -622,7 +622,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(340 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_33.jpg", "Assets/Products/prod_33.jpg"],
         description: "Compact 4K 60fps action camera with electronic image stabilization and 30m underwater housing.",
         features: [
             "\u2022 4K Ultra HD video & 20MP photos",
@@ -641,7 +641,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(890 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/Products/prod_34.jpg", "Assets/Products/prod_34.jpg"],
         description: "High capacity 20,000mAh portable charger with 22.5W fast charging support.",
         features: [
             "\u2022 22.5W Power Delivery PD & QC 3.0",
@@ -660,7 +660,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(270 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/Products/prod_35.jpg", "Assets/Products/prod_35.jpg"],
         description: "Compact home cinema projector supporting 1080P Full HD display with built-in speaker.",
         features: [
             "\u2022 Native 720P supports 1080P Full HD",
@@ -679,7 +679,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Keyboard.jpg", "Assets/Keyboard.jpg"],
+        images: ["Assets/Products/prod_36.jpg", "Assets/Products/prod_36.jpg"],
         description: "Compact 60% mechanical gaming keyboard with hot-swappable tactile red switches and RGB backlighting.",
         features: [
             "\u2022 Hot-swappable linear red mechanical switches",
@@ -698,7 +698,7 @@ const productsDB = [
         discount: "29% Off",
         rating: 4,
         reviews: "(520 Reviews)",
-        images: ["Assets/Keyboard.jpg", "Assets/Keyboard.jpg"],
+        images: ["Assets/Products/prod_37.jpg", "Assets/Products/prod_37.jpg"],
         description: "2.4GHz wireless quiet click mouse with ergonomic contour grip and 1600 DPI optical sensor.",
         features: [
             "\u2022 90% Noise reduction silent click buttons",
@@ -717,7 +717,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_38.jpg", "Assets/Products/prod_38.jpg"],
         description: "Plug and play 1080P HD USB webcam ideal for Zoom meetings, online teaching, and live streaming.",
         features: [
             "\u2022 1080P 30fps HD clear video recording",
@@ -736,7 +736,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(430 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/Products/prod_39.jpg", "Assets/Products/prod_39.jpg"],
         description: "Ultra slim 2TB portable external hard drive with USB 3.0 high-speed data transfer speeds up to 130MB/s.",
         features: [
             "\u2022 Massive 2TB storage capacity",
@@ -755,7 +755,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(390 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/Products/prod_40.jpg", "Assets/Products/prod_40.jpg"],
         description: "2-in-1 Qi fast wireless charger stand for phone and wireless earbuds simultaneously.",
         features: [
             "\u2022 Dual 15W fast wireless charging coils",
@@ -774,7 +774,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_41.jpg", "Assets/Products/prod_41.jpg"],
         description: "Rugged IPX7 waterproof wireless speaker delivering punchy bass, RGB light show, and 18-hour playtime.",
         features: [
             "\u2022 Dual drivers with bass radiator subwoofer",
@@ -793,7 +793,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(740 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_42.jpg", "Assets/Products/prod_42.jpg"],
         description: "Low latency 2.4GHz wireless gaming headset with 7.1 virtual surround sound and detachable mic.",
         features: [
             "\u2022 Ultra low 15ms wireless audio latency",
@@ -812,7 +812,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(430 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_43.jpg", "Assets/Products/prod_43.jpg"],
         description: "Professional USB condenser microphone bundle with adjustable boom arm stand and pop filter.",
         features: [
             "\u2022 192kHz/24bit high sampling rate clarity",
@@ -831,7 +831,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(520 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_44.jpg", "Assets/Products/prod_44.jpg"],
         description: "120W home theater soundbar speaker system with wireless subwoofer and Bluetooth 5.0.",
         features: [
             "\u2022 120W peak power for room-shaking audio",
@@ -850,7 +850,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(850 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_45.jpg", "Assets/Products/prod_45.jpg"],
         description: "TWS bluetooth 5.3 earbuds featuring active noise cancelling and IPX5 sweatproof protection.",
         features: [
             "\u2022 ANC Active noise cancellation up to 30dB",
@@ -869,7 +869,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_46.jpg", "Assets/Products/prod_46.jpg"],
         description: "Active wooden powered bookshelf speakers with silk dome tweeters and Bluetooth wireless connectivity.",
         features: [
             "\u2022 60W RMS total power output",
@@ -888,7 +888,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(490 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_47.jpg", "Assets/Products/prod_47.jpg"],
         description: "All-in-one handheld bluetooth karaoke mic with echo reverb effects and colorful LED light.",
         features: [
             "\u2022 Built-in loud stereo speaker",
@@ -907,7 +907,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(260 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_48.jpg", "Assets/Products/prod_48.jpg"],
         description: "Professional 2x2 USB audio interface preamp for recording guitars, vocals, and instruments.",
         features: [
             "\u2022 High resolution 24-bit/192kHz studio quality",
@@ -926,7 +926,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(480 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_49.jpg", "Assets/Products/prod_49.jpg"],
         description: "Closed-back professional DJ headphones with 50mm neodymium drivers and 90-degree swiveling earcups.",
         features: [
             "\u2022 50mm Neodymium drivers for accurate monitoring",
@@ -945,7 +945,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(670 Reviews)",
-        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        images: ["Assets/Products/prod_50.jpg", "Assets/Products/prod_50.jpg"],
         description: "Pocket-sized 5W bluetooth speaker with integrated carabiner clip for hiking and cycling.",
         features: [
             "\u2022 Crystal clear sound with passive bass radiator",
@@ -964,7 +964,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(640 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_51.jpg", "Assets/Products/prod_51.jpg"],
         description: "Cozy heavyweight 100% combed cotton fleece hoodie with relaxed drop shoulder fit.",
         features: [
             "\u2022 380 GSM ultra-soft heavy fleece fabric",
@@ -983,7 +983,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(390 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_52.jpg", "Assets/Products/prod_52.jpg"],
         description: "Genuine full-grain leather slim wallet equipped with RFID blocking protection for cards and cash.",
         features: [
             "\u2022 Handcrafted 100% genuine leather",
@@ -1002,7 +1002,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(810 Reviews)",
-        images: ["Assets/Sneakers.jpg", "Assets/Sneakers.jpg"],
+        images: ["Assets/Products/prod_53.jpg", "Assets/Products/prod_53.jpg"],
         description: "Classic unisex low-top canvas sneakers featuring vulcanized rubber outsole for durable grip.",
         features: [
             "\u2022 Breathable double-layer canvas upper",
@@ -1021,7 +1021,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 4,
         reviews: "(470 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_54.jpg", "Assets/Products/prod_54.jpg"],
         description: "Flowy chiffon floral printed midi dress with adjustable waist tie and ruffled hem line.",
         features: [
             "\u2022 Lightweight chiffon fabric",
@@ -1040,7 +1040,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(530 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_55.jpg", "Assets/Products/prod_55.jpg"],
         description: "Rugged 100% heavy cotton denim trucker jacket with button-front closure and chest flap pockets.",
         features: [
             "\u2022 Premium 12oz heavy cotton denim",
@@ -1059,7 +1059,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 4,
         reviews: "(380 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_56.jpg", "Assets/Products/prod_56.jpg"],
         description: "Cozy open front cable knit long cardigan sweater with front drop pockets.",
         features: [
             "\u2022 Ultra soft acrylic blend knit yarn",
@@ -1078,7 +1078,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(460 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_57.jpg", "Assets/Products/prod_57.jpg"],
         description: "Trendy square thick frame sunglasses with HD polarized UV protection lenses.",
         features: [
             "\u2022 UV400 Protection against harmful rays",
@@ -1097,7 +1097,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(340 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_58.jpg", "Assets/Products/prod_58.jpg"],
         description: "Dual-sided black and brown reversible leather belt with rotating metal pin buckle.",
         features: [
             "\u2022 100% Full grain top leather",
@@ -1116,7 +1116,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(580 Reviews)",
-        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        images: ["Assets/Products/prod_59.jpg", "Assets/Products/prod_59.jpg"],
         description: "Versatile cotton stretch chino pants featuring 4-pocket styling and comfortable flexible waist.",
         features: [
             "\u2022 98% Premium cotton & 2% elastane stretch",
@@ -1135,7 +1135,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(410 Reviews)",
-        images: ["Assets/Sneakers.jpg", "Assets/Sneakers.jpg"],
+        images: ["Assets/Products/prod_60.jpg", "Assets/Products/prod_60.jpg"],
         description: "Breathable double layer workout shorts with built-in spandex liner and zippered phone pocket.",
         features: [
             "\u2022 Moisture-wicking quick dry fabric",
@@ -1154,7 +1154,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(920 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_61.jpg", "Assets/Products/prod_61.jpg"],
         description: "Water-resistant travel laptop backpack with TSA combination lock and built-in USB charging port.",
         features: [
             "\u2022 Padded compartment fits up to 15.6\" laptop",
@@ -1173,7 +1173,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(580 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_62.jpg", "Assets/Products/prod_62.jpg"],
         description: "Premium TAC polarized aviator sunglasses eliminating glare while providing 100% UV400 protection.",
         features: [
             "\u2022 TAC polarized lenses",
@@ -1192,7 +1192,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 4,
         reviews: "(640 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_63.jpg", "Assets/Products/prod_63.jpg"],
         description: "Multi-compartment gym duffel bag with dedicated shoes pocket and wet/dry separation pouch.",
         features: [
             "\u2022 Ventilated side shoe compartment",
@@ -1211,7 +1211,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_64.jpg", "Assets/Products/prod_64.jpg"],
         description: "Spacious heavy-duty cotton canvas tote bag with inner zippered organizer pockets.",
         features: [
             "\u2022 Thick 16oz durable canvas",
@@ -1230,7 +1230,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(450 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_65.jpg", "Assets/Products/prod_65.jpg"],
         description: "Handcrafted PU leather shoulder crossbody bag with multiple zipper compartments for 11-inch tablet.",
         features: [
             "\u2022 Water-resistant premium PU leather",
@@ -1249,7 +1249,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(310 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_66.jpg", "Assets/Products/prod_66.jpg"],
         description: "Family travel document organizer case with RFID shielding for passports, tickets, and cards.",
         features: [
             "\u2022 RFID Blocking anti-theft fabric",
@@ -1268,7 +1268,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(520 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_67.jpg", "Assets/Products/prod_67.jpg"],
         description: "Durable ABS hardside spinner luggage with 360-degree silent dual wheels and TSA lock.",
         features: [
             "\u2022 Lightweight scratch-resistant ABS shell",
@@ -1287,7 +1287,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_68.jpg", "Assets/Products/prod_68.jpg"],
         description: "Automatic pop-up trigger metal card wallet holding up to 6 credit cards safely.",
         features: [
             "\u2022 One-click instant pop-up mechanism",
@@ -1306,7 +1306,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(410 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_69.jpg", "Assets/Products/prod_69.jpg"],
         description: "Packable water-resistant daypack folds into small inner zipper pouch for easy travel storage.",
         features: [
             "\u2022 Folds into compact sandwich-size pocket pouch",
@@ -1325,7 +1325,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(590 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_70.jpg", "Assets/Products/prod_70.jpg"],
         description: "Slim bounce-free waist bag with earphone jack hole and reflective night safety strip.",
         features: [
             "\u2022 Water-resistant neoprene material",
@@ -1344,7 +1344,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(460 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_71.jpg", "Assets/Products/prod_71.jpg"],
         description: "Tear-free hypoallergenic 2-in-1 baby shampoo and body wash enriched with natural chamomile.",
         features: [
             "\u2022 Tear-free gentle formula",
@@ -1363,7 +1363,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(590 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_72.jpg", "Assets/Products/prod_72.jpg"],
         description: "100-piece natural solid wood geometric block set with non-toxic water-based paints.",
         features: [
             "\u2022 Solid pine wood blocks",
@@ -1382,7 +1382,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_73.jpg", "Assets/Products/prod_73.jpg"],
         description: "One-hand quick fold compact airplane cabin approved toddler stroller.",
         features: [
             "\u2022 One-second automatic folding",
@@ -1401,7 +1401,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(420 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_74.jpg", "Assets/Products/prod_74.jpg"],
         description: "Ultra soft 100% organic cotton short sleeve bodysuit onesies for newborns.",
         features: [
             "\u2022 100% Certified organic cotton",
@@ -1420,7 +1420,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_75.jpg", "Assets/Products/prod_75.jpg"],
         description: "BPA-free natural latch silicone teat feeding bottle with dual anti-colic air vent valve.",
         features: [
             "\u2022 100% BPA, BPS and Phthalate free",
@@ -1439,7 +1439,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(470 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_76.jpg", "Assets/Products/prod_76.jpg"],
         description: "Multifunctional electronic learning cube with drum pads, piano keys, and shape sorters.",
         features: [
             "\u2022 6 Unique play sides (Piano, Gears, Shape Sorter)",
@@ -1458,7 +1458,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(510 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_77.jpg", "Assets/Products/prod_77.jpg"],
         description: "Water-resistant spine protection school bag with reflective safety strips for young kids.",
         features: [
             "\u2022 Ergonomic S-shaped padded shoulder straps",
@@ -1477,7 +1477,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(290 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_78.jpg", "Assets/Products/prod_78.jpg"],
         description: "Soft food grade silicone bibs with deep crumb catcher pouch and adjustable neck buttons.",
         features: [
             "\u2022 100% Food grade soft silicone",
@@ -1496,7 +1496,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(230 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_79.jpg", "Assets/Products/prod_79.jpg"],
         description: "Growing toddler high chair converting from baby feeding seat to booster chair and desk stool.",
         features: [
             "\u2022 3-in-1 Convertible grow-with-me design",
@@ -1515,7 +1515,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(640 Reviews)",
-        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        images: ["Assets/Products/prod_80.jpg", "Assets/Products/prod_80.jpg"],
         description: "Ultra soft fluffy plush teddy bear toy filled with hypoallergenic PP cotton.",
         features: [
             "\u2022 Premium super soft velvet plush outer",
@@ -1534,7 +1534,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(780 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_81.jpg", "Assets/Products/prod_81.jpg"],
         description: "Extra thick 8mm high density TPE yoga mat with alignment guide lines and carrying strap.",
         features: [
             "\u2022 Non-toxic eco-friendly TPE material",
@@ -1553,7 +1553,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(650 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_82.jpg", "Assets/Products/prod_82.jpg"],
         description: "Electroplated chrome adjustable dumbbell set with connector bar to convert into a barbell.",
         features: [
             "\u2022 Chrome electroplated steel weight plates",
@@ -1572,7 +1572,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(490 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_83.jpg", "Assets/Products/prod_83.jpg"],
         description: "Automatic hydraulic popup dome tent with UV protection flysheet and mesh windows.",
         features: [
             "\u2022 3-Second instant automatic popup",
@@ -1591,7 +1591,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 4,
         reviews: "(610 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_84.jpg", "Assets/Products/prod_84.jpg"],
         description: "Double wall vacuum insulated stainless steel canteen keeping drinks cold 24h or hot 12h.",
         features: [
             "\u2022 Double wall 18/8 stainless steel",
@@ -1610,7 +1610,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(430 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_85.jpg", "Assets/Products/prod_85.jpg"],
         description: "Deep tissue trigger point foam roller for back, leg muscle massage and post-workout recovery.",
         features: [
             "\u2022 High density EVA foam construction",
@@ -1629,7 +1629,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(680 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_86.jpg", "Assets/Products/prod_86.jpg"],
         description: "100% Natural latex resistance workout band set with handles, door anchor, and ankle straps.",
         features: [
             "\u2022 5 Color-coded resistance levels (10lbs to 50lbs)",
@@ -1648,7 +1648,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(390 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_87.jpg", "Assets/Products/prod_87.jpg"],
         description: "1000 Lumens 360-degree LED camping light with power bank output for phone emergency charging.",
         features: [
             "\u2022 1000 Lumens 360-degree illumination",
@@ -1667,7 +1667,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(570 Reviews)",
-        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        images: ["Assets/Products/prod_88.jpg", "Assets/Products/prod_88.jpg"],
         description: "Large capacity 40L trekking hiking pack with rain cover and hydration bladder sleeve.",
         features: [
             "\u2022 40L High capacity with MOLLE system",
@@ -1686,7 +1686,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(710 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_89.jpg", "Assets/Products/prod_89.jpg"],
         description: "360-degree ball bearing tangle-free speed skipping rope for cardio double-unders workout.",
         features: [
             "\u2022 360-Degree smooth ball bearing rotation mechanism",
@@ -1705,7 +1705,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(340 Reviews)",
-        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        images: ["Assets/Products/prod_90.jpg", "Assets/Products/prod_90.jpg"],
         description: "Compact folding camp stool chair with side storage pocket and shoulder carry bag.",
         features: [
             "\u2022 Heavy-duty steel frame supports up to 120kg",
@@ -1724,7 +1724,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(730 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_91.jpg", "Assets/Products/prod_91.jpg"],
         description: "High foaming car wash soap infused with carnauba wax for a streak-free brilliant shine finish.",
         features: [
             "\u2022 pH neutral safe for clear coats & ceramic wraps",
@@ -1743,7 +1743,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(580 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_92.jpg", "Assets/Products/prod_92.jpg"],
         description: "Front and rear dual recording dash camera with night vision, G-sensor, and parking monitor.",
         features: [
             "\u2022 Full HD 1080P front & rear camera",
@@ -1762,7 +1762,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(410 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_93.jpg", "Assets/Products/prod_93.jpg"],
         description: "Heavy-duty trimmable waterproof rubber floor mats protecting vehicle carpet from mud and spills.",
         features: [
             "\u2022 Odorless heavy-duty flexible rubber",
@@ -1781,7 +1781,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(520 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_94.jpg", "Assets/Products/prod_94.jpg"],
         description: "Adjustable brass nozzle foam cannon bottle attachment for pressure washers.",
         features: [
             "\u2022 Solid brass core with heavy duty bottle",
@@ -1800,7 +1800,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(640 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_95.jpg", "Assets/Products/prod_95.jpg"],
         description: "800GSM thick plush scratch-free lint-free microfiber detailing towels for car drying.",
         features: [
             "\u2022 800 GSM high density absorbent plush pile",
@@ -1819,7 +1819,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 4,
         reviews: "(490 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_96.jpg", "Assets/Products/prod_96.jpg"],
         description: "Wireless bluetooth in-car FM adapter with hands-free microphone and QC 3.0 fast charging port.",
         features: [
             "\u2022 Bluetooth 5.3 wireless audio streaming",
@@ -1838,7 +1838,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_97.jpg", "Assets/Products/prod_97.jpg"],
         description: "Rechargeable 6000mAh electric air pump compressor with LCD screen and auto shutoff preset.",
         features: [
             "\u2022 150 PSI maximum pressure fast inflation",
@@ -1857,7 +1857,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_98.jpg", "Assets/Products/prod_98.jpg"],
         description: "1200A peak current portable battery jump starter for 6.0L gas and 4.0L diesel engines.",
         features: [
             "\u2022 1200A Peak current starts 12V dead batteries in seconds",
@@ -1876,7 +1876,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(420 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_99.jpg", "Assets/Products/prod_99.jpg"],
         description: "Premium 2-in-1 leather cleaner and restorer protectant against UV cracking and fading.",
         features: [
             "\u2022 Cleans dirt, oil, and grime from leather seats",
@@ -1895,7 +1895,7 @@ const productsDB = [
         discount: "34% Off",
         rating: 5,
         reviews: "(860 Reviews)",
-        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        images: ["Assets/Products/prod_100.jpg", "Assets/Products/prod_100.jpg"],
         description: "Powerful N52 neodymium magnet car phone holder fitting all smartphone models firmly.",
         features: [
             "\u2022 6 Powerful N52 neodymium magnets hold phone firmly",
