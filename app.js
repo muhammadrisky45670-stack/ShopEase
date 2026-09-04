@@ -2585,7 +2585,7 @@ function renderMegaContent(categoryKey) {
         html += `
             <div class="mega-col">
                 <h4 class="mega-col-title">${col.title}</h4>
-                ${col.items.map(item => `<a href="shop.html?search=${encodeURIComponent(item)}">${item}</a>`).join('')}
+                ${col.items.map(item => `<a href="shop.html?category=${encodeURIComponent(categoryKey)}&search=${encodeURIComponent(item)}">${item}</a>`).join('')}
             </div>
         `;
     });
@@ -2639,22 +2639,170 @@ function renderMegaContent(categoryKey) {
     if (searchQuery && searchInput) {
         searchInput.value = searchQuery;
     }
-    
+
+    // Helper map linking subcategory terms to parent category filter value
+    const subcategoryToCategoryMap = {
+        // Food & Beverage
+        'coffee & tea': 'Food & Beverage',
+        'fresh juices': 'Food & Beverage',
+        'soft drinks': 'Food & Beverage',
+        'mineral water': 'Food & Beverage',
+        'energy drinks': 'Food & Beverage',
+        'biscuits & cookies': 'Food & Beverage',
+        'chocolates': 'Food & Beverage',
+        'potato chips': 'Food & Beverage',
+        'dried fruits': 'Food & Beverage',
+        'nuts & seeds': 'Food & Beverage',
+        'cooking oil': 'Food & Beverage',
+        'spices & seasoning': 'Food & Beverage',
+        'pasta & noodles': 'Food & Beverage',
+        'canned food': 'Food & Beverage',
+        'sauces': 'Food & Beverage',
+        'milk & butter': 'Food & Beverage',
+        'cheese & yogurt': 'Food & Beverage',
+        'fresh bakery': 'Food & Beverage',
+        'breakfast cereal': 'Food & Beverage',
+        'tea & herbal teas': 'Food & Beverage',
+        'honey & syrups': 'Food & Beverage',
+
+        // Beauty & Personal Care
+        'sunscreen': 'Beauty & Personal Care',
+        'sunscreen & skincare': 'Beauty & Personal Care',
+        'skincare': 'Beauty & Personal Care',
+        'moisturizers': 'Beauty & Personal Care',
+        'serums': 'Beauty & Personal Care',
+        'cleansers face wash': 'Beauty & Personal Care',
+        'face wash': 'Beauty & Personal Care',
+        'toners': 'Beauty & Personal Care',
+        'body lotion': 'Beauty & Personal Care',
+        'body care': 'Beauty & Personal Care',
+        'makeup': 'Beauty & Personal Care',
+        'hair care': 'Beauty & Personal Care',
+        'fragrance': 'Beauty & Personal Care',
+        "women's perfume": 'Beauty & Personal Care',
+
+        // Home & Living
+        'desk lamps': 'Home & Living',
+        'pillows': 'Home & Living',
+        'cookware': 'Home & Living',
+        'cookware sets': 'Home & Living',
+        'blankets': 'Home & Living',
+        'candles & diffusers': 'Home & Living',
+        'coffee tables': 'Home & Living',
+        'food storage': 'Home & Living',
+        'wall art & clocks': 'Home & Living',
+        'bath towels': 'Home & Living',
+
+        // Electronics
+        'headphones': 'Electronics',
+        'smartphones': 'Electronics',
+        'laptops': 'Electronics',
+        'action cameras': 'Electronics',
+        'smartwatches': 'Electronics',
+        'gaming consoles': 'Electronics',
+        'power banks': 'Electronics',
+        'wireless earbuds': 'Electronics',
+        'tablets': 'Electronics',
+
+        // Audio & Entertainment
+        'bluetooth speakers': 'Audio & Entertainment',
+        'soundbars': 'Audio & Entertainment',
+        'over-ear headphones': 'Audio & Entertainment',
+        'home theater systems': 'Audio & Entertainment',
+        'microphones': 'Audio & Entertainment'
+    };
+
+    // Auto-check parent category checkbox if navigating via subcategory or category parameter
+    let targetCategory = null;
+
     if (categoryQuery) {
-        const cleanQuery = normalize(categoryQuery);
+        targetCategory = categoryQuery;
+    } else if (searchQuery) {
+        const cleanSearch = searchQuery.trim().toLowerCase();
+        if (subcategoryToCategoryMap[cleanSearch]) {
+            targetCategory = subcategoryToCategoryMap[cleanSearch];
+        } else if (typeof productsDB !== 'undefined' && Array.isArray(productsDB)) {
+            const found = productsDB.find(p => 
+                p.name.toLowerCase().includes(cleanSearch) || 
+                p.category.toLowerCase().includes(cleanSearch)
+            );
+            if (found) {
+                targetCategory = found.category;
+            }
+        }
+    }
+
+    if (targetCategory) {
+        const cleanTarget = normalize(targetCategory);
         filterInputs.forEach(cb => {
             if (cb.dataset.type === 'category') {
                 const cleanVal = normalize(cb.value);
-                if (cleanVal === cleanQuery || cleanQuery.includes(cleanVal) || cleanVal.includes(cleanQuery)) {
+                if (cleanVal === cleanTarget || cleanTarget.includes(cleanVal) || cleanVal.includes(cleanTarget)) {
                     cb.checked = true;
                 }
             }
         });
     }
-    
-    if (!products.length) return;
+
+    // Function to update Brand filter options visibility based on checked Categories
+    function updateBrandFilterVisibility() {
+        const categoryCbs = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked'));
+        const selectedCategories = categoryCbs.map(cb => cb.value);
+        const brandCbs = document.querySelectorAll('.filter-cb[data-type="brand"]');
+        
+        if (selectedCategories.length === 0) {
+            // No category selected -> Brand filter list is empty
+            brandCbs.forEach(cb => {
+                cb.checked = false;
+                const label = cb.closest('.filter-label');
+                if (label) label.style.display = 'none';
+            });
+            return;
+        }
+
+        // Collect allowed brands for selected categories
+        const allowedBrands = new Set();
+        const cleanSelectedCats = selectedCategories.map(c => normalize(c));
+
+        if (typeof productsDB !== 'undefined' && Array.isArray(productsDB)) {
+            productsDB.forEach(p => {
+                const cleanCat = normalize(p.category);
+                const matchesCat = cleanSelectedCats.some(sc => cleanCat.includes(sc) || sc.includes(cleanCat));
+                if (matchesCat && p.brand) {
+                    allowedBrands.add(normalize(p.brand));
+                }
+            });
+        }
+
+        products.forEach(card => {
+            const cardCat = normalize(card.dataset.category || '');
+            const cardBrand = card.dataset.brand || '';
+            const matchesCat = cleanSelectedCats.some(sc => cardCat.includes(sc) || sc.includes(cardCat));
+            if (matchesCat && cardBrand) {
+                allowedBrands.add(normalize(cardBrand));
+            }
+        });
+
+        brandCbs.forEach(cb => {
+            const label = cb.closest('.filter-label');
+            const cleanBrandVal = normalize(cb.value);
+            if (allowedBrands.has(cleanBrandVal)) {
+                if (label) label.style.display = 'flex';
+            } else {
+                cb.checked = false; // uncheck hidden brands
+                if (label) label.style.display = 'none';
+            }
+        });
+    }
+
+    if (!products.length) {
+        updateBrandFilterVisibility();
+        return;
+    }
 
     function applyFilters() {
+        updateBrandFilterVisibility();
+
         const selectedCategories = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked')).map(cb => cb.value);
         const selectedBrands = Array.from(document.querySelectorAll('.filter-cb[data-type="brand"]:checked')).map(cb => cb.value);
         const selectedRatings = Array.from(document.querySelectorAll('.filter-cb[data-type="rating"]:checked')).map(cb => cb.value);
