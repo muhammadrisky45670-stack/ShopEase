@@ -3327,3 +3327,30 @@ input.qty-val::-webkit-inner-spin-button {
 .action-icon {
     position: relative;
 }
+
+/* Responsive Modal Adjustments */
+@media (max-width: 480px) {
+    .glass-modal {
+        padding: 24px 20px 20px;
+        max-width: 94%;
+        border-radius: 20px;
+    }
+
+    .auth-header {
+        margin-bottom: 16px;
+    }
+
+    .auth-logo-badge {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 8px;
+    }
+
+    .auth-brand-title {
+        font-size: 20px;
+    }
+
+    .auth-submit-btn {
+        height: 44px;
+    }
+}
