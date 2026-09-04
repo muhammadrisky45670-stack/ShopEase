@@ -2920,26 +2920,43 @@ function renderMegaContent(categoryKey) {
 (function initDealsFilters() {
     const filterBtns = document.querySelectorAll('.deal-filter-btn');
     const dealCards = document.querySelectorAll('.products-section .product-card');
+    const dealSections = document.querySelectorAll('.deals-main .products-section');
     if (!filterBtns.length) return;
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const filterName = btn.textContent.trim().toLowerCase();
+
+            const rawFilter = btn.dataset.filter || btn.textContent.trim();
+            const filterVal = rawFilter.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
             dealCards.forEach(card => {
+                const cardType = (card.dataset.dealType || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
                 const cardCat = (card.dataset.category || '').toLowerCase();
-                const cardDiscount = (card.dataset.discount || '').toLowerCase();
 
-                if (filterName.includes('all') || filterName === 'all deals') {
+                if (filterVal === 'all' || filterVal.includes('all')) {
                     card.style.display = 'flex';
-                } else if (filterName.includes('flash') || filterName.includes('50%')) {
-                    card.style.display = (cardDiscount.includes('50') || cardDiscount.includes('40') || cardDiscount.includes('35')) ? 'flex' : 'none';
                 } else {
-                    card.style.display = cardCat.includes(filterName) ? 'flex' : 'none';
+                    if (cardType === filterVal || cardType.includes(filterVal) || cardCat.includes(filterVal)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 }
             });
+
+            dealSections.forEach(sec => {
+                const cardsInSection = Array.from(sec.querySelectorAll('.product-card'));
+                const visibleInSec = cardsInSection.filter(c => c.style.display !== 'none');
+                
+                if (filterVal === 'all' || filterVal.includes('all')) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = visibleInSec.length > 0 ? 'block' : 'none';
+                }
+            });
+
             showToast(`Filtered deals by: ${btn.textContent.trim()}`);
         });
     });

@@ -2803,3 +2803,43 @@ input.qty-val::-webkit-inner-spin-button {
     outline-offset: 3px;
     border-radius: 12px;
 }
+
+/* Deal Badges */
+.product-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.deal-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.deal-badge.flash-sale {
+    background: linear-gradient(135deg, #ff4500, #ff8c00);
+}
+
+.deal-badge.limited-offer {
+    background: linear-gradient(135deg, #e11d48, #f43f5e);
+}
+
+.deal-badge.bundle-deals {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+}
+
+.deal-badge.buy-1-get-1 {
+    background: linear-gradient(135deg, #059669, #10b981);
+}
