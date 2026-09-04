@@ -2810,7 +2810,7 @@ input.qty-val::-webkit-inner-spin-button {
     border-radius: 12px;
 }
 
-/* Deal Badges */
+/* Deal Badges - Minimalist Dark Glassmorphic Style */
 .product-img-wrap {
     position: relative;
     overflow: hidden;
@@ -2821,31 +2821,47 @@ input.qty-val::-webkit-inner-spin-button {
     top: 10px;
     left: 10px;
     padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #f8fafc;
+    background: rgba(10, 25, 47, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
     z-index: 2;
     letter-spacing: 0.3px;
-    text-transform: uppercase;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
-.deal-badge.flash-sale {
-    background: linear-gradient(135deg, #ff4500, #ff8c00);
+.deal-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.deal-badge.limited-offer {
-    background: linear-gradient(135deg, #e11d48, #f43f5e);
+.deal-badge.flash-sale::before {
+    background-color: #ff9900;
+    box-shadow: 0 0 6px #ff9900;
 }
 
-.deal-badge.bundle-deals {
-    background: linear-gradient(135deg, #0284c7, #2563eb);
+.deal-badge.limited-offer::before {
+    background-color: #f43f5e;
+    box-shadow: 0 0 6px #f43f5e;
 }
 
-.deal-badge.buy-1-get-1 {
-    background: linear-gradient(135deg, #059669, #10b981);
+.deal-badge.bundle-deals::before {
+    background-color: #38bdf8;
+    box-shadow: 0 0 6px #38bdf8;
+}
+
+.deal-badge.buy-1-get-1::before {
+    background-color: #34d399;
+    box-shadow: 0 0 6px #34d399;
 }
