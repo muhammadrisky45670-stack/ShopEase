@@ -144,40 +144,42 @@
         <!-- HERO BANNER -->
         <section class="deals-hero">
             <img src="Assets/DealsHero.png" alt="Summer Flash Sale" class="deals-hero-img">
-            <div class="deals-hero-content">
-                <div class="deals-hero-text">
-                    <h3 class="deals-subtitle">SUMMER FLASH SALE</h3>
-                    <h1 class="deals-title">UP TO<br><span class="highlight-70">70%</span> OFF</h1>
-                    <p class="deals-desc">Big savings on your favorite product.<br>Limited time only!</p>
-                </div>
+            <div class="section-container deals-hero-container">
+                <div class="deals-hero-content">
+                    <div class="deals-hero-text">
+                        <h3 class="deals-subtitle">SUMMER FLASH SALE</h3>
+                        <h1 class="deals-title">UP TO<br><span class="highlight-70">70%</span> OFF</h1>
+                        <p class="deals-desc">Big savings on your favorite product.<br>Limited time only!</p>
+                    </div>
 
-                <!-- Countdown -->
-                <div class="deals-countdown" id="dealsCountdown">
-                    <div class="countdown-item">
-                        <span class="cd-num" id="cdDays">02</span>
-                        <span class="cd-label">days</span>
+                    <!-- Countdown -->
+                    <div class="deals-countdown" id="dealsCountdown">
+                        <div class="countdown-item">
+                            <span class="cd-num" id="cdDays">02</span>
+                            <span class="cd-label">days</span>
+                        </div>
+                        <span class="cd-sep">:</span>
+                        <div class="countdown-item">
+                            <span class="cd-num" id="cdHours">14</span>
+                            <span class="cd-label">hours</span>
+                        </div>
+                        <span class="cd-sep">:</span>
+                        <div class="countdown-item">
+                            <span class="cd-num" id="cdMins">23</span>
+                            <span class="cd-label">mins</span>
+                        </div>
+                        <span class="cd-sep">:</span>
+                        <div class="countdown-item">
+                            <span class="cd-num" id="cdSecs">51</span>
+                            <span class="cd-label">secs</span>
+                        </div>
                     </div>
-                    <span class="cd-sep">:</span>
-                    <div class="countdown-item">
-                        <span class="cd-num" id="cdHours">14</span>
-                        <span class="cd-label">hours</span>
-                    </div>
-                    <span class="cd-sep">:</span>
-                    <div class="countdown-item">
-                        <span class="cd-num" id="cdMins">23</span>
-                        <span class="cd-label">mins</span>
-                    </div>
-                    <span class="cd-sep">:</span>
-                    <div class="countdown-item">
-                        <span class="cd-num" id="cdSecs">51</span>
-                        <span class="cd-label">secs</span>
-                    </div>
-                </div>
 
-                <a href="shop.html" class="shop-now-btn">
-                    Shop Now
-                    <i data-lucide="arrow-right" width="18" height="18" stroke-width="2.5"></i>
-                </a>
+                    <a href="shop.html" class="btn-hero btn-navy shop-now-btn">
+                        Shop Now
+                        <i data-lucide="arrow-right" width="18" height="18" stroke-width="2.5"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -227,10 +229,10 @@
                                 <span class="price-current">Rp119.000</span>
                                 <span class="price-original">Rp159.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=3'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Protect Cream SPF 50+">
                                 Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
@@ -252,10 +254,10 @@
                                 <span class="price-current">Rp89.000</span>
                                 <span class="price-original">Rp129.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=2'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Ocean Shield Sunscreen SPF 50 PA+++">
                                 Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
@@ -277,34 +279,34 @@
                                 <span class="price-current">Rp149.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=4'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Tone Up Sun Fluid SPF50+ PA++++">
                                 Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Product 4 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=3'"
+                    <div class="product-card" onclick="window.location.href='product-detail.html?id=1'"
                         style="cursor: pointer;">
                         <div class="product-img-wrap">
-                            <img src="Assets/Product 3.jpg" alt="SUN Protect Cream" class="product-img" loading="lazy">
+                            <img src="Assets/Product 1.jpg" alt="Lakmé Sun Expert SPF 50" class="product-img" loading="lazy">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">SUN Protect Cream SPF 50+</h3>
+                            <h3 class="product-name">Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion</h3>
                             <div class="product-rating">
                                 <span class="stars">★★★★★</span>
-                                <span class="review-count">(828)</span>
+                                <span class="review-count">(1,240)</span>
                             </div>
                             <div class="product-price">
-                                <span class="price-current">Rp119.000</span>
-                                <span class="price-original">Rp159.000</span>
+                                <span class="price-current">Rp129.000</span>
+                                <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=3'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion">
                                 Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
@@ -320,99 +322,99 @@
                 </div>
                 <div class="products-grid">
                     <!-- Product 1 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=3'"
+                    <div class="product-card" onclick="window.location.href='product-detail.html?id=5'"
                         style="cursor: pointer;">
                         <div class="product-img-wrap">
-                            <img src="Assets/Product 3.jpg" alt="SUN Protect Cream" class="product-img" loading="lazy">
+                            <img src="Assets/Product 5.jpg" alt="Biore UV Aqua Rich Watery Essence" class="product-img" loading="lazy">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">SUN Protect Cream SPF 50+</h3>
+                            <h3 class="product-name">Biore UV Aqua Rich Watery Essence</h3>
                             <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="review-count">(828)</span>
+                                <span class="stars">★★★★☆</span>
+                                <span class="review-count">(495)</span>
                             </div>
                             <div class="product-price">
-                                <span class="price-current">Rp119.000</span>
-                                <span class="price-original">Rp159.000</span>
+                                <span class="price-current">Rp95.000</span>
+                                <span class="price-original">Rp129.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=3'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Biore UV Aqua Rich Watery Essence">
                                 Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Product 2 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=2'"
+                    <div class="product-card" onclick="window.location.href='product-detail.html?id=6'"
                         style="cursor: pointer;">
                         <div class="product-img-wrap">
-                            <img src="Assets/Product 2.jpg" alt="Ocean Shield Sunscreen" class="product-img"
+                            <img src="Assets/Product 6.jpg" alt="TFIT Intensive Repair Serum" class="product-img"
                                 loading="lazy">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">Ocean Shield Sunscreen SPF 50 PA+++</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="review-count">(985)</span>
-                            </div>
-                            <div class="product-price">
-                                <span class="price-current">Rp89.000</span>
-                                <span class="price-original">Rp129.000</span>
-                            </div>
-                            <button onclick="window.location.href='product-detail.html?id=2'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
-                                Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=4'"
-                        style="cursor: pointer;">
-                        <div class="product-img-wrap">
-                            <img src="Assets/Product 4.jpg" alt="TFIT Tone Up Sun Fluid" class="product-img"
-                                loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">TFIT Tone Up Sun Fluid SPF50+ PA++++</h3>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="review-count">(721)</span>
-                            </div>
-                            <div class="product-price">
-                                <span class="price-current">Rp149.000</span>
-                                <span class="price-original">Rp179.000</span>
-                            </div>
-                            <button onclick="window.location.href='product-detail.html?id=4'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
-                                Add to Cart
-                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=3'"
-                        style="cursor: pointer;">
-                        <div class="product-img-wrap">
-                            <img src="Assets/Product 3.jpg" alt="SUN Protect Cream" class="product-img" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">SUN Protect Cream SPF 50+</h3>
+                            <h3 class="product-name">TFIT Intensive Repair Serum</h3>
                             <div class="product-rating">
                                 <span class="stars">★★★★★</span>
                                 <span class="review-count">(828)</span>
                             </div>
                             <div class="product-price">
-                                <span class="price-current">Rp119.000</span>
-                                <span class="price-original">Rp159.000</span>
+                                <span class="price-current">Rp210.000</span>
+                                <span class="price-original">Rp259.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=3'; event.stopPropagation();"
-                                class="add-to-cart-btn deals-add-cart">
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Intensive Repair Serum">
                                 Add to Cart
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html?id=7'"
+                        style="cursor: pointer;">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 7.jpg" alt="Biore Deep Pore Foaming Cleanser" class="product-img"
+                                loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Biore Deep Pore Foaming Cleanser</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★☆☆</span>
+                                <span class="review-count">(721)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp50.000</span>
+                                <span class="price-original">Rp79.000</span>
+                            </div>
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Biore Deep Pore Foaming Cleanser">
+                                Add to Cart
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" onclick="window.location.href='product-detail.html?id=8'"
+                        style="cursor: pointer;">
+                        <div class="product-img-wrap">
+                            <img src="Assets/Product 8.jpg" alt="SUN Refreshing Botanical Toner" class="product-img" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">SUN Refreshing Botanical Toner</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="review-count">(985)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">Rp110.000</span>
+                                <span class="price-original">Rp149.000</span>
+                            </div>
+                            <button onclick="event.stopPropagation();"
+                                class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Refreshing Botanical Toner">
+                                Add to Cart
+                                <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
                     </div>
@@ -557,23 +559,29 @@
     </footer>
 
     
-    <!-- CART SIDEBAR (Reused) -->
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Cart Sidebar -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button class="close-cart" id="closeCartBtn">
+            <h3><i data-lucide="shopping-bag" width="22" height="22"></i> Your Cart</h3>
+            <button class="close-cart" id="closeCartBtn" aria-label="Close Cart">
                 <i data-lucide="x" width="24" height="24"></i>
             </button>
         </div>
         <div class="cart-items" id="cartItemsContainer">
-            <!-- Items injected by app.js -->
+            <!-- Items injected dynamically by app.js -->
         </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
                 <span id="cartTotalPrice">Rp0</span>
             </div>
-            <button class="checkout-btn">Proceed to Checkout</button>
+            <button class="checkout-btn" id="checkoutBtn">
+                Proceed to Checkout
+                <i data-lucide="arrow-right" width="18" height="18"></i>
+            </button>
         </div>
     </div>
 
