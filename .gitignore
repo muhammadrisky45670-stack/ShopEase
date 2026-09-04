@@ -1,0 +1,9 @@
+# IDE & Editor Settings
+.vscode/
+.idea/
+
+# Scratch & Temporary Files
+scratch/
+*.log
+*.tmp
+.DS_Store
