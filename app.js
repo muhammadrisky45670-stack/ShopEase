@@ -6,318 +6,763 @@
 const productsDB = [
     {
         id: 1,
-        name: 'Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion',
-        brand: 'Lakme',
-        priceCurrent: 'Rp129.000',
-        priceOriginal: 'Rp179.000',
-        discount: '12% Off',
+        name: "Nescaf\u00e9 Gold Blend Premium Instant Coffee 200g",
+        brand: "Nescafe",
+        category: "Food & Beverage Beverages Coffee & Tea",
+        priceCurrent: "Rp85.000",
+        priceOriginal: "Rp110.000",
+        discount: "23% Off",
         rating: 5,
-        reviews: '(1250 Reviews)',
-        images: ['Assets/Product 1.jpg', 'Assets/Product 1 gambar kedua.png', 'Assets/Product 1.jpg', 'Assets/Product 1.jpg'],
-        description: 'Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion provides high protection from UVA & UVB rays while keeping your skin matte, fresh, and non-greasy all day long.',
+        reviews: "(1420 Reviews)",
+        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        description: "Rich, smooth, and full-bodied premium instant coffee crafted with high quality Arabica and Robusta coffee beans.",
         features: [
-            '• Provides high protection from UVA & UVB rays',
-            '• Ultramatte finish prevents greasy skin shine',
-            '• Lightweight & quick-absorbing formula',
-            '• Dermatologically tested for daily skin protection'
-        ]
+            "\u2022 Made from selected Arabica & Robusta coffee beans",
+            "\u2022 Smooth crema finish and rich aromatic roast",
+            "\u2022 Quick and convenient premium coffee preparation",
+            "\u2022 Imported 200g glass jar"
+]
     },
     {
         id: 2,
-        name: 'Ocean Shield Sunscreen SPF 50 PA+++',
-        brand: 'Ocean Shield',
-        priceCurrent: 'Rp89.000',
-        priceOriginal: 'Rp129.000',
-        discount: '31% Off',
+        name: "Twinings Earl Grey Tea 50 Tea Bags",
+        brand: "Twinings",
+        category: "Food & Beverage Beverages Coffee & Tea",
+        priceCurrent: "Rp65.000",
+        priceOriginal: "Rp89.000",
+        discount: "27% Off",
         rating: 5,
-        reviews: '(985 Reviews)',
-        images: ['Assets/Product 2.jpg', 'Assets/Product 2 gambar kedua.png', 'Assets/Product 2.jpg', 'Assets/Product 2.jpg'],
-        description: 'Ocean Shield Sunscreen SPF 50 PA+++ is formulated with deep marine minerals to hydrate and shield your skin from sun damage and environmental pollutants.',
+        reviews: "(650 Reviews)",
+        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        description: "Classic fragrant black tea delicately scented with citrusy bergamot oil.",
         features: [
-            '• Marine mineral complex for deep hydration',
-            '• Broad spectrum SPF 50 PA+++ protection',
-            '• Water-resistant for swimming and active outdoor sports',
-            '• Eco-friendly & reef-safe sunscreen formulation'
-        ]
+            "\u2022 Premium loose leaf black tea in convenient tea bags",
+            "\u2022 Distinctive citrus bergamot aroma",
+            "\u2022 Refreshing and uplifting hot or iced",
+            "\u2022 50 individually foil wrapped tea bags"
+]
     },
     {
         id: 3,
-        name: 'SUN Protect Cream SPF 50+',
-        brand: 'SUN',
-        priceCurrent: 'Rp119.000',
-        priceOriginal: 'Rp159.000',
-        discount: '25% Off',
+        name: "Ferrero Rocher Premium Chocolate Box 24 Pcs",
+        brand: "Ferrero Rocher",
+        category: "Food & Beverage Snacks & Sweets Chocolates",
+        priceCurrent: "Rp145.000",
+        priceOriginal: "Rp189.000",
+        discount: "23% Off",
         rating: 5,
-        reviews: '(828 Reviews)',
-        images: ['Assets/Product 3.jpg', 'Assets/Product 3 gambar kedua.png', 'Assets/Product 3.jpg', 'Assets/Product 3.jpg'],
-        description: 'SUN Protect Cream SPF 50+ offers comprehensive daily sun defense infused with soothing botanical extracts to keep skin nourished and calm under sunlight.',
+        reviews: "(980 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        description: "Whole crunchy hazelnut in the center, delicious creamy hazelnut filling, and crisp wafer shell covered with chocolate and gently roasted hazelnut pieces.",
         features: [
-            '• Soothing botanical extract formula',
-            '• High SPF 50+ UVA/UVB defense',
-            '• Prevents premature photo-aging and dark spots',
-            '• Non-comedogenic and gentle on delicate skin'
-        ]
+            "\u2022 Premium golden foil wrapped chocolates",
+            "\u2022 Crunchy hazelnut center coated in smooth chocolate",
+            "\u2022 Perfect luxury gift box for special celebrations",
+            "\u2022 Box of 24 pieces"
+]
     },
     {
         id: 4,
-        name: 'TFIT Tone Up Sun Fluid SPF50+ PA++++',
-        brand: 'TFIT',
-        priceCurrent: 'Rp149.000',
-        priceOriginal: 'Rp179.000',
-        discount: '16% Off',
-        rating: 5,
-        reviews: '(721 Reviews)',
-        images: ['Assets/Product 4.jpg', 'Assets/Product 4.jpg', 'Assets/Product 4.jpg', 'Assets/Product 4.jpg'],
-        description: 'TFIT Tone Up Sun Fluid is a lightweight daily sunscreen with SPF50+ PA++++ that helps protect your skin from harmful UV rays while giving a natural tone-up effect.',
+        name: "Kellogg's Original Corn Flakes Cereal 500g",
+        brand: "Kellogg",
+        category: "Food & Beverage Fresh & Dairy Breakfast Cereal",
+        priceCurrent: "Rp55.000",
+        priceOriginal: "Rp75.000",
+        discount: "26% Off",
+        rating: 4,
+        reviews: "(510 Reviews)",
+        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        description: "Crispy golden corn flakes enriched with essential vitamins and iron for a nutritious family breakfast.",
         features: [
-            '• Provides high protection from UVA & UVB rays',
-            '• Instant tone-up for a brighter and more even skin tone',
-            '• Lightweight, non-greasy, and quick absorbing formula',
-            '• Suitable for all skin types, even sensitive skin'
-        ]
+            "\u2022 Made from real sun-ripened corn",
+            "\u2022 Enriched with 9 essential vitamins & minerals",
+            "\u2022 Low fat & high energy start to your morning",
+            "\u2022 Large 500g family pack"
+]
     },
     {
         id: 5,
-        name: 'Biore UV Aqua Rich Watery Essence',
-        brand: 'Biore',
-        priceCurrent: 'Rp95.000',
-        priceOriginal: 'Rp129.000',
-        discount: '26% Off',
-        rating: 4,
-        reviews: '(495 Reviews)',
-        images: ['Assets/Product 5.jpg', 'Assets/Product 5.jpg', 'Assets/Product 5.jpg', 'Assets/Product 5.jpg'],
-        description: 'Biore UV Aqua Rich Watery Essence features micro defense technology to cover every micro-crevice effortlessly, leaving a weightless, watery veil.',
+        name: "Lakm\u00e9 Sun Expert SPF 50 PA+++ Ultramatte Lotion",
+        brand: "Lakme",
+        category: "Beauty & Personal Care Skin Care Sunscreen",
+        priceCurrent: "Rp129.000",
+        priceOriginal: "Rp179.000",
+        discount: "12% Off",
+        rating: 5,
+        reviews: "(1250 Reviews)",
+        images: ["Assets/Product 1.jpg", "Assets/Product 1 gambar kedua.png"],
+        description: "Lakm\u00e9 Sun Expert SPF 50 PA+++ Ultramatte Lotion provides high protection from UVA & UVB rays while keeping your skin matte, fresh, and non-greasy all day long.",
         features: [
-            '• Micro Defense formula covers micro-crevices seamlessly',
-            '• Infused with Hyaluronic Acid and Royal Jelly Extract',
-            '• Super waterproof & sweat resistant up to 80 minutes',
-            '• Can be used as a smooth primer base under makeup'
-        ]
+            "\u2022 Provides high protection from UVA & UVB rays",
+            "\u2022 Ultramatte finish prevents greasy skin shine",
+            "\u2022 Lightweight & quick-absorbing formula",
+            "\u2022 Dermatologically tested for daily skin protection"
+]
     },
     {
         id: 6,
-        name: 'TFIT Intensive Repair Serum',
-        brand: 'TFIT',
-        priceCurrent: 'Rp210.000',
-        priceOriginal: 'Rp259.000',
-        discount: '18% Off',
+        name: "Ocean Shield Sunscreen SPF 50 PA+++",
+        brand: "Ocean Shield",
+        category: "Beauty & Personal Care Skin Care Sunscreen",
+        priceCurrent: "Rp89.000",
+        priceOriginal: "Rp129.000",
+        discount: "31% Off",
         rating: 5,
-        reviews: '(828 Reviews)',
-        images: ['Assets/Product 6.jpg', 'Assets/Product 6.jpg', 'Assets/Product 6.jpg', 'Assets/Product 6.jpg'],
-        description: 'TFIT Intensive Repair Serum is concentrated with potent peptides and niacinamide to restore skin barrier health and reduce visible signs of fatigue.',
+        reviews: "(985 Reviews)",
+        images: ["Assets/Product 2.jpg", "Assets/Product 2 gambar kedua.png"],
+        description: "Ocean Shield Sunscreen SPF 50 PA+++ is formulated with deep marine minerals to hydrate and shield your skin from sun damage and environmental pollutants.",
         features: [
-            '• Concentrated peptide complex restores moisture barrier',
-            '• Niacinamide targets hyperpigmentation and uneven texture',
-            '• Deeply hydrates and plumps fine lines',
-            '• Fast-absorbing formula suitable for day & night routine'
-        ]
+            "\u2022 Marine mineral complex for deep hydration",
+            "\u2022 Broad spectrum SPF 50 PA+++ protection",
+            "\u2022 Water-resistant for swimming and active outdoor sports",
+            "\u2022 Eco-friendly & reef-safe sunscreen formulation"
+]
     },
     {
         id: 7,
-        name: 'Biore Deep Pore Foaming Cleanser',
-        brand: 'Biore',
-        priceCurrent: 'Rp50.000',
-        priceOriginal: 'Rp79.000',
-        discount: '36% Off',
-        rating: 3,
-        reviews: '(721 Reviews)',
-        images: ['Assets/Product 7.jpg', 'Assets/Product 7.jpg', 'Assets/Product 7.jpg', 'Assets/Product 7.jpg'],
-        description: 'Biore Deep Pore Foaming Cleanser lifts stubborn dirt, excess oil, and impurities deep within pores without over-drying your complexion.',
+        name: "SUN Protect Cream SPF 50+",
+        brand: "SUN",
+        category: "Beauty & Personal Care Skin Care Sunscreen",
+        priceCurrent: "Rp119.000",
+        priceOriginal: "Rp159.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(828 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3 gambar kedua.png"],
+        description: "SUN Protect Cream SPF 50+ offers comprehensive daily sun defense infused with soothing botanical extracts to keep skin nourished and calm under sunlight.",
         features: [
-            '• Rich dense foam penetrates pores deeply',
-            '• Removes excess sebum and daily dirt buildup',
-            '• Leaves skin feeling refreshed, clean, and balanced',
-            '• Gentle formula designed for daily morning and evening use'
-        ]
+            "\u2022 Soothing botanical extract formula",
+            "\u2022 High SPF 50+ UVA/UVB defense",
+            "\u2022 Prevents premature photo-aging and dark spots",
+            "\u2022 Non-comedogenic and gentle on delicate skin"
+]
     },
     {
         id: 8,
-        name: 'SUN Refreshing Botanical Toner',
-        brand: 'SUN',
-        priceCurrent: 'Rp110.000',
-        priceOriginal: 'Rp149.000',
-        discount: '26% Off',
+        name: "Biore UV Aqua Rich Watery Essence",
+        brand: "Biore",
+        category: "Beauty & Personal Care Skin Care Sunscreen Moisturizers",
+        priceCurrent: "Rp95.000",
+        priceOriginal: "Rp129.000",
+        discount: "26% Off",
         rating: 4,
-        reviews: '(985 Reviews)',
-        images: ['Assets/Product 8.jpg', 'Assets/Product 8.jpg', 'Assets/Product 8.jpg', 'Assets/Product 8.jpg'],
-        description: 'SUN Refreshing Botanical Toner balances pH level and preps skin for subsequent moisturizing steps with pure botanical hydrosols.',
+        reviews: "(495 Reviews)",
+        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        description: "Biore UV Aqua Rich Watery Essence features micro defense technology to cover every micro-crevice effortlessly, leaving a weightless, watery veil.",
         features: [
-            '• Balances natural pH and calms skin redness',
-            '• Rich in antioxidants and natural plant extracts',
-            '• Alcohol-free and ultra-hydrating formulation',
-            '• Preps skin to absorb serums and moisturizers efficiently'
-        ]
+            "\u2022 Micro Defense formula covers micro-crevices seamlessly",
+            "\u2022 Infused with Hyaluronic Acid and Royal Jelly Extract",
+            "\u2022 Super waterproof & sweat resistant up to 80 minutes",
+            "\u2022 Can be used as a smooth primer base under makeup"
+]
     },
     {
         id: 9,
-        name: 'Lakmé Soft Skin Body Lotion 500ml',
-        brand: 'Lakme',
-        category: 'Beauty & Personal Care Body Care',
-        priceCurrent: 'Rp155.000',
-        priceOriginal: 'Rp199.000',
-        discount: '22% Off',
-        rating: 4,
-        reviews: '(821 Reviews)',
-        images: ['Assets/Product 9.jpg', 'Assets/Product 9.jpg', 'Assets/Product 9.jpg', 'Assets/Product 9.jpg'],
-        description: 'Lakmé Soft Skin Body Lotion locks in intense moisture for up to 48 hours, leaving dry skin velvety soft, smooth, and delicately scented.',
+        name: "Minimalist Ceramic Table Lamp",
+        brand: "Nordic Light",
+        category: "Home & Living Decor & Lighting Desk Lamps",
+        priceCurrent: "Rp199.000",
+        priceOriginal: "Rp269.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(410 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        description: "Elegant ceramic bedside table lamp with warm ambient LED light perfect for living room or bedroom decor.",
         features: [
-            '• 48-hour deep moisture nourishment',
-            '• Enriched with shea butter and vitamin E',
-            '• Non-sticky lotion absorbs rapidly',
-            '• Generous 500ml family-sized pump bottle'
-        ]
+            "\u2022 Handcrafted ceramic base with fabric shade",
+            "\u2022 Warm 3000K soft eye-care LED lighting",
+            "\u2022 Touch control dimmer switch",
+            "\u2022 Energy efficient low power consumption"
+]
     },
     {
         id: 10,
-        name: 'Nescafé Gold Blend Premium Instant Coffee 200g',
-        brand: 'Nescafe',
-        category: 'Food & Beverage',
-        priceCurrent: 'Rp85.000',
-        priceOriginal: 'Rp110.000',
-        discount: '23% Off',
-        rating: 5,
-        reviews: '(1420 Reviews)',
-        images: ['Assets/Product 1.jpg', 'Assets/Product 1.jpg'],
-        description: 'Rich, smooth, and full-bodied premium instant coffee crafted with high quality Arabica and Robusta coffee beans.',
+        name: "Ergonomic Memory Foam Contour Pillow",
+        brand: "RestEasy",
+        category: "Home & Living Bed & Bath Pillows",
+        priceCurrent: "Rp175.000",
+        priceOriginal: "Rp239.000",
+        discount: "27% Off",
+        rating: 4,
+        reviews: "(530 Reviews)",
+        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        description: "Orthopedic memory foam pillow designed to support neck curve and relieve shoulder pressure during sleep.",
         features: [
-            '• Made from selected Arabica & Robusta coffee beans',
-            '• Smooth crema finish and rich aromatic roast',
-            '• Quick and convenient premium coffee preparation',
-            '• Imported 200g glass jar'
-        ]
+            "\u2022 High density slow rebound memory foam",
+            "\u2022 Breathable hypoallergenic bamboo velvet cover",
+            "\u2022 Ergonomic contour for back and side sleepers",
+            "\u2022 Removable and machine washable zipper cover"
+]
     },
     {
         id: 11,
-        name: 'Twinings Earl Grey Tea 50 Tea Bags',
-        brand: 'Twinings',
-        category: 'Food & Beverage',
-        priceCurrent: 'Rp65.000',
-        priceOriginal: 'Rp89.000',
-        discount: '27% Off',
+        name: "Stainless Steel Electric Water Kettle 1.8L",
+        brand: "TechCook",
+        category: "Home & Living Kitchen & Dining Cookware",
+        priceCurrent: "Rp220.000",
+        priceOriginal: "Rp299.000",
+        discount: "26% Off",
         rating: 5,
-        reviews: '(650 Reviews)',
-        images: ['Assets/Product 2.jpg', 'Assets/Product 2.jpg'],
-        description: 'Classic fragrant black tea delicately scented with citrusy bergamot oil.',
+        reviews: "(670 Reviews)",
+        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        description: "Fast boiling 1.8 liter stainless steel electric kettle with auto shut-off and boil-dry protection.",
         features: [
-            '• Premium loose leaf black tea in convenient tea bags',
-            '• Distinctive citrus bergamot aroma',
-            '• Refreshing and uplifting hot or iced',
-            '• 50 individually foil wrapped tea bags'
-        ]
+            "\u2022 Food grade 304 stainless steel interior",
+            "\u2022 Fast 1500W heating boils water in under 5 minutes",
+            "\u2022 360-degree swivel cordless base",
+            "\u2022 Auto shut-off safety thermal protection"
+]
     },
     {
         id: 12,
-        name: 'Minimalist Ceramic Table Lamp',
-        brand: 'Nordic Light',
-        category: 'Home & Living',
-        priceCurrent: 'Rp199.000',
-        priceOriginal: 'Rp269.000',
-        discount: '26% Off',
+        name: "Non-Stick Ceramic Cookware Frying Pan Set",
+        brand: "ChefChoice",
+        category: "Home & Living Kitchen & Dining Cookware Sets",
+        priceCurrent: "Rp285.000",
+        priceOriginal: "Rp379.000",
+        discount: "24% Off",
         rating: 5,
-        reviews: '(410 Reviews)',
-        images: ['Assets/Product 3.jpg', 'Assets/Product 3.jpg'],
-        description: 'Elegant ceramic bedside table lamp with warm ambient LED light perfect for living room or bedroom decor.',
+        reviews: "(480 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "Eco-friendly non-stick ceramic skillet pan set suitable for induction, gas, and electric stovetops.",
         features: [
-            '• Handcrafted ceramic base with fabric shade',
-            '• Warm 3000K soft eye-care LED lighting',
-            '• Touch control dimmer switch',
-            '• Energy efficient low power consumption'
-        ]
+            "\u2022 100% PFOA and PTFE free non-stick ceramic coating",
+            "\u2022 Heavy-duty induction compatible base",
+            "\u2022 Stay-cool ergonomic heat resistant handle",
+            "\u2022 Easy to clean & dishwasher safe"
+]
     },
     {
         id: 13,
-        name: 'Ergonomic Memory Foam Contour Pillow',
-        brand: 'RestEasy',
-        category: 'Home & Living',
-        priceCurrent: 'Rp175.000',
-        priceOriginal: 'Rp239.000',
-        discount: '27% Off',
-        rating: 4,
-        reviews: '(530 Reviews)',
-        images: ['Assets/Product 4.jpg', 'Assets/Product 4.jpg'],
-        description: 'Orthopedic memory foam pillow designed to support neck curve and relieve shoulder pressure during sleep.',
+        name: "Wireless Active Noise-Cancelling Headphones Pro",
+        brand: "SoundPro",
+        category: "Electronics Audio & Entertainment Headphones",
+        priceCurrent: "Rp499.000",
+        priceOriginal: "Rp699.000",
+        discount: "28% Off",
+        rating: 5,
+        reviews: "(910 Reviews)",
+        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        description: "Immersive wireless over-ear headphones with active noise cancellation and up to 40 hours battery life.",
         features: [
-            '• High density slow rebound memory foam',
-            '• Breathable hypoallergenic bamboo velvet cover',
-            '• Ergonomic contour for back and side sleepers',
-            '• Removable and machine washable zipper cover'
-        ]
+            "\u2022 Hybrid active noise cancelling ANC technology",
+            "\u2022 40mm custom audio drivers for deep bass",
+            "\u2022 40-hour playback with fast USB-C charging",
+            "\u2022 Soft memory foam earcups for all-day comfort"
+]
     },
     {
         id: 14,
-        name: 'Wireless Active Noise-Cancelling Headphones Pro',
-        brand: 'SoundPro',
-        category: 'Electronics Audio & Entertainment',
-        priceCurrent: 'Rp499.000',
-        priceOriginal: 'Rp699.000',
-        discount: '28% Off',
-        rating: 5,
-        reviews: '(910 Reviews)',
-        images: ['Assets/Product 5.jpg', 'Assets/Product 5.jpg'],
-        description: 'Immersive wireless over-ear headphones with active noise cancellation and up to 40 hours battery life.',
+        name: "Smartwatch Series 7 Waterproof",
+        brand: "TechTime",
+        category: "Electronics Mobile & Tablets Smartwatches",
+        priceCurrent: "Rp389.000",
+        priceOriginal: "Rp520.000",
+        discount: "25% Off",
+        rating: 4,
+        reviews: "(780 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "Feature-rich smartwatch with heart rate monitoring, sleep tracker, 50+ sports modes, and HD AMOLED display.",
         features: [
-            '• Hybrid active noise cancelling ANC technology',
-            '• 40mm custom audio drivers for deep bass',
-            '• 40-hour playback with fast USB-C charging',
-            '• Soft memory foam earcups for all-day comfort'
-        ]
+            "\u2022 1.85 inch HD full touch screen",
+            "\u2022 24/7 Heart Rate, SpO2 & Sleep Tracker",
+            "\u2022 IP68 waterproof rating for swimming",
+            "\u2022 Long battery life up to 10 days per charge"
+]
     },
     {
         id: 15,
-        name: 'Smartwatch Series 7 Waterproof',
-        brand: 'TechTime',
-        category: 'Electronics',
-        priceCurrent: 'Rp389.000',
-        priceOriginal: 'Rp520.000',
-        discount: '25% Off',
-        rating: 4,
-        reviews: '(780 Reviews)',
-        images: ['Assets/Product 6.jpg', 'Assets/Product 6.jpg'],
-        description: 'Feature-rich smartwatch with heart rate monitoring, sleep tracker, 50+ sports modes, and HD AMOLED display.',
+        name: "Ultra HD 4K Action Camera Waterproof",
+        brand: "GoCam",
+        category: "Electronics Cameras & Drones Action Cameras",
+        priceCurrent: "Rp599.000",
+        priceOriginal: "Rp799.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(340 Reviews)",
+        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        description: "Compact 4K 60fps action camera with electronic image stabilization and 30m underwater waterproof housing.",
         features: [
-            '• 1.85 inch HD full touch screen',
-            '• 24/7 Heart Rate, SpO2 & Sleep Tracker',
-            '• IP68 waterproof rating for swimming',
-            '• Long battery life up to 10 days per charge'
-        ]
+            "\u2022 4K Ultra HD video recording & 20MP photos",
+            "\u2022 EIS 6-axis gyro image stabilization",
+            "\u2022 Includes 30m waterproof protective case",
+            "\u2022 Dual color screens for easy selfie framing"
+]
     },
     {
         id: 16,
-        name: 'Oversized Premium Cotton Hoodie',
-        brand: 'UrbanStyle',
-        category: 'Fashion',
-        priceCurrent: 'Rp249.000',
-        priceOriginal: 'Rp329.000',
-        discount: '24% Off',
+        name: "Fast Charging 20,000mAh Power Bank",
+        brand: "PowerMax",
+        category: "Electronics Mobile & Tablets Power Banks",
+        priceCurrent: "Rp199.000",
+        priceOriginal: "Rp279.000",
+        discount: "28% Off",
         rating: 5,
-        reviews: '(640 Reviews)',
-        images: ['Assets/Product 7.jpg', 'Assets/Product 7.jpg'],
-        description: 'Cozy heavyweight 100% combed cotton fleece hoodie with relaxed drop shoulder fit.',
+        reviews: "(890 Reviews)",
+        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        description: "High capacity 20,000mAh portable charger with 22.5W fast charging support for smartphones and laptops.",
         features: [
-            '• 380 GSM ultra-soft heavy fleece fabric',
-            '• Double-lined hood with adjustable drawstrings',
-            '• Spacious kangaroo pouch pocket',
-            '• Durable double-stitched seams'
-        ]
+            "\u2022 22.5W Power Delivery PD & QC 3.0 fast charge",
+            "\u2022 Charges up to 3 devices simultaneously",
+            "\u2022 LED digital battery display screen",
+            "\u2022 Multi-protect safety defense against overcharging"
+]
     },
     {
         id: 17,
-        name: 'Leather Minimalist Slim RFID Wallet',
-        brand: 'VogueCraft',
-        category: 'Fashion Bags & Accessories',
-        priceCurrent: 'Rp120.000',
-        priceOriginal: 'Rp165.000',
-        discount: '27% Off',
+        name: "Portable Waterproof Bluetooth Party Speaker",
+        brand: "SoundPro",
+        category: "Audio & Entertainment Speakers Bluetooth Speakers",
+        priceCurrent: "Rp350.000",
+        priceOriginal: "Rp480.000",
+        discount: "27% Off",
         rating: 5,
-        reviews: '(390 Reviews)',
-        images: ['Assets/Product 8.jpg', 'Assets/Product 8.jpg'],
-        description: 'Genuine full-grain leather slim wallet equipped with RFID blocking protection for cards and cash.',
+        reviews: "(610 Reviews)",
+        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        description: "Rugged IPX7 waterproof wireless speaker delivering punchy bass, RGB light show, and 18-hour playtime.",
         features: [
-            '• Handcrafted 100% genuine leather',
-            '• Built-in RFID blocking security shield',
-            '• Holds up to 8 cards plus cash clip',
-            '• Ultra slim profile fits comfortably in front pocket'
-        ]
+            "\u2022 Dual drivers with bass radiator subwoofer",
+            "\u2022 Dynamic beat-synced RGB LED lighting effects",
+            "\u2022 IPX7 fully waterproof outdoor housing",
+            "\u2022 18 hours continuous music playback"
+]
+    },
+    {
+        id: 18,
+        name: "Wireless RGB Gaming Headset 7.1 Surround",
+        brand: "GamePro",
+        category: "Audio & Entertainment Gaming Gaming Headsets",
+        priceCurrent: "Rp420.000",
+        priceOriginal: "Rp550.000",
+        discount: "23% Off",
+        rating: 5,
+        reviews: "(740 Reviews)",
+        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        description: "Low latency 2.4GHz wireless gaming headset with 7.1 virtual surround sound and detachable noise-cancelling mic.",
+        features: [
+            "\u2022 Ultra low 15ms wireless audio latency",
+            "\u2022 7.1 Virtual Surround sound for spatial awareness",
+            "\u2022 Detachable omnidirectional noise reduction mic",
+            "\u2022 Compatible with PC, PS5, Switch, and mobile"
+]
+    },
+    {
+        id: 19,
+        name: "Studio Condenser Microphone Kit with Stand",
+        brand: "AudioTech",
+        category: "Audio & Entertainment Musical Instruments Microphones",
+        priceCurrent: "Rp310.000",
+        priceOriginal: "Rp420.000",
+        discount: "26% Off",
+        rating: 4,
+        reviews: "(430 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        description: "Professional USB condenser microphone bundle with adjustable boom arm stand and pop filter for streaming.",
+        features: [
+            "\u2022 192kHz/24bit high sampling rate clarity",
+            "\u2022 Cardioid polar pattern reduces background noise",
+            "\u2022 Plug and play USB connectivity",
+            "\u2022 Complete set with boom arm, shock mount, pop filter"
+]
+    },
+    {
+        id: 20,
+        name: "Soundbar TV Speaker System with Subwoofer",
+        brand: "SoundPro",
+        category: "Audio & Entertainment Speakers Soundbars",
+        priceCurrent: "Rp650.000",
+        priceOriginal: "Rp899.000",
+        discount: "27% Off",
+        rating: 5,
+        reviews: "(520 Reviews)",
+        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        description: "120W home theater soundbar speaker system with wireless subwoofer and Bluetooth 5.0 connection.",
+        features: [
+            "\u2022 120W peak power for room-shaking audio",
+            "\u2022 3D DSP Equalizer modes for Movies, Music, News",
+            "\u2022 Optical, HDMI ARC, AUX, and Bluetooth 5.0 inputs",
+            "\u2022 Includes wireless remote control"
+]
+    },
+    {
+        id: 21,
+        name: "Oversized Premium Cotton Hoodie",
+        brand: "UrbanStyle",
+        category: "Fashion Men's Clothing Hoodies",
+        priceCurrent: "Rp249.000",
+        priceOriginal: "Rp329.000",
+        discount: "24% Off",
+        rating: 5,
+        reviews: "(640 Reviews)",
+        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        description: "Cozy heavyweight 100% combed cotton fleece hoodie with relaxed drop shoulder fit.",
+        features: [
+            "\u2022 380 GSM ultra-soft heavy fleece fabric",
+            "\u2022 Double-lined hood with adjustable drawstrings",
+            "\u2022 Spacious kangaroo pouch pocket",
+            "\u2022 Durable double-stitched seams"
+]
+    },
+    {
+        id: 22,
+        name: "Leather Minimalist Slim RFID Wallet",
+        brand: "VogueCraft",
+        category: "Fashion Accessories Wallets",
+        priceCurrent: "Rp120.000",
+        priceOriginal: "Rp165.000",
+        discount: "27% Off",
+        rating: 5,
+        reviews: "(390 Reviews)",
+        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        description: "Genuine full-grain leather slim wallet equipped with RFID blocking protection for cards and cash.",
+        features: [
+            "\u2022 Handcrafted 100% genuine leather",
+            "\u2022 Built-in RFID blocking security shield",
+            "\u2022 Holds up to 8 cards plus cash clip",
+            "\u2022 Ultra slim profile fits comfortably in front pocket"
+]
+    },
+    {
+        id: 23,
+        name: "Mens Casual Canvas Low-Top Sneakers",
+        brand: "StreetWear",
+        category: "Fashion Footwear Sneakers",
+        priceCurrent: "Rp299.000",
+        priceOriginal: "Rp399.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(810 Reviews)",
+        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        description: "Classic unisex low-top canvas sneakers featuring vulcanized rubber outsole for durable grip.",
+        features: [
+            "\u2022 Breathable double-layer canvas upper",
+            "\u2022 Cushioned memory foam insoles",
+            "\u2022 Anti-slip waffle pattern rubber outsole",
+            "\u2022 Timeless retro urban design"
+]
+    },
+    {
+        id: 24,
+        name: "Womens Floral Summer Midi Dress",
+        brand: "VogueCraft",
+        category: "Fashion Women's Clothing Dresses",
+        priceCurrent: "Rp215.000",
+        priceOriginal: "Rp285.000",
+        discount: "24% Off",
+        rating: 4,
+        reviews: "(470 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "Flowy chiffon floral printed midi dress with adjustable waist tie and ruffled hem line.",
+        features: [
+            "\u2022 Lightweight & breathable chiffon fabric",
+            "\u2022 Elegant floral print pattern",
+            "\u2022 Flattering A-line silhouette with waist belt",
+            "\u2022 Soft inner lining for complete coverage"
+]
+    },
+    {
+        id: 25,
+        name: "Anti-Theft Laptop Backpack 15.6 Inch",
+        brand: "UrbanStyle",
+        category: "Bags & Accessories Backpacks Laptop Backpacks",
+        priceCurrent: "Rp275.000",
+        priceOriginal: "Rp360.000",
+        discount: "23% Off",
+        rating: 5,
+        reviews: "(920 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "Water-resistant travel laptop backpack with TSA combination lock and built-in USB charging port.",
+        features: [
+            "\u2022 Padded compartment fits up to 15.6 inch laptops",
+            "\u2022 Integrated TSA anti-theft combination lock",
+            "\u2022 External USB charging port pass-through",
+            "\u2022 Water-repellent high density Oxford fabric"
+]
+    },
+    {
+        id: 26,
+        name: "Polarized UV400 Classic Aviator Sunglasses",
+        brand: "VogueCraft",
+        category: "Bags & Accessories Accessories Sunglasses",
+        priceCurrent: "Rp135.000",
+        priceOriginal: "Rp189.000",
+        discount: "28% Off",
+        rating: 5,
+        reviews: "(580 Reviews)",
+        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        description: "Premium TAC polarized aviator sunglasses eliminating glare while providing 100% UV400 sun protection.",
+        features: [
+            "\u2022 Triacetate cellulose TAC polarized lenses",
+            "\u2022 Lightweight alloy metal frame with silicone nose pads",
+            "\u2022 100% UV400 UVA & UVB glare protection",
+            "\u2022 Includes protective hardshell case & cleaning cloth"
+]
+    },
+    {
+        id: 27,
+        name: "Waterproof Travel Duffel & Sports Gym Bag",
+        brand: "ActiveGear",
+        category: "Bags & Accessories Travel & Luggage Duffel Bags",
+        priceCurrent: "Rp189.000",
+        priceOriginal: "Rp250.000",
+        discount: "24% Off",
+        rating: 4,
+        reviews: "(640 Reviews)",
+        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        description: "Multi-compartment gym duffel bag with dedicated shoes pocket and wet/dry separation pouch.",
+        features: [
+            "\u2022 Ventilated side shoe compartment",
+            "\u2022 Waterproof PVC pocket for wet towels & toiletries",
+            "\u2022 Detachable padded shoulder strap",
+            "\u2022 Fits airplane carry-on luggage dimensions"
+]
+    },
+    {
+        id: 28,
+        name: "Womens Canvas Shoulder Tote Bag with Zipper",
+        brand: "VogueCraft",
+        category: "Bags & Accessories Handbags & Totes Tote Bags",
+        priceCurrent: "Rp95.000",
+        priceOriginal: "Rp130.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(380 Reviews)",
+        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        description: "Spacious heavy-duty cotton canvas tote bag with inner zippered organizer pockets.",
+        features: [
+            "\u2022 Thick 16oz durable cotton canvas",
+            "\u2022 Main compartment securely closes with top zipper",
+            "\u2022 Dual reinforced shoulder handles",
+            "\u2022 Fits iPad, books, water bottle, and daily makeup"
+]
+    },
+    {
+        id: 29,
+        name: "Baby Gentle Skincare Shampoo & Body Wash",
+        brand: "BabyGentle",
+        category: "Baby & Kids Baby Care Baby Skincare",
+        priceCurrent: "Rp75.000",
+        priceOriginal: "Rp99.000",
+        discount: "24% Off",
+        rating: 5,
+        reviews: "(460 Reviews)",
+        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        description: "Tear-free hypoallergenic 2-in-1 baby shampoo and body wash enriched with natural chamomile and oat extract.",
+        features: [
+            "\u2022 Pediatrician tested tear-free gentle formula",
+            "\u2022 100% free of parabens, sulfates, and dyes",
+            "\u2022 Enriched with organic chamomile & oat extract",
+            "\u2022 Maintains baby natural skin barrier pH balance"
+]
+    },
+    {
+        id: 30,
+        name: "Educational Wooden Building Blocks Toy Set",
+        brand: "KiddoPlay",
+        category: "Baby & Kids Toys & Games Educational Toys",
+        priceCurrent: "Rp125.000",
+        priceOriginal: "Rp169.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(590 Reviews)",
+        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        description: "100-piece natural solid wood geometric block set with non-toxic water-based paints for creative toddler play.",
+        features: [
+            "\u2022 Crafted from eco-friendly solid pine wood",
+            "\u2022 Non-toxic eco water-based safe paint finishes",
+            "\u2022 Enhances hand-eye coordination & spatial imagination",
+            "\u2022 Includes wooden storage bucket with sorter lid"
+]
+    },
+    {
+        id: 31,
+        name: "Lightweight Foldable Baby Stroller",
+        brand: "BabyGentle",
+        category: "Baby & Kids Nursery & Gear Strollers",
+        priceCurrent: "Rp680.000",
+        priceOriginal: "Rp899.000",
+        discount: "24% Off",
+        rating: 5,
+        reviews: "(310 Reviews)",
+        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        description: "One-hand quick fold compact airplane cabin approved toddler stroller with multi-recline seat.",
+        features: [
+            "\u2022 One-second automatic folding mechanism",
+            "\u2022 Lightweight aluminum alloy frame (only 5.8kg)",
+            "\u2022 Adjustable multi-position reclining seat back",
+            "\u2022 5-point safety harness & shock-absorbing wheels"
+]
+    },
+    {
+        id: 32,
+        name: "Soft Organic Cotton Baby Onesies 3-Pack",
+        brand: "BabyGentle",
+        category: "Baby & Kids Kids Fashion Baby Clothing",
+        priceCurrent: "Rp110.000",
+        priceOriginal: "Rp149.000",
+        discount: "26% Off",
+        rating: 4,
+        reviews: "(420 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        description: "Ultra soft 100% GOTS certified organic cotton short sleeve bodysuit onesies for newborns.",
+        features: [
+            "\u2022 100% Certified organic cotton rib knit",
+            "\u2022 Expandable lap shoulder neckline for easy dressing",
+            "\u2022 Nickel-free bottom snap closures",
+            "\u2022 Super soft on sensitive baby skin"
+]
+    },
+    {
+        id: 33,
+        name: "Non-Slip Thick Eco-Friendly Yoga Mat",
+        brand: "ActiveGear",
+        category: "Sport & Outdoors Fitness & Gym Yoga Mats",
+        priceCurrent: "Rp145.000",
+        priceOriginal: "Rp199.000",
+        discount: "27% Off",
+        rating: 5,
+        reviews: "(780 Reviews)",
+        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        description: "Extra thick 8mm high density TPE yoga mat with alignment guide lines and carrying strap.",
+        features: [
+            "\u2022 Non-toxic eco-friendly TPE material",
+            "\u2022 Double-sided non-slip textured surfaces",
+            "\u2022 Laser engraved body alignment line grid",
+            "\u2022 Free carrying strap included"
+]
+    },
+    {
+        id: 34,
+        name: "Adjustable Dumbbell Weight Set 10kg with Case",
+        brand: "FitGym",
+        category: "Sport & Outdoors Fitness & Gym Dumbbells",
+        priceCurrent: "Rp320.000",
+        priceOriginal: "Rp430.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(650 Reviews)",
+        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        description: "Electroplated chrome adjustable dumbbell set with connector bar to convert into a barbell.",
+        features: [
+            "\u2022 Solid steel electroplated chrome plates",
+            "\u2022 Ergonomic non-slip rubber grip handles",
+            "\u2022 Connecting rod converts dumbbells into barbell",
+            "\u2022 Heavy-duty plastic storage travel box"
+]
+    },
+    {
+        id: 35,
+        name: "Waterproof 4-Person Outdoor Camping Tent",
+        brand: "OutdoorPeak",
+        category: "Sport & Outdoors Camping & Hiking Tents",
+        priceCurrent: "Rp550.000",
+        priceOriginal: "Rp750.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(490 Reviews)",
+        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        description: "Automatic hydraulic popup dome tent with UV protection flysheet and mesh ventilation windows.",
+        features: [
+            "\u2022 3-second instant automatic pop-up setup",
+            "\u2022 3000mm PU waterproof Oxford fabric coating",
+            "\u2022 B3 high density mesh doors prevent mosquitoes",
+            "\u2022 Spacious interior comfortably fits 3-4 adults"
+]
+    },
+    {
+        id: 36,
+        name: "Stainless Steel Vacuum Thermal Water Bottle 1L",
+        brand: "ActiveGear",
+        category: "Sport & Outdoors Camping & Hiking Water Bottles",
+        priceCurrent: "Rp89.000",
+        priceOriginal: "Rp125.000",
+        discount: "28% Off",
+        rating: 4,
+        reviews: "(610 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "Double wall vacuum insulated stainless steel canteen keeping drinks cold 24h or hot 12h.",
+        features: [
+            "\u2022 Double wall 18/8 food grade stainless steel",
+            "\u2022 Keeps beverages cold for 24 hours or piping hot for 12 hours",
+            "\u2022 100% leakproof spout lid with carrying loop",
+            "\u2022 Sweat-free powder coated exterior"
+]
+    },
+    {
+        id: 37,
+        name: "Premium Car Wash Shampoo & Wax Foam 1L",
+        brand: "AutoCare",
+        category: "Automotive Car Care Wash & Wax",
+        priceCurrent: "Rp68.000",
+        priceOriginal: "Rp95.000",
+        discount: "28% Off",
+        rating: 5,
+        reviews: "(730 Reviews)",
+        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        description: "High foaming car wash soap infused with carnauba wax for a streak-free brilliant shine finish.",
+        features: [
+            "\u2022 pH neutral formula safe for all clear coats & ceramic wraps",
+            "\u2022 Rich snow foam lubricates dirt to prevent scratches",
+            "\u2022 Infused with real Brazilian carnauba wax",
+            "\u2022 Concentrated 1000ml bottle"
+]
+    },
+    {
+        id: 38,
+        name: "HD 1080P Dual Car Dash Cam Camera",
+        brand: "TechTime",
+        category: "Automotive Auto Electronics Dash Cams",
+        priceCurrent: "Rp399.000",
+        priceOriginal: "Rp540.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(580 Reviews)",
+        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        description: "Front and rear dual recording dash camera with night vision, G-sensor, and 24-hour parking monitor.",
+        features: [
+            "\u2022 Full HD 1080P front & waterproof rear camera",
+            "\u2022 170-degree ultra wide angle lens",
+            "\u2022 G-sensor emergency collision lock & loop recording",
+            "\u2022 Night vision WDR technology"
+]
+    },
+    {
+        id: 39,
+        name: "Universal All-Weather Rubber Car Floor Mats 4-Piece",
+        brand: "AutoCare",
+        category: "Automotive Interior Accessories Floor Mats",
+        priceCurrent: "Rp185.000",
+        priceOriginal: "Rp249.000",
+        discount: "25% Off",
+        rating: 4,
+        reviews: "(410 Reviews)",
+        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        description: "Heavy-duty trimmable waterproof rubber floor mats protecting vehicle carpet from mud and spills.",
+        features: [
+            "\u2022 Odorless heavy-duty flexible rubber material",
+            "\u2022 Deep dish channels trap water, mud, sand, and snow",
+            "\u2022 Customizable trim lines fit all sedans, SUVs, & trucks",
+            "\u2022 Anti-slip nibbed backing keeps mats securely in place"
+]
+    },
+    {
+        id: 40,
+        name: "High Pressure Car Washer Snow Foam Lance Gun",
+        brand: "AutoCare",
+        category: "Automotive Car Care Wash & Wax",
+        priceCurrent: "Rp149.000",
+        priceOriginal: "Rp199.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(520 Reviews)",
+        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        description: "Adjustable brass nozzle foam cannon bottle attachment for pressure washers to produce thick snow foam.",
+        features: [
+            "\u2022 Solid brass core with heavy duty plastic bottle",
+            "\u2022 Adjustable spray pattern fan & foam concentration knob",
+            "\u2022 1/4 inch quick disconnect fitting",
+            "\u2022 Creates thick dense foam blanket for fast car detailing"
+]
     }
 ];
 
@@ -1012,14 +1457,20 @@ function renderMegaContent(categoryKey) {
     const searchQuery = urlParams.get('search');
     const categoryQuery = urlParams.get('category');
     
+    const normalize = str => (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+
     if (searchQuery && searchInput) {
         searchInput.value = searchQuery;
     }
     
     if (categoryQuery) {
+        const cleanQuery = normalize(categoryQuery);
         filterInputs.forEach(cb => {
-            if (cb.dataset.type === 'category' && cb.value.toLowerCase() === categoryQuery.toLowerCase()) {
-                cb.checked = true;
+            if (cb.dataset.type === 'category') {
+                const cleanVal = normalize(cb.value);
+                if (cleanVal === cleanQuery || cleanQuery.includes(cleanVal) || cleanVal.includes(cleanQuery)) {
+                    cb.checked = true;
+                }
             }
         });
     }
@@ -1027,24 +1478,28 @@ function renderMegaContent(categoryKey) {
     if (!products.length) return;
 
     function applyFilters() {
-        const selectedCategories = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked')).map(cb => cb.value.toLowerCase());
-        const selectedBrands = Array.from(document.querySelectorAll('.filter-cb[data-type="brand"]:checked')).map(cb => cb.value.toLowerCase());
+        const selectedCategories = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked')).map(cb => cb.value);
+        const selectedBrands = Array.from(document.querySelectorAll('.filter-cb[data-type="brand"]:checked')).map(cb => cb.value);
         const selectedRatings = Array.from(document.querySelectorAll('.filter-cb[data-type="rating"]:checked')).map(cb => cb.value);
         const priceRadio = document.querySelector('.filter-cb[data-type="price"]:checked');
         const selectedPrice = priceRadio ? priceRadio.value : null;
-        const currentSearch = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        const currentSearch = searchInput ? searchInput.value.trim() : '';
 
         let visibleCount = 0;
 
         products.forEach(card => {
-            const category = card.dataset.category?.toLowerCase() || '';
-            const brand = card.dataset.brand?.toLowerCase() || '';
+            const category = card.dataset.category || '';
+            const brand = card.dataset.brand || '';
             const rating = card.dataset.rating;
             const price = parseInt(card.dataset.price, 10);
-            const productName = card.querySelector('.product-name')?.textContent.toLowerCase() || '';
+            const productName = card.querySelector('.product-name')?.textContent || '';
 
-            const matchCategory = selectedCategories.length === 0 || selectedCategories.some(c => category.includes(c) || c.includes(category));
-            const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(brand);
+            const matchCategory = selectedCategories.length === 0 || selectedCategories.some(c => {
+                const cleanC = normalize(c);
+                const cleanCat = normalize(category);
+                return cleanCat.includes(cleanC) || cleanC.includes(cleanCat);
+            });
+            const matchBrand = selectedBrands.length === 0 || selectedBrands.some(b => normalize(b) === normalize(brand));
             const matchRating = selectedRatings.length === 0 || selectedRatings.includes(rating);
             
             let matchPrice = true;
@@ -1056,7 +1511,11 @@ function renderMegaContent(categoryKey) {
                 matchPrice = price > 200000;
             }
             
-            const matchSearch = currentSearch === '' || productName.includes(currentSearch) || category.includes(currentSearch);
+            const cleanSearch = normalize(currentSearch);
+            const matchSearch = currentSearch === '' || 
+                normalize(productName).includes(cleanSearch) || 
+                normalize(category).includes(cleanSearch) ||
+                normalize(brand).includes(cleanSearch);
 
             if (matchCategory && matchBrand && matchRating && matchPrice && matchSearch) {
                 card.style.display = '';
