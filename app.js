@@ -956,7 +956,7 @@ function renderMegaContent(categoryKey) {
     const container = document.querySelector('.mega-content');
     if (!container) return;
 
-    const data = megaMenuData[categoryKey] || megaMenuData["beauty-personal-care"];
+    const data = megaMenuData[categoryKey] || megaMenuData["food-beverage"];
     let html = '';
 
     data.columns.forEach(col => {
@@ -972,6 +972,14 @@ function renderMegaContent(categoryKey) {
 }
 
 (function initMegaMenuInteractivity() {
+    const activeLink = document.querySelector('.mega-sidebar .sidebar-link.active');
+    if (activeLink) {
+        const initialKey = activeLink.dataset.category || 'food-beverage';
+        renderMegaContent(initialKey);
+    } else {
+        renderMegaContent('food-beverage');
+    }
+
     document.addEventListener('mouseover', (e) => {
         const link = e.target.closest('.mega-sidebar .sidebar-link');
         if (link) {
