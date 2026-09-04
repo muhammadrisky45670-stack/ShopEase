@@ -2771,7 +2771,7 @@ function renderMegaContent(categoryKey) {
 
 (function initDealsFilters() {
     const filterBtns = document.querySelectorAll('.deal-filter-btn');
-    const dealCards = document.querySelectorAll('.deals-grid .product-card');
+    const dealCards = document.querySelectorAll('.products-section .product-card');
     if (!filterBtns.length) return;
 
     filterBtns.forEach(btn => {
