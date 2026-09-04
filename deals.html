@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="ShopEase Flash Sale &amp; Deals - Unmissable discounts up to 50% off on top-selling food, coffee, skincare, and tech gadgets. Updated daily with 7-day countdown.">
     <meta property="og:title" content="Exclusive Flash Deals - ShopEase">
     <meta property="og:description" content="Save big on premium instant coffee, chocolates, luxury perfumes, and electronics. Exclusive limited-time discounts on ShopEase.">
@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js" integrity="sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="products-grid">
                     <!-- Product 1: Nescafe Coffee -->
-                    <div class="product-card" data-deal-type="flash-sale" data-discount="50%" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=1'" onclick="window.location.href='product-detail.html?id=1'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=1" class="product-card" data-deal-type="flash-sale" data-discount="50%" data-id="1">
                         <div class="product-img-wrap">
                             <span class="deal-badge flash-sale">50% OFF</span>
                             <img src="Assets/Products/prod_1.jpg" alt="Nescafé Gold Blend" class="product-img" loading="lazy">
@@ -228,15 +228,15 @@
                                 <span class="price-current">Rp85.000</span>
                                 <span class="price-original">Rp170.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Nescafé Gold Blend Instant Coffee 200g">
+                            <button type="button" data-action="add-to-cart" data-id="1" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Nescafé Gold Blend Instant Coffee 200g">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 2: AudioTech Headphones -->
-                    <div class="product-card" data-deal-type="flash-sale" data-discount="45%" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=19'" onclick="window.location.href='product-detail.html?id=19'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=19" class="product-card" data-deal-type="flash-sale" data-discount="45%" data-id="19">
                         <div class="product-img-wrap">
                             <span class="deal-badge flash-sale">45% OFF</span>
                             <img src="Assets/Products/prod_19.jpg" alt="AudioTech Wireless Headphones" class="product-img" loading="lazy">
@@ -251,15 +251,15 @@
                                 <span class="price-current">Rp499.000</span>
                                 <span class="price-original">Rp899.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="AudioTech Noise-Cancelling Headphones">
+                            <button type="button" data-action="add-to-cart" data-id="19" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="AudioTech Noise-Cancelling Headphones">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 3: SUN Protect Cream -->
-                    <div class="product-card" data-deal-type="flash-sale" data-discount="35%" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=13'" onclick="window.location.href='product-detail.html?id=13'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=13" class="product-card" data-deal-type="flash-sale" data-discount="35%" data-id="13">
                         <div class="product-img-wrap">
                             <span class="deal-badge flash-sale">35% OFF</span>
                             <img src="Assets/Products/prod_13.jpg" alt="SUN Protect Cream" class="product-img" loading="lazy">
@@ -274,15 +274,15 @@
                                 <span class="price-current">Rp119.000</span>
                                 <span class="price-original">Rp185.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Protect Cream SPF 50+">
+                            <button type="button" data-action="add-to-cart" data-id="13" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Protect Cream SPF 50+">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 4: Ocean Shield Sunscreen -->
-                    <div class="product-card" data-deal-type="flash-sale" data-discount="40%" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=12'" onclick="window.location.href='product-detail.html?id=12'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=12" class="product-card" data-deal-type="flash-sale" data-discount="40%" data-id="12">
                         <div class="product-img-wrap">
                             <span class="deal-badge flash-sale">40% OFF</span>
                             <img src="Assets/Products/prod_12.jpg" alt="Ocean Shield Sunscreen" class="product-img" loading="lazy">
@@ -297,12 +297,12 @@
                                 <span class="price-current">Rp89.000</span>
                                 <span class="price-original">Rp149.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Ocean Shield Sunscreen SPF 50 PA+++">
+                            <button type="button" data-action="add-to-cart" data-id="12" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Ocean Shield Sunscreen SPF 50 PA+++">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -315,7 +315,7 @@
                 </div>
                 <div class="products-grid">
                     <!-- Product 5: Twinings Tea -->
-                    <div class="product-card" data-deal-type="limited-offer" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=2'" onclick="window.location.href='product-detail.html?id=2'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=2" class="product-card" data-deal-type="limited-offer" data-id="2">
                         <div class="product-img-wrap">
                             <span class="deal-badge limited-offer">Limited Offer</span>
                             <img src="Assets/Products/prod_2.jpg" alt="Twinings Earl Grey Tea" class="product-img" loading="lazy">
@@ -330,15 +330,15 @@
                                 <span class="price-current">Rp65.000</span>
                                 <span class="price-original">Rp89.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Twinings Earl Grey Tea 50 Tea Bags">
+                            <button type="button" data-action="add-to-cart" data-id="2" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Twinings Earl Grey Tea 50 Tea Bags">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 6: TechTime Watch -->
-                    <div class="product-card" data-deal-type="limited-offer" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=24'" onclick="window.location.href='product-detail.html?id=24'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=24" class="product-card" data-deal-type="limited-offer" data-id="24">
                         <div class="product-img-wrap">
                             <span class="deal-badge limited-offer">Limited Offer</span>
                             <img src="Assets/Products/prod_24.jpg" alt="TechTime Smart Watch" class="product-img" loading="lazy">
@@ -353,15 +353,15 @@
                                 <span class="price-current">Rp620.000</span>
                                 <span class="price-original">Rp899.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TechTime Smart Fitness Watch Pro">
+                            <button type="button" data-action="add-to-cart" data-id="24" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TechTime Smart Fitness Watch Pro">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 7: Lakme Sun Expert -->
-                    <div class="product-card" data-deal-type="limited-offer" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=11'" onclick="window.location.href='product-detail.html?id=11'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=11" class="product-card" data-deal-type="limited-offer" data-id="11">
                         <div class="product-img-wrap">
                             <span class="deal-badge limited-offer">Limited Offer</span>
                             <img src="Assets/Products/prod_11.jpg" alt="Lakmé Sun Expert SPF 50" class="product-img" loading="lazy">
@@ -376,15 +376,15 @@
                                 <span class="price-current">Rp129.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Lakmé Sun Expert SPF 50 PA+++ Lotion">
+                            <button type="button" data-action="add-to-cart" data-id="11" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Lakmé Sun Expert SPF 50 PA+++ Lotion">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 8: TFIT Sun Fluid -->
-                    <div class="product-card" data-deal-type="limited-offer" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=14'" onclick="window.location.href='product-detail.html?id=14'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=14" class="product-card" data-deal-type="limited-offer" data-id="14">
                         <div class="product-img-wrap">
                             <span class="deal-badge limited-offer">Limited Offer</span>
                             <img src="Assets/Products/prod_14.jpg" alt="TFIT Tone Up Sun Fluid" class="product-img" loading="lazy">
@@ -399,12 +399,12 @@
                                 <span class="price-current">Rp149.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Tone Up Sun Fluid SPF50+ PA++++">
+                            <button type="button" data-action="add-to-cart" data-id="14" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Tone Up Sun Fluid SPF50+ PA++++">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -417,7 +417,7 @@
                 </div>
                 <div class="products-grid">
                     <!-- Product 9: Ferrero Rocher -->
-                    <div class="product-card" data-deal-type="bundle-deals" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=3'" onclick="window.location.href='product-detail.html?id=3'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=3" class="product-card" data-deal-type="bundle-deals" data-id="3">
                         <div class="product-img-wrap">
                             <span class="deal-badge bundle-deals">Bundle Deal</span>
                             <img src="Assets/Products/prod_3.jpg" alt="Ferrero Rocher Box" class="product-img" loading="lazy">
@@ -432,15 +432,15 @@
                                 <span class="price-current">Rp145.000</span>
                                 <span class="price-original">Rp189.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Ferrero Rocher Premium Chocolate Box 24 Pcs">
+                            <button type="button" data-action="add-to-cart" data-id="3" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Ferrero Rocher Premium Chocolate Box 24 Pcs">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 10: Olive Oil -->
-                    <div class="product-card" data-deal-type="bundle-deals" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=5'" onclick="window.location.href='product-detail.html?id=5'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=5" class="product-card" data-deal-type="bundle-deals" data-id="5">
                         <div class="product-img-wrap">
                             <span class="deal-badge bundle-deals">Bundle Deal</span>
                             <img src="Assets/Products/prod_5.jpg" alt="Extra Virgin Olive Oil" class="product-img" loading="lazy">
@@ -455,15 +455,15 @@
                                 <span class="price-current">Rp125.000</span>
                                 <span class="price-original">Rp160.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Organic Extra Virgin Olive Oil 500ml">
+                            <button type="button" data-action="add-to-cart" data-id="5" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Organic Extra Virgin Olive Oil 500ml">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 11: Nordic Light Desk Lamp -->
-                    <div class="product-card" data-deal-type="bundle-deals" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=21'" onclick="window.location.href='product-detail.html?id=21'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=21" class="product-card" data-deal-type="bundle-deals" data-id="21">
                         <div class="product-img-wrap">
                             <span class="deal-badge bundle-deals">Bundle Deal</span>
                             <img src="Assets/Products/prod_21.jpg" alt="Nordic Desk Lamp" class="product-img" loading="lazy">
@@ -478,15 +478,15 @@
                                 <span class="price-current">Rp199.000</span>
                                 <span class="price-original">Rp279.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Nordic Light Modern Ambient Desk Lamp">
+                            <button type="button" data-action="add-to-cart" data-id="21" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Nordic Light Modern Ambient Desk Lamp">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 12: Italian Pasta -->
-                    <div class="product-card" data-deal-type="bundle-deals" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=6'" onclick="window.location.href='product-detail.html?id=6'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=6" class="product-card" data-deal-type="bundle-deals" data-id="6">
                         <div class="product-img-wrap">
                             <span class="deal-badge bundle-deals">Bundle Deal</span>
                             <img src="Assets/Products/prod_6.jpg" alt="Italian Pasta Penne" class="product-img" loading="lazy">
@@ -501,12 +501,12 @@
                                 <span class="price-current">Rp48.000</span>
                                 <span class="price-original">Rp65.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Premium Italian Pasta Penne Rigate 1kg">
+                            <button type="button" data-action="add-to-cart" data-id="6" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Premium Italian Pasta Penne Rigate 1kg">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -519,7 +519,7 @@
                 </div>
                 <div class="products-grid">
                     <!-- Product 13: Biore Aqua Rich -->
-                    <div class="product-card" data-deal-type="buy-1-get-1" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=15'" onclick="window.location.href='product-detail.html?id=15'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=15" class="product-card" data-deal-type="buy-1-get-1" data-id="15">
                         <div class="product-img-wrap">
                             <span class="deal-badge buy-1-get-1">Buy 1 Get 1</span>
                             <img src="Assets/Products/prod_15.jpg" alt="Biore UV Aqua Rich" class="product-img" loading="lazy">
@@ -534,15 +534,15 @@
                                 <span class="price-current">Rp95.000</span>
                                 <span class="price-original">Rp190.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Biore UV Aqua Rich Watery Essence">
+                            <button type="button" data-action="add-to-cart" data-id="15" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Biore UV Aqua Rich Watery Essence">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 14: Wildflower Honey -->
-                    <div class="product-card" data-deal-type="buy-1-get-1" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=7'" onclick="window.location.href='product-detail.html?id=7'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=7" class="product-card" data-deal-type="buy-1-get-1" data-id="7">
                         <div class="product-img-wrap">
                             <span class="deal-badge buy-1-get-1">Buy 1 Get 1</span>
                             <img src="Assets/Products/prod_7.jpg" alt="Pure Wildflower Honey" class="product-img" loading="lazy">
@@ -557,15 +557,15 @@
                                 <span class="price-current">Rp95.000</span>
                                 <span class="price-original">Rp190.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Pure Wildflower Raw Honey 350g">
+                            <button type="button" data-action="add-to-cart" data-id="7" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="Pure Wildflower Raw Honey 350g">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 15: TFIT Repair Serum -->
-                    <div class="product-card" data-deal-type="buy-1-get-1" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=16'" onclick="window.location.href='product-detail.html?id=16'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=16" class="product-card" data-deal-type="buy-1-get-1" data-id="16">
                         <div class="product-img-wrap">
                             <span class="deal-badge buy-1-get-1">Buy 1 Get 1</span>
                             <img src="Assets/Products/prod_16.jpg" alt="TFIT Repair Serum" class="product-img" loading="lazy">
@@ -580,15 +580,15 @@
                                 <span class="price-current">Rp210.000</span>
                                 <span class="price-original">Rp420.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Intensive Repair Serum">
+                            <button type="button" data-action="add-to-cart" data-id="16" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="TFIT Intensive Repair Serum">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product 16: SUN Botanical Toner -->
-                    <div class="product-card" data-deal-type="buy-1-get-1" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=18'" onclick="window.location.href='product-detail.html?id=18'" style="cursor: pointer;">
+                    <a href="product-detail.html?id=18" class="product-card" data-deal-type="buy-1-get-1" data-id="18">
                         <div class="product-img-wrap">
                             <span class="deal-badge buy-1-get-1">Buy 1 Get 1</span>
                             <img src="Assets/Products/prod_18.jpg" alt="SUN Botanical Toner" class="product-img" loading="lazy">
@@ -603,12 +603,12 @@
                                 <span class="price-current">Rp110.000</span>
                                 <span class="price-original">Rp220.000</span>
                             </div>
-                            <button onclick="event.stopPropagation();" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Refreshing Botanical Toner">
+                            <button type="button" data-action="add-to-cart" data-id="18" class="add-to-cart-btn deals-add-cart js-add-to-cart" data-product="SUN Refreshing Botanical Toner">
                                 Add to Cart
                                 <i data-lucide="plus" width="16" height="16" stroke-width="2.5"></i>
                             </button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>

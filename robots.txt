@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shopease.local/sitemap.xml
+Sitemap: https://shopease.com/sitemap.xml

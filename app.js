@@ -1918,6 +1918,31 @@ function escapeHTML(str) {
         .replace(/'/g, '&#039;');
 }
 
+/* ---------- Utility: Quantity Helper (1 - 99 Clamping) ---------- */
+const MIN_QTY = 1;
+const MAX_QTY = 99;
+
+function clampQty(val) {
+    const parsed = parseInt(val, 10);
+    if (isNaN(parsed) || !Number.isSafeInteger(parsed) || parsed < MIN_QTY) {
+        return MIN_QTY;
+    }
+    if (parsed > MAX_QTY) {
+        return MAX_QTY;
+    }
+    return parsed;
+}
+
+/* ---------- Utility: Safe Image Path Helper ---------- */
+function sanitizeImgPath(path) {
+    if (!path || typeof path !== 'string') return 'Assets/Products/prod_1.jpg';
+    const clean = path.trim();
+    if (clean.startsWith('Assets/') || clean.startsWith('https://') || clean.startsWith('data:image/')) {
+        return escapeHTML(clean);
+    }
+    return 'Assets/Products/prod_1.jpg';
+}
+
 /* ---------- Utility: Toast Notification ---------- */
 function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
@@ -1952,14 +1977,19 @@ try {
     if (Array.isArray(raw)) {
         cartItems = raw.map(item => {
             if (typeof item === 'number') return { id: item, qty: 1 };
-            if (typeof item === 'object' && item && item.id) return { id: Number(item.id), qty: Number(item.qty) || 1 };
+            if (typeof item === 'object' && item && item.id) {
+                const id = Number(item.id);
+                const qty = clampQty(item.qty);
+                return id ? { id, qty } : null;
+            }
             if (typeof item === 'string') {
                 const found = productsDB.find(p => p.name.toLowerCase() === item.toLowerCase());
                 return found ? { id: found.id, qty: 1 } : null;
             }
             if (typeof item === 'object' && item && item.name) {
                 const found = productsDB.find(p => p.name.toLowerCase() === item.name.toLowerCase());
-                return found ? { id: found.id, qty: Number(item.qty) || 1 } : null;
+                const qty = clampQty(item.qty);
+                return found ? { id: found.id, qty } : null;
             }
             return null;
         }).filter(Boolean);
@@ -1971,7 +2001,7 @@ try {
 function updateCartBadge() {
     const badge = document.getElementById('cartBadge');
     if (badge) {
-        let count = cartItems.reduce((sum, item) => sum + (item.qty || 1), 0);
+        let count = cartItems.reduce((sum, item) => sum + clampQty(item.qty), 0);
         badge.textContent = count > 99 ? '99+' : count;
     }
 }
@@ -2005,20 +2035,21 @@ function renderCartSidebar() {
             images: ['Assets/Products/prod_1.jpg']
         };
 
-        const qty = item.qty || 1;
+        const qty = clampQty(item.qty);
         const unitPrice = parsePrice(p.priceCurrent);
         const itemTotal = unitPrice * qty;
         grandTotal += itemTotal;
 
-        const img = p.images && p.images[0] ? p.images[0] : 'Assets/Products/prod_1.jpg';
+        const img = p.images && p.images[0] ? sanitizeImgPath(p.images[0]) : 'Assets/Products/prod_1.jpg';
         const safeName = escapeHTML(p.name);
+        const safePrice = escapeHTML(p.priceCurrent);
 
         html += `
             <div class="cart-item">
                 <img src="${img}" alt="${safeName}" class="cart-item-img">
                 <div class="cart-item-info">
                     <div class="cart-item-name" title="${safeName}">${safeName}</div>
-                    <div class="cart-item-price">${p.priceCurrent}</div>
+                    <div class="cart-item-price">${safePrice}</div>
                     <div class="cart-item-qty">
                         <button data-action="change-qty" data-index="${idx}" data-delta="-1" aria-label="Decrease quantity">-</button>
                         <span>${qty}</span>
@@ -2054,9 +2085,12 @@ function closeCartSidebar() {
 
 function changeCartQty(index, delta) {
     if (index >= 0 && index < cartItems.length) {
-        cartItems[index].qty = (cartItems[index].qty || 1) + delta;
-        if (cartItems[index].qty <= 0) {
+        let currentQty = cartItems[index].qty || 1;
+        let newQty = currentQty + delta;
+        if (newQty <= 0) {
             cartItems.splice(index, 1);
+        } else {
+            cartItems[index].qty = clampQty(newQty);
         }
         localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
         updateCartBadge();
@@ -2090,6 +2124,7 @@ function toggleCartItem(productIdOrName, btn, qty = 1) {
 
     if (!pid) return;
 
+    const safeQty = clampQty(qty);
     const p = productsDB.find(prod => prod.id === pid);
     const productName = p ? p.name : `Product #${pid}`;
 
@@ -2099,8 +2134,8 @@ function toggleCartItem(productIdOrName, btn, qty = 1) {
         cartItems.splice(index, 1);
         showToast(`"${productName}" removed from cart.`);
     } else {
-        cartItems.push({ id: pid, qty: qty });
-        showToast(`${qty}x "${productName}" added to cart! 🎉`);
+        cartItems.push({ id: pid, qty: safeQty });
+        showToast(`${safeQty}x "${productName}" added to cart! 🎉`);
     }
 
     localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
@@ -3212,6 +3247,28 @@ document.addEventListener('click', (e) => {
             thumbWrap.classList.add('active');
         }
         return;
+    }
+
+    // Product Card Navigation Delegation (No inline onclick needed!)
+    const card = e.target.closest('.product-card, .shop-product');
+    if (card && !e.target.closest('button, a, input, label, [data-action]')) {
+        const rawId = card.dataset.id;
+        let pid = parseInt(rawId, 10);
+        if (!pid) {
+            const addBtn = card.querySelector('[data-product], [data-id], .js-add-to-cart');
+            if (addBtn) {
+                const val = addBtn.dataset.id || addBtn.dataset.product;
+                pid = parseInt(val, 10);
+                if (isNaN(pid) && val && typeof productsDB !== 'undefined') {
+                    const found = productsDB.find(p => p.name.toLowerCase() === val.toLowerCase());
+                    if (found) pid = found.id;
+                }
+            }
+        }
+        if (pid) {
+            window.location.href = `product-detail.html?id=${encodeURIComponent(pid)}`;
+            return;
+        }
     }
 });
 

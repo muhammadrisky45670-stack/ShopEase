@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="Explore ShopEase Catalog - Browse over 100 authentic products across Food & Beverage, Beauty, Skincare, Home & Living, Electronics, and Fashion. Filter by category, brand, and price.">
     <meta property="og:title" content="Shop Catalog - ShopEase">
     <meta property="og:description" content="Browse and filter 100+ authentic products with real customer ratings, fast delivery, and discounted prices.">
@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js" integrity="sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -358,8 +358,7 @@
                     <div class="shop-main">
                         <div class="products-grid" id="shopProductsGrid">
                             <!-- Product 1 -->
-                            <div onclick="window.location.href='product-detail.html?id=1'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Food & Beverage Beverages Coffee & Tea"
+                            <a href="product-detail.html?id=1" class="product-card shop-product" data-id="1" data-category="Food & Beverage Beverages Coffee & Tea"
                                 data-price="85000" data-brand="Nescafe" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_1.jpg" alt="Nescafé Gold Blend Premium Instant Coffee 200g"
@@ -375,17 +374,11 @@
                                         <span class="price-current">Rp85.000</span>
                                         <span class="price-original">Rp110.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=1'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 2 -->
-                            <div onclick="window.location.href='product-detail.html?id=2'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Food & Beverage Beverages Coffee & Tea"
+                            <a href="product-detail.html?id=2" class="product-card shop-product" data-id="2" data-category="Food & Beverage Beverages Coffee & Tea"
                                 data-price="65000" data-brand="Twinings" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_2.jpg" alt="Twinings Earl Grey Tea 50 Tea Bags"
@@ -401,17 +394,11 @@
                                         <span class="price-current">Rp65.000</span>
                                         <span class="price-original">Rp89.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=2'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 3 -->
-                            <div onclick="window.location.href='product-detail.html?id=3'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=3" class="product-card shop-product" data-id="3"
                                 data-category="Food & Beverage Snacks & Sweets Chocolates" data-price="145000"
                                 data-brand="Ferrero Rocher" data-rating="5">
                                 <div class="product-img-wrap">
@@ -428,17 +415,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp189.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=3'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 4 -->
-                            <div onclick="window.location.href='product-detail.html?id=4'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=4" class="product-card shop-product" data-id="4"
                                 data-category="Food & Beverage Fresh & Dairy Breakfast Cereal" data-price="55000"
                                 data-brand="Kellogg" data-rating="4">
                                 <div class="product-img-wrap">
@@ -455,17 +436,11 @@
                                         <span class="price-current">Rp55.000</span>
                                         <span class="price-original">Rp75.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=4'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 5 -->
-                            <div onclick="window.location.href='product-detail.html?id=5'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=5" class="product-card shop-product" data-id="5"
                                 data-category="Food & Beverage Pantry & Cooking Cooking Oil" data-price="125000"
                                 data-brand="PantryGold" data-rating="5">
                                 <div class="product-img-wrap">
@@ -482,17 +457,11 @@
                                         <span class="price-current">Rp125.000</span>
                                         <span class="price-original">Rp160.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=5'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 6 -->
-                            <div onclick="window.location.href='product-detail.html?id=6'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=6" class="product-card shop-product" data-id="6"
                                 data-category="Food & Beverage Pantry & Cooking Pasta & Noodles" data-price="48000"
                                 data-brand="PantryGold" data-rating="4">
                                 <div class="product-img-wrap">
@@ -509,17 +478,11 @@
                                         <span class="price-current">Rp48.000</span>
                                         <span class="price-original">Rp65.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=6'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 7 -->
-                            <div onclick="window.location.href='product-detail.html?id=7'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=7" class="product-card shop-product" data-id="7"
                                 data-category="Food & Beverage Pantry & Cooking Honey & Syrups" data-price="95000"
                                 data-brand="PantryGold" data-rating="5">
                                 <div class="product-img-wrap">
@@ -536,17 +499,11 @@
                                         <span class="price-current">Rp95.000</span>
                                         <span class="price-original">Rp130.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=7'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 8 -->
-                            <div onclick="window.location.href='product-detail.html?id=8'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=8" class="product-card shop-product" data-id="8"
                                 data-category="Food & Beverage Beverages Tea & Herbal Teas" data-price="155000"
                                 data-brand="Twinings" data-rating="5">
                                 <div class="product-img-wrap">
@@ -563,17 +520,11 @@
                                         <span class="price-current">Rp155.000</span>
                                         <span class="price-original">Rp210.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=8'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 9 -->
-                            <div onclick="window.location.href='product-detail.html?id=9'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=9" class="product-card shop-product" data-id="9"
                                 data-category="Food & Beverage Beverages Mineral Water" data-price="35000"
                                 data-brand="PantryGold" data-rating="5">
                                 <div class="product-img-wrap">
@@ -590,17 +541,11 @@
                                         <span class="price-current">Rp35.000</span>
                                         <span class="price-original">Rp48.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=9'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 10 -->
-                            <div onclick="window.location.href='product-detail.html?id=10'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Food & Beverage Beverages Coffee & Tea"
+                            <a href="product-detail.html?id=10" class="product-card shop-product" data-id="10" data-category="Food & Beverage Beverages Coffee & Tea"
                                 data-price="210000" data-brand="Nescafe" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_10.jpg" alt="Premium Whole Bean Arabica Dark Roast Coffee 1kg"
@@ -616,17 +561,11 @@
                                         <span class="price-current">Rp210.000</span>
                                         <span class="price-original">Rp280.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=10'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 11 -->
-                            <div onclick="window.location.href='product-detail.html?id=11'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=11" class="product-card shop-product" data-id="11"
                                 data-category="Beauty & Personal Care Skin Care Sunscreen" data-price="129000"
                                 data-brand="Lakme" data-rating="5">
                                 <div class="product-img-wrap">
@@ -644,17 +583,11 @@
                                         <span class="price-current">Rp129.000</span>
                                         <span class="price-original">Rp179.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=11'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 12 -->
-                            <div onclick="window.location.href='product-detail.html?id=12'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=12" class="product-card shop-product" data-id="12"
                                 data-category="Beauty & Personal Care Skin Care Sunscreen" data-price="89000"
                                 data-brand="Ocean Shield" data-rating="5">
                                 <div class="product-img-wrap">
@@ -671,17 +604,11 @@
                                         <span class="price-current">Rp89.000</span>
                                         <span class="price-original">Rp129.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=12'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 13 -->
-                            <div onclick="window.location.href='product-detail.html?id=13'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=13" class="product-card shop-product" data-id="13"
                                 data-category="Beauty & Personal Care Skin Care Sunscreen" data-price="119000"
                                 data-brand="SUN" data-rating="5">
                                 <div class="product-img-wrap">
@@ -698,17 +625,11 @@
                                         <span class="price-current">Rp119.000</span>
                                         <span class="price-original">Rp159.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=13'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 14 -->
-                            <div onclick="window.location.href='product-detail.html?id=14'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=14" class="product-card shop-product" data-id="14"
                                 data-category="Beauty & Personal Care Skin Care Sunscreen Moisturizers"
                                 data-price="149000" data-brand="TFIT" data-rating="5">
                                 <div class="product-img-wrap">
@@ -725,17 +646,11 @@
                                         <span class="price-current">Rp149.000</span>
                                         <span class="price-original">Rp179.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=14'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 15 -->
-                            <div onclick="window.location.href='product-detail.html?id=15'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=15" class="product-card shop-product" data-id="15"
                                 data-category="Beauty & Personal Care Skin Care Sunscreen Moisturizers"
                                 data-price="95000" data-brand="Biore" data-rating="4">
                                 <div class="product-img-wrap">
@@ -752,17 +667,11 @@
                                         <span class="price-current">Rp95.000</span>
                                         <span class="price-original">Rp129.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=15'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 16 -->
-                            <div onclick="window.location.href='product-detail.html?id=16'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=16" class="product-card shop-product" data-id="16"
                                 data-category="Beauty & Personal Care Skin Care Serums" data-price="210000"
                                 data-brand="TFIT" data-rating="5">
                                 <div class="product-img-wrap">
@@ -779,17 +688,11 @@
                                         <span class="price-current">Rp210.000</span>
                                         <span class="price-original">Rp259.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=16'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 17 -->
-                            <div onclick="window.location.href='product-detail.html?id=17'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=17" class="product-card shop-product" data-id="17"
                                 data-category="Beauty & Personal Care Skin Care Cleansers Face Wash" data-price="50000"
                                 data-brand="Biore" data-rating="3">
                                 <div class="product-img-wrap">
@@ -806,17 +709,11 @@
                                         <span class="price-current">Rp50.000</span>
                                         <span class="price-original">Rp79.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=17'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 18 -->
-                            <div onclick="window.location.href='product-detail.html?id=18'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=18" class="product-card shop-product" data-id="18"
                                 data-category="Beauty & Personal Care Skin Care Toners" data-price="110000"
                                 data-brand="SUN" data-rating="4">
                                 <div class="product-img-wrap">
@@ -833,17 +730,11 @@
                                         <span class="price-current">Rp110.000</span>
                                         <span class="price-original">Rp149.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=18'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 19 -->
-                            <div onclick="window.location.href='product-detail.html?id=19'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=19" class="product-card shop-product" data-id="19"
                                 data-category="Beauty & Personal Care Body Care Body Lotion" data-price="155000"
                                 data-brand="Lakme" data-rating="4">
                                 <div class="product-img-wrap">
@@ -860,17 +751,11 @@
                                         <span class="price-current">Rp155.000</span>
                                         <span class="price-original">Rp199.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=19'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 20 -->
-                            <div onclick="window.location.href='product-detail.html?id=20'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=20" class="product-card shop-product" data-id="20"
                                 data-category="Beauty & Personal Care Fragrance Women's Perfume" data-price="185000"
                                 data-brand="Lakme" data-rating="5">
                                 <div class="product-img-wrap">
@@ -887,17 +772,11 @@
                                         <span class="price-current">Rp185.000</span>
                                         <span class="price-original">Rp240.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=20'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 21 -->
-                            <div onclick="window.location.href='product-detail.html?id=21'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=21" class="product-card shop-product" data-id="21"
                                 data-category="Home & Living Decor & Lighting Desk Lamps" data-price="199000"
                                 data-brand="Nordic Light" data-rating="5">
                                 <div class="product-img-wrap">
@@ -914,17 +793,11 @@
                                         <span class="price-current">Rp199.000</span>
                                         <span class="price-original">Rp269.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=21'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 22 -->
-                            <div onclick="window.location.href='product-detail.html?id=22'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Home & Living Bed & Bath Pillows"
+                            <a href="product-detail.html?id=22" class="product-card shop-product" data-id="22" data-category="Home & Living Bed & Bath Pillows"
                                 data-price="175000" data-brand="RestEasy" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_22.jpg" alt="Ergonomic Memory Foam Contour Pillow"
@@ -940,17 +813,11 @@
                                         <span class="price-current">Rp175.000</span>
                                         <span class="price-original">Rp239.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=22'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 23 -->
-                            <div onclick="window.location.href='product-detail.html?id=23'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=23" class="product-card shop-product" data-id="23"
                                 data-category="Home & Living Kitchen & Dining Cookware" data-price="220000"
                                 data-brand="TechCook" data-rating="5">
                                 <div class="product-img-wrap">
@@ -967,17 +834,11 @@
                                         <span class="price-current">Rp220.000</span>
                                         <span class="price-original">Rp299.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=23'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 24 -->
-                            <div onclick="window.location.href='product-detail.html?id=24'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=24" class="product-card shop-product" data-id="24"
                                 data-category="Home & Living Kitchen & Dining Cookware Sets" data-price="285000"
                                 data-brand="ChefChoice" data-rating="5">
                                 <div class="product-img-wrap">
@@ -994,17 +855,11 @@
                                         <span class="price-current">Rp285.000</span>
                                         <span class="price-original">Rp379.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=24'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 25 -->
-                            <div onclick="window.location.href='product-detail.html?id=25'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Home & Living Bed & Bath Blankets"
+                            <a href="product-detail.html?id=25" class="product-card shop-product" data-id="25" data-category="Home & Living Bed & Bath Blankets"
                                 data-price="139000" data-brand="RestEasy" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_25.jpg" alt="Nordic Soft Velvet Throw Blanket 150x200cm"
@@ -1020,17 +875,11 @@
                                         <span class="price-current">Rp139.000</span>
                                         <span class="price-original">Rp185.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=25'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 26 -->
-                            <div onclick="window.location.href='product-detail.html?id=26'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=26" class="product-card shop-product" data-id="26"
                                 data-category="Home & Living Decor & Lighting Candles & Diffusers" data-price="115000"
                                 data-brand="Nordic Light" data-rating="4">
                                 <div class="product-img-wrap">
@@ -1048,17 +897,11 @@
                                         <span class="price-current">Rp115.000</span>
                                         <span class="price-original">Rp150.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=26'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 27 -->
-                            <div onclick="window.location.href='product-detail.html?id=27'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Home & Living Furniture Coffee Tables"
+                            <a href="product-detail.html?id=27" class="product-card shop-product" data-id="27" data-category="Home & Living Furniture Coffee Tables"
                                 data-price="450000" data-brand="Nordic Light" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_27.jpg" alt="Handcrafted Solid Wood Round Coffee Table"
@@ -1074,17 +917,11 @@
                                         <span class="price-current">Rp450.000</span>
                                         <span class="price-original">Rp620.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=27'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 28 -->
-                            <div onclick="window.location.href='product-detail.html?id=28'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=28" class="product-card shop-product" data-id="28"
                                 data-category="Home & Living Kitchen & Dining Food Storage" data-price="165000"
                                 data-brand="TechCook" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1102,17 +939,11 @@
                                         <span class="price-current">Rp165.000</span>
                                         <span class="price-original">Rp220.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=28'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 29 -->
-                            <div onclick="window.location.href='product-detail.html?id=29'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=29" class="product-card shop-product" data-id="29"
                                 data-category="Home & Living Decor & Lighting Wall Art & Clocks" data-price="125000"
                                 data-brand="Nordic Light" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1129,17 +960,11 @@
                                         <span class="price-current">Rp125.000</span>
                                         <span class="price-original">Rp170.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=29'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 30 -->
-                            <div onclick="window.location.href='product-detail.html?id=30'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Home & Living Bed & Bath Bath Towels"
+                            <a href="product-detail.html?id=30" class="product-card shop-product" data-id="30" data-category="Home & Living Bed & Bath Bath Towels"
                                 data-price="179000" data-brand="RestEasy" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_30.jpg" alt="Luxury 100% Egyptian Cotton Bath Towels 2-Pack"
@@ -1155,17 +980,11 @@
                                         <span class="price-current">Rp179.000</span>
                                         <span class="price-original">Rp240.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=30'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 31 -->
-                            <div onclick="window.location.href='product-detail.html?id=31'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=31" class="product-card shop-product" data-id="31"
                                 data-category="Electronics Audio & Entertainment Headphones" data-price="499000"
                                 data-brand="SoundPro" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1183,17 +1002,11 @@
                                         <span class="price-current">Rp499.000</span>
                                         <span class="price-original">Rp699.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=31'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 32 -->
-                            <div onclick="window.location.href='product-detail.html?id=32'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=32" class="product-card shop-product" data-id="32"
                                 data-category="Electronics Mobile & Tablets Smartwatches" data-price="389000"
                                 data-brand="TechTime" data-rating="4">
                                 <div class="product-img-wrap">
@@ -1210,17 +1023,11 @@
                                         <span class="price-current">Rp389.000</span>
                                         <span class="price-original">Rp520.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=32'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 33 -->
-                            <div onclick="window.location.href='product-detail.html?id=33'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=33" class="product-card shop-product" data-id="33"
                                 data-category="Electronics Cameras & Drones Action Cameras" data-price="599000"
                                 data-brand="GoCam" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1237,17 +1044,11 @@
                                         <span class="price-current">Rp599.000</span>
                                         <span class="price-original">Rp799.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=33'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 34 -->
-                            <div onclick="window.location.href='product-detail.html?id=34'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=34" class="product-card shop-product" data-id="34"
                                 data-category="Electronics Mobile & Tablets Power Banks" data-price="199000"
                                 data-brand="PowerMax" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1264,17 +1065,11 @@
                                         <span class="price-current">Rp199.000</span>
                                         <span class="price-original">Rp279.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=34'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 35 -->
-                            <div onclick="window.location.href='product-detail.html?id=35'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Electronics Smart Home Projectors"
+                            <a href="product-detail.html?id=35" class="product-card shop-product" data-id="35" data-category="Electronics Smart Home Projectors"
                                 data-price="620000" data-brand="TechTime" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_35.jpg" alt="Portable Mini LED Home Projector 1080P"
@@ -1290,17 +1085,11 @@
                                         <span class="price-current">Rp620.000</span>
                                         <span class="price-original">Rp850.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=35'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 36 -->
-                            <div onclick="window.location.href='product-detail.html?id=36'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Electronics Computers Keyboards"
+                            <a href="product-detail.html?id=36" class="product-card shop-product" data-id="36" data-category="Electronics Computers Keyboards"
                                 data-price="345000" data-brand="GamePro" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_36.jpg" alt="Mechanical RGB Gaming Keyboard Hot-Swappable"
@@ -1316,17 +1105,11 @@
                                         <span class="price-current">Rp345.000</span>
                                         <span class="price-original">Rp460.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=36'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 37 -->
-                            <div onclick="window.location.href='product-detail.html?id=37'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Electronics Computers Mice"
+                            <a href="product-detail.html?id=37" class="product-card shop-product" data-id="37" data-category="Electronics Computers Mice"
                                 data-price="85000" data-brand="PowerMax" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_37.jpg" alt="Wireless Ergonomic Optical Mouse Silent Click"
@@ -1342,17 +1125,11 @@
                                         <span class="price-current">Rp85.000</span>
                                         <span class="price-original">Rp120.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=37'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 38 -->
-                            <div onclick="window.location.href='product-detail.html?id=38'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Electronics Computers Webcams"
+                            <a href="product-detail.html?id=38" class="product-card shop-product" data-id="38" data-category="Electronics Computers Webcams"
                                 data-price="175000" data-brand="TechTime" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_38.jpg"
@@ -1369,17 +1146,11 @@
                                         <span class="price-current">Rp175.000</span>
                                         <span class="price-original">Rp235.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=38'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 39 -->
-                            <div onclick="window.location.href='product-detail.html?id=39'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Electronics Computers External Storage"
+                            <a href="product-detail.html?id=39" class="product-card shop-product" data-id="39" data-category="Electronics Computers External Storage"
                                 data-price="750000" data-brand="PowerMax" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_39.jpg"
@@ -1396,17 +1167,11 @@
                                         <span class="price-current">Rp750.000</span>
                                         <span class="price-original">Rp980.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=39'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 40 -->
-                            <div onclick="window.location.href='product-detail.html?id=40'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=40" class="product-card shop-product" data-id="40"
                                 data-category="Electronics Mobile & Tablets Fast Chargers" data-price="145000"
                                 data-brand="PowerMax" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1423,17 +1188,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp195.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=40'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 41 -->
-                            <div onclick="window.location.href='product-detail.html?id=41'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=41" class="product-card shop-product" data-id="41"
                                 data-category="Audio & Entertainment Speakers Bluetooth Speakers" data-price="350000"
                                 data-brand="SoundPro" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1450,17 +1209,11 @@
                                         <span class="price-current">Rp350.000</span>
                                         <span class="price-original">Rp480.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=41'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 42 -->
-                            <div onclick="window.location.href='product-detail.html?id=42'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=42" class="product-card shop-product" data-id="42"
                                 data-category="Audio & Entertainment Gaming Gaming Headsets" data-price="420000"
                                 data-brand="GamePro" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1477,17 +1230,11 @@
                                         <span class="price-current">Rp420.000</span>
                                         <span class="price-original">Rp550.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=42'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 43 -->
-                            <div onclick="window.location.href='product-detail.html?id=43'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=43" class="product-card shop-product" data-id="43"
                                 data-category="Audio & Entertainment Musical Instruments Microphones"
                                 data-price="310000" data-brand="AudioTech" data-rating="4">
                                 <div class="product-img-wrap">
@@ -1504,17 +1251,11 @@
                                         <span class="price-current">Rp310.000</span>
                                         <span class="price-original">Rp420.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=43'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 44 -->
-                            <div onclick="window.location.href='product-detail.html?id=44'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=44" class="product-card shop-product" data-id="44"
                                 data-category="Audio & Entertainment Speakers Soundbars" data-price="650000"
                                 data-brand="SoundPro" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1531,17 +1272,11 @@
                                         <span class="price-current">Rp650.000</span>
                                         <span class="price-original">Rp899.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=44'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 45 -->
-                            <div onclick="window.location.href='product-detail.html?id=45'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=45" class="product-card shop-product" data-id="45"
                                 data-category="Audio & Entertainment Headphones Wireless Earbuds" data-price="299000"
                                 data-brand="SoundPro" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1558,17 +1293,11 @@
                                         <span class="price-current">Rp299.000</span>
                                         <span class="price-original">Rp399.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=45'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 46 -->
-                            <div onclick="window.location.href='product-detail.html?id=46'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=46" class="product-card shop-product" data-id="46"
                                 data-category="Audio & Entertainment Speakers Studio Monitors" data-price="520000"
                                 data-brand="AudioTech" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1586,17 +1315,11 @@
                                         <span class="price-current">Rp520.000</span>
                                         <span class="price-original">Rp710.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=46'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 47 -->
-                            <div onclick="window.location.href='product-detail.html?id=47'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=47" class="product-card shop-product" data-id="47"
                                 data-category="Audio & Entertainment Microphones Karaoke" data-price="135000"
                                 data-brand="AudioTech" data-rating="4">
                                 <div class="product-img-wrap">
@@ -1613,17 +1336,11 @@
                                         <span class="price-current">Rp135.000</span>
                                         <span class="price-original">Rp180.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=47'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 48 -->
-                            <div onclick="window.location.href='product-detail.html?id=48'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=48" class="product-card shop-product" data-id="48"
                                 data-category="Audio & Entertainment Musical Instruments Audio Interfaces"
                                 data-price="480000" data-brand="AudioTech" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1640,17 +1357,11 @@
                                         <span class="price-current">Rp480.000</span>
                                         <span class="price-original">Rp640.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=48'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 49 -->
-                            <div onclick="window.location.href='product-detail.html?id=49'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=49" class="product-card shop-product" data-id="49"
                                 data-category="Audio & Entertainment Headphones Over-Ear Headphones" data-price="399000"
                                 data-brand="AudioTech" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1667,17 +1378,11 @@
                                         <span class="price-current">Rp399.000</span>
                                         <span class="price-original">Rp530.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=49'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 50 -->
-                            <div onclick="window.location.href='product-detail.html?id=50'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=50" class="product-card shop-product" data-id="50"
                                 data-category="Audio & Entertainment Speakers Portable Speakers" data-price="165000"
                                 data-brand="SoundPro" data-rating="4">
                                 <div class="product-img-wrap">
@@ -1695,17 +1400,11 @@
                                         <span class="price-current">Rp165.000</span>
                                         <span class="price-original">Rp220.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=50'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 51 -->
-                            <div onclick="window.location.href='product-detail.html?id=51'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Men's Clothing Hoodies"
+                            <a href="product-detail.html?id=51" class="product-card shop-product" data-id="51" data-category="Fashion Men's Clothing Hoodies"
                                 data-price="249000" data-brand="UrbanStyle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_51.jpg" alt="Oversized Premium Cotton Hoodie"
@@ -1721,17 +1420,11 @@
                                         <span class="price-current">Rp249.000</span>
                                         <span class="price-original">Rp329.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=51'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 52 -->
-                            <div onclick="window.location.href='product-detail.html?id=52'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Accessories Wallets"
+                            <a href="product-detail.html?id=52" class="product-card shop-product" data-id="52" data-category="Fashion Accessories Wallets"
                                 data-price="120000" data-brand="VogueCraft" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_52.jpg" alt="Leather Minimalist Slim RFID Wallet"
@@ -1747,17 +1440,11 @@
                                         <span class="price-current">Rp120.000</span>
                                         <span class="price-original">Rp165.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=52'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 53 -->
-                            <div onclick="window.location.href='product-detail.html?id=53'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Footwear Sneakers"
+                            <a href="product-detail.html?id=53" class="product-card shop-product" data-id="53" data-category="Fashion Footwear Sneakers"
                                 data-price="299000" data-brand="StreetWear" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_53.jpg" alt="Mens Casual Canvas Low-Top Sneakers"
@@ -1773,17 +1460,11 @@
                                         <span class="price-current">Rp299.000</span>
                                         <span class="price-original">Rp399.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=53'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 54 -->
-                            <div onclick="window.location.href='product-detail.html?id=54'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Women's Clothing Dresses"
+                            <a href="product-detail.html?id=54" class="product-card shop-product" data-id="54" data-category="Fashion Women's Clothing Dresses"
                                 data-price="215000" data-brand="VogueCraft" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_54.jpg" alt="Womens Floral Summer Midi Dress"
@@ -1799,17 +1480,11 @@
                                         <span class="price-current">Rp215.000</span>
                                         <span class="price-original">Rp285.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=54'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 55 -->
-                            <div onclick="window.location.href='product-detail.html?id=55'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Men's Clothing Jackets"
+                            <a href="product-detail.html?id=55" class="product-card shop-product" data-id="55" data-category="Fashion Men's Clothing Jackets"
                                 data-price="320000" data-brand="UrbanStyle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_55.jpg" alt="Men Classic Vintage Denim Trucker Jacket"
@@ -1825,17 +1500,11 @@
                                         <span class="price-current">Rp320.000</span>
                                         <span class="price-original">Rp420.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=55'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 56 -->
-                            <div onclick="window.location.href='product-detail.html?id=56'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Women's Clothing Sweaters"
+                            <a href="product-detail.html?id=56" class="product-card shop-product" data-id="56" data-category="Fashion Women's Clothing Sweaters"
                                 data-price="235000" data-brand="VogueCraft" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_56.jpg" alt="Womens Oversized Chunky Knit Cardigan"
@@ -1851,17 +1520,11 @@
                                         <span class="price-current">Rp235.000</span>
                                         <span class="price-original">Rp310.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=56'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 57 -->
-                            <div onclick="window.location.href='product-detail.html?id=57'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Accessories Sunglasses"
+                            <a href="product-detail.html?id=57" class="product-card shop-product" data-id="57" data-category="Fashion Accessories Sunglasses"
                                 data-price="115000" data-brand="StreetWear" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_57.jpg" alt="Classic Retro Square Sunglasses UV400"
@@ -1877,17 +1540,11 @@
                                         <span class="price-current">Rp115.000</span>
                                         <span class="price-original">Rp160.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=57'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 58 -->
-                            <div onclick="window.location.href='product-detail.html?id=58'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Accessories Belts"
+                            <a href="product-detail.html?id=58" class="product-card shop-product" data-id="58" data-category="Fashion Accessories Belts"
                                 data-price="145000" data-brand="UrbanStyle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_58.jpg" alt="Men Reversible Genuine Leather Belt"
@@ -1903,17 +1560,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp195.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=58'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 59 -->
-                            <div onclick="window.location.href='product-detail.html?id=59'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Men's Clothing Pants"
+                            <a href="product-detail.html?id=59" class="product-card shop-product" data-id="59" data-category="Fashion Men's Clothing Pants"
                                 data-price="220000" data-brand="StreetWear" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_59.jpg" alt="Mens Slim Fit Stretch Chino Trousers"
@@ -1929,17 +1580,11 @@
                                         <span class="price-current">Rp220.000</span>
                                         <span class="price-original">Rp290.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=59'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 60 -->
-                            <div onclick="window.location.href='product-detail.html?id=60'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Fashion Activewear Activewear"
+                            <a href="product-detail.html?id=60" class="product-card shop-product" data-id="60" data-category="Fashion Activewear Activewear"
                                 data-price="110000" data-brand="StreetWear" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_60.jpg" alt="Womens High-Waist Athletic Running Shorts"
@@ -1955,17 +1600,11 @@
                                         <span class="price-current">Rp110.000</span>
                                         <span class="price-original">Rp150.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=60'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 61 -->
-                            <div onclick="window.location.href='product-detail.html?id=61'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=61" class="product-card shop-product" data-id="61"
                                 data-category="Bags & Accessories Backpacks Laptop Backpacks" data-price="275000"
                                 data-brand="UrbanStyle" data-rating="5">
                                 <div class="product-img-wrap">
@@ -1982,17 +1621,11 @@
                                         <span class="price-current">Rp275.000</span>
                                         <span class="price-original">Rp360.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=61'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 62 -->
-                            <div onclick="window.location.href='product-detail.html?id=62'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=62" class="product-card shop-product" data-id="62"
                                 data-category="Bags & Accessories Accessories Sunglasses" data-price="135000"
                                 data-brand="VogueCraft" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2009,17 +1642,11 @@
                                         <span class="price-current">Rp135.000</span>
                                         <span class="price-original">Rp189.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=62'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 63 -->
-                            <div onclick="window.location.href='product-detail.html?id=63'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=63" class="product-card shop-product" data-id="63"
                                 data-category="Bags & Accessories Travel & Luggage Duffel Bags" data-price="189000"
                                 data-brand="ActiveGear" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2036,17 +1663,11 @@
                                         <span class="price-current">Rp189.000</span>
                                         <span class="price-original">Rp250.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=63'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 64 -->
-                            <div onclick="window.location.href='product-detail.html?id=64'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=64" class="product-card shop-product" data-id="64"
                                 data-category="Bags & Accessories Handbags & Totes Tote Bags" data-price="95000"
                                 data-brand="VogueCraft" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2063,17 +1684,11 @@
                                         <span class="price-current">Rp95.000</span>
                                         <span class="price-original">Rp130.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=64'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 65 -->
-                            <div onclick="window.location.href='product-detail.html?id=65'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=65" class="product-card shop-product" data-id="65"
                                 data-category="Bags & Accessories Handbags & Totes Crossbody Bags" data-price="310000"
                                 data-brand="VogueCraft" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2090,17 +1705,11 @@
                                         <span class="price-current">Rp310.000</span>
                                         <span class="price-original">Rp420.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=65'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 66 -->
-                            <div onclick="window.location.href='product-detail.html?id=66'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=66" class="product-card shop-product" data-id="66"
                                 data-category="Bags & Accessories Travel & Luggage Passport Holders" data-price="85000"
                                 data-brand="UrbanStyle" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2117,17 +1726,11 @@
                                         <span class="price-current">Rp85.000</span>
                                         <span class="price-original">Rp115.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=66'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 67 -->
-                            <div onclick="window.location.href='product-detail.html?id=67'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=67" class="product-card shop-product" data-id="67"
                                 data-category="Bags & Accessories Travel & Luggage Suitcases" data-price="750000"
                                 data-brand="ActiveGear" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2144,17 +1747,11 @@
                                         <span class="price-current">Rp750.000</span>
                                         <span class="price-original">Rp990.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=67'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 68 -->
-                            <div onclick="window.location.href='product-detail.html?id=68'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=68" class="product-card shop-product" data-id="68"
                                 data-category="Bags & Accessories Wallets Card Holders" data-price="105000"
                                 data-brand="UrbanStyle" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2171,17 +1768,11 @@
                                         <span class="price-current">Rp105.000</span>
                                         <span class="price-original">Rp145.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=68'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 69 -->
-                            <div onclick="window.location.href='product-detail.html?id=69'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=69" class="product-card shop-product" data-id="69"
                                 data-category="Bags & Accessories Backpacks Travel Backpacks" data-price="115000"
                                 data-brand="ActiveGear" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2198,17 +1789,11 @@
                                         <span class="price-current">Rp115.000</span>
                                         <span class="price-original">Rp155.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=69'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 70 -->
-                            <div onclick="window.location.href='product-detail.html?id=70'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Bags & Accessories Accessories Pouches"
+                            <a href="product-detail.html?id=70" class="product-card shop-product" data-id="70" data-category="Bags & Accessories Accessories Pouches"
                                 data-price="75000" data-brand="ActiveGear" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_70.jpg" alt="Waterproof Running Waist Fanny Pack Belt Bag"
@@ -2224,17 +1809,11 @@
                                         <span class="price-current">Rp75.000</span>
                                         <span class="price-original">Rp105.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=70'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 71 -->
-                            <div onclick="window.location.href='product-detail.html?id=71'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Baby Care Baby Skincare"
+                            <a href="product-detail.html?id=71" class="product-card shop-product" data-id="71" data-category="Baby & Kids Baby Care Baby Skincare"
                                 data-price="75000" data-brand="BabyGentle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_71.jpg" alt="Baby Gentle Skincare Shampoo & Body Wash"
@@ -2250,17 +1829,11 @@
                                         <span class="price-current">Rp75.000</span>
                                         <span class="price-original">Rp99.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=71'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 72 -->
-                            <div onclick="window.location.href='product-detail.html?id=72'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=72" class="product-card shop-product" data-id="72"
                                 data-category="Baby & Kids Toys & Games Educational Toys" data-price="125000"
                                 data-brand="KiddoPlay" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2277,17 +1850,11 @@
                                         <span class="price-current">Rp125.000</span>
                                         <span class="price-original">Rp169.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=72'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 73 -->
-                            <div onclick="window.location.href='product-detail.html?id=73'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Nursery & Gear Strollers"
+                            <a href="product-detail.html?id=73" class="product-card shop-product" data-id="73" data-category="Baby & Kids Nursery & Gear Strollers"
                                 data-price="680000" data-brand="BabyGentle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_73.jpg" alt="Lightweight Foldable Baby Stroller"
@@ -2303,17 +1870,11 @@
                                         <span class="price-current">Rp680.000</span>
                                         <span class="price-original">Rp899.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=73'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 74 -->
-                            <div onclick="window.location.href='product-detail.html?id=74'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Kids Fashion Baby Clothing"
+                            <a href="product-detail.html?id=74" class="product-card shop-product" data-id="74" data-category="Baby & Kids Kids Fashion Baby Clothing"
                                 data-price="110000" data-brand="BabyGentle" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_74.jpg" alt="Soft Organic Cotton Baby Onesies 3-Pack"
@@ -2329,17 +1890,11 @@
                                         <span class="price-current">Rp110.000</span>
                                         <span class="price-original">Rp149.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=74'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 75 -->
-                            <div onclick="window.location.href='product-detail.html?id=75'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Baby Care Feeding Bottles"
+                            <a href="product-detail.html?id=75" class="product-card shop-product" data-id="75" data-category="Baby & Kids Baby Care Feeding Bottles"
                                 data-price="145000" data-brand="BabyGentle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_75.jpg" alt="Anti-Colic Baby Feeding Bottle 250ml 2-Pack"
@@ -2355,17 +1910,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp190.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=75'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 76 -->
-                            <div onclick="window.location.href='product-detail.html?id=76'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=76" class="product-card shop-product" data-id="76"
                                 data-category="Baby & Kids Toys & Games Educational Toys" data-price="165000"
                                 data-brand="KiddoPlay" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2383,17 +1932,11 @@
                                         <span class="price-current">Rp165.000</span>
                                         <span class="price-original">Rp220.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=76'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 77 -->
-                            <div onclick="window.location.href='product-detail.html?id=77'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=77" class="product-card shop-product" data-id="77"
                                 data-category="Baby & Kids Kids Fashion School Backpacks" data-price="185000"
                                 data-brand="KiddoPlay" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2410,17 +1953,11 @@
                                         <span class="price-current">Rp185.000</span>
                                         <span class="price-original">Rp240.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=77'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 78 -->
-                            <div onclick="window.location.href='product-detail.html?id=78'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Baby Care Feeding"
+                            <a href="product-detail.html?id=78" class="product-card shop-product" data-id="78" data-category="Baby & Kids Baby Care Feeding"
                                 data-price="69000" data-brand="BabyGentle" data-rating="4">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_78.jpg" alt="Waterproof Silicone Baby Bibs 4-Pack"
@@ -2436,17 +1973,11 @@
                                         <span class="price-current">Rp69.000</span>
                                         <span class="price-original">Rp95.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=78'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 79 -->
-                            <div onclick="window.location.href='product-detail.html?id=79'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Nursery & Gear High Chairs"
+                            <a href="product-detail.html?id=79" class="product-card shop-product" data-id="79" data-category="Baby & Kids Nursery & Gear High Chairs"
                                 data-price="420000" data-brand="BabyGentle" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_79.jpg"
@@ -2463,17 +1994,11 @@
                                         <span class="price-current">Rp420.000</span>
                                         <span class="price-original">Rp580.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=79'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 80 -->
-                            <div onclick="window.location.href='product-detail.html?id=80'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Baby & Kids Toys & Games Plush Toys"
+                            <a href="product-detail.html?id=80" class="product-card shop-product" data-id="80" data-category="Baby & Kids Toys & Games Plush Toys"
                                 data-price="85000" data-brand="KiddoPlay" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_80.jpg" alt="Plush Stuffed Animal Soft Teddy Bear Toy 35cm"
@@ -2489,17 +2014,11 @@
                                         <span class="price-current">Rp85.000</span>
                                         <span class="price-original">Rp115.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=80'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 81 -->
-                            <div onclick="window.location.href='product-detail.html?id=81'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=81" class="product-card shop-product" data-id="81"
                                 data-category="Sport & Outdoors Fitness & Gym Yoga Mats" data-price="145000"
                                 data-brand="ActiveGear" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2516,17 +2035,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp199.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=81'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 82 -->
-                            <div onclick="window.location.href='product-detail.html?id=82'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=82" class="product-card shop-product" data-id="82"
                                 data-category="Sport & Outdoors Fitness & Gym Dumbbells" data-price="320000"
                                 data-brand="FitGym" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2543,17 +2056,11 @@
                                         <span class="price-current">Rp320.000</span>
                                         <span class="price-original">Rp430.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=82'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 83 -->
-                            <div onclick="window.location.href='product-detail.html?id=83'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=83" class="product-card shop-product" data-id="83"
                                 data-category="Sport & Outdoors Camping & Hiking Tents" data-price="550000"
                                 data-brand="OutdoorPeak" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2570,17 +2077,11 @@
                                         <span class="price-current">Rp550.000</span>
                                         <span class="price-original">Rp750.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=83'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 84 -->
-                            <div onclick="window.location.href='product-detail.html?id=84'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=84" class="product-card shop-product" data-id="84"
                                 data-category="Sport & Outdoors Camping & Hiking Water Bottles" data-price="89000"
                                 data-brand="ActiveGear" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2597,17 +2098,11 @@
                                         <span class="price-current">Rp89.000</span>
                                         <span class="price-original">Rp125.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=84'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 85 -->
-                            <div onclick="window.location.href='product-detail.html?id=85'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=85" class="product-card shop-product" data-id="85"
                                 data-category="Sport & Outdoors Fitness & Gym Foam Rollers" data-price="95000"
                                 data-brand="FitGym" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2624,17 +2119,11 @@
                                         <span class="price-current">Rp95.000</span>
                                         <span class="price-original">Rp130.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=85'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 86 -->
-                            <div onclick="window.location.href='product-detail.html?id=86'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=86" class="product-card shop-product" data-id="86"
                                 data-category="Sport & Outdoors Fitness & Gym Resistance Bands" data-price="115000"
                                 data-brand="FitGym" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2651,17 +2140,11 @@
                                         <span class="price-current">Rp115.000</span>
                                         <span class="price-original">Rp155.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=86'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 87 -->
-                            <div onclick="window.location.href='product-detail.html?id=87'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=87" class="product-card shop-product" data-id="87"
                                 data-category="Sport & Outdoors Camping & Hiking Lanterns" data-price="125000"
                                 data-brand="OutdoorPeak" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2678,17 +2161,11 @@
                                         <span class="price-current">Rp125.000</span>
                                         <span class="price-original">Rp170.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=87'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 88 -->
-                            <div onclick="window.location.href='product-detail.html?id=88'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=88" class="product-card shop-product" data-id="88"
                                 data-category="Sport & Outdoors Camping & Hiking Backpacks" data-price="299000"
                                 data-brand="OutdoorPeak" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2705,17 +2182,11 @@
                                         <span class="price-current">Rp299.000</span>
                                         <span class="price-original">Rp399.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=88'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 89 -->
-                            <div onclick="window.location.href='product-detail.html?id=89'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=89" class="product-card shop-product" data-id="89"
                                 data-category="Sport & Outdoors Fitness & Gym Jump Ropes" data-price="55000"
                                 data-brand="FitGym" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2732,17 +2203,11 @@
                                         <span class="price-current">Rp55.000</span>
                                         <span class="price-original">Rp75.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=89'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 90 -->
-                            <div onclick="window.location.href='product-detail.html?id=90'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=90" class="product-card shop-product" data-id="90"
                                 data-category="Sport & Outdoors Camping & Hiking Camping Chairs" data-price="145000"
                                 data-brand="OutdoorPeak" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2759,17 +2224,11 @@
                                         <span class="price-current">Rp145.000</span>
                                         <span class="price-original">Rp195.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=90'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 91 -->
-                            <div onclick="window.location.href='product-detail.html?id=91'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Automotive Car Care Wash & Wax"
+                            <a href="product-detail.html?id=91" class="product-card shop-product" data-id="91" data-category="Automotive Car Care Wash & Wax"
                                 data-price="68000" data-brand="AutoCare" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_91.jpg" alt="Premium Car Wash Shampoo & Wax Foam 1L"
@@ -2785,17 +2244,11 @@
                                         <span class="price-current">Rp68.000</span>
                                         <span class="price-original">Rp95.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=91'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 92 -->
-                            <div onclick="window.location.href='product-detail.html?id=92'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Automotive Auto Electronics Dash Cams"
+                            <a href="product-detail.html?id=92" class="product-card shop-product" data-id="92" data-category="Automotive Auto Electronics Dash Cams"
                                 data-price="399000" data-brand="TechTime" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_92.jpg" alt="HD 1080P Dual Car Dash Cam Camera"
@@ -2811,17 +2264,11 @@
                                         <span class="price-current">Rp399.000</span>
                                         <span class="price-original">Rp540.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=92'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 93 -->
-                            <div onclick="window.location.href='product-detail.html?id=93'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=93" class="product-card shop-product" data-id="93"
                                 data-category="Automotive Interior Accessories Floor Mats" data-price="185000"
                                 data-brand="AutoCare" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2839,17 +2286,11 @@
                                         <span class="price-current">Rp185.000</span>
                                         <span class="price-original">Rp249.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=93'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 94 -->
-                            <div onclick="window.location.href='product-detail.html?id=94'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Automotive Car Care Wash & Wax"
+                            <a href="product-detail.html?id=94" class="product-card shop-product" data-id="94" data-category="Automotive Car Care Wash & Wax"
                                 data-price="149000" data-brand="AutoCare" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_94.jpg" alt="High Pressure Car Washer Snow Foam Lance Gun"
@@ -2865,17 +2306,11 @@
                                         <span class="price-current">Rp149.000</span>
                                         <span class="price-original">Rp199.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=94'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 95 -->
-                            <div onclick="window.location.href='product-detail.html?id=95'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Automotive Car Care Microfiber Towels"
+                            <a href="product-detail.html?id=95" class="product-card shop-product" data-id="95" data-category="Automotive Car Care Microfiber Towels"
                                 data-price="55000" data-brand="AutoCare" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_95.jpg"
@@ -2892,17 +2327,11 @@
                                         <span class="price-current">Rp55.000</span>
                                         <span class="price-original">Rp75.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=95'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 96 -->
-                            <div onclick="window.location.href='product-detail.html?id=96'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=96" class="product-card shop-product" data-id="96"
                                 data-category="Automotive Auto Electronics Car Chargers" data-price="79000"
                                 data-brand="TechTime" data-rating="4">
                                 <div class="product-img-wrap">
@@ -2920,17 +2349,11 @@
                                         <span class="price-current">Rp79.000</span>
                                         <span class="price-original">Rp110.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=96'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 97 -->
-                            <div onclick="window.location.href='product-detail.html?id=97'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=97" class="product-card shop-product" data-id="97"
                                 data-category="Automotive Auto Electronics Tire Inflators" data-price="299000"
                                 data-brand="AutoCare" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2948,17 +2371,11 @@
                                         <span class="price-current">Rp299.000</span>
                                         <span class="price-original">Rp399.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=97'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 98 -->
-                            <div onclick="window.location.href='product-detail.html?id=98'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=98" class="product-card shop-product" data-id="98"
                                 data-category="Automotive Auto Electronics Jump Starters" data-price="450000"
                                 data-brand="PowerMax" data-rating="5">
                                 <div class="product-img-wrap">
@@ -2975,17 +2392,11 @@
                                         <span class="price-current">Rp450.000</span>
                                         <span class="price-original">Rp599.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=98'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 99 -->
-                            <div onclick="window.location.href='product-detail.html?id=99'" style="cursor: pointer;"
-                                class="product-card shop-product" data-category="Automotive Car Care Interior Cleaners"
+                            <a href="product-detail.html?id=99" class="product-card shop-product" data-id="99" data-category="Automotive Car Care Interior Cleaners"
                                 data-price="78000" data-brand="AutoCare" data-rating="5">
                                 <div class="product-img-wrap">
                                     <img src="Assets/Products/prod_99.jpg"
@@ -3002,17 +2413,11 @@
                                         <span class="price-current">Rp78.000</span>
                                         <span class="price-original">Rp105.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=99'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
-                            </div>
+                            </a>
                             <!-- Product 100 -->
-                            <div onclick="window.location.href='product-detail.html?id=100'" style="cursor: pointer;"
-                                class="product-card shop-product"
+                            <a href="product-detail.html?id=100" class="product-card shop-product" data-id="100"
                                 data-category="Automotive Interior Accessories Phone Mounts" data-price="49000"
                                 data-brand="TechTime" data-rating="5">
                                 <div class="product-img-wrap">
@@ -3030,12 +2435,7 @@
                                         <span class="price-current">Rp49.000</span>
                                         <span class="price-original">Rp75.000</span>
                                     </div>
-                                    <button
-                                        onclick="window.location.href='product-detail.html?id=100'; event.stopPropagation();"
-                                        class="add-to-cart-btn shop-add-cart">
-                                        View Product
-                                        <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                                    </button>
+                                    <span class="add-to-cart-btn shop-add-cart">View Product <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i></span>
                                 </div>
                             </div>
 
@@ -3192,7 +2592,7 @@
     </div>
 
     <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay"></a>
 
     <script src="app.js"></script>
     <script>

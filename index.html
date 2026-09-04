@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="ShopEase – Your premium online marketplace for authentic food & beverages, beauty, skincare, fashion, electronics, and home living. Enjoy daily flash sales & fast shipping.">
     <meta property="og:title" content="ShopEase - Premium E-Commerce Catalog">
     <meta property="og:description" content="Discover 100+ curated premium products with exclusive discounts and top-rated customer reviews on ShopEase.">
@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js" integrity="sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -175,8 +175,7 @@
 
                 <div class="products-grid">
                     <!-- Product Card 1 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=11'" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=11'" tabindex="0" role="link"
-                        style="cursor: pointer;" id="productCard1">
+                    <a href="product-detail.html?id=11" class="product-card" data-id="11" id="productCard1">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_11.jpg" alt="Lakme Sun Expert SPF 50 PA+++ Ultramatte Lotion"
                                 class="product-img" loading="lazy">
@@ -191,21 +190,15 @@
                                 <span class="price-current">Rp129.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=11'; event.stopPropagation();"
-                                class="add-to-cart-btn" id="viewProduct1">
+                            <span class="add-to-cart-btn" id="viewProduct1">
                                 View Product
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12" />
-                                    <polyline points="12 5 19 12 12 19" />
-                                </svg>
-                            </button>
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 2 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=12'" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=12'" tabindex="0" role="link"
-                        style="cursor: pointer;" id="productCard2">
+                    <a href="product-detail.html?id=12" class="product-card" data-id="12" id="productCard2">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_12.jpg" alt="Ocean Shield Sunscreen SPF 50 PA+++"
                                 class="product-img" loading="lazy">
@@ -220,21 +213,15 @@
                                 <span class="price-current">Rp89.000</span>
                                 <span class="price-original">Rp129.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=12'; event.stopPropagation();"
-                                class="add-to-cart-btn" id="viewProduct2">
+                            <span class="add-to-cart-btn" id="viewProduct2">
                                 View Product
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12" />
-                                    <polyline points="12 5 19 12 12 19" />
-                                </svg>
-                            </button>
+                                <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 3 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=13'" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=13'" tabindex="0" role="link"
-                        style="cursor: pointer;" id="productCard3">
+                    <a href="product-detail.html?id=13" class="product-card" data-id="13" id="productCard3">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_13.jpg" alt="SUN Protect Cream SPF 50+"
                                 class="product-img" loading="lazy">
@@ -249,17 +236,15 @@
                                 <span class="price-current">Rp119.000</span>
                                 <span class="price-original">Rp159.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=13'; event.stopPropagation();"
-                                class="add-to-cart-btn" id="viewProduct3">
+                            <span class="add-to-cart-btn" id="viewProduct3">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 4 -->
-                    <div class="product-card" onclick="window.location.href='product-detail.html?id=14'" onkeydown="if(event.key==='Enter'||event.key===' ') window.location.href='product-detail.html?id=14'" tabindex="0" role="link"
-                        style="cursor: pointer;" id="productCard4">
+                    <a href="product-detail.html?id=14" class="product-card" data-id="14" id="productCard4">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_14.jpg" alt="TFIT Tone Up Sun Fluid SPF50+ PA++++"
                                 class="product-img" loading="lazy">
@@ -274,13 +259,12 @@
                                 <span class="price-current">Rp149.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=14'; event.stopPropagation();"
-                                class="add-to-cart-btn" id="viewProduct4">
+                            <span class="add-to-cart-btn" id="viewProduct4">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16" stroke-width="2.5"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>

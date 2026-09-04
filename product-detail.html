@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description" content="View product specifications, features, customer reviews, and pricing on ShopEase. High quality authentic products with fast delivery across Indonesia.">
     <meta property="og:title" content="Product Specifications &amp; Details - ShopEase">
     <meta property="og:description" content="Explore detailed features, ingredients, high-res gallery, and verified buyer reviews on ShopEase.">
@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js" integrity="sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -267,8 +267,7 @@
                 <h3 class="related-title">You May Also Like</h3>
                 <div class="products-grid">
                     <!-- Product Card 1 -->
-                    <div onclick="window.location.href='product-detail.html?id=13'" style="cursor: pointer;"
-                        class="product-card">
+                    <a href="product-detail.html?id=13" class="product-card" data-id="13">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_13.jpg" alt="SUN Protect Cream SPF 50+" class="product-img"
                                 loading="lazy">
@@ -289,17 +288,15 @@
                                 <span class="price-current">Rp119.000</span>
                                 <span class="price-original">Rp159.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=13'; event.stopPropagation();"
-                                class="add-to-cart-btn btn-outline-small">
+                            <span class="add-to-cart-btn btn-outline-small">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 2 -->
-                    <div onclick="window.location.href='product-detail.html?id=12'" style="cursor: pointer;"
-                        class="product-card">
+                    <a href="product-detail.html?id=12" class="product-card" data-id="12">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_12.jpg" alt="Ocean Shield Sunscreen SPF 50 PPA+++"
                                 class="product-img" loading="lazy">
@@ -320,17 +317,15 @@
                                 <span class="price-current">Rp89.000</span>
                                 <span class="price-original">Rp129.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=12'; event.stopPropagation();"
-                                class="add-to-cart-btn btn-outline-small">
+                            <span class="add-to-cart-btn btn-outline-small">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 3 -->
-                    <div onclick="window.location.href='product-detail.html?id=14'" style="cursor: pointer;"
-                        class="product-card">
+                    <a href="product-detail.html?id=14" class="product-card" data-id="14">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_14.jpg" alt="TFIT Tone Up Sun Fluid SPF50+ PA++++"
                                 class="product-img" loading="lazy">
@@ -351,17 +346,15 @@
                                 <span class="price-current">Rp149.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=14'; event.stopPropagation();"
-                                class="add-to-cart-btn btn-outline-small">
+                            <span class="add-to-cart-btn btn-outline-small">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Product Card 4 -->
-                    <div onclick="window.location.href='product-detail.html?id=11'" style="cursor: pointer;"
-                        class="product-card">
+                    <a href="product-detail.html?id=11" class="product-card" data-id="11">
                         <div class="product-img-wrap">
                             <img src="Assets/Products/prod_11.jpg" alt="Lakmé Sun Expert SPF 50 PA+++ Ultramatte Lotion"
                                 class="product-img" loading="lazy">
@@ -382,13 +375,12 @@
                                 <span class="price-current">Rp129.000</span>
                                 <span class="price-original">Rp179.000</span>
                             </div>
-                            <button onclick="window.location.href='product-detail.html?id=11'; event.stopPropagation();"
-                                class="add-to-cart-btn btn-outline-small">
+                            <span class="add-to-cart-btn btn-outline-small">
                                 View Product
                                 <i data-lucide="arrow-right" width="16" height="16"></i>
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
