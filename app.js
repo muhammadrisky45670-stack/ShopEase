@@ -33,7 +33,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(650 Reviews)",
-        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        images: ["Assets/Tea.jpg", "Assets/Tea.jpg"],
         description: "Classic fragrant black tea delicately scented with citrusy bergamot oil.",
         features: [
             "\u2022 Premium loose leaf black tea in convenient tea bags",
@@ -52,7 +52,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 5,
         reviews: "(980 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        images: ["Assets/Chocolate.jpg", "Assets/Chocolate.jpg"],
         description: "Whole crunchy hazelnut in the center, delicious creamy hazelnut filling, and crisp wafer shell covered with chocolate.",
         features: [
             "\u2022 Premium golden foil wrapped chocolates",
@@ -71,7 +71,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(510 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
         description: "Crispy golden corn flakes enriched with essential vitamins and iron for a nutritious family breakfast.",
         features: [
             "\u2022 Made from real sun-ripened corn",
@@ -90,7 +90,7 @@ const productsDB = [
         discount: "22% Off",
         rating: 5,
         reviews: "(430 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
         description: "Cold-pressed 100% organic extra virgin olive oil ideal for healthy dressing, saut\u00e9ing, and cooking.",
         features: [
             "\u2022 100% Cold pressed first extraction",
@@ -109,7 +109,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(320 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
         description: "Authentic 100% Italian durum wheat semolina penne pasta crafted for perfect al dente texture.",
         features: [
             "\u2022 Made from 100% Italian durum wheat semolina",
@@ -128,7 +128,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(780 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
         description: "100% pure unfiltered raw wildflower honey rich in natural enzymes and soothing antibacterial properties.",
         features: [
             "\u2022 Unfiltered raw natural honey",
@@ -147,7 +147,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(590 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Tea.jpg", "Assets/Tea.jpg"],
         description: "First harvest ceremonial grade Japanese green tea matcha powder vibrant green and rich in L-theanine.",
         features: [
             "\u2022 Ceremonial grade 100% Japanese green tea",
@@ -158,6 +158,44 @@ const productsDB = [
     },
     {
         id: 9,
+        name: "Natural Spring Mineral Water 1.5L (Pack of 6)",
+        brand: "PantryGold",
+        category: "Food & Beverage Beverages Mineral Water",
+        priceCurrent: "Rp35.000",
+        priceOriginal: "Rp48.000",
+        discount: "27% Off",
+        rating: 5,
+        reviews: "(890 Reviews)",
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        description: "Pure natural spring mineral water sourced from deep mountain springs rich in essential minerals.",
+        features: [
+            "\u2022 Pure mountain spring water",
+            "\u2022 Naturally balanced pH 7.8 mineral content",
+            "\u2022 Eco-friendly recyclable 1.5L bottles",
+            "\u2022 Pack of 6 bottles"
+]
+    },
+    {
+        id: 10,
+        name: "Premium Whole Bean Arabica Dark Roast Coffee 1kg",
+        brand: "Nescafe",
+        category: "Food & Beverage Beverages Coffee & Tea",
+        priceCurrent: "Rp210.000",
+        priceOriginal: "Rp280.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(640 Reviews)",
+        images: ["Assets/Coffee.jpg", "Assets/Coffee.jpg"],
+        description: "Freshly roasted single-origin Arabica coffee beans with notes of dark chocolate and toasted hazelnuts.",
+        features: [
+            "\u2022 100% Single-origin Arabica coffee beans",
+            "\u2022 Artisan dark roast for intense espresso crema",
+            "\u2022 One-way degassing valve foil packaging",
+            "\u2022 1kg barista pack"
+]
+    },
+    {
+        id: 11,
         name: "Lakm\u00e9 Sun Expert SPF 50 PA+++ Ultramatte Lotion",
         brand: "Lakme",
         category: "Beauty & Personal Care Skin Care Sunscreen",
@@ -176,7 +214,7 @@ const productsDB = [
 ]
     },
     {
-        id: 10,
+        id: 12,
         name: "Ocean Shield Sunscreen SPF 50 PA+++",
         brand: "Ocean Shield",
         category: "Beauty & Personal Care Skin Care Sunscreen",
@@ -195,7 +233,7 @@ const productsDB = [
 ]
     },
     {
-        id: 11,
+        id: 13,
         name: "SUN Protect Cream SPF 50+",
         brand: "SUN",
         category: "Beauty & Personal Care Skin Care Sunscreen",
@@ -214,7 +252,7 @@ const productsDB = [
 ]
     },
     {
-        id: 12,
+        id: 14,
         name: "TFIT Tone Up Sun Fluid SPF50+ PA++++",
         brand: "TFIT",
         category: "Beauty & Personal Care Skin Care Sunscreen Moisturizers",
@@ -233,7 +271,7 @@ const productsDB = [
 ]
     },
     {
-        id: 13,
+        id: 15,
         name: "Biore UV Aqua Rich Watery Essence",
         brand: "Biore",
         category: "Beauty & Personal Care Skin Care Sunscreen Moisturizers",
@@ -252,7 +290,7 @@ const productsDB = [
 ]
     },
     {
-        id: 14,
+        id: 16,
         name: "TFIT Intensive Repair Serum",
         brand: "TFIT",
         category: "Beauty & Personal Care Skin Care Serums",
@@ -271,7 +309,7 @@ const productsDB = [
 ]
     },
     {
-        id: 15,
+        id: 17,
         name: "Biore Deep Pore Foaming Cleanser",
         brand: "Biore",
         category: "Beauty & Personal Care Skin Care Cleansers Face Wash",
@@ -290,7 +328,7 @@ const productsDB = [
 ]
     },
     {
-        id: 16,
+        id: 18,
         name: "SUN Refreshing Botanical Toner",
         brand: "SUN",
         category: "Beauty & Personal Care Skin Care Toners",
@@ -309,7 +347,45 @@ const productsDB = [
 ]
     },
     {
-        id: 17,
+        id: 19,
+        name: "Lakm\u00e9 Soft Skin Body Lotion 500ml",
+        brand: "Lakme",
+        category: "Beauty & Personal Care Body Care Body Lotion",
+        priceCurrent: "Rp155.000",
+        priceOriginal: "Rp199.000",
+        discount: "22% Off",
+        rating: 4,
+        reviews: "(821 Reviews)",
+        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        description: "Lakm\u00e9 Soft Skin Body Lotion locks in intense moisture for up to 48 hours, leaving dry skin velvety soft.",
+        features: [
+            "\u2022 48-hour deep moisture nourishment",
+            "\u2022 Enriched with shea butter & vitamin E",
+            "\u2022 Non-sticky lotion absorbs rapidly",
+            "\u2022 500ml pump bottle"
+]
+    },
+    {
+        id: 20,
+        name: "Luxury French Rose Perfume & Body Mist 250ml",
+        brand: "Lakme",
+        category: "Beauty & Personal Care Fragrance Women's Perfume",
+        priceCurrent: "Rp185.000",
+        priceOriginal: "Rp240.000",
+        discount: "23% Off",
+        rating: 5,
+        reviews: "(610 Reviews)",
+        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        description: "Delicate French rose petal fragrance body mist providing an elegant fresh floral scent all day long.",
+        features: [
+            "\u2022 Infused with natural French rose essential oil",
+            "\u2022 Long-lasting 12-hour floral fragrance veil",
+            "\u2022 Hydrating aloe vera mist base",
+            "\u2022 Elegant 250ml spray bottle"
+]
+    },
+    {
+        id: 21,
         name: "Minimalist Ceramic Table Lamp",
         brand: "Nordic Light",
         category: "Home & Living Decor & Lighting Desk Lamps",
@@ -328,7 +404,7 @@ const productsDB = [
 ]
     },
     {
-        id: 18,
+        id: 22,
         name: "Ergonomic Memory Foam Contour Pillow",
         brand: "RestEasy",
         category: "Home & Living Bed & Bath Pillows",
@@ -337,7 +413,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(530 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Orthopedic memory foam pillow designed to support neck curve and relieve shoulder pressure during sleep.",
         features: [
             "\u2022 Slow rebound memory foam",
@@ -347,7 +423,7 @@ const productsDB = [
 ]
     },
     {
-        id: 19,
+        id: 23,
         name: "Stainless Steel Electric Water Kettle 1.8L",
         brand: "TechCook",
         category: "Home & Living Kitchen & Dining Cookware",
@@ -356,7 +432,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(670 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Fast boiling 1.8 liter stainless steel electric kettle with auto shut-off and boil-dry protection.",
         features: [
             "\u2022 Food grade 304 stainless steel",
@@ -366,7 +442,7 @@ const productsDB = [
 ]
     },
     {
-        id: 20,
+        id: 24,
         name: "Non-Stick Ceramic Cookware Frying Pan Set",
         brand: "ChefChoice",
         category: "Home & Living Kitchen & Dining Cookware Sets",
@@ -375,7 +451,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(480 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Eco-friendly non-stick ceramic skillet pan set suitable for induction, gas, and electric stovetops.",
         features: [
             "\u2022 100% PFOA-free non-stick ceramic coating",
@@ -385,7 +461,7 @@ const productsDB = [
 ]
     },
     {
-        id: 21,
+        id: 25,
         name: "Nordic Soft Velvet Throw Blanket 150x200cm",
         brand: "RestEasy",
         category: "Home & Living Bed & Bath Blankets",
@@ -394,7 +470,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(360 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Ultra soft fleece velvet throw blanket for sofa, bed, and cozy living room comfort.",
         features: [
             "\u2022 Super soft plush microfiber fleece",
@@ -404,8 +480,8 @@ const productsDB = [
 ]
     },
     {
-        id: 22,
-        name: "Aromatherapy Lavender Essential Oil Reed Diffuser 150ml",
+        id: 26,
+        name: "Aromatherapy Lavender Essential Oil Reed Diffuser",
         brand: "Nordic Light",
         category: "Home & Living Decor & Lighting Candles & Diffusers",
         priceCurrent: "Rp115.000",
@@ -413,7 +489,7 @@ const productsDB = [
         discount: "23% Off",
         rating: 4,
         reviews: "(290 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Long-lasting essential oil reed diffuser releasing relaxing lavender fragrance up to 90 days.",
         features: [
             "\u2022 Pure natural essential oil blend",
@@ -423,7 +499,7 @@ const productsDB = [
 ]
     },
     {
-        id: 23,
+        id: 27,
         name: "Handcrafted Solid Wood Round Coffee Table",
         brand: "Nordic Light",
         category: "Home & Living Furniture Coffee Tables",
@@ -432,7 +508,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(190 Reviews)",
-        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Mid-century modern round wooden side table with tripod solid oak legs.",
         features: [
             "\u2022 100% Solid natural oak legs",
@@ -442,7 +518,7 @@ const productsDB = [
 ]
     },
     {
-        id: 24,
+        id: 28,
         name: "Vacuum Insulated Stainless Steel Food Flask 800ml",
         brand: "TechCook",
         category: "Home & Living Kitchen & Dining Food Storage",
@@ -451,7 +527,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(410 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
         description: "Double wall thermal soup thermo jar keeping meals hot up to 12 hours with folding spoon.",
         features: [
             "\u2022 304 Stainless steel interior",
@@ -461,7 +537,45 @@ const productsDB = [
 ]
     },
     {
-        id: 25,
+        id: 29,
+        name: "Modern Silent Non-Ticking Wall Clock 12-Inch",
+        brand: "Nordic Light",
+        category: "Home & Living Decor & Lighting Wall Art & Clocks",
+        priceCurrent: "Rp125.000",
+        priceOriginal: "Rp170.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(540 Reviews)",
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        description: "Sleek silent quartz sweep movement wall clock perfect for office, kitchen, and living room decor.",
+        features: [
+            "\u2022 Silent sweep non-ticking quartz movement",
+            "\u2022 Large HD glass lens & easy read numerals",
+            "\u2022 Battery operated low power consumption",
+            "\u2022 Modern minimalist frame design"
+]
+    },
+    {
+        id: 30,
+        name: "Luxury 100% Egyptian Cotton Bath Towels 2-Pack",
+        brand: "RestEasy",
+        category: "Home & Living Bed & Bath Bath Towels",
+        priceCurrent: "Rp179.000",
+        priceOriginal: "Rp240.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(620 Reviews)",
+        images: ["Assets/TableLamp.jpg", "Assets/TableLamp.jpg"],
+        description: "Plush 600GSM combed Egyptian cotton oversized bath towels ultra soft and super absorbent.",
+        features: [
+            "\u2022 100% Combed long-staple Egyptian cotton",
+            "\u2022 600 GSM thick plush absorbency",
+            "\u2022 Reinforced double-stitched hems",
+            "\u2022 Set of 2 hotel luxury bath towels"
+]
+    },
+    {
+        id: 31,
         name: "Wireless Active Noise-Cancelling Headphones Pro",
         brand: "SoundPro",
         category: "Electronics Audio & Entertainment Headphones",
@@ -480,7 +594,7 @@ const productsDB = [
 ]
     },
     {
-        id: 26,
+        id: 32,
         name: "Smartwatch Series 7 Waterproof",
         brand: "TechTime",
         category: "Electronics Mobile & Tablets Smartwatches",
@@ -499,7 +613,7 @@ const productsDB = [
 ]
     },
     {
-        id: 27,
+        id: 33,
         name: "Ultra HD 4K Action Camera Waterproof",
         brand: "GoCam",
         category: "Electronics Cameras & Drones Action Cameras",
@@ -508,7 +622,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(340 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Compact 4K 60fps action camera with electronic image stabilization and 30m underwater housing.",
         features: [
             "\u2022 4K Ultra HD video & 20MP photos",
@@ -518,7 +632,7 @@ const productsDB = [
 ]
     },
     {
-        id: 28,
+        id: 34,
         name: "Fast Charging 20,000mAh Power Bank",
         brand: "PowerMax",
         category: "Electronics Mobile & Tablets Power Banks",
@@ -527,7 +641,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(890 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
         description: "High capacity 20,000mAh portable charger with 22.5W fast charging support.",
         features: [
             "\u2022 22.5W Power Delivery PD & QC 3.0",
@@ -537,7 +651,7 @@ const productsDB = [
 ]
     },
     {
-        id: 29,
+        id: 35,
         name: "Portable Mini LED Home Projector 1080P",
         brand: "TechTime",
         category: "Electronics Smart Home Projectors",
@@ -546,7 +660,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(270 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
         description: "Compact home cinema projector supporting 1080P Full HD display with built-in speaker.",
         features: [
             "\u2022 Native 720P supports 1080P Full HD",
@@ -556,7 +670,7 @@ const productsDB = [
 ]
     },
     {
-        id: 30,
+        id: 36,
         name: "Mechanical RGB Gaming Keyboard Hot-Swappable",
         brand: "GamePro",
         category: "Electronics Computers Keyboards",
@@ -565,7 +679,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        images: ["Assets/Keyboard.jpg", "Assets/Keyboard.jpg"],
         description: "Compact 60% mechanical gaming keyboard with hot-swappable tactile red switches and RGB backlighting.",
         features: [
             "\u2022 Hot-swappable linear red mechanical switches",
@@ -575,7 +689,7 @@ const productsDB = [
 ]
     },
     {
-        id: 31,
+        id: 37,
         name: "Wireless Ergonomic Optical Mouse Silent Click",
         brand: "PowerMax",
         category: "Electronics Computers Mice",
@@ -584,8 +698,8 @@ const productsDB = [
         discount: "29% Off",
         rating: 4,
         reviews: "(520 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
-        description: "2.4GHz wireless quiet click mouse with ergonomic contour grip and 1600 DPI adjustable optical sensor.",
+        images: ["Assets/Keyboard.jpg", "Assets/Keyboard.jpg"],
+        description: "2.4GHz wireless quiet click mouse with ergonomic contour grip and 1600 DPI optical sensor.",
         features: [
             "\u2022 90% Noise reduction silent click buttons",
             "\u2022 3 Adjustable DPI levels (800/1200/1600)",
@@ -594,7 +708,7 @@ const productsDB = [
 ]
     },
     {
-        id: 32,
+        id: 38,
         name: "Full HD 1080P Web Cam with Dual Noise-Cancelling Mic",
         brand: "TechTime",
         category: "Electronics Computers Webcams",
@@ -603,17 +717,55 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Plug and play 1080P HD USB webcam ideal for Zoom meetings, online teaching, and live streaming.",
         features: [
             "\u2022 1080P 30fps HD clear video recording",
             "\u2022 Built-in dual noise reduction microphones",
             "\u2022 Auto light balance correction",
-            "\u2022 Universal monitor clip & tripod thread"
+            "\u2022 Universal monitor clip"
 ]
     },
     {
-        id: 33,
+        id: 39,
+        name: "High Speed USB 3.0 Portable External Hard Drive 2TB",
+        brand: "PowerMax",
+        category: "Electronics Computers External Storage",
+        priceCurrent: "Rp750.000",
+        priceOriginal: "Rp980.000",
+        discount: "23% Off",
+        rating: 5,
+        reviews: "(430 Reviews)",
+        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        description: "Ultra slim 2TB portable external hard drive with USB 3.0 high-speed data transfer speeds up to 130MB/s.",
+        features: [
+            "\u2022 Massive 2TB storage capacity",
+            "\u2022 USB 3.0 super-speed data transfer",
+            "\u2022 Plug & play for Windows, Mac, and consoles",
+            "\u2022 Shockproof aluminum metal enclosure"
+]
+    },
+    {
+        id: 40,
+        name: "Dual Fast Wireless Charging Stand 15W",
+        brand: "PowerMax",
+        category: "Electronics Mobile & Tablets Fast Chargers",
+        priceCurrent: "Rp145.000",
+        priceOriginal: "Rp195.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(390 Reviews)",
+        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        description: "2-in-1 Qi fast wireless charger stand for phone and wireless earbuds simultaneously.",
+        features: [
+            "\u2022 Dual 15W fast wireless charging coils",
+            "\u2022 Vertical & horizontal phone orientation",
+            "\u2022 Over-voltage & temperature protection",
+            "\u2022 USB-C fast charge input cable included"
+]
+    },
+    {
+        id: 41,
         name: "Portable Waterproof Bluetooth Party Speaker",
         brand: "SoundPro",
         category: "Audio & Entertainment Speakers Bluetooth Speakers",
@@ -622,7 +774,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "Rugged IPX7 waterproof wireless speaker delivering punchy bass, RGB light show, and 18-hour playtime.",
         features: [
             "\u2022 Dual drivers with bass radiator subwoofer",
@@ -632,7 +784,7 @@ const productsDB = [
 ]
     },
     {
-        id: 34,
+        id: 42,
         name: "Wireless RGB Gaming Headset 7.1 Surround",
         brand: "GamePro",
         category: "Audio & Entertainment Gaming Gaming Headsets",
@@ -651,7 +803,7 @@ const productsDB = [
 ]
     },
     {
-        id: 35,
+        id: 43,
         name: "Studio Condenser Microphone Kit with Stand",
         brand: "AudioTech",
         category: "Audio & Entertainment Musical Instruments Microphones",
@@ -660,7 +812,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(430 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "Professional USB condenser microphone bundle with adjustable boom arm stand and pop filter.",
         features: [
             "\u2022 192kHz/24bit high sampling rate clarity",
@@ -670,7 +822,7 @@ const productsDB = [
 ]
     },
     {
-        id: 36,
+        id: 44,
         name: "Soundbar TV Speaker System with Subwoofer",
         brand: "SoundPro",
         category: "Audio & Entertainment Speakers Soundbars",
@@ -679,7 +831,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(520 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "120W home theater soundbar speaker system with wireless subwoofer and Bluetooth 5.0.",
         features: [
             "\u2022 120W peak power for room-shaking audio",
@@ -689,7 +841,7 @@ const productsDB = [
 ]
     },
     {
-        id: 37,
+        id: 45,
         name: "True Wireless Active Noise Cancelling Earbuds",
         brand: "SoundPro",
         category: "Audio & Entertainment Headphones Wireless Earbuds",
@@ -703,12 +855,12 @@ const productsDB = [
         features: [
             "\u2022 ANC Active noise cancellation up to 30dB",
             "\u2022 Bluetooth 5.3 instant auto pairing",
-            "\u2022 32 Hours total battery life with wireless case",
+            "\u2022 32 Hours total battery life",
             "\u2022 IPX5 Water and sweat resistant"
 ]
     },
     {
-        id: 38,
+        id: 46,
         name: "High Fidelity Wooden Desktop Bookshelf Speakers 60W",
         brand: "AudioTech",
         category: "Audio & Entertainment Speakers Studio Monitors",
@@ -717,7 +869,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "Active wooden powered bookshelf speakers with silk dome tweeters and Bluetooth wireless connectivity.",
         features: [
             "\u2022 60W RMS total power output",
@@ -727,7 +879,7 @@ const productsDB = [
 ]
     },
     {
-        id: 39,
+        id: 47,
         name: "Handheld Wireless Karaoke Microphone Speaker",
         brand: "AudioTech",
         category: "Audio & Entertainment Microphones Karaoke",
@@ -736,7 +888,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(490 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "All-in-one handheld bluetooth karaoke mic with echo reverb effects and colorful LED light.",
         features: [
             "\u2022 Built-in loud stereo speaker",
@@ -746,7 +898,7 @@ const productsDB = [
 ]
     },
     {
-        id: 40,
+        id: 48,
         name: "USB Audio Interface Sound Card 24-bit/192kHz",
         brand: "AudioTech",
         category: "Audio & Entertainment Musical Instruments Audio Interfaces",
@@ -755,7 +907,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(260 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
         description: "Professional 2x2 USB audio interface preamp for recording guitars, vocals, and instruments.",
         features: [
             "\u2022 High resolution 24-bit/192kHz studio quality",
@@ -765,7 +917,45 @@ const productsDB = [
 ]
     },
     {
-        id: 41,
+        id: 49,
+        name: "Professional DJ Studio Monitoring Headphones",
+        brand: "AudioTech",
+        category: "Audio & Entertainment Headphones Over-Ear Headphones",
+        priceCurrent: "Rp399.000",
+        priceOriginal: "Rp530.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(480 Reviews)",
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        description: "Closed-back professional DJ headphones with 50mm neodymium drivers and 90-degree swiveling earcups.",
+        features: [
+            "\u2022 50mm Neodymium drivers for accurate monitoring",
+            "\u2022 90-degree swiveling earcups for single-ear listening",
+            "\u2022 Detachable 3m coiled audio cable",
+            "\u2022 Soft memory foam leather ear cushions"
+]
+    },
+    {
+        id: 50,
+        name: "Compact Outdoor Waterproof Bluetooth Mini Speaker",
+        brand: "SoundPro",
+        category: "Audio & Entertainment Speakers Portable Speakers",
+        priceCurrent: "Rp165.000",
+        priceOriginal: "Rp220.000",
+        discount: "25% Off",
+        rating: 4,
+        reviews: "(670 Reviews)",
+        images: ["Assets/Headphones.jpg", "Assets/Headphones.jpg"],
+        description: "Pocket-sized 5W bluetooth speaker with integrated carabiner clip for hiking and cycling.",
+        features: [
+            "\u2022 Crystal clear sound with passive bass radiator",
+            "\u2022 IPX6 Water resistant rugged rubberized body",
+            "\u2022 Built-in metal carabiner clip",
+            "\u2022 10 Hours continuous playback"
+]
+    },
+    {
+        id: 51,
         name: "Oversized Premium Cotton Hoodie",
         brand: "UrbanStyle",
         category: "Fashion Men's Clothing Hoodies",
@@ -784,7 +974,7 @@ const productsDB = [
 ]
     },
     {
-        id: 42,
+        id: 52,
         name: "Leather Minimalist Slim RFID Wallet",
         brand: "VogueCraft",
         category: "Fashion Accessories Wallets",
@@ -793,7 +983,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(390 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
         description: "Genuine full-grain leather slim wallet equipped with RFID blocking protection for cards and cash.",
         features: [
             "\u2022 Handcrafted 100% genuine leather",
@@ -803,7 +993,7 @@ const productsDB = [
 ]
     },
     {
-        id: 43,
+        id: 53,
         name: "Mens Casual Canvas Low-Top Sneakers",
         brand: "StreetWear",
         category: "Fashion Footwear Sneakers",
@@ -812,7 +1002,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(810 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/Sneakers.jpg", "Assets/Sneakers.jpg"],
         description: "Classic unisex low-top canvas sneakers featuring vulcanized rubber outsole for durable grip.",
         features: [
             "\u2022 Breathable double-layer canvas upper",
@@ -822,7 +1012,7 @@ const productsDB = [
 ]
     },
     {
-        id: 44,
+        id: 54,
         name: "Womens Floral Summer Midi Dress",
         brand: "VogueCraft",
         category: "Fashion Women's Clothing Dresses",
@@ -831,7 +1021,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 4,
         reviews: "(470 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
         description: "Flowy chiffon floral printed midi dress with adjustable waist tie and ruffled hem line.",
         features: [
             "\u2022 Lightweight chiffon fabric",
@@ -841,7 +1031,7 @@ const productsDB = [
 ]
     },
     {
-        id: 45,
+        id: 55,
         name: "Men Classic Vintage Denim Trucker Jacket",
         brand: "UrbanStyle",
         category: "Fashion Men's Clothing Jackets",
@@ -860,7 +1050,7 @@ const productsDB = [
 ]
     },
     {
-        id: 46,
+        id: 56,
         name: "Womens Oversized Chunky Knit Cardigan",
         brand: "VogueCraft",
         category: "Fashion Women's Clothing Sweaters",
@@ -879,7 +1069,7 @@ const productsDB = [
 ]
     },
     {
-        id: 47,
+        id: 57,
         name: "Classic Retro Square Sunglasses UV400",
         brand: "StreetWear",
         category: "Fashion Accessories Sunglasses",
@@ -888,7 +1078,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(460 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
         description: "Trendy square thick frame sunglasses with HD polarized UV protection lenses.",
         features: [
             "\u2022 UV400 Protection against harmful rays",
@@ -898,7 +1088,7 @@ const productsDB = [
 ]
     },
     {
-        id: 48,
+        id: 58,
         name: "Men Reversible Genuine Leather Belt",
         brand: "UrbanStyle",
         category: "Fashion Accessories Belts",
@@ -907,7 +1097,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(340 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
         description: "Dual-sided black and brown reversible leather belt with rotating metal pin buckle.",
         features: [
             "\u2022 100% Full grain top leather",
@@ -917,7 +1107,45 @@ const productsDB = [
 ]
     },
     {
-        id: 49,
+        id: 59,
+        name: "Mens Slim Fit Stretch Chino Trousers",
+        brand: "StreetWear",
+        category: "Fashion Men's Clothing Pants",
+        priceCurrent: "Rp220.000",
+        priceOriginal: "Rp290.000",
+        discount: "24% Off",
+        rating: 5,
+        reviews: "(580 Reviews)",
+        images: ["Assets/Hoodie.jpg", "Assets/Hoodie.jpg"],
+        description: "Versatile cotton stretch chino pants featuring 4-pocket styling and comfortable flexible waist.",
+        features: [
+            "\u2022 98% Premium cotton & 2% elastane stretch",
+            "\u2022 Modern tailored slim fit profile",
+            "\u2022 Wrinkle-resistant easy care fabric",
+            "\u2022 YKK zipper fly with button closure"
+]
+    },
+    {
+        id: 60,
+        name: "Womens High-Waist Athletic Running Shorts",
+        brand: "StreetWear",
+        category: "Fashion Activewear Activewear",
+        priceCurrent: "Rp110.000",
+        priceOriginal: "Rp150.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(410 Reviews)",
+        images: ["Assets/Sneakers.jpg", "Assets/Sneakers.jpg"],
+        description: "Breathable double layer workout shorts with built-in spandex liner and zippered phone pocket.",
+        features: [
+            "\u2022 Moisture-wicking quick dry fabric",
+            "\u2022 Wide elastic high waist tummy control band",
+            "\u2022 Hidden zipper back pocket for keys & cards",
+            "\u2022 Anti-chafing inner compression liner"
+]
+    },
+    {
+        id: 61,
         name: "Anti-Theft Laptop Backpack 15.6 Inch",
         brand: "UrbanStyle",
         category: "Bags & Accessories Backpacks Laptop Backpacks",
@@ -936,7 +1164,7 @@ const productsDB = [
 ]
     },
     {
-        id: 50,
+        id: 62,
         name: "Polarized UV400 Classic Aviator Sunglasses",
         brand: "VogueCraft",
         category: "Bags & Accessories Accessories Sunglasses",
@@ -945,7 +1173,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(580 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
         description: "Premium TAC polarized aviator sunglasses eliminating glare while providing 100% UV400 protection.",
         features: [
             "\u2022 TAC polarized lenses",
@@ -955,7 +1183,7 @@ const productsDB = [
 ]
     },
     {
-        id: 51,
+        id: 63,
         name: "Waterproof Travel Duffel & Sports Gym Bag",
         brand: "ActiveGear",
         category: "Bags & Accessories Travel & Luggage Duffel Bags",
@@ -974,7 +1202,7 @@ const productsDB = [
 ]
     },
     {
-        id: 52,
+        id: 64,
         name: "Womens Canvas Shoulder Tote Bag with Zipper",
         brand: "VogueCraft",
         category: "Bags & Accessories Handbags & Totes Tote Bags",
@@ -983,7 +1211,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
         description: "Spacious heavy-duty cotton canvas tote bag with inner zippered organizer pockets.",
         features: [
             "\u2022 Thick 16oz durable canvas",
@@ -993,7 +1221,7 @@ const productsDB = [
 ]
     },
     {
-        id: 53,
+        id: 65,
         name: "Vintage Leather Crossbody Messenger Bag",
         brand: "VogueCraft",
         category: "Bags & Accessories Handbags & Totes Crossbody Bags",
@@ -1012,7 +1240,7 @@ const productsDB = [
 ]
     },
     {
-        id: 54,
+        id: 66,
         name: "Travel Passport Holder RFID Blocking Wallet",
         brand: "UrbanStyle",
         category: "Bags & Accessories Travel & Luggage Passport Holders",
@@ -1021,7 +1249,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(310 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
         description: "Family travel document organizer case with RFID shielding for passports, tickets, and cards.",
         features: [
             "\u2022 RFID Blocking anti-theft fabric",
@@ -1031,7 +1259,7 @@ const productsDB = [
 ]
     },
     {
-        id: 55,
+        id: 67,
         name: "Hardshell Spinner Suitcase 24-Inch Carry-On",
         brand: "ActiveGear",
         category: "Bags & Accessories Travel & Luggage Suitcases",
@@ -1050,7 +1278,7 @@ const productsDB = [
 ]
     },
     {
-        id: 56,
+        id: 68,
         name: "Slim Pop-Up RFID Blocking Aluminum Card Holder",
         brand: "UrbanStyle",
         category: "Bags & Accessories Wallets Card Holders",
@@ -1059,7 +1287,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(610 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
         description: "Automatic pop-up trigger metal card wallet holding up to 6 credit cards safely.",
         features: [
             "\u2022 One-click instant pop-up mechanism",
@@ -1069,7 +1297,45 @@ const productsDB = [
 ]
     },
     {
-        id: 57,
+        id: 69,
+        name: "Lightweight Foldable Outdoor Travel Daypack 20L",
+        brand: "ActiveGear",
+        category: "Bags & Accessories Backpacks Travel Backpacks",
+        priceCurrent: "Rp115.000",
+        priceOriginal: "Rp155.000",
+        discount: "25% Off",
+        rating: 4,
+        reviews: "(410 Reviews)",
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        description: "Packable water-resistant daypack folds into small inner zipper pouch for easy travel storage.",
+        features: [
+            "\u2022 Folds into compact sandwich-size pocket pouch",
+            "\u2022 Tear-resistant ripstop nylon fabric",
+            "\u2022 Mesh side pockets for water bottles",
+            "\u2022 20L Capacity lightweight (only 200g)"
+]
+    },
+    {
+        id: 70,
+        name: "Waterproof Running Waist Fanny Pack Belt Bag",
+        brand: "ActiveGear",
+        category: "Bags & Accessories Accessories Pouches",
+        priceCurrent: "Rp75.000",
+        priceOriginal: "Rp105.000",
+        discount: "28% Off",
+        rating: 5,
+        reviews: "(590 Reviews)",
+        images: ["Assets/Backpack.jpg", "Assets/Backpack.jpg"],
+        description: "Slim bounce-free waist bag with earphone jack hole and reflective night safety strip.",
+        features: [
+            "\u2022 Water-resistant neoprene material",
+            "\u2022 Earphone cable pass-through hole",
+            "\u2022 Adjustable elastic belt fits all waist sizes",
+            "\u2022 Reflective zipper safety strip"
+]
+    },
+    {
+        id: 71,
         name: "Baby Gentle Skincare Shampoo & Body Wash",
         brand: "BabyGentle",
         category: "Baby & Kids Baby Care Baby Skincare",
@@ -1078,7 +1344,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(460 Reviews)",
-        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "Tear-free hypoallergenic 2-in-1 baby shampoo and body wash enriched with natural chamomile.",
         features: [
             "\u2022 Tear-free gentle formula",
@@ -1088,7 +1354,7 @@ const productsDB = [
 ]
     },
     {
-        id: 58,
+        id: 72,
         name: "Educational Wooden Building Blocks Toy Set",
         brand: "KiddoPlay",
         category: "Baby & Kids Toys & Games Educational Toys",
@@ -1097,7 +1363,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(590 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "100-piece natural solid wood geometric block set with non-toxic water-based paints.",
         features: [
             "\u2022 Solid pine wood blocks",
@@ -1107,7 +1373,7 @@ const productsDB = [
 ]
     },
     {
-        id: 59,
+        id: 73,
         name: "Lightweight Foldable Baby Stroller",
         brand: "BabyGentle",
         category: "Baby & Kids Nursery & Gear Strollers",
@@ -1116,7 +1382,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/Product 2.jpg", "Assets/Product 2.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "One-hand quick fold compact airplane cabin approved toddler stroller.",
         features: [
             "\u2022 One-second automatic folding",
@@ -1126,7 +1392,7 @@ const productsDB = [
 ]
     },
     {
-        id: 60,
+        id: 74,
         name: "Soft Organic Cotton Baby Onesies 3-Pack",
         brand: "BabyGentle",
         category: "Baby & Kids Kids Fashion Baby Clothing",
@@ -1135,7 +1401,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(420 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "Ultra soft 100% organic cotton short sleeve bodysuit onesies for newborns.",
         features: [
             "\u2022 100% Certified organic cotton",
@@ -1145,7 +1411,7 @@ const productsDB = [
 ]
     },
     {
-        id: 61,
+        id: 75,
         name: "Anti-Colic Baby Feeding Bottle 250ml 2-Pack",
         brand: "BabyGentle",
         category: "Baby & Kids Baby Care Feeding Bottles",
@@ -1154,7 +1420,7 @@ const productsDB = [
         discount: "24% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "BPA-free natural latch silicone teat feeding bottle with dual anti-colic air vent valve.",
         features: [
             "\u2022 100% BPA, BPS and Phthalate free",
@@ -1164,7 +1430,7 @@ const productsDB = [
 ]
     },
     {
-        id: 62,
+        id: 76,
         name: "Interactive Musical Toddler Learning Activity Toy",
         brand: "KiddoPlay",
         category: "Baby & Kids Toys & Games Educational Toys",
@@ -1173,7 +1439,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(470 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "Multifunctional electronic learning cube with drum pads, piano keys, and shape sorters.",
         features: [
             "\u2022 6 Unique play sides (Piano, Gears, Shape Sorter)",
@@ -1183,7 +1449,7 @@ const productsDB = [
 ]
     },
     {
-        id: 63,
+        id: 77,
         name: "Kids Ergonomic Lightweight School Backpack",
         brand: "KiddoPlay",
         category: "Baby & Kids Kids Fashion School Backpacks",
@@ -1202,7 +1468,7 @@ const productsDB = [
 ]
     },
     {
-        id: 64,
+        id: 78,
         name: "Waterproof Silicone Baby Bibs 4-Pack",
         brand: "BabyGentle",
         category: "Baby & Kids Baby Care Feeding",
@@ -1211,7 +1477,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 4,
         reviews: "(290 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
         description: "Soft food grade silicone bibs with deep crumb catcher pouch and adjustable neck buttons.",
         features: [
             "\u2022 100% Food grade soft silicone",
@@ -1221,7 +1487,45 @@ const productsDB = [
 ]
     },
     {
-        id: 65,
+        id: 79,
+        name: "Convertible 3-in-1 Baby High Chair & Toddler Seat",
+        brand: "BabyGentle",
+        category: "Baby & Kids Nursery & Gear High Chairs",
+        priceCurrent: "Rp420.000",
+        priceOriginal: "Rp580.000",
+        discount: "27% Off",
+        rating: 5,
+        reviews: "(230 Reviews)",
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        description: "Growing toddler high chair converting from baby feeding seat to booster chair and desk stool.",
+        features: [
+            "\u2022 3-in-1 Convertible grow-with-me design",
+            "\u2022 Removable double tray top dishwasher safe",
+            "\u2022 Stain-resistant PU leather cushion seat",
+            "\u2022 Sturdy trapezoid pyramidal beechwood legs"
+]
+    },
+    {
+        id: 80,
+        name: "Plush Stuffed Animal Soft Teddy Bear Toy 35cm",
+        brand: "KiddoPlay",
+        category: "Baby & Kids Toys & Games Plush Toys",
+        priceCurrent: "Rp85.000",
+        priceOriginal: "Rp115.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(640 Reviews)",
+        images: ["Assets/Stroller.jpg", "Assets/Stroller.jpg"],
+        description: "Ultra soft fluffy plush teddy bear toy filled with hypoallergenic PP cotton.",
+        features: [
+            "\u2022 Premium super soft velvet plush outer",
+            "\u2022 100% Hypoallergenic PP cotton stuffing",
+            "\u2022 Lock-washer safety eyes & nose",
+            "\u2022 Machine washable gentle cycle"
+]
+    },
+    {
+        id: 81,
         name: "Non-Slip Thick Eco-Friendly Yoga Mat",
         brand: "ActiveGear",
         category: "Sport & Outdoors Fitness & Gym Yoga Mats",
@@ -1230,7 +1534,7 @@ const productsDB = [
         discount: "27% Off",
         rating: 5,
         reviews: "(780 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "Extra thick 8mm high density TPE yoga mat with alignment guide lines and carrying strap.",
         features: [
             "\u2022 Non-toxic eco-friendly TPE material",
@@ -1240,7 +1544,7 @@ const productsDB = [
 ]
     },
     {
-        id: 66,
+        id: 82,
         name: "Adjustable Dumbbell Weight Set 10kg with Case",
         brand: "FitGym",
         category: "Sport & Outdoors Fitness & Gym Dumbbells",
@@ -1249,7 +1553,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(650 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "Electroplated chrome adjustable dumbbell set with connector bar to convert into a barbell.",
         features: [
             "\u2022 Chrome electroplated steel weight plates",
@@ -1259,7 +1563,7 @@ const productsDB = [
 ]
     },
     {
-        id: 67,
+        id: 83,
         name: "Waterproof 4-Person Outdoor Camping Tent",
         brand: "OutdoorPeak",
         category: "Sport & Outdoors Camping & Hiking Tents",
@@ -1268,7 +1572,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(490 Reviews)",
-        images: ["Assets/Product 5.jpg", "Assets/Product 5.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "Automatic hydraulic popup dome tent with UV protection flysheet and mesh windows.",
         features: [
             "\u2022 3-Second instant automatic popup",
@@ -1278,7 +1582,7 @@ const productsDB = [
 ]
     },
     {
-        id: 68,
+        id: 84,
         name: "Stainless Steel Vacuum Thermal Water Bottle 1L",
         brand: "ActiveGear",
         category: "Sport & Outdoors Camping & Hiking Water Bottles",
@@ -1287,7 +1591,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 4,
         reviews: "(610 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "Double wall vacuum insulated stainless steel canteen keeping drinks cold 24h or hot 12h.",
         features: [
             "\u2022 Double wall 18/8 stainless steel",
@@ -1297,7 +1601,7 @@ const productsDB = [
 ]
     },
     {
-        id: 69,
+        id: 85,
         name: "High Density Muscle Foam Roller for Recovery",
         brand: "FitGym",
         category: "Sport & Outdoors Fitness & Gym Foam Rollers",
@@ -1306,7 +1610,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(430 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "Deep tissue trigger point foam roller for back, leg muscle massage and post-workout recovery.",
         features: [
             "\u2022 High density EVA foam construction",
@@ -1316,7 +1620,7 @@ const productsDB = [
 ]
     },
     {
-        id: 70,
+        id: 86,
         name: "Heavy-Duty Resistance Exercise Bands 5-Set",
         brand: "FitGym",
         category: "Sport & Outdoors Fitness & Gym Resistance Bands",
@@ -1325,7 +1629,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(680 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "100% Natural latex resistance workout band set with handles, door anchor, and ankle straps.",
         features: [
             "\u2022 5 Color-coded resistance levels (10lbs to 50lbs)",
@@ -1335,7 +1639,7 @@ const productsDB = [
 ]
     },
     {
-        id: 71,
+        id: 87,
         name: "Ultra Bright Rechargeable LED Camping Lantern",
         brand: "OutdoorPeak",
         category: "Sport & Outdoors Camping & Hiking Lanterns",
@@ -1344,7 +1648,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 4,
         reviews: "(390 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
         description: "1000 Lumens 360-degree LED camping light with power bank output for phone emergency charging.",
         features: [
             "\u2022 1000 Lumens 360-degree illumination",
@@ -1354,7 +1658,7 @@ const productsDB = [
 ]
     },
     {
-        id: 72,
+        id: 88,
         name: "Tactical Outdoor Hiking Backpack 40L Waterproof",
         brand: "OutdoorPeak",
         category: "Sport & Outdoors Camping & Hiking Backpacks",
@@ -1373,7 +1677,45 @@ const productsDB = [
 ]
     },
     {
-        id: 73,
+        id: 89,
+        name: "Professional Speed Jump Rope Steel Cable",
+        brand: "FitGym",
+        category: "Sport & Outdoors Fitness & Gym Jump Ropes",
+        priceCurrent: "Rp55.000",
+        priceOriginal: "Rp75.000",
+        discount: "26% Off",
+        rating: 5,
+        reviews: "(710 Reviews)",
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        description: "360-degree ball bearing tangle-free speed skipping rope for cardio double-unders workout.",
+        features: [
+            "\u2022 360-Degree smooth ball bearing rotation mechanism",
+            "\u2022 Adjustable 3m PVC coated steel wire cable",
+            "\u2022 Non-slip aluminum alloy handles",
+            "\u2022 Ideal for boxing, MMA, and cross training"
+]
+    },
+    {
+        id: 90,
+        name: "Lightweight Portable Folding Camping Chair",
+        brand: "OutdoorPeak",
+        category: "Sport & Outdoors Camping & Hiking Camping Chairs",
+        priceCurrent: "Rp145.000",
+        priceOriginal: "Rp195.000",
+        discount: "25% Off",
+        rating: 4,
+        reviews: "(340 Reviews)",
+        images: ["Assets/Tent.jpg", "Assets/Tent.jpg"],
+        description: "Compact folding camp stool chair with side storage pocket and shoulder carry bag.",
+        features: [
+            "\u2022 Heavy-duty steel frame supports up to 120kg",
+            "\u2022 600D Durable Oxford cloth fabric",
+            "\u2022 Side storage pocket for phone & drinks",
+            "\u2022 Folds compact into included carry bag"
+]
+    },
+    {
+        id: 91,
         name: "Premium Car Wash Shampoo & Wax Foam 1L",
         brand: "AutoCare",
         category: "Automotive Car Care Wash & Wax",
@@ -1382,7 +1724,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 5,
         reviews: "(730 Reviews)",
-        images: ["Assets/Product 6.jpg", "Assets/Product 6.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "High foaming car wash soap infused with carnauba wax for a streak-free brilliant shine finish.",
         features: [
             "\u2022 pH neutral safe for clear coats & ceramic wraps",
@@ -1392,7 +1734,7 @@ const productsDB = [
 ]
     },
     {
-        id: 74,
+        id: 92,
         name: "HD 1080P Dual Car Dash Cam Camera",
         brand: "TechTime",
         category: "Automotive Auto Electronics Dash Cams",
@@ -1401,7 +1743,7 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(580 Reviews)",
-        images: ["Assets/Product 7.jpg", "Assets/Product 7.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Front and rear dual recording dash camera with night vision, G-sensor, and parking monitor.",
         features: [
             "\u2022 Full HD 1080P front & rear camera",
@@ -1411,7 +1753,7 @@ const productsDB = [
 ]
     },
     {
-        id: 75,
+        id: 93,
         name: "Universal All-Weather Rubber Car Floor Mats 4-Piece",
         brand: "AutoCare",
         category: "Automotive Interior Accessories Floor Mats",
@@ -1420,7 +1762,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 4,
         reviews: "(410 Reviews)",
-        images: ["Assets/Product 8.jpg", "Assets/Product 8.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Heavy-duty trimmable waterproof rubber floor mats protecting vehicle carpet from mud and spills.",
         features: [
             "\u2022 Odorless heavy-duty flexible rubber",
@@ -1430,7 +1772,7 @@ const productsDB = [
 ]
     },
     {
-        id: 76,
+        id: 94,
         name: "High Pressure Car Washer Snow Foam Lance Gun",
         brand: "AutoCare",
         category: "Automotive Car Care Wash & Wax",
@@ -1439,7 +1781,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(520 Reviews)",
-        images: ["Assets/Product 9.jpg", "Assets/Product 9.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Adjustable brass nozzle foam cannon bottle attachment for pressure washers.",
         features: [
             "\u2022 Solid brass core with heavy duty bottle",
@@ -1449,7 +1791,7 @@ const productsDB = [
 ]
     },
     {
-        id: 77,
+        id: 95,
         name: "Ultra Absorbent Microfiber Car Drying Towels 4-Pack",
         brand: "AutoCare",
         category: "Automotive Car Care Microfiber Towels",
@@ -1458,8 +1800,8 @@ const productsDB = [
         discount: "26% Off",
         rating: 5,
         reviews: "(640 Reviews)",
-        images: ["Assets/Product 1.jpg", "Assets/Product 1.jpg"],
-        description: "800GSM thick plush scratch-free lint-free microfiber detailing towels for car drying and buffing.",
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        description: "800GSM thick plush scratch-free lint-free microfiber detailing towels for car drying.",
         features: [
             "\u2022 800 GSM high density absorbent plush pile",
             "\u2022 Scratch-free silk band edge",
@@ -1468,7 +1810,7 @@ const productsDB = [
 ]
     },
     {
-        id: 78,
+        id: 96,
         name: "Bluetooth 5.3 FM Transmitter Dual USB Car Charger",
         brand: "TechTime",
         category: "Automotive Auto Electronics Car Chargers",
@@ -1477,7 +1819,7 @@ const productsDB = [
         discount: "28% Off",
         rating: 4,
         reviews: "(490 Reviews)",
-        images: ["Assets/Smartwatch.jpg", "Assets/Smartwatch.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Wireless bluetooth in-car FM adapter with hands-free microphone and QC 3.0 fast charging port.",
         features: [
             "\u2022 Bluetooth 5.3 wireless audio streaming",
@@ -1487,7 +1829,7 @@ const productsDB = [
 ]
     },
     {
-        id: 79,
+        id: 97,
         name: "Portable Digital Cordless Car Tire Inflator 150PSI",
         brand: "AutoCare",
         category: "Automotive Auto Electronics Tire Inflators",
@@ -1496,7 +1838,7 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(380 Reviews)",
-        images: ["Assets/Product 3.jpg", "Assets/Product 3.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "Rechargeable 6000mAh electric air pump compressor with LCD screen and auto shutoff preset.",
         features: [
             "\u2022 150 PSI maximum pressure fast inflation",
@@ -1506,7 +1848,7 @@ const productsDB = [
 ]
     },
     {
-        id: 80,
+        id: 98,
         name: "Emergency 1200A Car Jump Starter Power Pack",
         brand: "PowerMax",
         category: "Automotive Auto Electronics Jump Starters",
@@ -1515,13 +1857,51 @@ const productsDB = [
         discount: "25% Off",
         rating: 5,
         reviews: "(310 Reviews)",
-        images: ["Assets/Product 4.jpg", "Assets/Product 4.jpg"],
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
         description: "1200A peak current portable battery jump starter for 6.0L gas and 4.0L diesel engines.",
         features: [
             "\u2022 1200A Peak current starts 12V dead batteries in seconds",
             "\u2022 Heavy-duty jumper clamps with smart protection",
             "\u2022 Built-in 12,000mAh power bank & LED flashlight",
             "\u2022 Compact shockproof storage case"
+]
+    },
+    {
+        id: 99,
+        name: "Car Leather Interior Cleaner & Conditioner Spray 500ml",
+        brand: "AutoCare",
+        category: "Automotive Car Care Interior Cleaners",
+        priceCurrent: "Rp78.000",
+        priceOriginal: "Rp105.000",
+        discount: "25% Off",
+        rating: 5,
+        reviews: "(420 Reviews)",
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        description: "Premium 2-in-1 leather cleaner and restorer protectant against UV cracking and fading.",
+        features: [
+            "\u2022 Cleans dirt, oil, and grime from leather seats",
+            "\u2022 Enriched with natural conditioning oils",
+            "\u2022 UV Blockers prevent cracking & fading",
+            "\u2022 Non-greasy natural satin finish"
+]
+    },
+    {
+        id: 100,
+        name: "Universal Magnetic Air Vent Car Phone Mount Holder",
+        brand: "TechTime",
+        category: "Automotive Interior Accessories Phone Mounts",
+        priceCurrent: "Rp49.000",
+        priceOriginal: "Rp75.000",
+        discount: "34% Off",
+        rating: 5,
+        reviews: "(860 Reviews)",
+        images: ["Assets/DashCam.jpg", "Assets/DashCam.jpg"],
+        description: "Powerful N52 neodymium magnet car phone holder fitting all smartphone models firmly.",
+        features: [
+            "\u2022 6 Powerful N52 neodymium magnets hold phone firmly",
+            "\u2022 360-Degree rotating metal ball joint angle",
+            "\u2022 Anti-scratch rubber air vent clip claw",
+            "\u2022 One-hand instant magnetic attachment"
 ]
     }
 ];
