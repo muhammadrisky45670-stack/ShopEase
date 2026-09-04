@@ -152,6 +152,7 @@ const productsDB = [
         id: 9,
         name: 'Lakmé Soft Skin Body Lotion 500ml',
         brand: 'Lakme',
+        category: 'Beauty & Personal Care Body Care',
         priceCurrent: 'Rp155.000',
         priceOriginal: 'Rp199.000',
         discount: '22% Off',
@@ -164,6 +165,158 @@ const productsDB = [
             '• Enriched with shea butter and vitamin E',
             '• Non-sticky lotion absorbs rapidly',
             '• Generous 500ml family-sized pump bottle'
+        ]
+    },
+    {
+        id: 10,
+        name: 'Nescafé Gold Blend Premium Instant Coffee 200g',
+        brand: 'Nescafe',
+        category: 'Food & Beverage',
+        priceCurrent: 'Rp85.000',
+        priceOriginal: 'Rp110.000',
+        discount: '23% Off',
+        rating: 5,
+        reviews: '(1420 Reviews)',
+        images: ['Assets/Product 1.jpg', 'Assets/Product 1.jpg'],
+        description: 'Rich, smooth, and full-bodied premium instant coffee crafted with high quality Arabica and Robusta coffee beans.',
+        features: [
+            '• Made from selected Arabica & Robusta coffee beans',
+            '• Smooth crema finish and rich aromatic roast',
+            '• Quick and convenient premium coffee preparation',
+            '• Imported 200g glass jar'
+        ]
+    },
+    {
+        id: 11,
+        name: 'Twinings Earl Grey Tea 50 Tea Bags',
+        brand: 'Twinings',
+        category: 'Food & Beverage',
+        priceCurrent: 'Rp65.000',
+        priceOriginal: 'Rp89.000',
+        discount: '27% Off',
+        rating: 5,
+        reviews: '(650 Reviews)',
+        images: ['Assets/Product 2.jpg', 'Assets/Product 2.jpg'],
+        description: 'Classic fragrant black tea delicately scented with citrusy bergamot oil.',
+        features: [
+            '• Premium loose leaf black tea in convenient tea bags',
+            '• Distinctive citrus bergamot aroma',
+            '• Refreshing and uplifting hot or iced',
+            '• 50 individually foil wrapped tea bags'
+        ]
+    },
+    {
+        id: 12,
+        name: 'Minimalist Ceramic Table Lamp',
+        brand: 'Nordic Light',
+        category: 'Home & Living',
+        priceCurrent: 'Rp199.000',
+        priceOriginal: 'Rp269.000',
+        discount: '26% Off',
+        rating: 5,
+        reviews: '(410 Reviews)',
+        images: ['Assets/Product 3.jpg', 'Assets/Product 3.jpg'],
+        description: 'Elegant ceramic bedside table lamp with warm ambient LED light perfect for living room or bedroom decor.',
+        features: [
+            '• Handcrafted ceramic base with fabric shade',
+            '• Warm 3000K soft eye-care LED lighting',
+            '• Touch control dimmer switch',
+            '• Energy efficient low power consumption'
+        ]
+    },
+    {
+        id: 13,
+        name: 'Ergonomic Memory Foam Contour Pillow',
+        brand: 'RestEasy',
+        category: 'Home & Living',
+        priceCurrent: 'Rp175.000',
+        priceOriginal: 'Rp239.000',
+        discount: '27% Off',
+        rating: 4,
+        reviews: '(530 Reviews)',
+        images: ['Assets/Product 4.jpg', 'Assets/Product 4.jpg'],
+        description: 'Orthopedic memory foam pillow designed to support neck curve and relieve shoulder pressure during sleep.',
+        features: [
+            '• High density slow rebound memory foam',
+            '• Breathable hypoallergenic bamboo velvet cover',
+            '• Ergonomic contour for back and side sleepers',
+            '• Removable and machine washable zipper cover'
+        ]
+    },
+    {
+        id: 14,
+        name: 'Wireless Active Noise-Cancelling Headphones Pro',
+        brand: 'SoundPro',
+        category: 'Electronics Audio & Entertainment',
+        priceCurrent: 'Rp499.000',
+        priceOriginal: 'Rp699.000',
+        discount: '28% Off',
+        rating: 5,
+        reviews: '(910 Reviews)',
+        images: ['Assets/Product 5.jpg', 'Assets/Product 5.jpg'],
+        description: 'Immersive wireless over-ear headphones with active noise cancellation and up to 40 hours battery life.',
+        features: [
+            '• Hybrid active noise cancelling ANC technology',
+            '• 40mm custom audio drivers for deep bass',
+            '• 40-hour playback with fast USB-C charging',
+            '• Soft memory foam earcups for all-day comfort'
+        ]
+    },
+    {
+        id: 15,
+        name: 'Smartwatch Series 7 Waterproof',
+        brand: 'TechTime',
+        category: 'Electronics',
+        priceCurrent: 'Rp389.000',
+        priceOriginal: 'Rp520.000',
+        discount: '25% Off',
+        rating: 4,
+        reviews: '(780 Reviews)',
+        images: ['Assets/Product 6.jpg', 'Assets/Product 6.jpg'],
+        description: 'Feature-rich smartwatch with heart rate monitoring, sleep tracker, 50+ sports modes, and HD AMOLED display.',
+        features: [
+            '• 1.85 inch HD full touch screen',
+            '• 24/7 Heart Rate, SpO2 & Sleep Tracker',
+            '• IP68 waterproof rating for swimming',
+            '• Long battery life up to 10 days per charge'
+        ]
+    },
+    {
+        id: 16,
+        name: 'Oversized Premium Cotton Hoodie',
+        brand: 'UrbanStyle',
+        category: 'Fashion',
+        priceCurrent: 'Rp249.000',
+        priceOriginal: 'Rp329.000',
+        discount: '24% Off',
+        rating: 5,
+        reviews: '(640 Reviews)',
+        images: ['Assets/Product 7.jpg', 'Assets/Product 7.jpg'],
+        description: 'Cozy heavyweight 100% combed cotton fleece hoodie with relaxed drop shoulder fit.',
+        features: [
+            '• 380 GSM ultra-soft heavy fleece fabric',
+            '• Double-lined hood with adjustable drawstrings',
+            '• Spacious kangaroo pouch pocket',
+            '• Durable double-stitched seams'
+        ]
+    },
+    {
+        id: 17,
+        name: 'Leather Minimalist Slim RFID Wallet',
+        brand: 'VogueCraft',
+        category: 'Fashion Bags & Accessories',
+        priceCurrent: 'Rp120.000',
+        priceOriginal: 'Rp165.000',
+        discount: '27% Off',
+        rating: 5,
+        reviews: '(390 Reviews)',
+        images: ['Assets/Product 8.jpg', 'Assets/Product 8.jpg'],
+        description: 'Genuine full-grain leather slim wallet equipped with RFID blocking protection for cards and cash.',
+        features: [
+            '• Handcrafted 100% genuine leather',
+            '• Built-in RFID blocking security shield',
+            '• Holds up to 8 cards plus cash clip',
+            '• Ultra slim profile fits comfortably in front pocket'
         ]
     }
 ];
@@ -607,6 +760,239 @@ document.addEventListener('click', (e) => {
     }
 });
 
+/* =========================================
+   DYNAMIC MEGA MENU CATEGORIES
+   ========================================= */
+const megaMenuData = {
+    "food-beverage": {
+        title: "Food & Beverage",
+        columns: [
+            {
+                title: "Beverages",
+                items: ["Coffee & Tea", "Fresh Juices", "Soft Drinks", "Mineral Water", "Energy Drinks"]
+            },
+            {
+                title: "Snacks & Sweets",
+                items: ["Biscuits & Cookies", "Chocolates", "Potato Chips", "Dried Fruits", "Nuts & Seeds"]
+            },
+            {
+                title: "Pantry & Cooking",
+                items: ["Cooking Oil", "Spices & Seasoning", "Pasta & Noodles", "Canned Food", "Sauces"]
+            },
+            {
+                title: "Fresh & Dairy",
+                items: ["Milk & Butter", "Cheese & Yogurt", "Fresh Bakery", "Breakfast Cereal"]
+            }
+        ]
+    },
+    "beauty-personal-care": {
+        title: "Beauty & Personal Care",
+        columns: [
+            {
+                title: "Skin Care",
+                items: ["Moisturizers", "Serums", "Sunscreen", "Toners", "Face Wash", "Eye Cream"]
+            },
+            {
+                title: "Makeup",
+                items: ["Foundation", "Lipstick", "Eyeshadow", "Blush & Bronzer", "Mascara", "Primer"]
+            },
+            {
+                title: "Hair Care",
+                items: ["Shampoo", "Conditioner", "Hair Mask", "Hair Oil", "Styling Products"]
+            },
+            {
+                title: "Body Care",
+                items: ["Body Lotion", "Body Scrub", "Deodorant", "Hand Cream", "Perfume & Fragrance"]
+            },
+            {
+                title: "Fragrance",
+                items: ["Women's Perfume", "Men's Cologne", "Body Mist", "Roll-On Perfume", "Gift Sets"]
+            }
+        ]
+    },
+    "home-living": {
+        title: "Home & Living",
+        columns: [
+            {
+                title: "Bed & Bath",
+                items: ["Sheets & Pillowcases", "Bath Towels", "Blankets & Throws", "Bath Mats", "Duvet Covers"]
+            },
+            {
+                title: "Decor & Lighting",
+                items: ["Wall Art", "Candles & Diffusers", "Desk Lamps", "Floor Rugs", "Decorative Vases"]
+            },
+            {
+                title: "Kitchen & Dining",
+                items: ["Drinkware & Mugs", "Cookware Sets", "Cutlery & Utensils", "Storage Containers"]
+            },
+            {
+                title: "Furniture",
+                items: ["Coffee Tables", "Ergonomic Chairs", "Bookshelves", "Storage Racks"]
+            }
+        ]
+    },
+    "electronics": {
+        title: "Electronics",
+        columns: [
+            {
+                title: "Mobile & Tablets",
+                items: ["Smartphones", "Tablets", "Screen Protectors", "Phone Cases", "Power Banks"]
+            },
+            {
+                title: "Computers",
+                items: ["Laptops", "Desktop PCs", "Monitors", "Keyboards & Mice", "External Storage"]
+            },
+            {
+                title: "Smart Home",
+                items: ["Smart Speakers", "Security Cameras", "Smart Plugs", "Robot Vacuums"]
+            },
+            {
+                title: "Cameras & Drones",
+                items: ["Action Cameras", "DSLR Lenses", "Camera Tripods", "Memory Cards"]
+            }
+        ]
+    },
+    "audio-entertainment": {
+        title: "Audio & Entertainment",
+        columns: [
+            {
+                title: "Headphones",
+                items: ["Wireless Earbuds", "Over-Ear Headphones", "Noise-Canceling", "Sports Earphones"]
+            },
+            {
+                title: "Speakers",
+                items: ["Bluetooth Speakers", "Soundbars", "Home Theater", "Portable Speakers"]
+            },
+            {
+                title: "Gaming",
+                items: ["Gaming Consoles", "Controllers", "Gaming Headsets", "RGB Accessories"]
+            }
+        ]
+    },
+    "fashion": {
+        title: "Fashion",
+        columns: [
+            {
+                title: "Women's Clothing",
+                items: ["Dresses", "Tops & Blouses", "Pants & Jeans", "Jackets & Coats", "Activewear"]
+            },
+            {
+                title: "Men's Clothing",
+                items: ["T-Shirts & Polos", "Shirts", "Denim & Jeans", "Hoodies & Sweatshirts", "Blazers"]
+            },
+            {
+                title: "Footwear",
+                items: ["Sneakers", "Running Shoes", "Casual Loafers", "Formal Shoes", "Sandals"]
+            },
+            {
+                title: "Watches & Jewelry",
+                items: ["Analog Watches", "Smartwatches", "Necklaces", "Rings & Bracelets"]
+            }
+        ]
+    },
+    "bags-accessories": {
+        title: "Bags & Accessories",
+        columns: [
+            {
+                title: "Bags",
+                items: ["Backpacks", "Tote Bags", "Crossbody Bags", "Luggage & Suitcases", "Leather Wallets"]
+            },
+            {
+                title: "Accessories",
+                items: ["Sunglasses", "Leather Belts", "Hats & Caps", "Scarves & Gloves", "Keychains"]
+            }
+        ]
+    },
+    "baby-kids": {
+        title: "Baby & Kids",
+        columns: [
+            {
+                title: "Baby Care",
+                items: ["Diapers & Wipes", "Baby Skincare", "Feeding Bottles", "Baby Strollers"]
+            },
+            {
+                title: "Toys & Learning",
+                items: ["Educational Toys", "Building Blocks", "Board Games", "Plush Toys"]
+            },
+            {
+                title: "Kids Fashion",
+                items: ["Baby Clothing", "Kids Shoes", "School Backpacks"]
+            }
+        ]
+    },
+    "sport-outdoors": {
+        title: "Sport & Outdoors",
+        columns: [
+            {
+                title: "Exercise & Fitness",
+                items: ["Yoga Mats", "Dumbbells", "Resistance Bands", "Jump Ropes"]
+            },
+            {
+                title: "Outdoor Gear",
+                items: ["Camping Tents", "Hiking Backpacks", "Water Bottles", "Flashlights"]
+            },
+            {
+                title: "Sportswear",
+                items: ["Athletic Shirts", "Compression Shorts", "Running Socks", "Sports Bras"]
+            }
+        ]
+    },
+    "automotive": {
+        title: "Automotive",
+        columns: [
+            {
+                title: "Car Care",
+                items: ["Car Wash & Wax", "Microfiber Towels", "Tire Care", "Air Fresheners"]
+            },
+            {
+                title: "Interior Accessories",
+                items: ["Seat Covers", "Floor Mats", "Phone Mounts", "Steering Wheel Covers"]
+            }
+        ]
+    }
+};
+
+function renderMegaContent(categoryKey) {
+    const container = document.querySelector('.mega-content');
+    if (!container) return;
+
+    const data = megaMenuData[categoryKey] || megaMenuData["beauty-personal-care"];
+    let html = '';
+
+    data.columns.forEach(col => {
+        html += `
+            <div class="mega-col">
+                <h4 class="mega-col-title">${col.title}</h4>
+                ${col.items.map(item => `<a href="shop.html?search=${encodeURIComponent(item)}">${item}</a>`).join('')}
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+(function initMegaMenuInteractivity() {
+    document.addEventListener('mouseover', (e) => {
+        const link = e.target.closest('.mega-sidebar .sidebar-link');
+        if (link) {
+            const catKey = link.dataset.category || link.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            document.querySelectorAll('.mega-sidebar .sidebar-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            renderMegaContent(catKey);
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.mega-sidebar .sidebar-link');
+        if (link) {
+            const catKey = link.dataset.category || link.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            document.querySelectorAll('.mega-sidebar .sidebar-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            renderMegaContent(catKey);
+        }
+    });
+})();
+
 /* ---------- Shop Filters Logic ---------- */
 (function initShopFilters() {
     const filterInputs = document.querySelectorAll('.filter-cb');
@@ -616,16 +1002,25 @@ document.addEventListener('click', (e) => {
     
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
+    const categoryQuery = urlParams.get('category');
     
     if (searchQuery && searchInput) {
         searchInput.value = searchQuery;
     }
     
+    if (categoryQuery) {
+        filterInputs.forEach(cb => {
+            if (cb.dataset.type === 'category' && cb.value.toLowerCase() === categoryQuery.toLowerCase()) {
+                cb.checked = true;
+            }
+        });
+    }
+    
     if (!products.length) return;
 
     function applyFilters() {
-        const selectedCategories = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked')).map(cb => cb.value);
-        const selectedBrands = Array.from(document.querySelectorAll('.filter-cb[data-type="brand"]:checked')).map(cb => cb.value);
+        const selectedCategories = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked')).map(cb => cb.value.toLowerCase());
+        const selectedBrands = Array.from(document.querySelectorAll('.filter-cb[data-type="brand"]:checked')).map(cb => cb.value.toLowerCase());
         const selectedRatings = Array.from(document.querySelectorAll('.filter-cb[data-type="rating"]:checked')).map(cb => cb.value);
         const priceRadio = document.querySelector('.filter-cb[data-type="price"]:checked');
         const selectedPrice = priceRadio ? priceRadio.value : null;
@@ -634,13 +1029,13 @@ document.addEventListener('click', (e) => {
         let visibleCount = 0;
 
         products.forEach(card => {
-            const category = card.dataset.category;
-            const brand = card.dataset.brand;
+            const category = card.dataset.category?.toLowerCase() || '';
+            const brand = card.dataset.brand?.toLowerCase() || '';
             const rating = card.dataset.rating;
             const price = parseInt(card.dataset.price, 10);
             const productName = card.querySelector('.product-name')?.textContent.toLowerCase() || '';
 
-            const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(category);
+            const matchCategory = selectedCategories.length === 0 || selectedCategories.some(c => category.includes(c) || c.includes(category));
             const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(brand);
             const matchRating = selectedRatings.length === 0 || selectedRatings.includes(rating);
             
@@ -653,7 +1048,7 @@ document.addEventListener('click', (e) => {
                 matchPrice = price > 200000;
             }
             
-            const matchSearch = currentSearch === '' || productName.includes(currentSearch);
+            const matchSearch = currentSearch === '' || productName.includes(currentSearch) || category.includes(currentSearch);
 
             if (matchCategory && matchBrand && matchRating && matchPrice && matchSearch) {
                 card.style.display = '';
