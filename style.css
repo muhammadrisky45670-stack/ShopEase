@@ -260,9 +260,6 @@ input {
     padding: 24px 0;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.mega-sidebar li {}
-
 .sidebar-link {
     display: flex;
     align-items: center;
@@ -1190,9 +1187,6 @@ input {
 .footer-contact strong {
     color: rgba(255, 255, 255, 0.9);
 }
-
-/* Payment Logos */
-.footer-payments {}
 
 .payment-logos {
     margin-top: 0;
@@ -2219,7 +2213,7 @@ input.qty-val::-webkit-inner-spin-button {
 
 .deals-main {
     background-color: var(--navy);
-    color: var(--color-text);
+    color: var(--white);
 }
 
 /* Hero Section */
