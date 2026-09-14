@@ -2193,6 +2193,7 @@ function toggleWishlist(productId, btn) {
 
     localStorage.setItem('shopease_wishlist_items', JSON.stringify(wishlistItems));
     updateWishlistBadges();
+    if (document.getElementById('wishlistTableBody')) renderWishlistPage();
 }
 
 function updateWishlistBadges() {
@@ -2213,6 +2214,153 @@ function updateWishlistBadges() {
             btn.setAttribute('aria-label', 'Add to Wishlist');
         }
     });
+}
+
+/* ---------- Wishlist Page Renderer ---------- */
+// Demo stock model: every 9th product reads as Out of Stock so both states are visible.
+function isOutOfStock(pid) {
+    return Number(pid) % 9 === 0;
+}
+
+function addToCartById(pid, qty = 1) {
+    pid = Number(pid);
+    if (!pid) return false;
+    if (cartItems.some(item => item.id === pid)) return 'exists';
+    cartItems.push({ id: pid, qty: clampQty(qty) });
+    try {
+        localStorage.setItem('shopease_cart_items', JSON.stringify(cartItems));
+    } catch (e) { /* session-only fallback */ }
+    updateCartBadge();
+    renderCartSidebar();
+    updateAddToCartButtonsState();
+    return true;
+}
+
+function renderWishlistPage() {
+    const tbody = document.getElementById('wishlistTableBody');
+    if (!tbody) return;
+    const emptyEl = document.getElementById('wishlistEmpty');
+    const wrapEl = document.getElementById('wishlistTableWrap');
+    const countEl = document.getElementById('wishlistCount');
+    const toolbarEl = document.getElementById('wishlistToolbar');
+
+    // Drop stale ids (e.g. from older builds)
+    wishlistItems = wishlistItems.filter(id => productsDB.some(p => p.id === id));
+
+    if (countEl) {
+        countEl.textContent = wishlistItems.length ? `(${wishlistItems.length} item${wishlistItems.length > 1 ? 's' : ''})` : '';
+    }
+
+    if (wishlistItems.length === 0) {
+        tbody.innerHTML = '';
+        if (wrapEl) wrapEl.style.display = 'none';
+        if (toolbarEl) toolbarEl.style.display = 'none';
+        if (emptyEl) emptyEl.style.display = 'flex';
+        if (window.lucide) lucide.createIcons();
+        updateWishlistBadges();
+        return;
+    }
+
+    if (wrapEl) wrapEl.style.display = '';
+    if (toolbarEl) toolbarEl.style.display = '';
+    if (emptyEl) emptyEl.style.display = 'none';
+
+    tbody.innerHTML = wishlistItems.map(pid => {
+        const p = productsDB.find(prod => prod.id === pid);
+        if (!p) return '';
+        const out = isOutOfStock(pid);
+        const safeName = escapeHTML(p.name);
+        const safeBrand = escapeHTML(p.brand || '');
+        const img = sanitizeImgPath(p.images && p.images[0]);
+        return `
+            <tr class="wish-row">
+                <td data-label="Products">
+                    <div class="wish-product">
+                        <button class="wish-remove" data-action="wishlist-remove" data-id="${pid}" aria-label="Remove ${safeName} from wishlist">
+                            <i data-lucide="x" width="16" height="16"></i>
+                        </button>
+                        <a class="wish-img-link" href="product-detail.html?id=${pid}" aria-label="View ${safeName}">
+                            <img src="${img}" alt="${safeName}" class="wish-img" loading="lazy">
+                        </a>
+                        <div>
+                            <a class="wish-name" href="product-detail.html?id=${pid}">${safeName}</a>
+                            <span class="wish-brand">${safeBrand}</span>
+                        </div>
+                    </div>
+                </td>
+                <td data-label="Price">
+                    <div class="wish-price">${escapeHTML(p.priceCurrent)}<span class="wish-price-old">${escapeHTML(p.priceOriginal || '')}</span></div>
+                </td>
+                <td data-label="Stock Status">
+                    <span class="stock ${out ? 'out' : 'in'}">${out ? 'Out Of Stock' : 'In Stock'}</span>
+                </td>
+                <td>
+                    <button class="add-to-cart-btn wish-add" data-action="wishlist-add-cart" data-id="${pid}" ${out ? 'disabled' : ''}>
+                        Add To Cart
+                        <i data-lucide="shopping-cart" width="16" height="16" stroke-width="2.5"></i>
+                    </button>
+                </td>
+            </tr>`;
+    }).join('');
+
+    if (window.lucide) lucide.createIcons();
+    updateWishlistBadges();
+}
+
+/* ---------- Auth Reason System (why login/register failed) ---------- */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+// Demo-only hash (djb2 + salt) so passwords are never stored in plaintext.
+function hashPass(str) {
+    let h = 5381;
+    const s = 'shopease$' + String(str);
+    for (let i = 0; i < s.length; i++) {
+        h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    }
+    return 'h' + h.toString(36);
+}
+
+function getUserStore() {
+    try {
+        const raw = JSON.parse(localStorage.getItem('shopease_users') || '{}');
+        return (raw && typeof raw === 'object') ? raw : {};
+    } catch (e) {
+        return {};
+    }
+}
+
+function saveUserStore(store) {
+    try {
+        localStorage.setItem('shopease_users', JSON.stringify(store));
+    } catch (e) { /* storage full/blocked: session-only fallback */ }
+}
+
+// Inline field reason: red border + message under the field (created on demand,
+// so no markup change is needed). Pass '' to clear.
+function setFieldError(inputId, msg) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    const group = input.closest('.form-group') || input.parentElement;
+    let err = group ? group.querySelector('.field-error') : null;
+    if (!msg) {
+        if (err) err.remove();
+        input.classList.remove('input-invalid');
+        input.removeAttribute('aria-invalid');
+        return;
+    }
+    input.classList.add('input-invalid');
+    input.setAttribute('aria-invalid', 'true');
+    if (!err) {
+        err = document.createElement('p');
+        err.className = 'field-error';
+        err.setAttribute('role', 'alert');
+        group.appendChild(err);
+    }
+    err.textContent = msg; // textContent: XSS-safe
+}
+
+function clearAuthErrors() {
+    ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(id => setFieldError(id, ''));
 }
 
 /* ---------- Authentication Modal Manager ---------- */
@@ -2239,8 +2387,8 @@ function initAuthModal() {
         }
     }
 
-    if (loginTab) loginTab.addEventListener('click', () => switchTab('login'));
-    if (regTab) regTab.addEventListener('click', () => switchTab('register'));
+    if (loginTab) loginTab.addEventListener('click', () => { clearAuthErrors(); switchTab('login'); });
+    if (regTab) regTab.addEventListener('click', () => { clearAuthErrors(); switchTab('register'); });
 
     // Click on backdrop (outside dialog) closes the modal.
     // Needed because .modal-backdrop sits above #overlay, so overlay clicks never fire while open.
@@ -2262,20 +2410,59 @@ function initAuthModal() {
                 closePolicyModal();
             }
         });
+
+        // Keyboard access for JS-navigated product cards (Enter / Space)
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('.product-card[data-href]')) {
+                e.preventDefault();
+                window.location.href = e.target.dataset.href;
+            }
+        });
     }
 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('loginEmail')?.value.trim();
-            const pass = document.getElementById('loginPassword')?.value;
-            if (!email || !pass) {
-                showToast('Please enter both email and password.', 'error');
+            clearAuthErrors();
+            const email = (document.getElementById('loginEmail')?.value || '').trim().toLowerCase();
+            const pass = document.getElementById('loginPassword')?.value || '';
+
+            // Reason 1 & 2: empty / malformed email (e.g. "lolo")
+            if (!email) {
+                setFieldError('loginEmail', 'Please enter your email address.');
+                showToast('Login failed: email is empty.', 'error');
                 return;
             }
-            const userName = email.split('@')[0];
-            localStorage.setItem('shopease_user', JSON.stringify({ email, name: userName }));
-            showToast(`Welcome back, ${userName}! 👋`);
+            if (!EMAIL_RE.test(email)) {
+                setFieldError('loginEmail', 'That email format looks wrong. Example: name@example.com');
+                showToast('Login failed: invalid email format.', 'error');
+                return;
+            }
+            // Reason 3: empty password
+            if (!pass) {
+                setFieldError('loginPassword', 'Please enter your password.');
+                showToast('Login failed: password is empty.', 'error');
+                return;
+            }
+            // Reason 4: unknown email
+            const store = getUserStore();
+            const acct = store[email];
+            if (!acct) {
+                setFieldError('loginEmail', 'No account found for this email. Try Sign Up instead.');
+                showToast('Login failed: email is not registered.', 'error');
+                return;
+            }
+            // Reason 5: wrong password
+            if (acct.hash !== hashPass(pass)) {
+                setFieldError('loginPassword', 'Incorrect password. Try again or use “Forgot password?”.');
+                showToast('Login failed: wrong password.', 'error');
+                return;
+            }
+            try {
+                localStorage.setItem('shopease_user', JSON.stringify({ email, name: acct.name }));
+            } catch (err) { /* session-only fallback */ }
+            showToast(`Welcome back, ${acct.name}! 👋`);
+            loginForm.reset();
             closeAuthModal();
             updateUserUI();
         });
@@ -2284,19 +2471,77 @@ function initAuthModal() {
     if (regForm) {
         regForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('regName')?.value.trim();
-            const email = document.getElementById('regEmail')?.value.trim();
-            const pass = document.getElementById('regPassword')?.value;
-            if (!name || !email || !pass) {
-                showToast('Please fill in all registration fields.', 'error');
+            clearAuthErrors();
+            const name = (document.getElementById('regName')?.value || '').trim();
+            const email = (document.getElementById('regEmail')?.value || '').trim().toLowerCase();
+            const pass = document.getElementById('regPassword')?.value || '';
+
+            // Reason 1: bad name
+            if (name.length < 2) {
+                setFieldError('regName', 'Please enter your name (min. 2 characters).');
+                showToast('Sign up failed: invalid name.', 'error');
                 return;
             }
-            localStorage.setItem('shopease_user', JSON.stringify({ email, name }));
+            // Reason 2 & 3: empty / malformed email
+            if (!email) {
+                setFieldError('regEmail', 'Please enter your email address.');
+                showToast('Sign up failed: email is empty.', 'error');
+                return;
+            }
+            if (!EMAIL_RE.test(email)) {
+                setFieldError('regEmail', 'That email format looks wrong. Example: name@example.com');
+                showToast('Sign up failed: invalid email format.', 'error');
+                return;
+            }
+            // Reason 4: weak password
+            if (pass.length < 6) {
+                setFieldError('regPassword', 'Use at least 6 characters for your password.');
+                showToast('Sign up failed: password too short.', 'error');
+                return;
+            }
+            // Reason 5: duplicate email
+            const store = getUserStore();
+            if (store[email]) {
+                setFieldError('regEmail', 'This email is already registered. Try Log In instead.');
+                showToast('Sign up failed: email already registered.', 'error');
+                return;
+            }
+            store[email] = { name, hash: hashPass(pass), createdAt: Date.now() };
+            saveUserStore(store);
+            try {
+                localStorage.setItem('shopease_user', JSON.stringify({ email, name }));
+            } catch (err) { /* session-only fallback */ }
             showToast(`Account created successfully! Welcome, ${name}! 🎉`);
+            regForm.reset();
             closeAuthModal();
             updateUserUI();
         });
     }
+
+    // Live reason clearing + show/hide password toggles (injected, no markup change needed)
+    ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(id => {
+        document.getElementById(id)?.addEventListener('input', () => setFieldError(id, ''));
+    });
+    ['loginPassword', 'regPassword'].forEach(id => {
+        const input = document.getElementById(id);
+        const wrap = input?.closest('.input-icon-wrapper');
+        if (input && wrap && !wrap.querySelector('.pass-toggle')) {
+            const t = document.createElement('button');
+            t.type = 'button';
+            t.className = 'pass-toggle';
+            t.setAttribute('aria-label', 'Show password');
+            t.innerHTML = '<i data-lucide="eye" width="18" height="18"></i>';
+            t.addEventListener('click', () => {
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                t.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+                t.innerHTML = `<i data-lucide="${show ? 'eye-off' : 'eye'}" width="18" height="18"></i>`;
+                if (window.lucide) lucide.createIcons();
+            });
+            wrap.appendChild(t);
+            if (window.lucide) lucide.createIcons();
+        }
+    });
 }
 
 function openAuthModal() {
@@ -2579,6 +2824,12 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
         btnEl.dataset.id = product.id;
         btnEl.dataset.product = product.name;
     }
+
+    // Bind the detail-page wishlist heart to THIS product (was missing -> always id 1)
+    document.querySelectorAll('.product-actions-bar .wishlist-btn-circle').forEach(wbtn => {
+        wbtn.dataset.id = product.id;
+    });
+    updateWishlistBadges();
 
     const isInCart = cartItems.some(item => item.id === product.id);
     if (btnEl) {
@@ -3195,6 +3446,13 @@ document.addEventListener('click', (e) => {
             return;
         }
 
+        if (action === 'social-login') {
+            e.preventDefault();
+            const provider = actionEl.dataset.provider || 'Social';
+            showToast(`Demo Mode: ${provider} login is not enabled yet. Use any email instead!`);
+            return;
+        }
+
         if (action === 'open-policy') {
             e.preventDefault();
             const type = actionEl.dataset.policy || 'privacy';
@@ -3209,6 +3467,7 @@ document.addEventListener('click', (e) => {
         }
 
         if (action === 'add-to-cart') {
+            e.preventDefault();
             e.stopPropagation();
             const rawVal = actionEl.dataset.id || actionEl.dataset.product || '1';
             let pid = parseInt(rawVal, 10);
@@ -3252,11 +3511,58 @@ document.addEventListener('click', (e) => {
         if (action === 'toggle-wishlist') {
             e.stopPropagation();
             e.preventDefault();
-            const rawVal = actionEl.dataset.id || actionEl.closest('.product-card')?.dataset.id || '1';
+            // Never silently default to product 1: fall back to the detail page ?id=, else ignore
+            let rawVal = actionEl.dataset.id || actionEl.closest('.product-card')?.dataset.id;
+            if (!rawVal && window.location.pathname.includes('product-detail.html')) {
+                rawVal = new URLSearchParams(window.location.search).get('id');
+            }
             const pid = parseInt(rawVal, 10);
             if (pid) {
                 toggleWishlist(pid, actionEl);
             }
+            return;
+        }
+
+        if (action === 'wishlist-remove') {
+            e.stopPropagation();
+            const pid = parseInt(actionEl.dataset.id, 10);
+            if (pid) toggleWishlist(pid, actionEl); // re-renders page via toggleWishlist
+            return;
+        }
+
+        if (action === 'wishlist-add-cart') {
+            e.stopPropagation();
+            const pid = parseInt(actionEl.dataset.id, 10);
+            if (!pid) return;
+            if (isOutOfStock(pid)) {
+                showToast('Sorry, this item is out of stock.', 'error');
+                return;
+            }
+            const res = addToCartById(pid, 1);
+            const p = productsDB.find(prod => prod.id === pid);
+            const name = p ? p.name : `Product #${pid}`;
+            showToast(res === 'exists' ? `"${name}" is already in your cart.` : `"${name}" added to cart! 🎉`);
+            return;
+        }
+
+        if (action === 'wishlist-move-all') {
+            const inStock = wishlistItems.filter(pid => !isOutOfStock(pid));
+            let added = 0;
+            inStock.forEach(pid => {
+                if (addToCartById(pid, 1) === true) added++;
+            });
+            showToast(added ? `${added} item${added > 1 ? 's' : ''} moved to cart! 🎉` : 'Everything savable is already in your cart.');
+            return;
+        }
+
+        if (action === 'wishlist-clear') {
+            if (!wishlistItems.length) return;
+            wishlistItems = [];
+            try {
+                localStorage.setItem('shopease_wishlist_items', '[]');
+            } catch (e) { /* ignore */ }
+            showToast('Wishlist cleared.');
+            renderWishlistPage();
             return;
         }
 
@@ -3276,6 +3582,13 @@ document.addEventListener('click', (e) => {
             }
             return;
         }
+    }
+
+    // Product card navigation (cards are <div>s; inner buttons/links are excluded)
+    const navCard = e.target.closest('.product-card[data-href]');
+    if (navCard && !e.target.closest('button, a')) {
+        window.location.href = navCard.dataset.href;
+        return;
     }
 
     // Header Cart Buttons
@@ -3445,13 +3758,36 @@ function updateFilterCounts() {
     });
 }
 
+/* ---------- Wishlist Navigation Wiring ---------- */
+function initWishlistNav() {
+    // Header heart icon -> dedicated wishlist page (works on every page, no markup change needed)
+    document.getElementById('wishlistBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'wishlist.html';
+    });
+
+    // Mobile drawer: inject a Wishlist entry next to Cart when missing
+    const drawerBody = document.querySelector('#mobileMenuDrawer .mobile-menu-body');
+    if (drawerBody && !drawerBody.querySelector('a[href="wishlist.html"]')) {
+        const link = document.createElement('a');
+        link.href = 'wishlist.html';
+        link.className = 'mobile-menu-link';
+        link.innerHTML = '<i data-lucide="heart" width="16" height="16"></i> Wishlist';
+        const cartLink = drawerBody.querySelector('[data-action="open-cart"]');
+        if (cartLink) cartLink.after(link);
+        else drawerBody.appendChild(link);
+    }
+}
+
 /* ---------- Init Application ---------- */
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
     updateWishlistBadges();
     initAuthModal();
+    initWishlistNav();
     updateUserUI();
     updateAddToCartButtonsState();
+    renderWishlistPage();
     if (typeof updateFilterCounts === 'function') updateFilterCounts();
     if (window.lucide) lucide.createIcons();
 });
