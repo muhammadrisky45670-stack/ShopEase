@@ -3946,6 +3946,116 @@ function buildMobileCategoryTree() {
     if (window.lucide) lucide.createIcons();
 }
 
+/* ---------- Help Page: Tabs, Search, Track Order + Contact Form ---------- */
+function initHelpPage() {
+    // Tab navigation (one visible panel at a time -> less scrolling)
+    const tabBtns = Array.from(document.querySelectorAll('.help-tab'));
+    const panels = Array.from(document.querySelectorAll('.help-panel'));
+    function activateHelpTab(id, focusPanel, updateHash) {
+        const btn = tabBtns.find(b => b.dataset.tab === id);
+        const panel = panels.find(p => p.id === id);
+        if (!btn || !panel) return false;
+        tabBtns.forEach(b => {
+            const on = b === btn;
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+            b.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(p => {
+            const on = p === panel;
+            p.classList.toggle('active', on);
+            if (on) p.removeAttribute('hidden');
+            else p.setAttribute('hidden', '');
+        });
+        if (updateHash !== false) {
+            try { history.replaceState(null, '', '#' + id); } catch (e) { /* ignore */ }
+        }
+        if (focusPanel) panel.focus({ preventScroll: true });
+        return true;
+    }
+    if (tabBtns.length && panels.length) {
+        tabBtns.forEach((btn, i) => {
+            btn.addEventListener('click', () => activateHelpTab(btn.dataset.tab, false));
+            btn.addEventListener('keydown', (e) => {
+                let j = null;
+                if (e.key === 'ArrowRight') j = (i + 1) % tabBtns.length;
+                else if (e.key === 'ArrowLeft') j = (i - 1 + tabBtns.length) % tabBtns.length;
+                else if (e.key === 'Home') j = 0;
+                else if (e.key === 'End') j = tabBtns.length - 1;
+                if (j !== null) {
+                    e.preventDefault();
+                    tabBtns[j].focus();
+                    activateHelpTab(tabBtns[j].dataset.tab, false);
+                }
+            });
+        });
+        // Same-page anchors (quick links, topic cards, footer) open the tab
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            const id = (a.getAttribute('href') || '').slice(1);
+            if (!id || !panels.some(p => p.id === id)) return;
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activateHelpTab(id, false)) {
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        // Deep link: footer links like help.html#shipping open the right tab.
+        // Always set explicit tab state on init (panels are visible without JS).
+        const initialHash = (window.location.hash || '').replace('#', '');
+        const initialTab = (initialHash && panels.some(p => p.id === initialHash)) ? initialHash : 'help';
+        activateHelpTab(initialTab, false, false);
+        if (initialTab !== 'help') {
+            requestAnimationFrame(() => {
+                document.getElementById(initialTab)?.scrollIntoView({ block: 'start' });
+            });
+        }
+    }
+
+    // Track order (demo): deterministic status from order ID hash
+    const trackForm = document.getElementById('trackOrderForm');
+    const trackInput = document.getElementById('trackOrderInput');
+    const trackResult = document.getElementById('trackOrderResult');
+    if (trackForm && trackInput && trackResult) {
+        const STEPS = ['Order placed', 'Packed', 'Shipped', 'Out for delivery', 'Delivered'];
+        trackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const raw = trackInput.value.trim().toUpperCase();
+            if (!/^SE-[A-Z0-9]{4,10}$/.test(raw)) {
+                trackResult.innerHTML = '<p class="track-error">Please enter a valid order ID (format SE-XXXXXX).</p>';
+                return;
+            }
+            let hash = 0;
+            for (let i = 0; i < raw.length; i++) hash = (hash * 31 + raw.charCodeAt(i)) % 997;
+            const reached = 2 + (hash % 4); // demo: always at least shipped
+            trackResult.innerHTML = STEPS.map((label, i) => `
+                <div class="track-step${i < reached ? ' done' : ''}">
+                    <span class="track-dot">${i < reached ? '&#10003;' : (i + 1)}</span>
+                    <div class="track-step-info"><strong>${label}</strong><span>${i < reached ? raw : 'Pending'}</span></div>
+                </div>
+            `).join('');
+        });
+    }
+
+    // Contact form (demo): validate + toast
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName');
+            const email = document.getElementById('contactEmail');
+            const msg = document.getElementById('contactMessage');
+            const emailOk = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+            if (!name || !name.value.trim() || !emailOk || !msg || !msg.value.trim()) {
+                showToast('Please complete your name, a valid email, and a message.', 'error');
+                return;
+            }
+            contactForm.reset();
+            showToast('Message sent! Our support team will reply soon. 🎉');
+        });
+    }
+}
+
 /* ---------- Init Application ---------- */
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
@@ -3954,6 +4064,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAuthEnhancements();
     initWishlistNav();
     buildMobileCategoryTree();
+    initHelpPage();
     updateUserUI();
     updateAddToCartButtonsState();
     renderWishlistPage();

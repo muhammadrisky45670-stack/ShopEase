@@ -7,15 +7,15 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <meta name="description"
-        content="ShopEase Wishlist – Your saved products in one place. Review prices, check stock status, and move favorites to cart.">
-    <meta property="og:title" content="My Wishlist - ShopEase">
+        content="ShopEase Help Center – shipping information, 30-day returns, order tracking, FAQ, and customer support contact.">
+    <meta property="og:title" content="ShopEase - Premium E-Commerce Catalog">
     <meta property="og:description"
-        content="Your saved ShopEase favorites with live prices and stock status. Move them to cart anytime.">
+        content="Get help with ShopEase orders: shipping, returns, tracking, FAQ, and contact support.">
     <meta property="og:image" content="Assets/Logo%20ShopEase.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shopease.com/wishlist.html">
-    <link rel="canonical" href="https://shopease.com/wishlist.html">
-    <title>My Wishlist - ShopEase</title>
+    <meta property="og:url" content="https://shopease.com/help.html">
+    <link rel="canonical" href="https://shopease.com/help.html">
+    <title>Help Center - ShopEase</title>
     <link rel="icon" type="image/png" href="Assets/Logo%20ShopEase(logo%20without%20text).png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,59 +158,162 @@
         </div>
     </header>
 
-    <main class="wishlist-page-wrapper">
-        <div class="section-container">
-            <!-- Breadcrumb -->
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="index.html">Home</a>
-                <span class="breadcrumb-sep">›</span>
-                <span class="breadcrumb-current">Wishlist</span>
-            </nav>
-
-            <div class="wishlist-header">
-                <h1 class="section-title">Wishlist <span class="wishlist-count" id="wishlistCount"></span></h1>
-                <div class="wishlist-toolbar" id="wishlistToolbar">
-                    <button class="btn-hero btn-navy wishlist-toolbar-btn" data-action="wishlist-move-all"
-                        id="moveAllBtn">
-                        <i data-lucide="shopping-cart" width="16" height="16"></i>
-                        Move All In-Stock to Cart
-                    </button>
-                    <button class="btn-hero btn-outline wishlist-toolbar-btn" data-action="wishlist-clear"
-                        id="clearWishlistBtn">
-                        <i data-lucide="trash-2" width="16" height="16"></i>
-                        Clear Wishlist
-                    </button>
+        <main>
+        <!-- ======= HELP HERO ======= -->
+        <section class="hero-section help-hero" id="heroSection">
+            <img src="Assets/Hero.png" alt="ShopEase customer support" class="hero-img">
+            <div class="hero-content section-container">
+                <div class="hero-text-block">
+                    <h1 class="hero-title">
+                        <span class="text-navy">Help Center</span><br>
+                        <span class="text-orange">How Can We Help?</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Find answers about shipping, returns,<br>
+                        orders, and your account
+                    </p>
                 </div>
             </div>
+        </section>
 
-            <!-- Wishlist Table -->
-            <div class="wishlist-table-card" id="wishlistTableWrap">
-                <table class="wishlist-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Products</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Stock Status</th>
-                            <th scope="col"><span class="sr-only">Actions</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="wishlistTableBody">
-                        <!-- Rows injected by app.js -->
-                    </tbody>
-                </table>
+        <div class="section-container help-layout">
+            <!-- ======= TAB NAVIGATION ======= -->
+            <div class="help-tabs" role="tablist" aria-label="Help topics">
+                <button class="help-tab active" id="tab-help" role="tab" aria-selected="true"
+                    aria-controls="help" data-tab="help"><i data-lucide="info" width="16" height="16"></i>Help Center</button>
+                <button class="help-tab" id="tab-shipping" role="tab" aria-selected="false"
+                    aria-controls="shipping" data-tab="shipping" tabindex="-1"><i data-lucide="truck" width="16" height="16"></i>Shipping</button>
+                <button class="help-tab" id="tab-returns" role="tab" aria-selected="false"
+                    aria-controls="returns" data-tab="returns" tabindex="-1"><i data-lucide="refresh-ccw" width="16" height="16"></i>Returns</button>
+                <button class="help-tab" id="tab-track" role="tab" aria-selected="false"
+                    aria-controls="track" data-tab="track" tabindex="-1"><i data-lucide="map-pin" width="16" height="16"></i>Track Order</button>
+                <button class="help-tab" id="tab-faq" role="tab" aria-selected="false"
+                    aria-controls="faq" data-tab="faq" tabindex="-1"><i data-lucide="help-circle" width="16" height="16"></i>FAQ</button>
+                <button class="help-tab" id="tab-contact" role="tab" aria-selected="false"
+                    aria-controls="contact" data-tab="contact" tabindex="-1"><i data-lucide="headphones" width="16" height="16"></i>Contact</button>
             </div>
 
-            <!-- Empty State -->
-            <div class="wishlist-empty" id="wishlistEmpty" style="display: none;">
-                <div class="wishlist-empty-icon">
-                    <i data-lucide="heart" width="40" height="40"></i>
+            <!-- ======= HELP CENTER ======= -->
+            <section class="help-card help-panel active" id="help" role="tabpanel" aria-labelledby="tab-help" tabindex="0">
+                <h2 class="help-card-title">Help Center</h2>
+                <p class="help-card-desc">Welcome to the ShopEase Help Center. Browse the topics above or contact
+                    customer support during business hours (Mon &ndash; Fri: 08:00 &ndash; 17:00,
+                    Sat: 08:00 &ndash; 13:00) — we usually reply within a few hours.</p>
+                <div class="help-topic-grid">
+                    <a href="#shipping" class="help-topic"><i data-lucide="truck" width="20" height="20"></i><span>Shipping Information</span></a>
+                    <a href="#returns" class="help-topic"><i data-lucide="refresh-ccw" width="20" height="20"></i><span>Returns &amp; Refunds</span></a>
+                    <a href="#track" class="help-topic"><i data-lucide="map-pin" width="20" height="20"></i><span>Track Order</span></a>
+                    <a href="#faq" class="help-topic"><i data-lucide="help-circle" width="20" height="20"></i><span>FAQ</span></a>
+                    <a href="#contact" class="help-topic"><i data-lucide="headphones" width="20" height="20"></i><span>Contact Us</span></a>
+                    <a href="shop.html" class="help-topic"><i data-lucide="shopping-bag" width="20" height="20"></i><span>Continue Shopping</span></a>
                 </div>
-                <h2>Your wishlist is empty</h2>
-                <p>Tap the heart icon on any product to save it here for later.</p>
-                <a href="shop.html" class="btn-hero btn-navy">Explore Shop
-                    <i data-lucide="arrow-right" width="18" height="18" stroke-width="2.5"></i>
-                </a>
-            </div>
+            </section>
+
+            <!-- ======= SHIPPING ======= -->
+            <section class="help-card help-panel" id="shipping" role="tabpanel" aria-labelledby="tab-shipping" tabindex="0">
+                <h2 class="help-card-title">Shipping Information</h2>
+                <p class="help-card-desc">Orders are processed within 1&ndash;2 business days. Estimated delivery times
+                    after dispatch:</p>
+                <ul class="help-list">
+                    <li><strong>Jabodetabek:</strong> 1&ndash;2 business days</li>
+                    <li><strong>Java:</strong> 2&ndash;3 business days</li>
+                    <li><strong>Outside Java:</strong> 3&ndash;7 business days</li>
+                </ul>
+                <p class="help-card-desc">We offer fast &amp; reliable delivery with real-time tracking on every order.
+                    Shipping is <strong>free</strong> for eligible orders — the discount applies automatically at
+                    checkout when available.</p>
+            </section>
+
+            <!-- ======= RETURNS ======= -->
+            <section class="help-card help-panel" id="returns" role="tabpanel" aria-labelledby="tab-returns" tabindex="0">
+                <h2 class="help-card-title">Returns &amp; Refunds</h2>
+                <p class="help-card-desc">Changed your mind? We offer <strong>easy 30-day returns</strong> on most
+                    items:</p>
+                <ul class="help-list">
+                    <li>Items must be unused, unwashed, and in their original packaging with tags attached.</li>
+                    <li>Start a return by contacting support with your order ID — we will guide you step by step.</li>
+                    <li>Once received and inspected, refunds are issued to your original payment method within 3&ndash;7 business days.</li>
+                    <li>Wrong, damaged, or expired items are always replaced or refunded in full.</li>
+                </ul>
+            </section>
+
+            <!-- ======= TRACK ORDER ======= -->
+            <section class="help-card help-panel" id="track" role="tabpanel" aria-labelledby="tab-track" tabindex="0">
+                <h2 class="help-card-title">Track Order</h2>
+                <p class="help-card-desc">Enter your order ID (format <code>SE-XXXXXX</code>, e.g.
+                    <code>SE-123456</code>) to see the latest delivery status.</p>
+                <form class="track-form" id="trackOrderForm" novalidate>
+                    <div class="track-input-row">
+                        <input type="text" id="trackOrderInput" class="newsletter-input" placeholder="e.g. SE-123456"
+                            aria-label="Order ID" autocomplete="off">
+                        <button type="submit" class="newsletter-submit" id="trackOrderBtn">Track</button>
+                    </div>
+                </form>
+                <div class="track-result" id="trackOrderResult" aria-live="polite"></div>
+            </section>
+
+            <!-- ======= FAQ ======= -->
+            <section class="help-card help-panel" id="faq" role="tabpanel" aria-labelledby="tab-faq" tabindex="0">
+                <h2 class="help-card-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary>Are your products 100% authentic?</summary>
+                        <p>Yes. Every item is guaranteed authentic and sourced directly from trusted distributors and
+                            official brands.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Which payment methods do you accept?</summary>
+                        <p>We accept bank transfers, e-wallets, credit/debit cards, and cash on delivery for eligible
+                            areas. All payments are processed over a 100% secure checkout.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do I use a discount or flash sale price?</summary>
+                        <p>Discounts on the <a href="deals.html">Deals page</a> apply automatically — just add the item
+                            to your cart and check out before the sale ends.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do I need an account to shop?</summary>
+                        <p>No. You can check out as a guest, but creating an account lets you track orders faster,
+                            save a wishlist, and collect loyalty rewards.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do I save products for later?</summary>
+                        <p>Tap the heart icon on any product to add it to your <a href="wishlist.html">Wishlist</a>.
+                            Open the wishlist anytime to move items to your cart.</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- ======= CONTACT ======= -->
+            <section class="help-card help-panel" id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
+                <h2 class="help-card-title">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="benefit-icon"><i data-lucide="map-pin" width="14" height="14" stroke-width="2.5"></i></span>
+                        <div><strong>Address</strong><p>Jl. Maju No. 123<br>Jakarta, Indonesia</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="benefit-icon"><i data-lucide="phone" width="14" height="14" stroke-width="2.5"></i></span>
+                        <div><strong>Phone</strong><p><a href="tel:+6281234567890">+62 812-3456-7890</a></p></div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="benefit-icon"><i data-lucide="mail" width="14" height="14" stroke-width="2.5"></i></span>
+                        <div><strong>Email</strong><p><a href="mailto:support@shopease.com">support@shopease.com</a></p></div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="benefit-icon"><i data-lucide="clock" width="14" height="14" stroke-width="2.5"></i></span>
+                        <div><strong>Open Hours</strong><p>Mon &ndash; Fri: 08:00 &ndash; 17:00<br>Sat: 08:00 &ndash; 13:00</p></div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="contact-form-row">
+                        <input type="text" id="contactName" class="newsletter-input" placeholder="Your name" aria-label="Your name" autocomplete="name" required>
+                        <input type="email" id="contactEmail" class="newsletter-input" placeholder="Your email" aria-label="Your email" autocomplete="email" required>
+                    </div>
+                    <textarea id="contactMessage" class="newsletter-input contact-textarea" placeholder="How can we help?" aria-label="Your message" rows="4" required></textarea>
+                    <button type="submit" class="newsletter-submit contact-submit">Send Message</button>
+                </form>
+            </section>
         </div>
     </main>
 
@@ -369,10 +472,12 @@
         <div class="glass-modal auth-card">
             <button class="modal-close" data-action="close-auth" aria-label="Close modal">&times;</button>
 
+            <!-- Brand Header -->
             <div class="auth-avatar">
                 <i data-lucide="user" width="34" height="34"></i>
             </div>
 
+            <!-- Segmented Tab Switcher -->
             <!-- View title is rendered per-form below; view switching lives in the bottom links -->
 
             <!-- Login Form -->
