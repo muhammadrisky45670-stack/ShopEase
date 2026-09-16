@@ -2146,7 +2146,8 @@ function toggleCartItem(productIdOrName, btn, qty = 1) {
 
 function updateAddToCartButtonsState() {
     document.querySelectorAll('.js-add-to-cart, [data-action="add-to-cart"]').forEach(btn => {
-        const rawVal = btn.dataset.product || btn.dataset.id || '1';
+        const rawVal = btn.dataset.id || btn.dataset.product;
+        if (!rawVal) return; // never assume product 1 for unresolvable buttons
         let pid = parseInt(rawVal, 10);
         if (isNaN(pid)) {
             const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
@@ -2914,6 +2915,14 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
         btnEl.dataset.product = product.name;
     }
 
+    // Bind the detail-page Buy Now button to THIS product too
+    // (was missing -> Buy Now always added product id 1 / Nescafe)
+    const buyNowEl = document.getElementById('detailBuyNow');
+    if (buyNowEl) {
+        buyNowEl.dataset.id = product.id;
+        buyNowEl.dataset.product = product.name;
+    }
+
     // Bind the detail-page wishlist heart to THIS product (was missing -> always id 1)
     document.querySelectorAll('.product-actions-bar .wishlist-btn-circle').forEach(wbtn => {
         wbtn.dataset.id = product.id;
@@ -3113,7 +3122,7 @@ function renderMegaContent(categoryKey) {
    ========================================= */
 (function initShopFilters() {
     const filterInputs = document.querySelectorAll('.filter-cb');
-    const productsContainer = document.querySelector('.shop-products-grid') || document.querySelector('.products-section .product-grid');
+    const productsContainer = document.querySelector('#shopProductsGrid') || document.querySelector('.shop-main .products-grid');
     const noProductsMsg = document.getElementById('noProductsMessage');
     const searchInput = document.getElementById('searchInput');
     const paginationContainer = document.getElementById('paginationContainer');
@@ -3502,6 +3511,22 @@ function renderMegaContent(categoryKey) {
 /* =========================================
    CENTRAL EVENT DELEGATION & GLOBAL ACTIONS
    ========================================= */
+// Resolve a product id for cart buttons. Never silently default to product 1:
+// fall back to the detail page ?id=, else return null so the click is ignored.
+function resolveActionPid(actionEl) {
+    const rawVal = actionEl.dataset.id || actionEl.dataset.product;
+    if (rawVal) {
+        const pid = parseInt(rawVal, 10);
+        if (!isNaN(pid)) return pid;
+        const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
+        if (found) return found.id;
+    }
+    if (window.location.pathname.includes('product-detail.html')) {
+        const urlPid = parseInt(new URLSearchParams(window.location.search).get('id'), 10);
+        if (!isNaN(urlPid)) return urlPid;
+    }
+    return null;
+}
 document.addEventListener('click', (e) => {
     // Action trigger buttons
     const actionEl = e.target.closest('[data-action]');
@@ -3561,12 +3586,7 @@ document.addEventListener('click', (e) => {
         if (action === 'add-to-cart') {
             e.preventDefault();
             e.stopPropagation();
-            const rawVal = actionEl.dataset.id || actionEl.dataset.product || '1';
-            let pid = parseInt(rawVal, 10);
-            if (isNaN(pid)) {
-                const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
-                if (found) pid = found.id;
-            }
+            const pid = resolveActionPid(actionEl);
             if (pid) {
                 let qty = 1;
                 const container = actionEl.closest('.product-detail-wrapper') || actionEl.closest('.product-info-detail');
@@ -3581,12 +3601,7 @@ document.addEventListener('click', (e) => {
 
         if (action === 'buy-now') {
             e.stopPropagation();
-            const rawVal = actionEl.dataset.id || actionEl.dataset.product || '1';
-            let pid = parseInt(rawVal, 10);
-            if (isNaN(pid)) {
-                const found = productsDB.find(p => p.name.toLowerCase() === rawVal.toLowerCase());
-                if (found) pid = found.id;
-            }
+            const pid = resolveActionPid(actionEl);
             if (pid) {
                 const isInCart = cartItems.some(item => item.id === pid);
                 if (!isInCart) {

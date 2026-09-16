@@ -27,6 +27,7 @@
     --text-dark: var(--navy);
     --text-mid: var(--white);
     --text-light: var(--white);
+    --text-muted: #94a3b8;
     --border: #314875;
     --card-bg: #12223E;
     --radius: 12px;
