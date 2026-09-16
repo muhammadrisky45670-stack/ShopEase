@@ -2363,6 +2363,52 @@ function clearAuthErrors() {
     ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(id => setFieldError(id, ''));
 }
 
+/* ---------- Auth Enhancements: maxlength + live password meter ---------- */
+const AUTH_MAXLEN = { loginEmail: 100, loginPassword: 72, regName: 50, regEmail: 100, regPassword: 72 };
+
+function passStrength(pw) {
+    let score = 0;
+    if (pw.length >= 6) score++;
+    if (pw.length >= 10) score++;
+    if (/[a-z]/.test(pw) && /[A-Z]/.test(pw)) score++;
+    if (/\d/.test(pw)) score++;
+    if (/[^a-zA-Z0-9]/.test(pw)) score++;
+    return Math.min(score, 4); // 0..4
+}
+
+function updatePassMeter() {
+    const input = document.getElementById('regPassword');
+    const bar = document.getElementById('passMeterBar');
+    const txt = document.getElementById('passMeterText');
+    if (!input || !bar || !txt) return;
+    const v = input.value;
+    if (!v) {
+        bar.className = 'pass-meter-fill';
+        txt.textContent = '';
+        return;
+    }
+    const s = passStrength(v);
+    bar.className = 'pass-meter-fill is-' + s;
+    txt.textContent = 'Password strength: ' + ['Too weak', 'Weak', 'Fair', 'Good', 'Strong'][s];
+}
+
+function initAuthEnhancements() {
+    Object.entries(AUTH_MAXLEN).forEach(([id, max]) => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute('maxlength', max);
+    });
+    // Inject strength meter under the register password field (no markup change needed)
+    const regPass = document.getElementById('regPassword');
+    const group = regPass?.closest('.form-group');
+    if (regPass && group && !document.getElementById('passMeterBar')) {
+        const meter = document.createElement('div');
+        meter.className = 'pass-meter';
+        meter.innerHTML = '<div class="pass-meter-track"><span id="passMeterBar" class="pass-meter-fill"></span></div><p id="passMeterText" class="pass-meter-text" aria-live="polite"></p>';
+        group.appendChild(meter);
+        regPass.addEventListener('input', updatePassMeter);
+    }
+}
+
 /* ---------- Authentication Modal Manager ---------- */
 function initAuthModal() {
     const authModal = document.getElementById('authModal');
@@ -2374,6 +2420,7 @@ function initAuthModal() {
     const regForm = document.getElementById('registerForm');
 
     function switchTab(mode) {
+        authMode = mode;
         if (mode === 'login') {
             if (loginTab) loginTab.classList.add('active');
             if (regTab) regTab.classList.remove('active');
@@ -2389,6 +2436,10 @@ function initAuthModal() {
 
     if (loginTab) loginTab.addEventListener('click', () => { clearAuthErrors(); switchTab('login'); });
     if (regTab) regTab.addEventListener('click', () => { clearAuthErrors(); switchTab('register'); });
+
+    // Default view is Sign Up (product decision): show the register form first
+    clearAuthErrors();
+    switchTab('register');
 
     // Click on backdrop (outside dialog) closes the modal.
     // Needed because .modal-backdrop sits above #overlay, so overlay clicks never fire while open.
@@ -2544,15 +2595,42 @@ function initAuthModal() {
     });
 }
 
+let authMode = 'register';
+let lastAuthOpener = null;
+
+// Focus trap: keep Tab cycling inside the open auth dialog (a11y).
+function trapAuthTab(e) {
+    if (e.key !== 'Tab') return;
+    const modal = document.getElementById('authModal');
+    if (!modal) return;
+    const items = Array.from(modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+        .filter(el => !el.disabled && el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
+function focusAuthFirstField() {
+    const modal = document.getElementById('authModal');
+    if (!modal) return;
+    const form = authMode === 'register' ? document.getElementById('registerForm') : document.getElementById('loginForm');
+    const target = form?.querySelector('.modal-input') || modal.querySelector('.modal-close');
+    if (target) setTimeout(() => target.focus({ preventScroll: true }), 60);
+}
+
 function openAuthModal() {
     const modal = document.getElementById('authModal');
     const overlay = document.getElementById('overlay');
+    lastAuthOpener = document.activeElement;
     if (modal) {
         modal.style.display = 'flex';
         // Force reflow so opacity/visibility transition runs (CSS uses .active)
         void modal.offsetWidth;
         modal.classList.add('active');
+        modal.addEventListener('keydown', trapAuthTab);
         if (window.lucide) lucide.createIcons();
+        focusAuthFirstField();
     }
     if (overlay) overlay.classList.add('active');
 }
@@ -2562,6 +2640,11 @@ function closeAuthModal() {
     const overlay = document.getElementById('overlay');
     if (modal) {
         modal.classList.remove('active');
+        modal.removeEventListener('keydown', trapAuthTab);
+        // Reset forms so failed credentials never linger in the DOM
+        modal.querySelectorAll('form').forEach(f => f.reset());
+        clearAuthErrors();
+        updatePassMeter();
         // Keep display:flex during fade-out, hide after transition
         clearTimeout(modal._hideTimer);
         modal._hideTimer = setTimeout(() => {
@@ -2573,6 +2656,12 @@ function closeAuthModal() {
     const drawerOpen = document.getElementById('mobileMenuDrawer')?.classList.contains('open');
     const policyOpen = document.getElementById('policyModal')?.classList.contains('active');
     if (overlay && !cartOpen && !drawerOpen && !policyOpen) overlay.classList.remove('active');
+    // Return focus to whatever opened the dialog
+    if (lastAuthOpener && lastAuthOpener.focus) {
+        const opener = lastAuthOpener;
+        lastAuthOpener = null;
+        setTimeout(() => opener.focus({ preventScroll: true }), 270);
+    }
 }
 
 function updateUserUI() {
@@ -3132,22 +3221,22 @@ function renderMegaContent(categoryKey) {
         });
     }
 
-    // Function to update Brand filter options visibility:
-    // If NO category selected -> Show ALL Brands!
-    // If categories ARE selected -> Show ONLY brands in selected categories!
+    // Brand filter is conditional: it only APPEARS after at least one Category
+    // is picked, and then lists ONLY the brands inside the chosen categories.
     function updateBrandFilterVisibility() {
         const categoryCbs = Array.from(document.querySelectorAll('.filter-cb[data-type="category"]:checked'));
         const selectedCategories = categoryCbs.map(cb => cb.value);
         const brandCbs = document.querySelectorAll('.filter-cb[data-type="brand"]');
+        const brandGroup = document.getElementById('brandFilterGroup');
 
         if (selectedCategories.length === 0) {
-            // NO category selected -> Show ALL brand filters
-            brandCbs.forEach(cb => {
-                const label = cb.closest('.filter-label');
-                if (label) label.style.display = 'flex';
-            });
+            // NO category selected -> hide the whole Brand group and clear
+            // stale checks so invisible brands can't silently filter results
+            brandCbs.forEach(cb => { cb.checked = false; });
+            if (brandGroup) brandGroup.style.display = 'none';
             return;
         }
+        if (brandGroup) brandGroup.style.display = '';
 
         // Categories selected -> Collect allowed brands
         const allowedBrands = new Set();
@@ -3269,25 +3358,28 @@ function renderMegaContent(categoryKey) {
         }
 
         paginationContainer.style.display = 'flex';
-        let html = '';
+        // White pill bar like the reference: ← Previous | 1 2 [3] 4 5 | Next →
+        let html = '<div class="page-bar" role="navigation" aria-label="Product pages">';
 
         // Previous button
-        html += `<button class="page-btn ${page === 1 ? 'disabled' : ''}" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''}>&laquo; Prev</button>`;
+        html += `<button class="page-btn page-nav" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''} aria-label="Previous page">&larr; Previous</button>`;
 
         for (let i = 1; i <= totalPages; i++) {
-            html += `<button class="page-btn ${i === page ? 'active' : ''}" data-page="${i}">${i}</button>`;
+            const isActive = i === page;
+            html += `<button class="page-btn page-num${isActive ? ' active' : ''}" data-page="${i}"${isActive ? ' aria-current="page"' : ''} aria-label="Page ${i}">${i}</button>`;
         }
 
         // Next button
-        html += `<button class="page-btn ${page === totalPages ? 'disabled' : ''}" data-page="${page + 1}" ${page === totalPages ? 'disabled' : ''}>Next &raquo;</button>`;
+        html += `<button class="page-btn page-nav page-next" data-page="${page + 1}" ${page === totalPages ? 'disabled' : ''} aria-label="Next page">Next &rarr;</button>`;
 
+        html += '</div>';
         paginationContainer.innerHTML = html;
     }
 
     if (paginationContainer) {
         paginationContainer.addEventListener('click', (e) => {
             const btn = e.target.closest('.page-btn');
-            if (btn && !btn.classList.contains('disabled') && !btn.classList.contains('active')) {
+            if (btn && !btn.disabled && !btn.classList.contains('active')) {
                 const targetPage = parseInt(btn.dataset.page, 10);
                 if (targetPage) {
                     currentPage = targetPage;
@@ -3779,12 +3871,74 @@ function initWishlistNav() {
     }
 }
 
+/* ---------- Mobile Nested Category Tree (same source as PC: megaMenuData) ---------- */
+const MOBILE_CAT_META = [
+    { name: 'Food & Beverage', slug: 'food-beverage', icon: 'coffee' },
+    { name: 'Beauty & Personal Care', slug: 'beauty-personal-care', icon: 'sparkles' },
+    { name: 'Home & Living', slug: 'home-living', icon: 'home' },
+    { name: 'Electronics', slug: 'electronics', icon: 'monitor' },
+    { name: 'Audio & Entertainment', slug: 'audio-entertainment', icon: 'headphones' },
+    { name: 'Fashion', slug: 'fashion', icon: 'shirt' },
+    { name: 'Bags & Accessories', slug: 'bags-accessories', icon: 'briefcase' },
+    { name: 'Baby & Kids', slug: 'baby-kids', icon: 'baby' },
+    { name: 'Sport & Outdoors', slug: 'sport-outdoors', icon: 'dumbbell' },
+    { name: 'Automotive', slug: 'automotive', icon: 'car' },
+];
+
+function buildMobileCategoryTree() {
+    const container = document.getElementById('mobileCatList');
+    if (!container || typeof megaMenuData === 'undefined') return;
+
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    let html = '';
+    MOBILE_CAT_META.forEach(meta => {
+        // Same link format as PC sidebar / mega menu
+        const l1Href = `shop.html?category=${encodeURIComponent(meta.slug)}`;
+        const data = megaMenuData[meta.slug];
+        if (!data || !data.columns || data.columns.length === 0) {
+            html += `<div class="mcat-l1"><div class="mcat-l1-head"><a class="mcat-l1-link" href="${l1Href}"><i data-lucide="${meta.icon}" width="16" height="16"></i>${esc(meta.name)}</a></div></div>`;
+            return;
+        }
+        html += `<div class="mcat-l1"><div class="mcat-l1-head"><a class="mcat-l1-link" href="${l1Href}"><i data-lucide="${meta.icon}" width="16" height="16"></i>${esc(meta.name)}</a><button class="mcat-expand" data-expand="l1" aria-label="Expand ${esc(meta.name)}"><i data-lucide="chevron-down" class="chevron" width="16" height="16"></i></button></div><div class="mcat-l2-wrap">`;
+        data.columns.forEach(col => {
+            // Same link format as PC mega menu items
+            const l2Href = `${l1Href}&search=${encodeURIComponent(col.title)}`;
+            if (!col.items || col.items.length === 0) {
+                html += `<a class="mcat-l2-link" href="${l2Href}">${esc(col.title)}</a>`;
+            } else {
+                html += `<div class="mcat-l2"><div class="mcat-l2-head"><a class="mcat-l2-link" href="${l2Href}">${esc(col.title)}</a><button class="mcat-expand" data-expand="l2" aria-label="Expand ${esc(col.title)}"><i data-lucide="chevron-down" class="chevron" width="14" height="14"></i></button></div><div class="mcat-l3-wrap">`;
+                col.items.forEach(item => {
+                    html += `<a class="mcat-l3-link" href="${l1Href}&search=${encodeURIComponent(item)}">${esc(item)}</a>`;
+                });
+                html += `</div></div>`;
+            }
+        });
+        html += `</div></div>`;
+    });
+    container.innerHTML = html;
+
+    // Accordion wiring (nested, independent per branch)
+    container.querySelectorAll('[data-expand]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const scope = btn.getAttribute('data-expand') === 'l1'
+                ? btn.closest('.mcat-l1')
+                : btn.closest('.mcat-l2');
+            if (scope) scope.classList.toggle('open');
+        });
+    });
+    if (window.lucide) lucide.createIcons();
+}
+
 /* ---------- Init Application ---------- */
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
     updateWishlistBadges();
     initAuthModal();
+    initAuthEnhancements();
     initWishlistNav();
+    buildMobileCategoryTree();
     updateUserUI();
     updateAddToCartButtonsState();
     renderWishlistPage();
